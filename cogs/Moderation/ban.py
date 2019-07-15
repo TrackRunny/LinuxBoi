@@ -32,7 +32,7 @@ class Ban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `>>> ban @user`")
+            embed.add_field(name=member, value="Please put a valid option! Example: `> ban @user`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

@@ -5,8 +5,8 @@ import pyowm
 import psutil
 import random
 
-client = commands.Bot(">>> ", owner_id=546812331213062144, case_insensitive=False, self_bot=True)
-# client = commands.Bot(">>> ", owner_id=546812331213062144, case_insensitive=False)
+client = commands.Bot("> ", owner_id=546812331213062144, case_insensitive=False, self_bot=True)
+# client = commands.Bot("> ", owner_id=546812331213062144, case_insensitive=False)
 client.remove_command('help')
 line_divide = "\n———————————————————————————————"
 
@@ -45,7 +45,7 @@ async def load_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> load_information stats`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> load_information stats`")
         await ctx.send(embed=embed)
 
 
@@ -69,7 +69,7 @@ async def unload_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> unload_information stats`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> unload_information stats`")
         await ctx.send(embed=embed)
 
 
@@ -93,7 +93,7 @@ async def reload_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> reload_information stats`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> reload_information stats`")
         await ctx.send(embed=embed)
 
 
@@ -125,7 +125,7 @@ async def load_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> load_moderation purge`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> load_moderation purge`")
         await ctx.send(embed=embed)
 
 
@@ -149,7 +149,7 @@ async def unload_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> unload_moderation purge`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> unload_moderation purge`")
         await ctx.send(embed=embed)
 
 
@@ -173,7 +173,7 @@ async def reload_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> reload_moderation kick`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> reload_moderation kick`")
         await ctx.send(embed=embed)
 
 
@@ -205,7 +205,7 @@ async def load_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> load_events member`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> load_events member`")
         await ctx.send(embed=embed)
 
 
@@ -229,7 +229,7 @@ async def unload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> unload_events member`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> unload_events member`")
         await ctx.send(embed=embed)
 
 
@@ -253,7 +253,7 @@ async def reload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name="• Invalid Argument!")
-        embed.add_field(name=member, value="Please put a valid option! Example: `>>> reload_events member`")
+        embed.add_field(name=member, value="Please put a valid option! Example: `> reload_events member`")
         await ctx.send(embed=embed)
 
 
@@ -268,7 +268,7 @@ for filename in os.listdir('./cogs/Events'):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send(":facepalm: — Invalid command! Run `>>> help` to see all commands.")
+        await ctx.send(":facepalm: — Invalid command! Run `> help` to see all commands.")
 
 
 # Work in progress
