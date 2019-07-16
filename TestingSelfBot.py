@@ -20,6 +20,8 @@ def read_token():
 
 @client.event
 async def on_ready():
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name="Linux videos | > help"))
     print(f"---------------DiscordBot---------------"
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
