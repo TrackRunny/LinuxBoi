@@ -22,8 +22,8 @@ class Help(commands.Cog):
         embed.add_field(name="—", value="→ Shows info about all available bot commands!"
                                         "\n→ Capitalization does not matter for the bot prefix." +
                                         "\n—")
-        embed.add_field(name="• Moderation Commands!", value="`> purge`, `> kick`, `> ban`")
-        embed.add_field(name="• Information Commands!", value="`> help`, `> stats`, `> ping`, `> whois`")
+        embed.add_field(name="• Moderation Commands!", value="`l!purge`, `l!kick`, `l!ban`")
+        embed.add_field(name="• Information Commands!", value="`l!help`, `l!stats`, `l!ping`, `l!whois`")
 
         await ctx.send(embed=embed)
 

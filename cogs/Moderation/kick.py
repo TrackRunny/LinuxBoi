@@ -31,7 +31,7 @@ class Kick(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `> kick @user`")
+            embed.add_field(name=member, value="Please put a valid option! Example: `l!kick @user`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

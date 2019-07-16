@@ -23,7 +23,7 @@ class Purge(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `> purge 5`")
+            embed.add_field(name=member, value="Please put a valid option! Example: `l!purge 5`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
