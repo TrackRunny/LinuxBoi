@@ -1,9 +1,6 @@
-import discord
-from discord.ext import commands, tasks
 import os
-import pyowm
-import psutil
-import random
+import discord
+from discord.ext import commands
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 client = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)

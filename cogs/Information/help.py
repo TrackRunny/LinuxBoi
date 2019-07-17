@@ -1,9 +1,5 @@
 import discord
-from discord.ext import commands, tasks
-import os
-import pyowm
-import psutil
-import random
+from discord.ext import commands
 
 
 class Help(commands.Cog):
@@ -24,7 +20,7 @@ class Help(commands.Cog):
                                         "\n—")
         embed.add_field(name="• Moderation Commands!", value="`l!purge`, `l!kick`, `l!ban`")
         embed.add_field(name="• Information Commands!", value="`l!help`, `l!stats`, `l!ping`, `l!whois`")
-        embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`, `l!howgay`, ")
+        embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`, `l!howgay`, `l!invite`")
 
         await ctx.send(embed=embed)
 

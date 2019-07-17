@@ -1,9 +1,7 @@
-import discord
-from discord.ext import commands, tasks
 import os
-import pyowm
-import psutil
-import random
+
+import discord
+from discord.ext import commands
 
 client = commands.Bot("> ", owner_id=546812331213062144, case_insensitive=False, self_bot=True)
 # client = commands.Bot("> ", owner_id=546812331213062144, case_insensitive=False)
@@ -101,6 +99,7 @@ for filename in os.listdir('./cogs/Information'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Information.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -181,6 +180,7 @@ async def reload_moderation_error(ctx, error):
 for filename in os.listdir('./cogs/Moderation'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Moderation.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -263,6 +263,7 @@ for filename in os.listdir('./cogs/Events'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Events.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -306,5 +307,5 @@ async def weather(ctx,):
     await ctx.send(f"{w.get_wind()}")
 """
 
-#client.run(read_token())
+# client.run(read_token())
 client.run(read_token(), bot=False)

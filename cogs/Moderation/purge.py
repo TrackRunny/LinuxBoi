@@ -1,9 +1,5 @@
 import discord
-from discord.ext import commands, tasks
-import os
-import pyowm
-import psutil
-import random
+from discord.ext import commands
 
 
 class Purge(commands.Cog):

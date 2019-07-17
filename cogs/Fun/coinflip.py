@@ -1,9 +1,7 @@
-import discord
-from discord.ext import commands, tasks
-import os
-import pyowm
-import psutil
 import random
+
+import discord
+from discord.ext import commands
 
 
 class Coinflip(commands.Cog):
