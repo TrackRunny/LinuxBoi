@@ -24,7 +24,7 @@ class Help(commands.Cog):
                                         "\n—")
         embed.add_field(name="• Moderation Commands!", value="`l!purge`, `l!kick`, `l!ban`")
         embed.add_field(name="• Information Commands!", value="`l!help`, `l!stats`, `l!ping`, `l!whois`")
-        embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`,  ")
+        embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`, `l!howgay`, ")
 
         await ctx.send(embed=embed)
 
