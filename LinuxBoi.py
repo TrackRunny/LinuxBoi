@@ -355,26 +355,6 @@ async def on_command_error(ctx, error):
         await ctx.send(":facepalm: — Invalid command! Run `l!help` to see all commands.")
 """
 
-# Work in progress
-
-"""
-@client.command(pass_context=True)
-async def unban(ctx, *, member):
-    embed = discord.Embed(
-        color=discord.Color.from_rgb(241, 90, 36)
-    )
-    sender = ctx.author
-    banned_users = await ctx.guild.bans()
-    member_name, member_discriminator = member.split('#')
-
-    for ban_entry in banned_users:
-        user = ban_entry.user
-
-        if (user.name, user.discriminator) == (member_name, member_discriminator):
-            await ctx.guild.unban(user)
-            await ctx.send(f' I have unbanned {user.name}#{user.discriminator}')
-            return
-"""
 
 # Work in progress
 
