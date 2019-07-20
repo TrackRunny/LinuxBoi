@@ -19,7 +19,7 @@ def read_token():
 async def on_ready():
     await client.change_presence(
         activity=discord.Activity(type=discord.ActivityType.watching, name="Linux videos | l!help"))
-    print(f"---------------DiscordBot---------------"
+    print(f"---------------LinuxBoi---------------"
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\n----------------------------------------------")
@@ -100,6 +100,87 @@ async def reload_information_error(ctx, error):
 for filename in os.listdir('./cogs/Information'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Information.{filename[:-3]}")
+
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def load_utility(ctx, extension):
+    client.load_extension(f"cogs.Utility.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Utility")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been loaded!")
+    await ctx.send(embed=embed)
+
+
+@load_utility.error
+async def load_utility_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!load_utility minecraft`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def unload_utility(ctx, extension):
+    client.unload_extension(f"cogs.Utility.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Utility")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been unloaded!")
+    await ctx.send(embed=embed)
+
+
+@unload_utility.error
+async def unload_utility_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!unload_utility minecraft`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def reload_utility(ctx, extension):
+    client.reload_extension(f"cogs.Utility.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Utility")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been reloaded!")
+    await ctx.send(embed=embed)
+
+
+@reload_utility.error
+async def reload_utility_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!reload_utility minecraft`")
+        await ctx.send(embed=embed)
+
+
+for filename in os.listdir('./cogs/Utility'):
+    if filename.endswith('.py'):
+        client.load_extension(f"cogs.Utility.{filename[:-3]}")
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
