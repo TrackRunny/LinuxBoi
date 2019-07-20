@@ -21,7 +21,7 @@ class Help(commands.Cog):
         embed.add_field(name="• Moderation Commands!", value="`l!purge`, `l!kick`, `l!ban`, `l!forceban` `l!unban`")
         embed.add_field(name="• Information Commands!", value="`l!help`, `l!stats`, `l!ping`, `l!whois`")
         embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`, `l!howgay`, `l!invite`")
-        embed.add_field(name="• Utility Commands!", value="`l!minecraft_bedrock`, ")
+        embed.add_field(name="• Utility Commands!", value="`l!mcbe`, ")
 
         await ctx.send(embed=embed)
 

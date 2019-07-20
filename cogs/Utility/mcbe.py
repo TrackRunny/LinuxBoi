@@ -8,7 +8,7 @@ class MinecraftBedrock(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def minecraft_bedrock(self, ctx, server, port):
+    async def mcbe(self, ctx, server, port):
         try:
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
@@ -35,8 +35,8 @@ class MinecraftBedrock(commands.Cog):
 
             await ctx.send(embed=embed_error)
 
-    @minecraft_bedrock.error
-    async def minecraft_error(self, ctx, error):
+    @mcbe.error
+    async def mcbe_error(self, ctx, error):
         member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
@@ -44,7 +44,7 @@ class MinecraftBedrock(commands.Cog):
             )
             embed.set_author(name="• Invalid Argument!")
             embed.add_field(name=member, value="Please put in a valid Minecraft server and port number! \nExample: "
-                                               "`l!minecraft play.wither.fun 19132`")
+                                               "`l!mcbe play.wither.fun 19132`")
             await ctx.send(embed=embed)
 
 
