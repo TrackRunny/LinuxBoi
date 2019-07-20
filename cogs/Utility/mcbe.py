@@ -8,7 +8,7 @@ class MinecraftBedrock(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def mcbe(self, ctx, server, port):
+    async def mcbe(self, ctx, server, port=19132):
         try:
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
@@ -43,8 +43,11 @@ class MinecraftBedrock(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put in a valid Minecraft server and port number! \nExample: "
-                                               "`l!mcbe play.wither.fun 19132`")
+            embed.add_field(name=member, value="Please put in a valid Minecraft server and port number!\n— \n→ Example: "
+                                               "`l!mcbe play.wither.fun 18323`" 
+                                               "\n→ Pro tip: `If the server uses the "
+                                               "regular default port \n(19132) "
+                                               "you don't have to put in the port number!`")
             await ctx.send(embed=embed)
 
 

@@ -1,10 +1,13 @@
 import os
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
+from itertools import cycle
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 client = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)
 client.remove_command('help')
+status = cycle([f'Linux videos | l!help', 'FOSS software | l!help', 'Windows getting worse',
+                'Server members | l!help', 'Cryptocurrency | l!help', 'Linux getting popular'])
 valid = "TrackRunny#3900"
 line_divide = "\n———————————————————————————————"
 
@@ -17,12 +20,16 @@ def read_token():
 
 @client.event
 async def on_ready():
-    await client.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.watching, name="Linux videos | l!help"))
+    change_status.start()
     print(f"---------------LinuxBoi---------------"
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\n----------------------------------------------")
+
+
+@tasks.loop(seconds=10)
+async def change_status():
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=next(status)))
 
 
 @client.command(pass_context=True)
