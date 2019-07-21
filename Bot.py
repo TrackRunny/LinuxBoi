@@ -355,15 +355,6 @@ async def on_command_error(ctx, error):
 
 # Work in progress
 
-"""
-@client.command(pass_context=True)
-async def weather(ctx,):
-    owm = pyowm.OWM('1596858fc52ce6e8121fab7aa5e7d964')
-    observation = owm.weather_at_place("London,GB")
-    w = observation.get_weather()
-    await ctx.send(f"{w.get_wind()}")
-"""
-
 
 # client.run(read_token())
 client.run(read_token(), bot=False)

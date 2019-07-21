@@ -16,14 +16,14 @@ class MinecraftBedrock(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Minecraft command")
-            embed.add_field(name="• IP Address", inline=True, value=f"`{server}`")
-            embed.add_field(name="• Port", inline=True, value=f"`{port}`")
-            embed.add_field(name="• Players", inline=True, value=f"`{str(motd.players.online)}/{str(motd.players.max)}`")
-            embed.add_field(name="• Version", inline=True, value=f"`{str(motd.software.version)}`")
-            embed.add_field(name="• Map", inline=True, value=f"`{str(motd.map)}`")
-            embed.add_field(name="• Software", inline=True, value=f"`{str(motd.software.brand)}`")
-            embed.add_field(name="• MOTD", inline=False, value=f"`{str(motd.motd)}`")
-            embed.add_field(name="• Plugins", inline=False, value=f"`{str(motd.software.plugins)}`")
+            embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
+            embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
+            embed.add_field(name="• Players:", inline=True, value=f"`{str(motd.players.online)}/{str(motd.players.max)}`")
+            embed.add_field(name="• Version:", inline=True, value=f"`{str(motd.software.version)}`")
+            embed.add_field(name="• Map:", inline=True, value=f"`{str(motd.map)}`")
+            embed.add_field(name="• Software:", inline=True, value=f"`{str(motd.software.brand)}`")
+            embed.add_field(name="• MOTD:", inline=False, value=f"`{str(motd.motd)}`")
+            embed.add_field(name="• Plugins:", inline=False, value=f"`{str(motd.software.plugins)}`")
 
             await ctx.send(embed=embed)
 
@@ -31,7 +31,7 @@ class MinecraftBedrock(commands.Cog):
             embed_error = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed_error.add_field(name="• Timeout Error", value=f"The server is offline or you entered invalid information!")
+            embed_error.add_field(name="• Timeout Error:", value=f"The server is offline or you entered invalid information!")
 
             await ctx.send(embed=embed_error)
 
