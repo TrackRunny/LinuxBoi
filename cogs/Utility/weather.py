@@ -42,6 +42,7 @@ class Weather(commands.Cog):
             )
             embed.set_author(name="• Invalid Argument!")
             embed.add_field(name=member, value="Please put a valid option! Example: `l!weather Las Vegas US`"
+                                               "\n Example for a city with one word: `l!weather Woodland, California`"
                                                "\nYou can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
@@ -53,7 +54,8 @@ class Weather(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `l!weather Las Vegas US`"
+            embed.add_field(name=member, value="Please put a valid option! Example: `l!weather Las Vegas Nevada`"
+                                               "\n Example for a city with one word: `l!weather Woodland, California`"
                                                "\nYou can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
