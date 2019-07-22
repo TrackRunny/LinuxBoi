@@ -9,10 +9,10 @@ class Weather(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def weather(self, ctx, city, country):
+    async def weather(self, ctx, city, state):
         try:
             owm = pyowm.OWM('1596858fc52ce6e8121fab7aa5e7d964')
-            observation = owm.weather_at_place(f"{city} {country}")
+            observation = owm.weather_at_place(f"{city} {state}")
             weather = observation.get_weather()
             temperature = weather.get_temperature('fahrenheit')['temp']
             temperature2 = weather.get_temperature('celsius')['temp']
@@ -40,10 +40,13 @@ class Weather(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `l!weather Las Vegas US`"
-                                               "\n Example for a city with one word: `l!weather Woodland, California`"
-                                               "\nYou can also use a zip code! Example: `l!weather 15024, US`")
+            embed.set_author(name="• Invalid City / Zip code")
+            embed.add_field(name=member, value="The city or zip code you entered is "
+                                               "not spelled right, or the format is incorrect."
+                                               "\n`l!weather Las Vegas Nevada` "
+                                               "| `l!weather Woodland, California` \n `l!weather 15024, US`"
+                                               "\nHowever the city you entered possibly "
+                                               "not being tracked with the weather API!")
             await ctx.send(embed=embed)
 
     @weather.error
@@ -55,7 +58,7 @@ class Weather(commands.Cog):
             )
             embed.set_author(name="• Invalid Argument!")
             embed.add_field(name=member, value="Please put a valid option! Example: `l!weather Las Vegas Nevada`"
-                                               "\n Example for a city with one word: `l!weather Woodland, California`"
+                                               "\nFor a city with one word: `l!weather Woodland, California`"
                                                "\nYou can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
