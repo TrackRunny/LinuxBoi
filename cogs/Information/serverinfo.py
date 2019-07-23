@@ -7,20 +7,21 @@ class Serverinfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases=['sinfo'])
-    async def serverinfo(self, ctx, id: int):
+    @commands.command(aliases=['server'])
+    async def serverinfo(self, ctx):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
+        guild = ctx.guild
         regions = {
-            "us_west": ":flag_us: — USA",
-            "us_east": ":flag_us: — USA",
-            "us_central": ":flag_us: — USA",
-            "us_south": ":flag_us: — USA",
+            "us_west": ":flag_us: — USA West",
+            "us_east": ":flag_us: — USA East",
+            "us_central": ":flag_us: — USA Central",
+            "us_south": ":flag_us: — USA South",
             "sydney": ":flag_au: — Sydney",
-            "eu_west": ":flag_eu: — Europe",
-            "eu_east": ":flag_eu: — Europe",
-            "eu_central": ":flag_eu: — Europe",
+            "eu_west": ":flag_eu: — Europe West",
+            "eu_east": ":flag_eu: — Europe East",
+            "eu_central": ":flag_eu: — Europe Central",
             "singapore": ":flag_sg: — Singapore",
             "russia": ":flag_ru: — Russia",
             "southafrica": ":flag_za:  — South Africa",
@@ -36,7 +37,6 @@ class Serverinfo(commands.Cog):
             "high": "🔴 — High Verification",
             "extreme": "⚫ — Extreme Verification",
         }
-        guild = self.client.get_guild(id)
         sender = ctx.author
         embed.set_author(name="• Server Info → " + str(guild.name))
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
@@ -55,6 +55,7 @@ class Serverinfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    """
     @serverinfo.error
     async def serverinfo_error(self, ctx, error):
         member = ctx.author
@@ -63,9 +64,10 @@ class Serverinfo(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid Discord Guild ID! Example: `l!serverinfo 330548417996783616`"
+            embed.add_field(name=member, value="Please put a valid Discord Guild ID! Example: `l!server 330548417996783616`"
                                                "\nPlease **Note** the command only works if the bot is in the server that you requested!")
             await ctx.send(embed=embed)
+    """
 
 
 def setup(client):
