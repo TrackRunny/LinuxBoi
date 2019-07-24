@@ -21,7 +21,7 @@ def read_token():
 @client.event
 async def on_ready():
     change_status.start()
-    print(f"---------------LinuxBoi---------------"
+    print(f"---------------LinuxBoi-----------------------"
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\n----------------------------------------------")
