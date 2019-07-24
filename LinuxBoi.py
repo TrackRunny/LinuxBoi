@@ -436,6 +436,87 @@ for filename in os.listdir('./cogs/Events'):
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def load_owner(ctx, extension):
+    client.load_extension(f"cogs.Owner.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Owner")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been loaded!")
+    await ctx.send(embed=embed)
+
+
+@load_owner.error
+async def load_owner_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!load_owner shutdown`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def unload_owner(ctx, extension):
+    client.unload_extension(f"cogs.Owner.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Owner")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been unloaded!")
+    await ctx.send(embed=embed)
+
+
+@unload_owner.error
+async def unload_owner_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!unload_owner shutdown`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def reload_owner(ctx, extension):
+    client.reload_extension(f"cogs.Owner.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="• Owner")
+    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been reloaded!")
+    await ctx.send(embed=embed)
+
+
+@reload_owner.error
+async def reload_owner_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name="• Invalid Argument!")
+        embed.add_field(name=member, value="Please put a valid option! Example: `l!reload_owner shutdown`")
+        await ctx.send(embed=embed)
+
+
+for filename in os.listdir('./cogs/Owner'):
+    if filename.endswith('.py'):
+        client.load_extension(f"cogs.Owner.{filename[:-3]}")
+
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 """
 @client.event
 async def on_command_error(ctx, error):
@@ -443,17 +524,6 @@ async def on_command_error(ctx, error):
         await ctx.send(":facepalm: — Invalid command! Run `l!help` to see all commands.")
 """
 
-
-# Work in progress
-
-"""
-@client.command(pass_context=True)
-async def weather(ctx,):
-    owm = pyowm.OWM('1596858fc52ce6e8121fab7aa5e7d964')
-    observation = owm.weather_at_place("London,GB")
-    w = observation.get_weather()
-    await ctx.send(f"{w.get_wind()}")
-"""
 
 client.run(read_token())
 # client.run(read_token(), bot=False)
