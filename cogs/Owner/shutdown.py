@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
+
 class Shutdown(commands.Cog):
 
     def __init__(self, client):
@@ -14,8 +15,8 @@ class Shutdown(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.set_author(name="• Shutdown")
-        embed.add_field(name=member, value="→ Performing a shutdown on the bot... ( :wave: )")
+        embed.set_author(name=member)
+        embed.add_field(name="• Shutdown", value="→ Performing a shutdown on the bot... ( :wave: )")
         await ctx.send(embed=embed)
         await self.client.logout()
 

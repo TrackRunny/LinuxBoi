@@ -24,10 +24,11 @@ class Avatar(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid option! Example: `l!avatar @user`")
+            embed.set_author(name=member)
+            embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!avatar @user`")
             await ctx.send(embed=embed)
 
 
 def setup(client):
     client.add_cog(Avatar(client))
+

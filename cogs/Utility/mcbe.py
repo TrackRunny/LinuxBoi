@@ -42,12 +42,13 @@ class MinecraftBedrock(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put in a valid Minecraft server and port number!\n— \n→ Example: "
-                                               "`l!mcbe play.wither.fun 18323`" 
-                                               "\n→ Pro Tip: `If the server uses the "
-                                               "regular default port \n(19132) "
-                                               "you don't have to put in the port number!`")
+            embed.set_author(name=member)
+            embed.add_field(name="• Invalid Argument!",
+                            value="Please put in a valid Minecraft server and port number!\n— \n→ Example: "
+                            "`l!mcbe play.wither.fun 18323`" 
+                            "\n→ Pro Tip: `If the server uses the "
+                            "regular default port \n(19132) "
+                            "you don't have to put in the port number!`")
             await ctx.send(embed=embed)
 
 

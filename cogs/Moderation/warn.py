@@ -2,43 +2,41 @@ import discord
 from discord.ext import commands
 
 
-class Ban(commands.Cog):
-
+class Warn(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, member: discord.Member, *, reason):
+    @commands.has_permissions(manage_messages=True)
+    async def warn(self, ctx, member: discord.Member, *, reason):
+        sender = ctx.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        sender = ctx.author
-        await member.ban(reason=reason)
         embed.set_author(name=sender)
-        embed.add_field(name="• Ban command", value=member.mention + " → has been **Banned!** Bye bye! :wave:")
-
+        embed.add_field(name="• Warn command", value=f"{member.mention} → has been **Warned!** ")
         await ctx.send(embed=embed)
 
         embed2 = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed2.set_author(name=f"{member} → You have been banned!")
+        embed2.set_author(name=f"{member} → You have been warned!")
         embed2.add_field(name=f"• Moderator", value=f"{sender}")
         embed2.add_field(name="• Reason", value=f"{reason}")
-        embed2.set_footer(text=f"Banned from: {ctx.guild}")
+        embed2.set_footer(text=f"Warning sent from: {ctx.guild}")
 
         await member.send(embed=embed2)
 
-    @ban.error
-    async def ban_error(self, ctx, error):
+    @warn.error
+    async def warn_error(self, ctx, error):
         member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!ban @user <reason>`")
+            embed.add_field(name="• Invalid Argument!",
+                            value="Please put a valid option! Example: `l!warn @user <reason>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
@@ -51,4 +49,4 @@ class Ban(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Ban(client))
+    client.add_cog(Warn(client))

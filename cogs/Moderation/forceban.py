@@ -7,7 +7,7 @@ class Forceban(commands.Cog):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(ban_members=True, manage_roles=True)
+    @commands.has_permissions(ban_members=True)
     async def forceban(self, ctx, *, id: int):
         await ctx.guild.ban(discord.Object(id))
         embed = discord.Embed(
@@ -25,15 +25,16 @@ class Forceban(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid Discord ID! Example: `l!forceban 546812331213062144`")
+            embed.set_author(name=member)
+            embed.add_field(name="• Invalid Argument!",
+                            value="Please put a valid Discord ID! Example: `l!forceban 546812331213062144`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name="• Missing Permissions!")
-            embed.add_field(name=member, value="You do not have permissions to run this command!")
+            embed.set_author(name=member)
+            embed.add_field(name="• Missing Permissions!", value="You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)
 

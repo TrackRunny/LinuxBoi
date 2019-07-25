@@ -18,10 +18,16 @@ class Help(commands.Cog):
         embed.add_field(name="—", value="→ Shows info about all available bot commands!"
                                         "\n→ Capitalization does not matter for the bot prefix." +
                                         "\n—")
-        embed.add_field(name="• Moderation Commands!", value="`l!purge`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`")
-        embed.add_field(name="• Information Commands!", value="`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`")
-        embed.add_field(name="• Fun Commands!", value="`l!coinflip`, `l!avatar`, `l!howgay`, `l!invite`")
-        embed.add_field(name="• Utility Commands!", value="`l!mcbe`, `l!weather`")
+
+        moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`"
+        information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
+        fun = "`l!coinflip`, `l!avatar`, `l!howgay`"
+        utility = "`l!mcbe`, `l!weather`"
+
+        embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
+        embed.add_field(name="• Information Commands!", inline=False, value=information)
+        embed.add_field(name="• Fun Commands!", inline=False, value=fun)
+        embed.add_field(name="• Utility Commands!", inline=False, value=utility)
 
         await ctx.send(embed=embed)
 
