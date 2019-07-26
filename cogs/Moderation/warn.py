@@ -8,7 +8,7 @@ class Warn(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
-    async def warn(self, ctx, member: discord.Member, *, reason):
+    async def warn(self, ctx, member: discord.Member, *, reason="No reason provided!"):
         sender = ctx.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)

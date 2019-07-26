@@ -9,7 +9,7 @@ class Ban(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, member: discord.Member, *, reason):
+    async def ban(self, ctx, member: discord.Member, *, reason="No reason provided!"):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
@@ -38,7 +38,8 @@ class Ban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!ban @user <reason>`")
+            embed.add_field(name="• Invalid Argument!",
+                            value="Please put a valid option! Example: `l!ban @user [OPTIONAL <reason>]`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

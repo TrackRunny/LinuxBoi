@@ -8,7 +8,7 @@ class Kick(commands.Cog):
 
     @commands.command(pass_context=True)
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member: discord.Member, *, reason):
+    async def kick(self, ctx, member: discord.Member, *, reason="No reason provided!"):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )

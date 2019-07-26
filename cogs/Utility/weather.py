@@ -9,14 +9,17 @@ class Weather(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def weather(self, ctx, city, state):
+    async def weather(self, ctx, *, city):
         try:
             owm = pyowm.OWM('1596858fc52ce6e8121fab7aa5e7d964')
-            observation = owm.weather_at_place(f"{city} {state}")
+            observation = owm.weather_at_place(city)
             weather = observation.get_weather()
             temperature = weather.get_temperature('fahrenheit')['temp']
             temperature2 = weather.get_temperature('celsius')['temp']
             wind = weather.get_wind('miles_hour')['speed']
+            cloud = weather.get_clouds()
+            max_temp = weather.get_temperature('fahrenheit')['temp_max']
+            max_temp2 =  weather.get_temperature('celsius')['temp_max']
             humidity = weather.get_humidity()
             status = weather.get_status()
             sunrise = weather.get_sunrise_time(timeformat='iso')
@@ -29,8 +32,10 @@ class Weather(commands.Cog):
             embed.set_thumbnail(url=picture)
             embed.add_field(name="• Weather:", value=f"{status}")
             embed.add_field(name="• Temperature:", value=f"{temperature}℉ — ({temperature2}℃)")
+            embed.add_field(name="• Max Temperature:", value=f"{max_temp}℉ — ({max_temp2}℃)")
             embed.add_field(name="• Humidity:", value=f"{humidity}%")
             embed.add_field(name="• Wind:", value=f"{round(wind)} MPH")
+            embed.add_field(name="• Cloud coverage:", value=f"{cloud}%")
             embed.add_field(name="• Sunrise time:", value=f"{sunrise[:-5]} GMT")
             embed.add_field(name="• Sunset time:", value=f"{sunset[:-5]} GMT")
 
@@ -43,8 +48,6 @@ class Weather(commands.Cog):
             embed.set_author(name=member)
             embed.add_field(name="• Invalid City / Zip code", value="The city or zip code you entered is "
                             "not spelled right, or the format is incorrect."
-                            "\n`l!weather Las Vegas Nevada` "
-                            "| `l!weather Woodland, California` \n `l!weather 15024, US`"
                             "\nHowever the city you entered possibly "
                             "not being tracked with the weather API!")
             await ctx.send(embed=embed)
