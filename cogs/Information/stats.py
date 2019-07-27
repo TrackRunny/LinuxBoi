@@ -10,7 +10,6 @@ class Stats(commands.Cog):
 
     @commands.command()
     async def stats(self, ctx):
-        author = ctx.message.author
         guild_members = str(len(ctx.guild.members))
         guilds = str(len(self.client.guilds))
         cpu = str(psutil.cpu_percent())

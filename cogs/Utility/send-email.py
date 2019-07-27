@@ -10,13 +10,14 @@ class Email(commands.Cog):
         self.client = client
 
     @commands.command()
+    @commands.cooldown(rate=1, per=1800, type=commands.BucketType.user)
     async def email(self, ctx, emailto, subject, *, content):
         email = 'linuxboi.discordbot@gmail.com'  # Your email
         password = 'tJhIPc9Qfzipr537yfrJnVI#gH^mk&go%E8gf6!aB7Y$xBAs2Ua8eYPm9DjQg9Y74v4P%V2mhIQtXkSfuwP!gyW^r%n5IIQ#*I5h'
 
         msg = EmailMessage()
         msg['Subject'] = subject
-        msg['From'] = "LinuxBoi.com"
+        msg['From'] = email
         msg['To'] = emailto
 
         msg.set_content("<p>" + content + "</p>" + """\
@@ -29,7 +30,7 @@ class Email(commands.Cog):
         <title>Document</title>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     </head>
-    
+
     <style>
         * {
             font-family: 'Ubuntu', sans-serif;
@@ -59,6 +60,10 @@ class Email(commands.Cog):
                 <h4>Is this email a scam, spam, ect?</h4>
                     <ul>
                         <li>No of course not! Someone just wanted to send you a email using a Discord bot. Thats all it is to it!</li>
+                    </ul>
+                <h4>Can someone spam this and bomb people's emails?</h4>
+                    <ul>
+                        <li>No, the command has built in protection that allows 1 email to be sent every 30 minutes.</li>
                     </ul>
                 <h4>I don't want to see anymore emails from whoever is running the command anymore please.</h4>
                     <ul>
@@ -108,6 +113,14 @@ class Email(commands.Cog):
             embed.set_author(name=member)
             embed.add_field(name="• Invalid Argument!",
                             value=invalid)
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.CommandOnCooldown):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.set_author(name=member)
+            embed.add_field(name="• Slow down!", value="You can only send a email every 30 minutes!")
+
             await ctx.send(embed=embed)
 
 
