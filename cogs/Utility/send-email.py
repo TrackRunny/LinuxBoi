@@ -1,5 +1,6 @@
 import smtplib
 from email.message import EmailMessage
+
 import discord
 from discord.ext import commands
 
@@ -114,6 +115,7 @@ class Email(commands.Cog):
             embed.add_field(name="• Invalid Argument!",
                             value=invalid)
             await ctx.send(embed=embed)
+            ctx.command.reset_cooldown(ctx)
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)

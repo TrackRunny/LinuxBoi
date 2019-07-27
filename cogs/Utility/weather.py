@@ -1,5 +1,5 @@
-import pyowm
 import discord
+import pyowm
 from discord.ext import commands
 
 
@@ -61,8 +61,7 @@ class Weather(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="• Invalid Argument!",
-                            value="Please put a valid option! Example: `l!weather Las Vegas Nevada`"
-                            "\nFor a city with one word: `l!weather Woodland, California`"
+                            value="Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
                             "\nYou can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
