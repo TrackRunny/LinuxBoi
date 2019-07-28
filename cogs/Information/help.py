@@ -21,7 +21,7 @@ class Help(commands.Cog):
 
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!coinflip`, `l!avatar`, `l!howgay`"
+        fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`"
         utility = "`l!mcbe`, `l!weather`, `l!email`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
