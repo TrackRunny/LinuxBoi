@@ -13,7 +13,7 @@ class Help(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(255, 153, 34)
         )
-        embed.set_author(name="• All available bot commands!")
+        embed.set_author(name="→ All available bot commands!")
         embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
         embed.add_field(name="—", value="→ Shows info about all available bot commands!"
                                         "\n→ Capitalization does not matter for the bot prefix." +

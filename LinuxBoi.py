@@ -39,8 +39,8 @@ async def load_information(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Information")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the information cogs has been loaded!")
+    embed.set_author(name="→ Information")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -52,7 +52,7 @@ async def load_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!load_information stats`")
         await ctx.send(embed=embed)
 
@@ -64,8 +64,8 @@ async def unload_information(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Information")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the information cogs has been unloaded!")
+    embed.set_author(name="→ Information")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -77,7 +77,7 @@ async def unload_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!unload_information stats`")
         await ctx.send(embed=embed)
 
@@ -89,8 +89,8 @@ async def reload_information(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Information")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the information cogs has been reloaded!")
+    embed.set_author(name="→ Information")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -102,7 +102,7 @@ async def reload_information_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_information stats`")
         await ctx.send(embed=embed)
 
@@ -123,8 +123,8 @@ async def load_utility(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Utility")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been loaded!")
+    embed.set_author(name="→ Utility")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Utility cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -136,7 +136,7 @@ async def load_utility_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!load_utility minecraft`")
         await ctx.send(embed=embed)
 
@@ -148,8 +148,8 @@ async def unload_utility(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Utility")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been unloaded!")
+    embed.set_author(name="→ Utility")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Utility cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -161,7 +161,7 @@ async def unload_utility_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!unload_utility minecraft`")
         await ctx.send(embed=embed)
 
@@ -173,8 +173,8 @@ async def reload_utility(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Utility")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Utility cogs has been reloaded!")
+    embed.set_author(name="→ Utility")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Utility cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -186,7 +186,7 @@ async def reload_utility_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_utility minecraft`")
         await ctx.send(embed=embed)
 
@@ -207,8 +207,8 @@ async def load_fun(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Fun")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Fun cogs has been loaded!")
+    embed.set_author(name="→ Fun")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Fun cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -220,7 +220,7 @@ async def load_fun_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!load_fun whois`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!load_fun whois`")
         await ctx.send(embed=embed)
 
 
@@ -231,8 +231,8 @@ async def unload_fun(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Fun")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Fun cogs has been unloaded!")
+    embed.set_author(name="→ Fun")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Fun cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -244,7 +244,7 @@ async def unload_fun_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!unload_fun whois`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!unload_fun whois`")
         await ctx.send(embed=embed)
 
 
@@ -255,8 +255,8 @@ async def reload_fun(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Fun")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the Fun cogs has been reloaded!")
+    embed.set_author(name="→ Fun")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Fun cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -268,7 +268,7 @@ async def reload_fun_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!reload_fun whois`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!reload_fun whois`")
         await ctx.send(embed=embed)
 
 
@@ -288,8 +288,8 @@ async def load_moderation(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Moderation")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the moderation cogs has been loaded!")
+    embed.set_author(name="→ Moderation")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -301,7 +301,7 @@ async def load_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!load_moderation purge`")
         await ctx.send(embed=embed)
 
@@ -313,8 +313,8 @@ async def unload_moderation(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Moderation")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
+    embed.set_author(name="→ Moderation")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -326,7 +326,7 @@ async def unload_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!unload_moderation purge`")
         await ctx.send(embed=embed)
 
@@ -338,8 +338,8 @@ async def reload_moderation(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Moderation")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
+    embed.set_author(name="→ Moderation")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -351,7 +351,7 @@ async def reload_moderation_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_moderation kick`")
         await ctx.send(embed=embed)
 
@@ -372,8 +372,8 @@ async def load_events(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Events")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the information cogs has been loaded!")
+    embed.set_author(name="→ Events")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -385,7 +385,7 @@ async def load_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!load_events member`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!load_events member`")
         await ctx.send(embed=embed)
 
 
@@ -396,8 +396,8 @@ async def unload_events(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Events")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
+    embed.set_author(name="→ Events")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -409,7 +409,7 @@ async def unload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!unload_events member`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!unload_events member`")
         await ctx.send(embed=embed)
 
 
@@ -420,8 +420,8 @@ async def reload_events(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Events")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
+    embed.set_author(name="→ Events")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -433,7 +433,7 @@ async def reload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!reload_events member`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!reload_events member`")
         await ctx.send(embed=embed)
 
 
@@ -453,8 +453,8 @@ async def load_owner(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Owner")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been loaded!")
+    embed.set_author(name="→ Owner")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the owner cogs has been loaded!")
     await ctx.send(embed=embed)
 
 
@@ -466,7 +466,7 @@ async def load_owner_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument", value="Please put a valid option! Example: `l!load_owner shutdown`")
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!load_owner shutdown`")
         await ctx.send(embed=embed)
 
 
@@ -477,8 +477,8 @@ async def unload_owner(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Owner")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been unloaded!")
+    embed.set_author(name="→ Owner")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the owner cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -490,7 +490,7 @@ async def unload_owner_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!unload_owner shutdown`")
         await ctx.send(embed=embed)
 
@@ -502,8 +502,8 @@ async def reload_owner(ctx, extension):
     embed = discord.Embed(
         color=discord.Color.from_rgb(241, 90, 36)
     )
-    embed.set_author(name="• Owner")
-    embed.add_field(name="Cog command", value=ctx.author.mention + " → One of the owner cogs has been reloaded!")
+    embed.set_author(name="→ Owner")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the owner cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -515,7 +515,7 @@ async def reload_owner_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="• Invalid Argument",
+        embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_owner shutdown`")
         await ctx.send(embed=embed)
 

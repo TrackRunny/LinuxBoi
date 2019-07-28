@@ -1,6 +1,5 @@
 import smtplib
 from email.message import EmailMessage
-
 import discord
 from discord.ext import commands
 
@@ -19,6 +18,7 @@ class Email(commands.Cog):
         msg = EmailMessage()
         msg['Subject'] = subject
         msg['From'] = email
+        msg['From'] = "LinuxBoi.com"
         msg['To'] = emailto
 
         msg.set_content("<p>" + content + "</p>" + """\
@@ -31,7 +31,6 @@ class Email(commands.Cog):
         <title>Document</title>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     </head>
-
     <style>
         * {
             font-family: 'Ubuntu', sans-serif;
@@ -112,7 +111,7 @@ class Email(commands.Cog):
                       "\nExample: `l!email address@emailproider.com \"<subject>\" <content>`" \
                       "\n Please note: Subjects with more than one word need to have quotes around them."
             embed.set_author(name=member)
-            embed.add_field(name="• Invalid Argument!",
+            embed.add_field(name="→ Invalid Argument!",
                             value=invalid)
             await ctx.send(embed=embed)
             ctx.command.reset_cooldown(ctx)
@@ -121,7 +120,7 @@ class Email(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Slow down!", value="You can only send a email every 30 minutes!")
+            embed.add_field(name="→ Slow down!", value="You can only send a email every 30 minutes!")
 
             await ctx.send(embed=embed)
 

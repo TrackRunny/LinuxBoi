@@ -38,7 +38,7 @@ class Ban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Invalid Argument!",
+            embed.add_field(name="→ Invalid Argument!",
                             value="Please put a valid option! Example: `l!ban @user [OPTIONAL <reason>]`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
@@ -46,7 +46,7 @@ class Ban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Missing Permissions!", value="You do not have permissions to run this command!")
+            embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)
 

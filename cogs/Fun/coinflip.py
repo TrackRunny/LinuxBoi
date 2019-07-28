@@ -17,7 +17,7 @@ class Coinflip(commands.Cog):
         )
         sender = ctx.author
         embed.set_author(name=sender)
-        embed.add_field(name="• Coinflip command", value=coin)
+        embed.add_field(name="→ Coinflip command", value=coin)
 
         await ctx.send(embed=embed)
 
