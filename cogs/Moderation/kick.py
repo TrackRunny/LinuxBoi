@@ -38,7 +38,7 @@ class Kick(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!kick @user <reason>`")
+                            value="Please put a valid option! Example: `l!kick @user [REASON]`")
 
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):

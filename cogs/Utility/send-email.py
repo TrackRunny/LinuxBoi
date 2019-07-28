@@ -18,7 +18,6 @@ class Email(commands.Cog):
         msg = EmailMessage()
         msg['Subject'] = subject
         msg['From'] = email
-        msg['From'] = "LinuxBoi.com"
         msg['To'] = emailto
 
         msg.set_content("<p>" + content + "</p>" + """\
@@ -85,7 +84,6 @@ class Email(commands.Cog):
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smpt:
             smpt.login(email, password)
-
             smpt.send_message(msg)
 
         embed = discord.Embed(
