@@ -21,6 +21,7 @@ def read_token():
 @client.event
 async def on_ready():
     change_status.start()
+    client.load_extension('jishaku')
     print(f"---------------LinuxBoi-----------------------"
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
