@@ -525,6 +525,65 @@ for filename in os.listdir('./cogs/Owner'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Owner.{filename[:-3]}")
 
+
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def load_linuxinfo(ctx, extension):
+    client.load_extension(f"cogs.Linuxinfo.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="→ Linuxinfo")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Linuxinfo cogs has been loaded!")
+    await ctx.send(embed=embed)
+
+
+@load_linuxinfo.error
+async def load_linuxinfo_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name=member)
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!load_linuxinfo channels`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def unload_linuxinfo(ctx, extension):
+    client.unload_extension(f"cogs.Linuxinfo.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="→ Linuxinfo")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Linuxinfo cogs has been unloaded!")
+    await ctx.send(embed=embed)
+
+
+@load_linuxinfo.error
+async def unload_linuxinfo_error(ctx, error):
+    member = ctx.author
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.set_author(name=member)
+        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!unload_linuxinfo channels`")
+        await ctx.send(embed=embed)
+
+
+for filename in os.listdir('./cogs/Linuxinfo'):
+    if filename.endswith('.py'):
+        client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
+
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
