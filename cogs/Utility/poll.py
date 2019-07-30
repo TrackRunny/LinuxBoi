@@ -7,7 +7,7 @@ class Poll(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def poll(self, ctx, question):
+    async def poll(self, ctx, *, question):
         sender = ctx.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
