@@ -7,7 +7,7 @@ class Poll(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def poll(self, ctx, *, question):
+    async def poll(self, ctx, channel: discord.TextChannel, *, question):
         sender = ctx.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
@@ -17,7 +17,7 @@ class Poll(commands.Cog):
         embed.set_footer(text=f"— Poll from {sender}", icon_url=ctx.author.avatar_url)
         await ctx.message.delete()
 
-        message = await ctx.send(embed=embed)
+        message = await channel.send(embed=embed)
         await message.add_reaction("👍")
         await message.add_reaction("👎")
 
@@ -30,7 +30,7 @@ class Poll(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put in a valid option! Example: `l!poll <question>`")
+                            value="Please put in a valid option! Example: `l!poll #channel <question>`")
             await ctx.send(embed=embed)
 
 
