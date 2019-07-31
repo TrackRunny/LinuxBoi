@@ -20,7 +20,7 @@ class Help(commands.Cog):
 
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`"
+        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, `l!mcbe`, `l!email`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
