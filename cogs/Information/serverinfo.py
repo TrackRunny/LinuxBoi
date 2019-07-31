@@ -72,4 +72,3 @@ class Serverinfo(commands.Cog):
 
 def setup(client):
     client.add_cog(Serverinfo(client))
-

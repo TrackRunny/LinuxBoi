@@ -18,7 +18,8 @@ class MinecraftBedrock(commands.Cog):
             embed.set_author(name="→ Minecraft command")
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
             embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
-            embed.add_field(name="• Players:", inline=True, value=f"`{str(motd.players.online)}/{str(motd.players.max)}`")
+            embed.add_field(name="• Players:", inline=True,
+                            value=f"`{str(motd.players.online)}/{str(motd.players.max)}`")
             embed.add_field(name="• Version:", inline=True, value=f"`{str(motd.software.version)}`")
             embed.add_field(name="• Map:", inline=True, value=f"`{str(motd.map)}`")
             embed.add_field(name="• Software:", inline=True, value=f"`{str(motd.software.brand)}`")
@@ -31,7 +32,8 @@ class MinecraftBedrock(commands.Cog):
             embed_error = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed_error.add_field(name="→ Timeout Error:", value=f"The server is offline or you entered invalid information!")
+            embed_error.add_field(name="→ Timeout Error:",
+                                  value=f"The server is offline or you entered invalid information!")
 
             await ctx.send(embed=embed_error)
 
@@ -45,10 +47,10 @@ class MinecraftBedrock(commands.Cog):
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put in a valid Minecraft server and port number!\n— \n→ Example: "
-                            "`l!mcbe play.wither.fun 18323`" 
-                            "\n→ Pro Tip: `If the server uses the "
-                            "regular default port \n(19132) "
-                            "you don't have to put in the port number!`")
+                                  "`l!mcbe play.wither.fun 18323`"
+                                  "\n→ Pro Tip: `If the server uses the "
+                                  "regular default port \n(19132) "
+                                  "you don't have to put in the port number!`")
             await ctx.send(embed=embed)
 
 

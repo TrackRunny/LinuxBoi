@@ -19,7 +19,7 @@ class Weather(commands.Cog):
             wind = weather.get_wind('miles_hour')['speed']
             cloud = weather.get_clouds()
             max_temp = weather.get_temperature('fahrenheit')['temp_max']
-            max_temp2 =  weather.get_temperature('celsius')['temp_max']
+            max_temp2 = weather.get_temperature('celsius')['temp_max']
             humidity = weather.get_humidity()
             status = weather.get_status()
             sunrise = weather.get_sunrise_time(timeformat='iso')
@@ -47,9 +47,9 @@ class Weather(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid City / Zip code", value="The city or zip code you entered is "
-                            "not spelled right, or the format is incorrect."
-                            "\nHowever the city you entered possibly "
-                            "not being tracked with the weather API!")
+                                                                    "not spelled right, or the format is incorrect."
+                                                                    "\nHowever the city you entered possibly "
+                                                                    "not being tracked with the weather API!")
             await ctx.send(embed=embed)
 
     @weather.error
@@ -62,10 +62,9 @@ class Weather(commands.Cog):
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
-                            "\nYou can also use a zip code! Example: `l!weather 15024, US`")
+                                  "\nYou can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
 
 def setup(client):
     client.add_cog(Weather(client))
-

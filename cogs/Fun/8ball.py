@@ -1,6 +1,7 @@
+import random
+
 import discord
 from discord.ext import commands
-import random
 
 
 class Eightball(commands.Cog):

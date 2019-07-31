@@ -37,7 +37,7 @@ class Userinfo(commands.Cog):
             embed.add_field(name="• On mobile? ", value="Not on a mobile device!")
         embed.add_field(name="• Status: ", value=f"{member.status}")
         embed.add_field(name="• Top role: ", value=f"`@{member.top_role}`")
-        embed.add_field(name="• Roles: ", inline=False,  value=f" ".join([f"`@{role}`, " for role in roles]))
+        embed.add_field(name="• Roles: ", inline=False, value=f" ".join([f"`@{role}`, " for role in roles]))
 
         await ctx.send(embed=embed)
 

@@ -1,7 +1,8 @@
 import os
+from itertools import cycle
+
 import discord
 from discord.ext import commands, tasks
-from itertools import cycle
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 client = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)
@@ -66,7 +67,8 @@ async def unload_information(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Information")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been unloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the information cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -91,7 +93,8 @@ async def reload_information(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Information")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been reloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the information cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -111,6 +114,7 @@ async def reload_information_error(ctx, error):
 for filename in os.listdir('./cogs/Information'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Information.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -196,6 +200,7 @@ for filename in os.listdir('./cogs/Utility'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Utility.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -277,6 +282,7 @@ for filename in os.listdir('./cogs/Fun'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Fun.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -315,7 +321,8 @@ async def unload_moderation(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Moderation")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -340,7 +347,8 @@ async def reload_moderation(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Moderation")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -360,6 +368,7 @@ async def reload_moderation_error(ctx, error):
 for filename in os.listdir('./cogs/Moderation'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Moderation.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -398,7 +407,8 @@ async def unload_events(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Events")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the moderation cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -410,7 +420,8 @@ async def unload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!unload_events member`")
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!unload_events member`")
         await ctx.send(embed=embed)
 
 
@@ -422,7 +433,8 @@ async def reload_events(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Events")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the moderation cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -434,13 +446,15 @@ async def reload_events_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!reload_events member`")
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!reload_events member`")
         await ctx.send(embed=embed)
 
 
 for filename in os.listdir('./cogs/Events'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Events.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -551,7 +565,8 @@ async def load_linuxinfo_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!load_linuxinfo channels`")
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!load_linuxinfo channels`")
         await ctx.send(embed=embed)
 
 
@@ -575,14 +590,14 @@ async def unload_linuxinfo_error(ctx, error):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=member)
-        embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!unload_linuxinfo channels`")
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!unload_linuxinfo channels`")
         await ctx.send(embed=embed)
 
 
 for filename in os.listdir('./cogs/Linuxinfo'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
-
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -594,7 +609,6 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(":facepalm: — Invalid command! Run `l!help` to see all commands.")
 """
-
 
 client.run(read_token())
 # client.run(read_token(), bot=False)

@@ -1,5 +1,6 @@
 import smtplib
 from email.message import EmailMessage
+
 import discord
 from discord.ext import commands
 
@@ -93,7 +94,7 @@ class Email(commands.Cog):
         embed.set_author(name=f"→ Email Sent!")
         embed.set_thumbnail(url=link)
         embed.add_field(name="• Email Sent to:", inline=False, value=f"```{emailto}```")
-        embed.add_field(name="• Subject:", inline=False,  value=f"```{subject}```")
+        embed.add_field(name="• Subject:", inline=False, value=f"```{subject}```")
         embed.add_field(name="• Content:", inline=False, value=f"```{content}```")
 
         await ctx.send(embed=embed)

@@ -1,4 +1,5 @@
 import os
+
 import discord
 from discord.ext import commands
 
@@ -55,7 +56,8 @@ async def unload_information(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Information")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been unloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the information cogs has been unloaded!")
     await ctx.send(embed=embed)
 
 
@@ -80,7 +82,8 @@ async def reload_information(ctx, extension):
         color=discord.Color.from_rgb(241, 90, 36)
     )
     embed.set_author(name="→ Information")
-    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the information cogs has been reloaded!")
+    embed.add_field(name="• Cog command",
+                    value=ctx.author.mention + " → One of the information cogs has been reloaded!")
     await ctx.send(embed=embed)
 
 
@@ -100,6 +103,7 @@ async def reload_information_error(ctx, error):
 for filename in os.listdir('./cogs/Information'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Information.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -185,6 +189,7 @@ for filename in os.listdir('./cogs/Utility'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Utility.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -265,6 +270,7 @@ async def reload_fun_error(ctx, error):
 for filename in os.listdir('./cogs/Fun'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Fun.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -350,6 +356,7 @@ for filename in os.listdir('./cogs/Moderation'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Moderation.{filename[:-3]}")
 
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -430,6 +437,7 @@ async def reload_events_error(ctx, error):
 for filename in os.listdir('./cogs/Events'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Events.{filename[:-3]}")
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -524,7 +532,6 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(":facepalm: — Invalid command! Run `l!help` to see all commands.")
 """
-
 
 # client.run(read_token())
 client.run(read_token(), bot=False)
