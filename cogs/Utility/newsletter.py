@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from mcstatus import MinecraftServer
 
 
 class Newsletter(commands.Cog):
@@ -9,7 +8,7 @@ class Newsletter(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(mention_everyone=True)
-    async def newsletter(self, ctx, choice, *, message):
+    async def newsletter(self, ctx, channel: discord.TextChannel, choice, *, message):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
@@ -27,7 +26,7 @@ class Newsletter(commands.Cog):
         embed.add_field(name="→ Announcement!", value=f"• {message}")
         embed.set_footer(text=f"— Sent from: {sender}", icon_url=ctx.author.avatar_url)
         await ctx.message.delete()
-        await ctx.send(embed=embed)
+        await channel.send(embed=embed)
 
     @newsletter.error
     async def newsletter_error(self, ctx, error):
@@ -38,7 +37,8 @@ class Newsletter(commands.Cog):
             )
             embed.set_author(name=sender)
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!newsletter <here / everyone / none> <message>`")
+                            value="Please put a valid option! "
+                                  "\nExample: `l!newsletter #channel <here / everyone / none> <message>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

@@ -1,6 +1,5 @@
 import os
 from itertools import cycle
-
 import discord
 from discord.ext import commands, tasks
 
@@ -21,7 +20,8 @@ def read_token():
 
 @client.event
 async def on_ready():
-    change_status.start()
+    # change_status.start()
+    await client.change_presence(activity=discord.Activity(type=3, name="Linux videos! | l!help"))
     client.load_extension('jishaku')
     print(f"---------------LinuxBoi-----------------------"
           f"\nBot is online and connected to " + str(client.user) +
@@ -29,9 +29,11 @@ async def on_ready():
           f"\n----------------------------------------------")
 
 
+"""
 @tasks.loop(seconds=15)
 async def change_status():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=next(status)))
+"""
 
 
 @client.command(pass_context=True)
