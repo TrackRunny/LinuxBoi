@@ -19,12 +19,18 @@ class MinecraftBedrock(commands.Cog):
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
             embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
             embed.add_field(name="• Players:", inline=True,
-                            value=f"`{str(motd.players.online)}/{str(motd.players.max)}`")
-            embed.add_field(name="• Version:", inline=True, value=f"`{str(motd.software.version)}`")
-            embed.add_field(name="• Map:", inline=True, value=f"`{str(motd.map)}`")
-            embed.add_field(name="• Software:", inline=True, value=f"`{str(motd.software.brand)}`")
-            embed.add_field(name="• MOTD:", inline=False, value=f"`{str(motd.motd)}`")
-            embed.add_field(name="• Plugins:", inline=False, value=f"`{str(motd.software.plugins)}`")
+                            value=f"`{len(motd.players.names)}/{motd.players.max}`")
+            embed.add_field(name="• Version:", inline=True, value=f"`{motd.software.version}`")
+            embed.add_field(name="• Map:", inline=True, value=f"`{motd.map}`")
+            embed.add_field(name="• Software:", inline=True, value=f"`{motd.software.brand}`")
+            embed.add_field(name="• MOTD:", inline=False, value=f"`{motd.motd}`")
+            embed.add_field(name="• Player names:", inline=False,
+                            value='`' + '' + ', '.join(motd.players.names) + ', '[:-0] + '`')
+            if not len(motd.software.plugins):
+                embed.add_field(name="• Plugins", inline=False, value="`No Plugin Information / No Plugins`")
+            else:
+                embed.add_field(name="• Plugins", inline=False,
+                                value='`' + '' + ', '.join(motd.software.plugins) + ', '[:-0] + '`')
 
             await ctx.send(embed=embed)
 
