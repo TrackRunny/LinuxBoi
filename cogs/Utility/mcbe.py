@@ -24,8 +24,12 @@ class MinecraftBedrock(commands.Cog):
             embed.add_field(name="• Map:", inline=True, value=f"`{motd.map}`")
             embed.add_field(name="• Software:", inline=True, value=f"`{motd.software.brand}`")
             embed.add_field(name="• MOTD:", inline=False, value=f"`{motd.motd}`")
-            embed.add_field(name="• Player names:", inline=False,
-                            value='`' + '' + ', '.join(motd.players.names) + ', '[:-0] + '`')
+            if not len(motd.players.names):
+                embed.add_field(name="• Player names:", inline=False,
+                                value="`No Player Information / No Players Online!`")
+            else:
+                embed.add_field(name="• Player names:", inline=False,
+                                value='`' + '' + ', '.join(motd.players.names) + ', '[:-0] + '`')
             if not len(motd.software.plugins):
                 embed.add_field(name="• Plugins", inline=False, value="`No Plugin Information / No Plugins`")
             else:

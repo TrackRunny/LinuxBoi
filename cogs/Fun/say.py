@@ -19,7 +19,7 @@ class Say(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!say <channel> <message>`")
+                            value="Please put a valid option! Example: `l!say #channel <message>`")
 
             await ctx.send(embed=embed)
 
