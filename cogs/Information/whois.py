@@ -42,7 +42,7 @@ class Userinfo(commands.Cog):
         await ctx.send(embed=embed)
 
     @whois.error
-    async def kick_error(self, ctx, error):
+    async def whois_error(self, ctx, error):
         member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(

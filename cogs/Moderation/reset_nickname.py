@@ -1,15 +1,17 @@
 import discord
 from discord.ext import commands
+import traceback
 
 
-class Warn(commands.Cog):
+class ChangeNickname(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(manage_messages=True)
-    @commands.bot_has_permissions(manage_messages=True)
-    async def warn(self, ctx, member: discord.Member, *, reason="No reason provided!"):
+    @commands.has_permissions(manage_nicknames=True)
+    @commands.bot_has_permissions(manage_nicknames=True)
+    async def resetnick(self, ctx, member: discord.Member):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
@@ -17,32 +19,32 @@ class Warn(commands.Cog):
             embed.add_field(name="→ User information",
                             value="The user has higher permissions than me!")
             await ctx.send(embed=embed)
-        elif ctx.guild.me.top_role > member.top_role:
-            sender = ctx.author
+        elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="• Warn command", value=f"{member.mention} → has been **Warned!** ")
+            embed.add_field(name="→ User information",
+                            value="The user has higher permissions than you or equal permissions!")
             await ctx.send(embed=embed)
-
-            embed2 = discord.Embed(
+        elif ctx.guild.me.top_role > member.top_role:
+            embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed2.set_author(name=f"{member} → You have been warned!")
-            embed2.add_field(name=f"• Moderator", value=f"{sender}")
-            embed2.add_field(name="• Reason", value=f"{reason}")
-            embed2.set_footer(text=f"Warning sent from: {ctx.guild}")
+            embed.add_field(name="• Resetnick command", value=f"{member.mention}'s → Nickname has been **Reset!** ")
 
-            await member.send(embed=embed2)
+            await member.edit(nick=None)
+            await ctx.send(embed=embed)
+        else:
+            traceback.print_exc()
 
-    @warn.error
-    async def warn_error(self, ctx, error):
+    @resetnick.error
+    async def nickname_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!warn @user [reason]`")
+                            value="Please put a valid option! Example: `l!resetnick @user`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
@@ -59,7 +61,17 @@ class Warn(commands.Cog):
                             value="Please give me permissions to use this command!")
 
             await ctx.send(embed=embed)
+        elif isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Bot Missing Permissions!",
+                            value="Please give me permissions to use this command!")
+
+            await ctx.send(embed=embed)
+        else:
+            traceback.print_exc()
 
 
 def setup(client):
-    client.add_cog(Warn(client))
+    client.add_cog(ChangeNickname(client))

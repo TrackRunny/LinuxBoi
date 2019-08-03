@@ -101,7 +101,6 @@ class Email(commands.Cog):
 
     @email.error
     async def email_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
@@ -109,7 +108,7 @@ class Email(commands.Cog):
             invalid = "Please put a valid option! " \
                       "\nExample: `l!email address@emailproider.com \"<subject>\" <content>`" \
                       "\n Please note: Subjects with more than one word need to have quotes around them."
-            embed.set_author(name=member)
+
             embed.add_field(name="→ Invalid Argument!",
                             value=invalid)
             await ctx.send(embed=embed)
@@ -118,7 +117,6 @@ class Email(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Slow down!", value="You can only send a email every 30 minutes!")
 
             await ctx.send(embed=embed)

@@ -41,12 +41,10 @@ class Eightball(commands.Cog):
 
     @_8ball.error
     async def _8ball_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put in a valid option! Example: `l!8ball <question>`")
             await ctx.send(embed=embed)

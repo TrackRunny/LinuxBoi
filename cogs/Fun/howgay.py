@@ -10,7 +10,6 @@ class Howgay(commands.Cog):
 
     @commands.command()
     async def howgay(self, ctx, member: discord.Member):
-        author = ctx.message.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
@@ -29,12 +28,10 @@ class Howgay(commands.Cog):
 
     @howgay.error
     async def howgay_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!howgay @user`")
             await ctx.send(embed=embed)
 

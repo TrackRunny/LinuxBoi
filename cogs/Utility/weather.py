@@ -54,12 +54,10 @@ class Weather(commands.Cog):
 
     @weather.error
     async def weather_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
                                   "\nYou can also use a zip code! Example: `l!weather 15024, US`")

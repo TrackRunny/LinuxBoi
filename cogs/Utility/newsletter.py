@@ -30,12 +30,10 @@ class Newsletter(commands.Cog):
 
     @newsletter.error
     async def newsletter_error(self, ctx, error):
-        sender = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=sender)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put a valid option! "
                                   "\nExample: `l!newsletter #channel <here / everyone / none> <message>`")
@@ -44,7 +42,6 @@ class Newsletter(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=sender)
             embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)

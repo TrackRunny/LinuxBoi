@@ -19,12 +19,10 @@ class Avatar(commands.Cog):
 
     @avatar.error
     async def avatar_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!avatar @user`")
             await ctx.send(embed=embed)
 

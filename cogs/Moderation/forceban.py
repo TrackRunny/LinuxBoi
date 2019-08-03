@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import traceback
 
 
 class Forceban(commands.Cog):
@@ -8,24 +9,21 @@ class Forceban(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
+    @commands.bot_has_permissions(ban_members=True)
     async def forceban(self, ctx, *, id: int):
         await ctx.guild.ban(discord.Object(id))
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        sender = ctx.author
-        embed.set_author(name=f"{sender}")
         embed.add_field(name="• Forceban command", value=f"<@{id}> → has been **Forcefully banned!** Bye bye! :wave:")
         await ctx.send(embed=embed)
 
     @forceban.error
     async def forceban_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="Please put a valid Discord ID! Example: `l!forceban 546812331213062144`")
             await ctx.send(embed=embed)
@@ -33,8 +31,15 @@ class Forceban(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
+
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.BotMissingPermissions):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Bot Missing Permissions!",
+                            value="Please give me permissions to use this command!")
 
             await ctx.send(embed=embed)
 

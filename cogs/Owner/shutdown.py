@@ -10,11 +10,9 @@ class Shutdown(commands.Cog):
     @commands.command()
     @commands.is_owner()
     async def shutdown(self, ctx):
-        member = ctx.author
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.set_author(name=member)
         embed.add_field(name="• Shutdown", value="→ Performing a shutdown on the bot... ( :wave: )")
         await ctx.send(embed=embed)
         await self.client.logout()

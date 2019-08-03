@@ -37,7 +37,6 @@ class Serverinfo(commands.Cog):
             "high": "🔴 — High Verification",
             "extreme": "⚫ — Extreme Verification",
         }
-        sender = ctx.author
         embed.set_author(name="• Server Info → " + str(guild.name))
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
         embed.add_field(name="—", value="→ Shows all information about a guild. The information will be listed below!"
