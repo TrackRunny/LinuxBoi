@@ -49,7 +49,7 @@ class Userinfo(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!whois @user`")
+            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!whois @user`")
             await ctx.send(embed=embed)
 
 

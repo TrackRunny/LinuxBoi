@@ -54,20 +54,6 @@ class Serverinfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    """
-    @serverinfo.error
-    async def serverinfo_error(self, ctx, error):
-        member = ctx.author
-        if isinstance(error, commands.MissingRequiredArgument):
-            embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
-            )
-            embed.set_author(name="• Invalid Argument!")
-            embed.add_field(name=member, value="Please put a valid Discord Guild ID! Example: `l!server 330548417996783616`"
-                                               "\nPlease **Note** the command only works if the bot is in the server that you requested!")
-            await ctx.send(embed=embed)
-    """
-
 
 def setup(client):
     client.add_cog(Serverinfo(client))

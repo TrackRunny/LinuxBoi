@@ -35,14 +35,14 @@ class Newsletter(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! "
-                                  "\nExample: `l!newsletter #channel <here / everyone / none> <message>`")
+                            value="• Please put a valid option! "
+                                  "\n• Example: `l!newsletter #channel <here / everyone / none> <message>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
+            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)
 

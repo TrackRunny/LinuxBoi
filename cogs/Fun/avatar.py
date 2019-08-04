@@ -23,7 +23,7 @@ class Avatar(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="• Invalid Argument!", value="Please put a valid option! Example: `l!avatar @user`")
+            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!avatar @user`")
             await ctx.send(embed=embed)
 
 

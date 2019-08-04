@@ -46,7 +46,7 @@ class Eightball(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put in a valid option! Example: `l!8ball <question>`")
+                            value="• Please put in a valid option! Example: `l!8ball <question>`")
             await ctx.send(embed=embed)
 
 

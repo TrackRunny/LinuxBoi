@@ -28,7 +28,7 @@ class Poll(commands.Cog):
                 color=discord.Color.from_rgb(52, 54, 60)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put in a valid option! Example: `l!poll #channel <question>`")
+                            value="• Please put in a valid option! Example: `l!poll #channel <question>`")
             await ctx.send(embed=embed)
 
 

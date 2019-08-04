@@ -9,7 +9,6 @@ class Ping(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        sender = ctx.author
         ping = str(round(self.client.latency * 1000))
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)

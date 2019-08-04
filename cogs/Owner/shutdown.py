@@ -13,7 +13,7 @@ class Shutdown(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.add_field(name="• Shutdown", value="→ Performing a shutdown on the bot... ( :wave: )")
+        embed.add_field(name="→ Shutdown", value="• Performing a shutdown on the bot... ( :wave: )")
         await ctx.send(embed=embed)
         await self.client.logout()
 

@@ -25,13 +25,13 @@ class Unban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid Discord ID! Example: `l!unban 546812331213062144`")
+                            value="• Please put a valid Discord ID! Example: `l!unban 546812331213062144`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
+            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
@@ -39,7 +39,7 @@ class Unban(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Bot Missing Permissions!",
-                            value="Please give me permissions to use this command!")
+                            value="• Please give me permissions to use this command!")
 
             await ctx.send(embed=embed)
 

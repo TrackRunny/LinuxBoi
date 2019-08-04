@@ -43,7 +43,7 @@ class MinecraftBedrock(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed_error.add_field(name="→ Timeout Error:",
-                                  value=f"The server is offline or you entered invalid information!")
+                                  value=f"• The server is offline or you entered invalid information!")
 
             await ctx.send(embed=embed_error)
 
@@ -56,9 +56,9 @@ class MinecraftBedrock(commands.Cog):
             )
             embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put in a valid Minecraft server and port number!\n— \n→ Example: "
+                            value="•Please put in a valid Minecraft server and port number!\n— \n• Example: "
                                   "`l!mcbe play.wither.fun 18323`"
-                                  "\n→ Pro Tip: `If the server uses the "
+                                  "\n• Pro Tip: `If the server uses the "
                                   "regular default port \n(19132) "
                                   "you don't have to put in the port number!`")
             await ctx.send(embed=embed)

@@ -46,9 +46,9 @@ class Weather(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name=member)
-            embed.add_field(name="→ Invalid City / Zip code", value="The city or zip code you entered is "
+            embed.add_field(name="→ Invalid City / Zip code", value="• The city or zip code you entered is "
                                                                     "not spelled right, or the format is incorrect."
-                                                                    "\nHowever the city you entered possibly "
+                                                                    "\n• However the city you entered possibly "
                                                                     "not being tracked with the weather API!")
             await ctx.send(embed=embed)
 
@@ -59,8 +59,8 @@ class Weather(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
-                                  "\nYou can also use a zip code! Example: `l!weather 15024, US`")
+                            value="• Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
+                                  "\n• You can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
 

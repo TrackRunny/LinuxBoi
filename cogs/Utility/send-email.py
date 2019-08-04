@@ -105,9 +105,9 @@ class Email(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            invalid = "Please put a valid option! " \
-                      "\nExample: `l!email address@emailproider.com \"<subject>\" <content>`" \
-                      "\n Please note: Subjects with more than one word need to have quotes around them."
+            invalid = "• Please put a valid option! " \
+                      "\n• Example: `l!email address@emailproider.com \"<subject>\" <content>`" \
+                      "\n• Please note: Subjects with more than one word need to have quotes around them."
 
             embed.add_field(name="→ Invalid Argument!",
                             value=invalid)
@@ -117,7 +117,7 @@ class Email(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Slow down!", value="You can only send a email every 30 minutes!")
+            embed.add_field(name="→ Slow down!", value="• You can only send a email every 30 minutes!")
 
             await ctx.send(embed=embed)
 

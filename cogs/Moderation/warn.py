@@ -15,7 +15,7 @@ class Warn(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ User information",
-                            value="The user has higher permissions than me!")
+                            value="• The user has higher permissions than me!")
             await ctx.send(embed=embed)
         elif ctx.guild.me.top_role > member.top_role:
             sender = ctx.author
@@ -42,13 +42,13 @@ class Warn(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!warn @user [reason]`")
+                            value="• Please put a valid option! Example: `l!warn @user [reason]`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Missing Permissions!", value="You do not have permissions to run this command!")
+            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
 
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
@@ -56,7 +56,7 @@ class Warn(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Bot Missing Permissions!",
-                            value="Please give me permissions to use this command!")
+                            value="• Please give me permissions to use this command!")
 
             await ctx.send(embed=embed)
 
