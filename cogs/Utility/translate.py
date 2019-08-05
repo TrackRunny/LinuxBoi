@@ -15,7 +15,7 @@ class Translate(commands.Cog):
 
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
-         )
+        )
         embed.add_field(name="→ Translation", value='• Your input: `{}`'.format(text)
                         + "\n• Translated Text: `{}`".format(language)
                         + "\n• Detected Input Language: `{}`".format(translation_language))
@@ -32,7 +32,8 @@ class Translate(commands.Cog):
             )
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put a valid option! Example: `l!translate <\"message\"> <language>`"
-                                  "\n• Please note your message must have quotes around them.")
+                                  "\n• Please note your message must have quotes around them."
+                                  "\n• Real world example: `l!translate \"Hola\" en`")
             await ctx.send(embed=embed)
 
 
