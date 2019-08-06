@@ -561,6 +561,86 @@ for filename in os.listdir('./cogs/Linuxinfo'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
 
+
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+# ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def load_meme(ctx, extension):
+    client.load_extension(f"cogs.Meme.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="→ Meme")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Meme cogs has been loaded!")
+    await ctx.send(embed=embed)
+
+
+@load_meme.error
+async def load_meme_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!load_meme linuxmeme`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def reload_meme(ctx, extension):
+    client.reload_extension(f"cogs.Meme.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="→ Meme")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Meme cogs has been reloaded!")
+    await ctx.send(embed=embed)
+
+
+@reload_meme.error
+async def reload_meme_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!reload_meme linuxmeme`")
+        await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.is_owner()
+async def unload_meme(ctx, extension):
+    client.unload_extension(f"cogs.Meme.{extension}")
+    embed = discord.Embed(
+        color=discord.Color.from_rgb(241, 90, 36)
+    )
+    embed.set_author(name="→ Meme")
+    embed.add_field(name="• Cog command", value=ctx.author.mention + " → One of the Meme cogs has been unloaded!")
+    await ctx.send(embed=embed)
+
+
+@unload_meme.error
+async def unload_meme_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Invalid Argument",
+                        value="Please put a valid option! Example: `l!unload_meme linuxmeme`")
+        await ctx.send(embed=embed)
+
+
+for filename in os.listdir('./cogs/Meme'):
+    if filename.endswith('.py'):
+        client.load_extension(f"cogs.Meme.{filename[:-3]}")
+
+
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
