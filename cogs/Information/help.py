@@ -18,17 +18,18 @@ class Help(commands.Cog):
                                         "\n→ Capitalization does not matter for the bot prefix." +
                                         "\n—")
 
-        moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`, `l!nickname`, `l!resetnick`"
+        moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
+                     " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, `l!mcbe`, `l!email`, `l!translate`"
-        memes = "`l!meme`"
+        # memes = "`l!meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
         embed.add_field(name="• Information Commands!", inline=False, value=information)
         embed.add_field(name="• Fun Commands!", inline=False, value=fun)
-        embed.add_field(name="• Memes!", inline=False, value=memes)
+        # embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 

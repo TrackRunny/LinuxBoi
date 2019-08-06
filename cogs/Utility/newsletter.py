@@ -8,6 +8,7 @@ class Newsletter(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(mention_everyone=True)
+    @commands.bot_has_permissions(mention_everyone=True)
     async def newsletter(self, ctx, channel: discord.TextChannel, choice, *, message):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)

@@ -25,7 +25,7 @@ class Poll(commands.Cog):
     async def poll_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(52, 54, 60)
+                color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid option! Example: `l!poll #channel <question>`")
