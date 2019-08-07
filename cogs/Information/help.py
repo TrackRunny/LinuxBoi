@@ -22,7 +22,7 @@ class Help(commands.Cog):
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
-        utility = "`l!newsletter`, `l!poll`, `l!weather`, `l!mcbe`, `l!email`, `l!translate`"
+        utility = "`l!newsletter`, `l!poll`, `l!weather`, `l!mcbe`, `l!email`, `l!translate`, `l!shortenlink``"
         # memes = "`l!meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
