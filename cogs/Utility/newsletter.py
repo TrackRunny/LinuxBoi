@@ -10,11 +10,11 @@ class Newsletter(commands.Cog):
     @commands.has_permissions(mention_everyone=True)
     @commands.bot_has_permissions(mention_everyone=True)
     async def newsletter(self, ctx, channel: discord.TextChannel, choice, *, message):
+        sender = ctx.author
+        guild = ctx.guild
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        sender = ctx.author
-        guild = ctx.guild
         if choice == "everyone":
             at_everyone = await ctx.send("@everyone — Check out this new announcement!")
             await at_everyone.delete()
