@@ -36,6 +36,7 @@ class Link(commands.Cog):
                                   "\n• Example: `l!shortenlink https://google.com`")
 
             await ctx.send(embed=embed)
+            ctx.command.reset_cooldown(ctx)
 
     @shorten_link.error
     async def shorten_link_error(self, ctx, error):
