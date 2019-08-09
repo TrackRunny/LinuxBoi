@@ -9,7 +9,7 @@ class RandomColor(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(aliases=["randomcolor"])
     async def random_color(self, ctx):
         r = lambda: random.randint(0, 255)
         hex_color = f'{f"{r():x}":0>2}{f"{r():x}":0>2}{f"{r():x}":0>2}'
