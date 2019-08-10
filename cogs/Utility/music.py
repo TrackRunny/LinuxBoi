@@ -490,13 +490,11 @@ class Music(commands.Cog):
 
             duration = fmt.format(h=hours, m=minutes, s=seconds)
             date = source.date[4:6] + "/" + source.date[6:8] + "/" + source.date[:4]
-            em = discord.Embed(title="→ Now playing:", description=f"—{source.title}", color=discord.Color.from_rgb(241, 90, 36))
+            em = discord.Embed(title="→ Now playing:", description=f"— [{source.title}]({source.web_url})", color=discord.Color.from_rgb(241, 90, 36))
             em.add_field(name="• Duration:", value=duration)
             em.add_field(name="• Uploader:", value=source.uploader)
-            em.add_field(name="• Published on:", value=date)
             em.add_field(name="• Requested by", value=source.requester)
             em.add_field(name="• Volume:", value=f"{volume}%")
-            em.add_field(name="• Song URL:", value=f"[Song link]({source.web_url})")
             em.set_thumbnail(url=source.thumbnail)
 
             em.set_thumbnail(url=source.thumbnail)
