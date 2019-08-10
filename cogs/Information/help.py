@@ -24,6 +24,8 @@ class Help(commands.Cog):
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`"
+        music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `playing` \
+                `l!stop`, `l!np`"
         # memes = "`l!meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
@@ -32,6 +34,7 @@ class Help(commands.Cog):
         embed.add_field(name="• Fun Commands!", inline=False, value=fun)
         # embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
+        embed.add_field(name="• Music Commands [BETA]!", inline=False, value=music)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 
         await ctx.send(embed=embed)
