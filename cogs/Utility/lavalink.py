@@ -128,7 +128,16 @@ class Music(commands.Cog):
         embed.add_field(name="→ Resumed!",
                         value=f"• Song time has been moved to: `{lavalink.utils.format_time(track_time)}`")
         await ctx.send(embed=embed)
-        await ctx.send(f'Moved track to **{lavalink.utils.format_time(track_time)}**')
+
+    @seek.error
+    async def seek_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Argument!",
+                            value="• Please put a valid option! Example: `l!seek <time>`")
+            await ctx.send(embed=embed)
 
     @commands.command(aliases=['forceskip'])
     async def skip(self, ctx):
@@ -342,6 +351,16 @@ class Music(commands.Cog):
         embed.add_field(name="→ Top 5 results:",
                         value=f"{o}")
         await ctx.send(embed=embed)
+
+    @find.error
+    async def find_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Argument!",
+                            value="• Please put a valid option! Example: `l!find <song>`")
+            await ctx.send(embed=embed)
 
     @commands.command(aliases=['dc'])
     async def disconnect(self, ctx):
