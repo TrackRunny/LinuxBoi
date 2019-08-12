@@ -27,6 +27,9 @@ async def on_ready():
           f"\nBot is online and connected to " + str(client.user) +
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\n----------------------------------------------")
+    for filename in os.listdir('./cogs/Utility'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Utility.{filename[:-3]}")
 
 
 """
@@ -185,11 +188,11 @@ async def reload_utility_error(ctx, error):
                         value="Please put a valid option! Example: `l!reload_utility minecraft`")
         await ctx.send(embed=embed)
 
-
+"""
 for filename in os.listdir('./cogs/Utility'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Utility.{filename[:-3]}")
-
+"""
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

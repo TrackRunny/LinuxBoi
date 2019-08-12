@@ -24,8 +24,8 @@ class Help(commands.Cog):
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`"
-        music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `playing` \
-                `l!stop`, `l!np`"
+        music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
+                `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"
         # memes = "`l!meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
