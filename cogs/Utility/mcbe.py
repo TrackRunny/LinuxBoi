@@ -20,9 +20,9 @@ class MinecraftBedrock(commands.Cog):
             embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
             embed.add_field(name="• Players:", inline=True,
                             value=f"`{len(motd.players.names)}/{motd.players.max}`")
-            embed.add_field(name="• Version:", inline=True, value=f"`{motd.software.version}`")
             embed.add_field(name="• Map:", inline=True, value=f"`{motd.map}`")
             embed.add_field(name="• Software:", inline=True, value=f"`{motd.software.brand}`")
+            embed.add_field(name="• Version:", inline=True, value=f"`{motd.software.version}`")
             embed.add_field(name="• MOTD:", inline=False, value=f"`{motd.motd}`")
             if not len(motd.players.names):
                 embed.add_field(name="• Player names:", inline=False,

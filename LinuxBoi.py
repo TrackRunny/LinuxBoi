@@ -23,13 +23,14 @@ async def on_ready():
     # change_status.start()
     await client.change_presence(activity=discord.Activity(type=3, name="Linux videos! | l!help"))
     client.load_extension('jishaku')
-    print(f"---------------LinuxBoi-----------------------"
-          f"\nBot is online and connected to " + str(client.user) +
-          f"\nCreated by TrackRunny#3900 on Discord"
-          f"\n----------------------------------------------")
-    for filename in os.listdir('./cogs/Utility'):
+    for filename in os.listdir('./cogs/Music'):
         if filename.endswith('.py'):
-            client.load_extension(f"cogs.Utility.{filename[:-3]}")
+            client.load_extension(f"cogs.Music.{filename[:-3]}")
+    print(f"---------------LinuxBoi-----------------------"
+          f"\nBot is online and connected to {str(client.user)}" 
+          f"\nCreated by TrackRunny#3900 on Discord"
+          f"\nConnected to {str(len(client.guilds))} Guilds." 
+          f"\n----------------------------------------------")
 
 
 """
@@ -188,11 +189,11 @@ async def reload_utility_error(ctx, error):
                         value="Please put a valid option! Example: `l!reload_utility minecraft`")
         await ctx.send(embed=embed)
 
-"""
+
 for filename in os.listdir('./cogs/Utility'):
     if filename.endswith('.py'):
         client.load_extension(f"cogs.Utility.{filename[:-3]}")
-"""
+
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

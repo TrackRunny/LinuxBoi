@@ -4,4 +4,4 @@ cogs/__pycache__
 cogs/Events/__pycache__
 cogs/Moderation/__pycache__
 cogs/Information/__pycache__
-Lavalink-python/logs
+cogs/Music/Lavalink-python/logs

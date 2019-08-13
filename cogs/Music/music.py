@@ -4,7 +4,6 @@ This example cog requires that you have python 3.6 or higher due to the f-string
 """
 import math
 import re
-
 import discord
 import lavalink
 from discord.ext import commands
@@ -15,6 +14,7 @@ url_rx = re.compile('https?:\\/\\/(?:www\\.)?.+')  # noqa: W605
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.votes = []
 
         if not hasattr(bot, 'lavalink'):  # This ensures the client isn't overwritten during cog reloads.
             bot.lavalink = lavalink.Client(bot.user.id)
@@ -111,7 +111,7 @@ class Music(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid option! Example: `l!play <Song name>`")
+                            value="• Please put a valid option! Example: `l!play <Song Name / URL>`")
             await ctx.send(embed=embed)
 
     @commands.command()
@@ -143,11 +143,6 @@ class Music(commands.Cog):
     async def skip(self, ctx):
         """ Skips the current track. """
         player = self.bot.lavalink.players.get(ctx.guild.id)
-
-        if not player.is_playing:
-            embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36))
-            embed.add_field(name="→ Not playing!", value="• No song is playing is currently playing!")
-            await ctx.send(embed=embed)
 
         await player.skip()
         embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36))
@@ -245,6 +240,7 @@ class Music(commands.Cog):
             await ctx.send(embed=embed)
 
     @commands.command(aliases=['vol'])
+    @commands.is_owner()
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
         player = self.bot.lavalink.players.get(ctx.guild.id)
@@ -319,6 +315,16 @@ class Music(commands.Cog):
         embed.add_field(name="→ Item removed!",
                         value=f"• Removed `{removed.title}` from the queue.")
         await ctx.send(embed=embed)
+
+    @remove.error
+    async def remove_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Argument!",
+                            value="• Please put a valid option! Example: `l!remove 1`")
+            await ctx.send(embed=embed)
 
     @commands.command()
     async def find(self, ctx, *, query):

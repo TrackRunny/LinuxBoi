@@ -9,7 +9,6 @@ class Status(commands.Cog):
     @commands.command()
     @commands.is_owner()
     async def status(self, ctx, activity, *, status):
-
         # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
         await self.client.change_presence(activity=discord.Activity(type=activity, name=status))
         embed = discord.Embed(

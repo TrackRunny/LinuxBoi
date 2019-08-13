@@ -27,10 +27,10 @@ class Channels(commands.Cog):
         addictive_tips_tv = "(https://www.youtube.com/user/AddictiveTipsTV/videos)"
 
         embed.add_field(name="• Educational",
-                        value=f"1. [Joe Collins]{joe} - Helped a lot of new people switch to linux. Makes really easy to understand videos about different linux topics."
-                              f"\n2. [Switched to Linux]{switched} - Posts videos about new linux news as well as information about privacy, scams, virus's, and other drama."
+                        value=f"1. [Joe Collins]{joe} - Helped a lot of new people switch to Linux. Makes really easy to understand videos about different Linux topics."
+                              f"\n2. [Switched to Linux]{switched} - Posts videos about new Linux news as well as information about privacy, scams, virus's, and other drama."
                               f"\n3. [Average Linux User]{average_linux_user} - Makes great tutorial videos that are easy to walk through. Clear and concise when talking."
-                              f"\n4. [Chris Titus Tech]{chris_titus_tech} - Says things like they are and takes all the confusing things away from linux and makes things simple. So many helpful videos worth watching."
+                              f"\n4. [Chris Titus Tech]{chris_titus_tech} - Says things like they are and takes all the confusing things away from Linux and makes things simple. So many helpful videos worth watching."
                               f"\n5. [AddictiveTipsTV]{addictive_tips_tv} - Posts quick 1-3 minute videos for quick tips about Linux, and other software. Great for watching if your in a time crunch. "
                               f"\n. [DistroTube]{distrotube} - Pretty honest and chill person about linux in general. Has a good series called Taking Into Account.")
 

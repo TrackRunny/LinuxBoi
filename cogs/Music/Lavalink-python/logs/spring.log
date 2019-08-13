@@ -1,0 +1,86 @@
+2019-08-13 13:43:57.818  INFO 13144 --- [Thread-1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5d47c63f: startup date [Mon Aug 12 14:32:27 PDT 2019]; root of context hierarchy
+2019-08-13 13:43:57.921  INFO 13144 --- [Thread-1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2019-08-13 13:43:57.936  INFO 13144 --- [Thread-1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-08-13 13:43:57.959  INFO 13144 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2019-08-13 13:43:58.005  INFO 13144 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2019-08-13 13:44:07.333  INFO 10320 --- [main] lavalink.server.Launcher                 : 
+
+[32m       .  [31m _                  _ _       _    [32m__ _ _
+[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
+[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
+[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
+[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
+[0m    =========================================[32m/_/_/_/[0m
+
+	Version:        80834a401900e59e61639c3a452934910f3f279d-SNAPSHOT
+	Build:          831
+	Build time:     31.07.2019 13:28:26 CEST
+	Branch          master
+	Commit:         80834a4
+	Commit time:    31.07.2019 13:26:40 CEST
+	JVM:            12.0.2
+	Lavaplayer      1.3.19
+
+2019-08-13 13:44:07.511  INFO 10320 --- [main] o.s.boot.SpringApplication               :        .   _                  _ _       _    __ _ _
+      /\\ | | __ ___   ____ _| (_)_ __ | | __\ \ \ \
+     ( ( )| |/ _` \ \ / / _` | | | '_ \| |/ / \ \ \ \
+      \\/ | | (_| |\ V / (_| | | | | | |   <   ) ) ) )
+       '  |_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\ / / / /
+    =========================================/_/_/_/
+
+    :: Lavalink    ::       
+    :: Spring Boot ::        (v2.0.4.RELEASE)
+
+
+2019-08-13 13:44:07.749  INFO 10320 --- [main] lavalink.server.Launcher                 : Starting Launcher on DESKTOP-72QRN1H with PID 10320 (A:\Discord-Bot\cogs\Music\Lavalink-python\Lavalink.jar started by track in A:\Discord-Bot\cogs\Music\Lavalink-python)
+2019-08-13 13:44:07.752  INFO 10320 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2019-08-13 13:44:07.856  INFO 10320 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2ea6137: startup date [Tue Aug 13 13:44:07 PDT 2019]; root of context hierarchy
+2019-08-13 13:44:09.053  WARN 10320 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2019-08-13 13:44:15.817  INFO 10320 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2019-08-13 13:44:15.891  INFO 10320 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2019-08-13 13:44:16.303  WARN 10320 --- [main] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2019-08-13 13:44:16.322  WARN 10320 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2019-08-13 13:44:16.408  INFO 10320 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2019-08-13 13:44:16.410  INFO 10320 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8555 ms
+2019-08-13 13:44:16.605  INFO 10320 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-08-13 13:44:16.617  INFO 10320 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-08-13 13:44:16.627  INFO 10320 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-08-13 13:44:16.631  INFO 10320 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-08-13 13:44:16.638  INFO 10320 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-08-13 13:44:16.642  INFO 10320 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'responseHeaderFilter' to: [/*]
+2019-08-13 13:44:16.836  WARN 10320 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2019-08-13 13:44:17.032  INFO 10320 --- [main] l.s.c.AudioSendFactoryConfiguration      : OS: Windows 10, Arch: amd64
+2019-08-13 13:44:17.036  INFO 10320 --- [main] l.s.c.AudioSendFactoryConfiguration      : JDA-NAS supported system detected. Enabled native audio sending.
+2019-08-13 13:44:17.037  INFO 10320 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting buffer to 400ms
+2019-08-13 13:44:17.040  INFO 10320 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting playlist load limit to 6
+2019-08-13 13:44:19.407  INFO 10320 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-08-13 13:44:19.743  INFO 10320 --- [main] o.s.w.s.s.s.WebSocketHandlerMapping      : Root mapping to handler of type [class org.springframework.web.socket.server.support.WebSocketHttpRequestHandler]
+2019-08-13 13:44:20.480  INFO 10320 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-13 13:44:21.357  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2ea6137: startup date [Tue Aug 13 13:44:07 PDT 2019]; root of context hierarchy
+2019-08-13 13:44:21.756  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loadtracks],methods=[GET],produces=[application/json]}" onto public java.util.concurrent.CompletionStage<org.springframework.http.ResponseEntity<java.lang.String>> lavalink.server.player.AudioLoaderRestHandler.getLoadTracks(javax.servlet.http.HttpServletRequest,java.lang.String)
+2019-08-13 13:44:21.766  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetrack],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.getDecodeTrack(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
+2019-08-13 13:44:21.791  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetracks],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.postDecodeTracks(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
+2019-08-13 13:44:21.817  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/version],methods=[GET]}" onto public java.lang.String lavalink.server.info.InfoRestHandler.version()
+2019-08-13 13:44:21.847  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-08-13 13:44:21.853  INFO 10320 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-08-13 13:44:21.942  INFO 10320 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-13 13:44:21.945  INFO 10320 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-13 13:44:22.661  INFO 10320 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-08-13 13:44:22.684  INFO 10320 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2019-08-13 13:44:22.819  INFO 10320 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2019-08-13 13:44:22.834  INFO 10320 --- [main] lavalink.server.Launcher                 : Started Launcher in 17.02 seconds (JVM running for 18.938)
+2019-08-13 13:44:26.708  INFO 10320 --- [XNIO-2 task-1] io.undertow.servlet                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-08-13 13:44:26.712  INFO 10320 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-08-13 13:44:26.773  INFO 10320 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 59 ms
+2019-08-13 13:44:26.903  INFO 10320 --- [XNIO-2 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:62953
+2019-08-13 13:44:27.073  INFO 10320 --- [XNIO-2 task-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-08-13 13:44:27.091  INFO 10320 --- [XNIO-2 task-2] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
+2019-08-13 13:44:27.406  INFO 10320 --- [XNIO-2 task-1] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:62953
+2019-08-13 13:44:27.457  INFO 10320 --- [XNIO-2 I/O-1] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
+2019-08-13 13:44:27.465  INFO 10320 --- [XNIO-2 I/O-1] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "368751c1be3359ce0bbe483080b9bf8f", "event": {"token": "466558efbe8c4dd9", "guild_id": "591056236368363592", "endpoint": "us-west126.discord.media:80"}}
+2019-08-13 13:44:29.426  INFO 10320 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
+2019-08-13 13:44:29.726  INFO 10320 --- [XNIO-2 I/O-1] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAlQIAMFdoYXQncyBZb3VyIFRydWUgU3Bpcml0IEFuaW1hbD8gUGVyc29uYWxpdHkgVGVzdAALQlJJR0hUIFNJREUAAAAAAAnPuAALLUtHblJlMWYyREEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0tS0duUmUxZjJEQQAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
+2019-08-13 13:44:34.187  INFO 10320 --- [XNIO-2 I/O-1] lavalink.server.io.SocketServer          : {"op": "stop", "guildId": "591056236368363592"}
+2019-08-13 13:44:34.194  INFO 10320 --- [XNIO-2 I/O-1] lavalink.server.io.SocketServer          : {"op": "equalizer", "guildId": "591056236368363592", "bands": [{"band": 0, "gain": 0.0}, {"band": 1, "gain": 0.0}, {"band": 2, "gain": 0.0}, {"band": 3, "gain": 0.0}, {"band": 4, "gain": 0.0}, {"band": 5, "gain": 0.0}, {"band": 6, "gain": 0.0}, {"band": 7, "gain": 0.0}, {"band": 8, "gain": 0.0}, {"band": 9, "gain": 0.0}, {"band": 10, "gain": 0.0}, {"band": 11, "gain": 0.0}, {"band": 12, "gain": 0.0}, {"band": 13, "gain": 0.0}, {"band": 14, "gain": 0.0}]}
+2019-08-13 13:44:34.291  INFO 10320 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west126.discord.media/?v=4 closed with code 4014 and reason Disconnected.
+2019-08-13 13:44:34.296  INFO 10320 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Resuming
