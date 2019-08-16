@@ -54,7 +54,6 @@ class MinecraftBedrock(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.set_author(name=member)
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid Minecraft server and port number!\n— \n• Example: "
                                   "`l!mcbe play.wither.fun 18323`"
