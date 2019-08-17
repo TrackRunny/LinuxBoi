@@ -21,7 +21,7 @@ def read_token():
 @client.event
 async def on_ready():
     # change_status.start()
-    await client.change_presence(activity=discord.Activity(type=3, name="Linux videos! | l!help"))
+    await client.change_presence(activity=discord.Activity(type=3, name="Linux videos! | lt!help"))
     client.load_extension('jishaku')
     for filename in os.listdir('./cogs/Music'):
         if filename.endswith('.py'):
