@@ -35,7 +35,7 @@ class Currency(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.add_field(name="→ Currency to Bitcoin!",
+        embed.add_field(name="→ Currency converting!",
                         value=f"• {amount} {currency1} is about {amount2} {currency2}!")
         await ctx.send(embed=embed)
 
