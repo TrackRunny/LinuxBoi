@@ -24,7 +24,7 @@ class Help(commands.Cog):
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`," \
-                  " `l!bitcoin`, `l!tobtc`, `l!currency`" \
+                  " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                 `l!seek`, `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"
