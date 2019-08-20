@@ -1,7 +1,7 @@
 import discord
 import psutil
 from discord.ext import commands
-
+import os
 
 class Stats(commands.Cog):
 
@@ -22,12 +22,12 @@ class Stats(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-
         embed.set_author(name="• Server Stats")
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")
         embed.add_field(name="\n—", value="→ Shows info about the server in which the bot is running on! "
                                           "All values are accurate and updated each time the command is ran."
-                                          "\n → Python is one of my favorite programming languages :)" + "\n—")
+                                          "\n → Python is one of my favorite programming languages :)" +
+                                          "\n → Make sure to support free software!" + "\n—")
         embed.add_field(name="• Operating System:", inline=True, value=":computer: — Ubuntu 18.04 LTS")
         embed.add_field(name="• CPU Usage:", inline=True, value=":heavy_plus_sign: — " + cpu + " Percent used")
         embed.add_field(name="• RAM Usage:", inline=True,
@@ -38,7 +38,7 @@ class Stats(commands.Cog):
         embed.add_field(name="• GUILD Count:", inline=True, value=":house: — " + guilds + " connected guilds")
         embed.add_field(name="• LIBRARY Version:", inline=True, value=":gear: — Discord.py version 1.2.3")
         embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3" + "\n—")
-        embed.set_footer(text="• Made by TrackRunny#3900", icon_url="https://bit.ly/2SepdYi")
+        embed.set_footer(text="• Made by TrackRunny#3900", icon_url="https://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)
 

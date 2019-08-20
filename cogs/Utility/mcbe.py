@@ -49,7 +49,6 @@ class MinecraftBedrock(commands.Cog):
 
     @mcbe.error
     async def mcbe_error(self, ctx, error):
-        member = ctx.author
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
