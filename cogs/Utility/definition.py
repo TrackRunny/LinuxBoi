@@ -18,7 +18,7 @@ class Definition(commands.Cog):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.add_field(name="→ Invalid Argument!",
-                        value="• Please put in a valid option! Example: `l!word <random / word> [Word name]`")
+                        value="• Please put in a valid option! Example: `l!word <random / search> [Word name]`")
         await ctx.send(embed=embed)
 
     @word.command()

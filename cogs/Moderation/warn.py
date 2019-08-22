@@ -29,8 +29,8 @@ class Warn(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed2.set_author(name=f"{member} → You have been warned!")
-            embed2.add_field(name=f"• Moderator", value=f"{sender}")
-            embed2.add_field(name="• Reason", value=f"{reason}")
+            embed2.add_field(name=f"• Moderator", value=f"`{sender}`")
+            embed2.add_field(name="• Reason", value=f"`{reason}`")
             embed2.set_footer(text=f"Warning sent from: {ctx.guild}")
 
             await member.send(embed=embed2)
