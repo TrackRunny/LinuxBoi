@@ -10,10 +10,6 @@ class Dice(commands.Cog):
 
     @commands.command()
     async def dice(self, ctx, *, msg='1'):
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         dice_rolls = []
         dice_roll_ints = []
         try:

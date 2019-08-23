@@ -27,7 +27,7 @@ class Stats(commands.Cog):
         embed.add_field(name="\n—", value="→ Shows info about the server in which the bot is running on! "
                                           "All values are accurate and updated each time the command is ran."
                                           "\n → Python is one of my favorite programming languages :)" +
-                                          "\n → Make sure to support The free software movement!" +
+                                          "\n → Make sure to support The Free Software Movement!" +
                                           "\n → To view my commands run, `l!help`" + "\n—")
         embed.add_field(name="• Operating System:", inline=True, value=":computer: — Ubuntu 18.04 LTS")
         embed.add_field(name="• CPU Usage:", inline=True, value=":heavy_plus_sign: — " + cpu + " Percent used")
