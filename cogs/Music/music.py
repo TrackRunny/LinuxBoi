@@ -305,7 +305,7 @@ class Music(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ No queued items!",
-                            value=f"• Remove number have to be between 1 and{len(player.queue)}")
+                            value=f"• Your remove number needs to be between 1 and {len(player.queue)}")
             return await ctx.send(embed=embed)
         removed = player.queue.pop(index - 1)  # Account for 0-index.
 
