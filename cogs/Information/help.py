@@ -21,7 +21,7 @@ class Help(commands.Cog):
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!cat`"
+        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!cat`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
