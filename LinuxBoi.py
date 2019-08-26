@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands, tasks
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
-client = commands.Bot("lt!", owner_id=546812331213062144, case_insensitive=False)
+client = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)
 client.remove_command('help')
 status = cycle([f'Linux videos | l!help', 'FOSS software | l!help', 'Windows getting worse',
                 'Server members | l!help', 'Cryptocurrency | l!help', 'Linux getting popular'])
@@ -13,7 +13,7 @@ line_divide = "\n—————————————————————
 
 
 def read_token():
-    with open("LinuxBoi-testing.txt", "r") as f:
+    with open("token.txt", "r") as f:
         lines = f.readlines()
         return lines[0].strip()
 
