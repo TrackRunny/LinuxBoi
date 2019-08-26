@@ -37,9 +37,10 @@ class Stats(commands.Cog):
         embed.add_field(name="• BOOT Time: ", inline=True, value=":boot: — " + boot_time_round + " seconds")
         embed.add_field(name="• MEMBER Count:", inline=True, value=":bust_in_silhouette: — " + guild_members + " users")
         embed.add_field(name="• GUILD Count:", inline=True, value=":house: — " + guilds + " connected guilds")
+        embed.add_field(name="• UPTIME:", inline=True, value=":arrow_up: — 99.95%")
         embed.add_field(name="• LIBRARY Version:", inline=True, value=":gear: — Discord.py version 1.2.3")
-        embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3" + "\n—")
-        embed.set_footer(text="• Made by TrackRunny#3900", icon_url="https://i.imgur.com/ZwWigTq.png")
+        embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3")
+        embed.set_footer(text="\n\nMade by TrackRunny#3900", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)
 
