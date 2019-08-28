@@ -9,7 +9,7 @@ class Invite(commands.Cog):
 
     @commands.command()
     async def invite(self, ctx):
-        url = "(https://discordapp.com/api/oauth2/authorize?client_id=554841921185382400&permissions=8&scope=bot)"
+        url = "(http://bit.ly/2Zm5XyP)"
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )

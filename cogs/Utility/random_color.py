@@ -51,6 +51,7 @@ class RandomColor(commands.Cog):
         )
         embed.set_author(name='→ Random color')
         embed.set_thumbnail(url="https://www.script-tutorials.com/demos/315/images/colorwheel1.png")
+        embed.set_footer(text="— Note: CMYK, HSV, HSL Colors are converted from RGB.")
         embed.add_field(name='• HEX value:', inline=True, value=f"`#{hex_color}`")
         embed.add_field(name='• RGB value:', inline=True, value=f"`{rgb}`")
         embed.add_field(name='• CMYK value:', inline=True, value=f"`{rgb_to_cmyk()}`")
