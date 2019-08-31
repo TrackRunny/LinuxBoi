@@ -344,13 +344,14 @@ class Music(commands.Cog):
                             value=f"• Nothing was found in your search term!")
             return await ctx.send(embed=embed)
 
-        tracks = results['tracks'][:5]  # First 10 results
+        tracks = results['tracks'][:10]  # First 10 results
 
         o = ''
         for index, track in enumerate(tracks, start=1):
             track_title = track['info']['title']
             track_uri = track['info']['uri']
             o += f'`{index}.` [{track_title}]({track_uri})\n'
+
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )

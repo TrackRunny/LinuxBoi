@@ -13,7 +13,6 @@ class Definition(commands.Cog):
 
     @commands.group(invoke_without_command=True)
     async def word(self, ctx):
-        """-> Searches UD"""
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
