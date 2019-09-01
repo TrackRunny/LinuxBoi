@@ -21,11 +21,12 @@ class Help(commands.Cog):
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!cat`"
+        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`"
+        image = "`l!cat`, `l!dog`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                 `l!seek`, `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"
         # memes = "`l!meme`"
@@ -36,6 +37,7 @@ class Help(commands.Cog):
         embed.add_field(name="• Fun Commands!", inline=False, value=fun)
         # embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
+        embed.add_field(name="• Image Commands!", inline=False, value=image)
         embed.add_field(name="• Music Commands [BETA]!", inline=False, value=music)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 

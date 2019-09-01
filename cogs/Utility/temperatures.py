@@ -33,6 +33,7 @@ class Temperatures(commands.Cog):
         embed.add_field(name="→ Celsius to Fahrenheit", value=f"• Fahrenheit Temperature: `{int(fahrenheit)}`")
         await ctx.send(embed=embed)
 
+
 def setup(client):
     client.add_cog(Temperatures(client))
 

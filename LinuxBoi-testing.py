@@ -656,12 +656,11 @@ for filename in os.listdir('./cogs/Meme'):
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-"""
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.send(":facepalm: — Invalid command! Run `l!help` to see all commands.")
-"""
+
+for filename in os.listdir('./cogs/Images'):
+    if filename.endswith('.py'):
+        client.load_extension(f"cogs.Images.{filename[:-3]}")
+
 
 client.run(read_token())
 # client.run(read_token(), bot=False)
