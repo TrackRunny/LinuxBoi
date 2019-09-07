@@ -26,7 +26,7 @@ class Help(commands.Cog):
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`"
-        image = "`l!cat`, `l!dog`"
+        image = "`l!cat`, `l!dog`, `l!fox`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                 `l!seek`, `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"
         # memes = "`l!meme`"
