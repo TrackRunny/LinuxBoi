@@ -23,7 +23,7 @@ class Help(commands.Cog):
         information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
         fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
-                  "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!randomcolor`," \
+                  "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`"
         image = "`l!cat`, `l!dog`, `l!fox`"
