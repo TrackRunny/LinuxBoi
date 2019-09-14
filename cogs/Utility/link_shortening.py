@@ -8,7 +8,7 @@ class Link(commands.Cog):
         self.client = client
 
     @commands.command(aliases=["shortenlink"])
-    @commands.cooldown(rate=1, per=180, type=commands.BucketType.user)
+    @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
     async def shorten_link(self, ctx, *, link):
         try:
             api_user = "o_7glko5e1qn"
@@ -52,7 +52,7 @@ class Link(commands.Cog):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Slow down!", value="• You can only shorten a link every 3 minutes!")
+            embed.add_field(name="→ Slow down!", value="• You can only shorten a link every 10 seconds!")
 
             await ctx.send(embed=embed)
 
