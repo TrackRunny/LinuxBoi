@@ -21,7 +21,7 @@ class Password(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Password Error!",
-                            value=f"• Please put in a password that is bigger than 9 characters.")
+                            value=f"• Password length must be at least 9 characters.")
             await ctx.send(embed=embed)
         elif int(character_length) <= int("120"):
             password = strgen.StringGenerator(f"[\w\d\p]{{{int(character_length)}}}").render()
