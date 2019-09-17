@@ -16,7 +16,7 @@ class Password(commands.Cog):
             embed.add_field(name="→ Password Error!",
                             value=f"• Please put in a value equal to or less than 120 characters.")
             await ctx.send(embed=embed)
-        elif int(character_length) < int("10"):
+        elif int(character_length) < int("9"):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
