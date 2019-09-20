@@ -29,7 +29,7 @@ class ToBitcoin(commands.Cog):
             embed.add_field(name="→ Currency error!",
                             value="• Not a valid currency!"
                                   "\n• Example: `l!tobtc 10 CAD`"
-                                  "\n• Pro tip: `If you use USD currency you only have to put the amount!`")
+                                  "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
             return await ctx.send(embed=embed)
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
@@ -45,7 +45,8 @@ class ToBitcoin(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!tobtc 10 CAD`")
+                            value="• Please put in a valid option! Example: `l!tobtc 10 CAD`"
+                                  "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
             await ctx.send(embed=embed)
 
 
