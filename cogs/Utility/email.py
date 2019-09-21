@@ -1,6 +1,6 @@
 import smtplib
 from email.message import EmailMessage
-
+import os
 import discord
 from discord.ext import commands
 
@@ -13,8 +13,8 @@ class Email(commands.Cog):
     @commands.command()
     @commands.cooldown(rate=1, per=1800, type=commands.BucketType.user)
     async def email(self, ctx, emailto, subject, *, content):
-        email = 'linuxboi.discordbot@gmail.com'  # Your email
-        password = 'tJhIPc9Qfzipr537yfrJnVI#gH^mk&go%E8gf6!aB7Y$xBAs2Ua8eYPm9DjQg9Y74v4P%V2mhIQtXkSfuwP!gyW^r%n5IIQ#*I5h'
+        email = os.environ.get("email")  # Your email
+        password = os.environ.get("email_password")
 
         msg = EmailMessage()
         msg['Subject'] = subject

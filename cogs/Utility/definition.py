@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands
 import asyncurban
-import asyncio
-import aiohttp
 
 u = asyncurban.UrbanDictionary()
 

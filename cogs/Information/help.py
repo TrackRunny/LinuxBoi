@@ -25,7 +25,7 @@ class Help(commands.Cog):
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
-                  "`l!word random`, `l!word search`, `l!password`"
+                  "`l!word random`, `l!word search`, `l!password`, `l!ip`"
         image = "`l!cat`, `l!dog`, `l!fox`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                 `l!seek`, `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"

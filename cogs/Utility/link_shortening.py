@@ -1,9 +1,11 @@
 import bitly_api
 import discord
+import os
 from discord.ext import commands
 
 
 class Link(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 
@@ -11,8 +13,8 @@ class Link(commands.Cog):
     @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
     async def shorten_link(self, ctx, *, link):
         try:
-            api_user = "o_7glko5e1qn"
-            api_key = "R_9fed4e3c0fe74d028203d90b1e8d101f"
+            api_user = os.environ.get("bitly_user")
+            api_key = os.environ.get("bitly_key")
 
             b = bitly_api.Connection(api_user, api_key)
 
