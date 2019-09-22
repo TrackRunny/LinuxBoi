@@ -22,6 +22,7 @@ class IpAddress(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.set_author(name="→ IP Address lookup")
+            embed.set_footer(text="— Note: Locations and Latitude & Longitude may not be 100% accurate.")
             embed.add_field(name="• IP Address:", value=info["ip"])
             if not len(info["latitude"]) and not len(info["longitude"]):
                 embed.add_field(name="• Latitude & Longitude", value="Latitude & Longitude not found!")

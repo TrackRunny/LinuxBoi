@@ -12,7 +12,7 @@ valid = "TrackRunny#3900"
 line_divide = "\n———————————————————————————————"
 
 
-token = os.environ.get('linuxboi_testing_token')
+linuxboi_testing_token = os.environ.get('linuxboi_testing_token')
 
 
 @client.event
@@ -751,5 +751,5 @@ for filename in os.listdir('./cogs/Images'):
         client.load_extension(f"cogs.Images.{filename[:-3]}")
 
 
-client.run(token)
+client.run(linuxboi_testing_token)
 # client.run(read_token(), bot=False)
