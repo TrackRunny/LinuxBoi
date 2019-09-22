@@ -1,6 +1,6 @@
 import os
-from itertools import cycle
 import discord
+from itertools import cycle
 from discord.ext import commands, tasks
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
@@ -12,10 +12,7 @@ valid = "TrackRunny#3900"
 line_divide = "\n———————————————————————————————"
 
 
-def read_token():
-    with open("LinuxBoi-testing.txt", "r") as f:
-        lines = f.readlines()
-        return lines[0].strip()
+token = os.environ.get('linuxboi_testing_token')
 
 
 @client.event
@@ -754,5 +751,5 @@ for filename in os.listdir('./cogs/Images'):
         client.load_extension(f"cogs.Images.{filename[:-3]}")
 
 
-client.run(read_token())
+client.run(token)
 # client.run(read_token(), bot=False)
