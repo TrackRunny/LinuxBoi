@@ -32,15 +32,15 @@ class Serverinfo(commands.Cog):
         }
         verifications = {
             "none": "⚪ — No Verification",
-            "low": "🟢 — Low Verification",
-            "medium": "🟠 — Medium Verification",
-            "high": "🔴 — High Verification",
-            "extreme": "⚫ — Extreme Verification",
+            "low": "<:green_circle:625541294525251643> — Low Verification",
+            "medium": "<:yellow_circle:625540435820937225> — Medium Verification",
+            "high": "<:orange_circle:625542217100165135> — High Verification",
+            "extreme": "🔴 — Extreme Verification",
         }
-        embed.set_author(name="• Server Info → " + str(guild.name))
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
-        embed.add_field(name="—", value="→ Shows all information about a guild. The information will be listed below!"
-                                        "\n —")
+        embed.add_field(name="• Server Info → " + str(guild.name), value="—"
+                                                "\n→ Shows all information about a guild. The information will be listed below!"
+                                                "\n —")
         embed.add_field(name="• Guild name: ", value=str(guild.name))
         embed.add_field(name="• Guild ID: ", value=str(guild.id))
         embed.add_field(name="• Guild owner: ", value=guild.owner)
