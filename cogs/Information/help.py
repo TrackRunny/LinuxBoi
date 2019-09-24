@@ -28,7 +28,7 @@ class Help(commands.Cog):
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`"
         image = "`l!cat`, `l!dog`, `l!fox`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
-                `l!seek`, `l!shuffle`, `l!loop`, `l!find`, `l!stop`, `l!disconnect`"
+                `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         # memes = "`l!meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 

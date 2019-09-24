@@ -31,11 +31,11 @@ class Serverinfo(commands.Cog):
             "hongkong": ":flag_hk: — Hong Kong",
         }
         verifications = {
-            "none": "⚪ — No Verification",
+            "none": "<:white__circle:625695417782239234> — No Verification",
             "low": "<:green_circle:625541294525251643> — Low Verification",
             "medium": "<:yellow_circle:625540435820937225> — Medium Verification",
             "high": "<:orange_circle:625542217100165135> — High Verification",
-            "extreme": "🔴 — Extreme Verification",
+            "extreme": "<:red__circle:625833379258040330> — Extreme Verification"
         }
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
         embed.add_field(name="• Server Info → " + str(guild.name), value="—"
