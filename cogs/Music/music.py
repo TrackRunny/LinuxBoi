@@ -79,7 +79,12 @@ class Music(commands.Cog):
         song = f'**[{player.current.title}]({player.current.uri})**\n({position}/{duration})'
         """
         if not results or not results['tracks']:
-            return await ctx.send('Nothing found!')
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Playing error!",
+                            value="• The query you searched for was not found.")
+            return await ctx.send(embed=embed)
 
         if results['loadType'] == 'PLAYLIST_LOADED':
             tracks = results['tracks']
@@ -326,8 +331,8 @@ class Music(commands.Cog):
                             value="• Please put a valid option! Example: `l!remove 1`")
             await ctx.send(embed=embed)
 
-    @commands.command()
-    async def find(self, ctx, *, query):
+    @commands.command(aliases=["find"])
+    async def search(self, ctx, *, query):
         """ Lists the first 10 search results from a given query. """
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
@@ -359,7 +364,7 @@ class Music(commands.Cog):
                         value=f"{o}")
         await ctx.send(embed=embed)
 
-    @find.error
+    @search.error
     async def find_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
@@ -421,7 +426,7 @@ class Music(commands.Cog):
                     color=discord.Color.from_rgb(241, 90, 36)
                 )
                 embed.add_field(name="→ Voice channel error!",
-                                value="• I am not connected to a voice chat!")
+                                value="• I am not connected to a voice channel!")
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
             permissions = ctx.author.voice.channel.permissions_for(ctx.me)
