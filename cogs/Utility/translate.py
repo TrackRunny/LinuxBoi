@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from mtranslate import translate
 import aiogoogletrans
 
 t = aiogoogletrans.Translator()

@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 
+
 b = BtcConverter()
 
 

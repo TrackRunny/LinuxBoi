@@ -13,7 +13,6 @@ class Userinfo(commands.Cog):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         roles = [role for role in member.roles]
-        sender = ctx.author
         embed.set_author(name="• Userinfo → " + str(member))
         embed.set_thumbnail(url=member.avatar_url_as(size=4096, format="png"))
         embed.add_field(name="—", value="→ Shows all information about a user. The information will be listed below!"
