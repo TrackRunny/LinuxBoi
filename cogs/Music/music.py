@@ -245,16 +245,25 @@ class Music(commands.Cog):
             await ctx.send(embed=embed)
 
     @commands.command(aliases=['vol'])
-    @commands.is_owner()
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not volume:
-            return await ctx.send(f'🔈 | {player.volume}%')
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Current Volume!", value=f"• Volume: {player.volume}%")
+            return await ctx.send(embed=embed)
 
         await player.set_volume(volume)  # Lavalink will automatically cap values between, or equal to 0-1000.
-        await ctx.send(f'🔈 | Set to {player.volume}%')
+
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Volume Updated!", value=f"• Volume set to: {player.volume}%")
+
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def shuffle(self, ctx):

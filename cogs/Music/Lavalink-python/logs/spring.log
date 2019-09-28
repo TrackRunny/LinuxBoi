@@ -1,4 +1,4 @@
-2019-08-30 21:47:46.409  INFO 17560 --- [main] lavalink.server.Launcher                 : 
+2019-09-27 07:04:04.851  INFO 13500 --- [main] lavalink.server.Launcher                 : 
 
 [32m       .  [31m _                  _ _       _    [32m__ _ _
 [32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
@@ -16,7 +16,7 @@
 	JVM:            1.8.0_222
 	Lavaplayer      1.3.19
 
-2019-08-30 21:47:46.684  INFO 17560 --- [main] o.s.boot.SpringApplication               : [32m       .  [31m _                  _ _       _    [32m__ _ _
+2019-09-27 07:04:05.186  INFO 13500 --- [main] o.s.boot.SpringApplication               : [32m       .  [31m _                  _ _       _    [32m__ _ _
 [32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
 [32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
 [32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
@@ -27,76 +27,74 @@
 [32m    :: Spring Boot :: [39m       (v2.0.4.RELEASE)
 
 
-2019-08-30 21:47:47.072  INFO 17560 --- [main] lavalink.server.Launcher                 : Starting Launcher on trackrunny-PC with PID 17560 (/home/trackrunny/Desktop/Imporant Items/Discord-Bot/cogs/Music/Lavalink-python/Lavalink.jar started by trackrunny in /home/trackrunny/Desktop/Imporant Items/Discord-Bot/cogs/Music/Lavalink-python)
-2019-08-30 21:47:47.074  INFO 17560 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2019-08-30 21:47:47.322  INFO 17560 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Aug 30 21:47:47 PDT 2019]; root of context hierarchy
-2019-08-30 21:47:47.400  WARN 17560 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2019-08-30 21:47:50.947  INFO 17560 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2019-08-30 21:47:51.001  INFO 17560 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2019-08-30 21:47:51.268  WARN 17560 --- [main] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
-2019-08-30 21:47:51.269  WARN 17560 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2019-08-30 21:47:51.344  INFO 17560 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2019-08-30 21:47:51.344  INFO 17560 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4022 ms
-2019-08-30 21:47:51.677  INFO 17560 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2019-08-30 21:47:51.705  INFO 17560 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2019-08-30 21:47:51.710  INFO 17560 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2019-08-30 21:47:51.710  INFO 17560 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2019-08-30 21:47:51.710  INFO 17560 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2019-08-30 21:47:51.710  INFO 17560 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'responseHeaderFilter' to: [/*]
-2019-08-30 21:47:51.902  WARN 17560 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2019-08-30 21:47:51.934  INFO 17560 --- [main] l.s.c.AudioSendFactoryConfiguration      : OS: Linux, Arch: amd64
-2019-08-30 21:47:51.934  INFO 17560 --- [main] l.s.c.AudioSendFactoryConfiguration      : JDA-NAS supported system detected. Enabled native audio sending.
-2019-08-30 21:47:51.935  INFO 17560 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting buffer to 400ms
-2019-08-30 21:47:51.935  INFO 17560 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting playlist load limit to 6
-2019-08-30 21:47:53.550  INFO 17560 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 21:47:53.829  INFO 17560 --- [main] o.s.w.s.s.s.WebSocketHandlerMapping      : Root mapping to handler of type [class org.springframework.web.socket.server.support.WebSocketHttpRequestHandler]
-2019-08-30 21:47:54.485  INFO 17560 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2019-08-30 21:47:55.006  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Aug 30 21:47:47 PDT 2019]; root of context hierarchy
-2019-08-30 21:47:55.325  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loadtracks],methods=[GET],produces=[application/json]}" onto public java.util.concurrent.CompletionStage<org.springframework.http.ResponseEntity<java.lang.String>> lavalink.server.player.AudioLoaderRestHandler.getLoadTracks(javax.servlet.http.HttpServletRequest,java.lang.String)
-2019-08-30 21:47:55.327  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetrack],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.getDecodeTrack(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
-2019-08-30 21:47:55.329  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetracks],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.postDecodeTracks(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
-2019-08-30 21:47:55.333  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/version],methods=[GET]}" onto public java.lang.String lavalink.server.info.InfoRestHandler.version()
-2019-08-30 21:47:55.350  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2019-08-30 21:47:55.353  INFO 17560 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2019-08-30 21:47:55.441  INFO 17560 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2019-08-30 21:47:55.444  INFO 17560 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2019-08-30 21:47:56.117  INFO 17560 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2019-08-30 21:47:56.132  INFO 17560 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
-2019-08-30 21:47:56.308  INFO 17560 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
-2019-08-30 21:47:56.315  INFO 17560 --- [main] lavalink.server.Launcher                 : Started Launcher in 10.558 seconds (JVM running for 11.862)
-2019-08-30 21:48:04.959  INFO 17560 --- [XNIO-2 task-1] io.undertow.servlet                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2019-08-30 21:48:04.960  INFO 17560 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
-2019-08-30 21:48:04.994  INFO 17560 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 34 ms
-2019-08-30 21:48:05.040  INFO 17560 --- [XNIO-2 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59730
-2019-08-30 21:48:05.151  INFO 17560 --- [XNIO-2 task-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 21:48:05.309  INFO 17560 --- [XNIO-2 task-1] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:59730
-2019-08-30 21:48:05.359  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 21:48:06.904  INFO 17560 --- [XNIO-2 task-2] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
-2019-08-30 21:48:06.995  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "c78b05f406f37e39d6b0951c2bd86bd9", "event": {"token": "9e2a416d13b1c2d5", "guild_id": "591056236368363592", "endpoint": "us-west489.discord.gg:80"}}
-2019-08-30 21:48:08.686  INFO 17560 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
-2019-08-30 21:48:08.952  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAjwIAK1Rlc3RpbmcgaWYgU2hhcmtzIENhbiBTbWVsbCBhIERyb3Agb2YgQmxvb2QACk1hcmsgUm9iZXIAAAAAAA5EWAALdWdSYzVqeDgweWcAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj11Z1JjNWp4ODB5ZwAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
-2019-08-30 21:48:15.828  INFO 17560 --- [XNIO-2 task-4] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
-2019-08-30 21:48:16.422  INFO 17560 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
-2019-08-30 21:48:50.378  INFO 17560 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west489.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
-2019-08-30 21:48:50.379  INFO 17560 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Resuming
-2019-08-30 21:50:09.662  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59730 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 21:50:14.710  INFO 17560 --- [XNIO-2 task-6] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60180
-2019-08-30 21:50:14.713  INFO 17560 --- [XNIO-2 task-6] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 21:50:14.718  INFO 17560 --- [XNIO-2 task-6] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:60180
-2019-08-30 21:50:14.719  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 21:50:16.750  INFO 17560 --- [XNIO-2 task-7] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
-2019-08-30 21:50:16.900  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "77202bf472eaca6457a7fc99044ec81e", "event": {"token": "0276ff4957b02634", "guild_id": "591056236368363592", "endpoint": "us-west489.discord.gg:80"}}
-2019-08-30 21:50:17.529  INFO 17560 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
-2019-08-30 21:50:17.839  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAjwIAK1Rlc3RpbmcgaWYgU2hhcmtzIENhbiBTbWVsbCBhIERyb3Agb2YgQmxvb2QACk1hcmsgUm9iZXIAAAAAAA5EWAALdWdSYzVqeDgweWcAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj11Z1JjNWp4ODB5ZwAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
-2019-08-30 21:50:23.874  INFO 17560 --- [XNIO-2 task-9] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
-2019-08-30 21:50:24.636  INFO 17560 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
-2019-08-30 21:50:46.442  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "stop", "guildId": "591056236368363592"}
-2019-08-30 21:50:46.445  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "equalizer", "guildId": "591056236368363592", "bands": [{"band": 0, "gain": 0.0}, {"band": 1, "gain": 0.0}, {"band": 2, "gain": 0.0}, {"band": 3, "gain": 0.0}, {"band": 4, "gain": 0.0}, {"band": 5, "gain": 0.0}, {"band": 6, "gain": 0.0}, {"band": 7, "gain": 0.0}, {"band": 8, "gain": 0.0}, {"band": 9, "gain": 0.0}, {"band": 10, "gain": 0.0}, {"band": 11, "gain": 0.0}, {"band": 12, "gain": 0.0}, {"band": 13, "gain": 0.0}, {"band": 14, "gain": 0.0}]}
-2019-08-30 21:50:46.534  INFO 17560 --- [parallel-1] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west489.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
-2019-08-30 21:50:46.534  INFO 17560 --- [parallel-1] s.n.magma.connections.AudioWebSocket     : Resuming
-2019-08-30 21:51:09.664  INFO 17560 --- [pool-3-thread-1] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
-2019-08-30 21:51:09.665  INFO 17560 --- [pool-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 21:51:09.676  WARN 17560 --- [lava-daemon-pool-playback-5-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of ugRc5jx80yg
+2019-09-27 07:04:05.521  INFO 13500 --- [main] lavalink.server.Launcher                 : Starting Launcher on trackrunny-PC with PID 13500 (/home/trackrunny/Desktop/Imporant Items/Discord-Bot/cogs/Music/Lavalink-python/Lavalink.jar started by trackrunny in /home/trackrunny/Desktop/Imporant Items/Discord-Bot/cogs/Music/Lavalink-python)
+2019-09-27 07:04:05.535  INFO 13500 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
+2019-09-27 07:04:05.803  WARN 13500 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2019-09-27 07:04:05.866  INFO 13500 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Sep 27 07:04:05 PDT 2019]; root of context hierarchy
+2019-09-27 07:04:09.514  INFO 13500 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2019-09-27 07:04:09.562  INFO 13500 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2019-09-27 07:04:09.792  WARN 13500 --- [main] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2019-09-27 07:04:09.793  WARN 13500 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2019-09-27 07:04:09.844  INFO 13500 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2019-09-27 07:04:09.844  INFO 13500 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3978 ms
+2019-09-27 07:04:09.999  INFO 13500 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-09-27 07:04:10.015  INFO 13500 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-09-27 07:04:10.017  INFO 13500 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-09-27 07:04:10.017  INFO 13500 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-09-27 07:04:10.017  INFO 13500 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-09-27 07:04:10.018  INFO 13500 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'responseHeaderFilter' to: [/*]
+2019-09-27 07:04:10.208  WARN 13500 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
+2019-09-27 07:04:10.234  INFO 13500 --- [main] l.s.c.AudioSendFactoryConfiguration      : OS: Linux, Arch: amd64
+2019-09-27 07:04:10.235  INFO 13500 --- [main] l.s.c.AudioSendFactoryConfiguration      : JDA-NAS supported system detected. Enabled native audio sending.
+2019-09-27 07:04:10.242  INFO 13500 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting buffer to 400ms
+2019-09-27 07:04:10.242  INFO 13500 --- [main] l.s.c.AudioSendFactoryConfiguration      : Setting playlist load limit to 6
+2019-09-27 07:04:11.386  INFO 13500 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-09-27 07:04:11.603  INFO 13500 --- [main] o.s.w.s.s.s.WebSocketHandlerMapping      : Root mapping to handler of type [class org.springframework.web.socket.server.support.WebSocketHttpRequestHandler]
+2019-09-27 07:04:12.003  INFO 13500 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-09-27 07:04:12.721  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Sep 27 07:04:05 PDT 2019]; root of context hierarchy
+2019-09-27 07:04:13.049  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loadtracks],methods=[GET],produces=[application/json]}" onto public java.util.concurrent.CompletionStage<org.springframework.http.ResponseEntity<java.lang.String>> lavalink.server.player.AudioLoaderRestHandler.getLoadTracks(javax.servlet.http.HttpServletRequest,java.lang.String)
+2019-09-27 07:04:13.056  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetrack],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.getDecodeTrack(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
+2019-09-27 07:04:13.060  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/decodetracks],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.String> lavalink.server.player.AudioLoaderRestHandler.postDecodeTracks(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.io.IOException
+2019-09-27 07:04:13.064  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/version],methods=[GET]}" onto public java.lang.String lavalink.server.info.InfoRestHandler.version()
+2019-09-27 07:04:13.089  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-09-27 07:04:13.096  INFO 13500 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-09-27 07:04:13.188  INFO 13500 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-09-27 07:04:13.190  INFO 13500 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-09-27 07:04:13.772  INFO 13500 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-09-27 07:04:13.787  INFO 13500 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2019-09-27 07:04:13.891  INFO 13500 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
+2019-09-27 07:04:13.896  INFO 13500 --- [main] lavalink.server.Launcher                 : Started Launcher in 9.955 seconds (JVM running for 11.184)
+2019-09-27 07:04:17.488  INFO 13500 --- [XNIO-2 task-1] io.undertow.servlet                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-09-27 07:04:17.489  INFO 13500 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-09-27 07:04:17.549  INFO 13500 --- [XNIO-2 task-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 59 ms
+2019-09-27 07:04:17.617  INFO 13500 --- [XNIO-2 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54162
+2019-09-27 07:04:17.824  INFO 13500 --- [XNIO-2 task-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-09-27 07:04:18.047  INFO 13500 --- [XNIO-2 task-1] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:54162
+2019-09-27 07:04:18.105  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
+2019-09-27 07:04:50.054  INFO 13500 --- [XNIO-2 task-2] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
+2019-09-27 07:04:50.193  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "5336e3203fb465fe87f76c1734045f27", "event": {"token": "101d374b0757064c", "guild_id": "591056236368363592", "endpoint": "us-west849.discord.gg:80"}}
+2019-09-27 07:04:51.521  INFO 13500 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
+2019-09-27 07:04:51.904  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAlQIAMFdoYXQncyBZb3VyIFRydWUgU3Bpcml0IEFuaW1hbD8gUGVyc29uYWxpdHkgVGVzdAALQlJJR0hUIFNJREUAAAAAAAnPuAALLUtHblJlMWYyREEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0tS0duUmUxZjJEQQAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
+2019-09-27 07:05:01.411  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 10}
+2019-09-27 07:05:01.445  INFO 13500 --- [lava-daemon-pool-playback-5-thread-1] c.s.l.c.natives.NativeLibraryLoader      : Native library libmpg123-0: loading with filter com.sedmelluq.discord.lavaplayer.natives.ConnectorNativeLibLoader$$Lambda$498/1547674528@13a46d17
+2019-09-27 07:05:01.448  INFO 13500 --- [lava-daemon-pool-playback-5-thread-1] c.s.l.c.natives.NativeLibraryLoader      : Native library connector: loading with filter null
+2019-09-27 07:05:01.486  INFO 13500 --- [lava-daemon-pool-playback-5-thread-1] c.s.l.c.natives.NativeLibraryLoader      : Native library connector: successfully loaded.
+2019-09-27 07:05:38.962  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 50}
+2019-09-27 07:06:01.245  INFO 13500 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54162 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
+2019-09-27 07:06:04.846  INFO 13500 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west849.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
+2019-09-27 07:06:04.847  INFO 13500 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Resuming
+2019-09-27 07:06:05.882  INFO 13500 --- [XNIO-2 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54488
+2019-09-27 07:06:05.885  INFO 13500 --- [XNIO-2 task-4] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-09-27 07:06:05.898  INFO 13500 --- [XNIO-2 task-4] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:54488
+2019-09-27 07:06:05.900  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
+2019-09-27 07:06:11.196  INFO 13500 --- [XNIO-2 task-5] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
+2019-09-27 07:06:11.383  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "7c1ad0276e8e871d57012ed5f47da81b", "event": {"token": "c3dd20377da4062c", "guild_id": "591056236368363592", "endpoint": "us-west849.discord.gg:80"}}
+2019-09-27 07:06:11.857  INFO 13500 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
+2019-09-27 07:06:12.065  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAlQIAMFdoYXQncyBZb3VyIFRydWUgU3Bpcml0IEFuaW1hbD8gUGVyc29uYWxpdHkgVGVzdAALQlJJR0hUIFNJREUAAAAAAAnPuAALLUtHblJlMWYyREEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0tS0duUmUxZjJEQQAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
+2019-09-27 07:06:16.925  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 10}
+2019-09-27 07:07:01.248  INFO 13500 --- [pool-3-thread-1] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2019-09-27 07:07:01.249  INFO 13500 --- [pool-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2019-09-27 07:07:01.260  WARN 13500 --- [lava-daemon-pool-playback-5-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of -KGnRe1f2DA
 
 com.sedmelluq.discord.lavaplayer.tools.FriendlyException: The track was unexpectedly terminated.
 	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.handlePlaybackInterrupt(LocalAudioTrackExecutor.java:323) ~[lavaplayer-1.3.19.jar!/:na]
@@ -115,8 +113,13 @@ Caused by: java.lang.InterruptedException: null
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2048) ~[na:1.8.0_222]
 	at java.util.concurrent.ArrayBlockingQueue.put(ArrayBlockingQueue.java:353) ~[na:1.8.0_222]
 	at com.sedmelluq.discord.lavaplayer.track.playback.AllocatingAudioFrameBuffer.consume(AllocatingAudioFrameBuffer.java:179) ~[lavaplayer-1.3.19.jar!/:na]
-	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passThrough(OpusPacketRouter.java:164) ~[lavaplayer-1.3.19.jar!/:na]
-	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:96) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.BufferingPostProcessor.process(BufferingPostProcessor.java:41) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.FinalPcmAudioFilter.dispatch(FinalPcmAudioFilter.java:158) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.FinalPcmAudioFilter.process(FinalPcmAudioFilter.java:130) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.UserProvidedAudioFilters.process(UserProvidedAudioFilters.java:77) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.AudioPipeline.process(AudioPipeline.java:33) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passDownstream(OpusPacketRouter.java:157) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:94) ~[lavaplayer-1.3.19.jar!/:na]
 	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaOpusTrackConsumer.consume(MatroskaOpusTrackConsumer.java:47) ~[lavaplayer-1.3.19.jar!/:na]
 	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.processFrameInBlock(MatroskaStreamingFile.java:372) ~[lavaplayer-1.3.19.jar!/:na]
 	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseClusterSimpleBlock(MatroskaStreamingFile.java:336) ~[lavaplayer-1.3.19.jar!/:na]
@@ -126,65 +129,78 @@ Caused by: java.lang.InterruptedException: null
 	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:257) ~[lavaplayer-1.3.19.jar!/:na]
 	... 9 common frames omitted
 
-2019-08-30 21:54:22.600  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60180 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 21:55:22.600  INFO 17560 --- [pool-6-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 21:55:22.601  INFO 17560 --- [pool-6-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:12:53.199  INFO 17560 --- [XNIO-2 task-11] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:37204
-2019-08-30 22:12:53.203  INFO 17560 --- [XNIO-2 task-11] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:12:53.211  INFO 17560 --- [XNIO-2 task-11] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:37204
-2019-08-30 22:12:53.212  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:13:17.203  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:37204 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:13:20.819  INFO 17560 --- [XNIO-2 task-12] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:37334
-2019-08-30 22:13:20.823  INFO 17560 --- [XNIO-2 task-12] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:13:20.825  INFO 17560 --- [XNIO-2 task-12] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:37334
-2019-08-30 22:13:20.827  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:14:08.322  WARN 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Shutdown resumable session with key default-node because it has the same key as a newly disconnected resumable session.
-2019-08-30 22:14:08.327  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:14:08.327  INFO 17560 --- [XNIO-2 I/O-2] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:14:08.328  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:37334 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:14:12.848  INFO 17560 --- [XNIO-2 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:37510
-2019-08-30 22:14:12.851  INFO 17560 --- [XNIO-2 task-13] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:14:12.856  INFO 17560 --- [XNIO-2 task-13] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:37510
-2019-08-30 22:14:12.866  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:14:17.203  INFO 17560 --- [pool-7-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:14:28.519  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:37510 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:14:32.019  INFO 17560 --- [XNIO-2 task-14] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:37578
-2019-08-30 22:14:32.022  INFO 17560 --- [XNIO-2 task-14] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:14:32.025  INFO 17560 --- [XNIO-2 task-14] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:37578
-2019-08-30 22:14:32.027  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:15:08.328  INFO 17560 --- [pool-8-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:15:08.329  INFO 17560 --- [pool-8-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:15:28.519  INFO 17560 --- [pool-9-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:15:28.520  INFO 17560 --- [pool-9-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:19:26.119  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:37578 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:19:30.025  INFO 17560 --- [XNIO-2 task-15] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:38662
-2019-08-30 22:19:30.028  INFO 17560 --- [XNIO-2 task-15] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:19:30.031  INFO 17560 --- [XNIO-2 task-15] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:38662
-2019-08-30 22:19:30.043  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:20:03.577  WARN 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Shutdown resumable session with key default-node because it has the same key as a newly disconnected resumable session.
-2019-08-30 22:20:03.578  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:20:03.578  INFO 17560 --- [XNIO-2 I/O-2] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:20:03.579  INFO 17560 --- [XNIO-2 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:38662 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:20:06.935  INFO 17560 --- [XNIO-2 task-16] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:38812
-2019-08-30 22:20:06.938  INFO 17560 --- [XNIO-2 task-16] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:20:06.946  INFO 17560 --- [XNIO-2 task-16] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:38812
-2019-08-30 22:20:06.947  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:20:26.119  INFO 17560 --- [pool-10-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:20:34.260  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:38812 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
-2019-08-30 22:20:37.838  INFO 17560 --- [XNIO-2 task-17] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:38932
-2019-08-30 22:20:37.842  INFO 17560 --- [XNIO-2 task-17] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2019-08-30 22:20:37.847  INFO 17560 --- [XNIO-2 task-17] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:38932
-2019-08-30 22:20:37.848  INFO 17560 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
-2019-08-30 22:21:03.579  INFO 17560 --- [pool-11-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:21:03.580  INFO 17560 --- [pool-11-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:21:34.261  INFO 17560 --- [pool-12-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2019-08-30 22:21:34.261  INFO 17560 --- [pool-12-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:21:53.058  INFO 17560 --- [Thread-2] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Aug 30 21:47:47 PDT 2019]; root of context hierarchy
-2019-08-30 22:21:53.063  INFO 17560 --- [Thread-2] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
-2019-08-30 22:21:53.065  INFO 17560 --- [Thread-2] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
-2019-08-30 22:21:53.068  INFO 17560 --- [Thread-2] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2019-08-30 22:21:53.071  INFO 17560 --- [Thread-2] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2019-08-30 22:21:53.079 ERROR 17560 --- [XNIO-2 I/O-4] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
+2019-09-27 07:07:27.309  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54488 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
+2019-09-27 07:07:31.526  INFO 13500 --- [XNIO-2 task-7] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54776
+2019-09-27 07:07:31.530  INFO 13500 --- [XNIO-2 task-7] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-09-27 07:07:31.540  INFO 13500 --- [XNIO-2 task-7] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:54776
+2019-09-27 07:07:31.544  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
+2019-09-27 07:07:33.435  INFO 13500 --- [parallel-1] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west849.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
+2019-09-27 07:07:33.435  INFO 13500 --- [parallel-1] s.n.magma.connections.AudioWebSocket     : Resuming
+2019-09-27 07:07:38.643  INFO 13500 --- [XNIO-2 task-8] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
+2019-09-27 07:07:38.828  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "1bf16daa2cb5c4c4ddf3ce8b8c375bc9", "event": {"token": "238a5a876bd34618", "guild_id": "591056236368363592", "endpoint": "us-west849.discord.gg:80"}}
+2019-09-27 07:07:39.302  INFO 13500 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
+2019-09-27 07:07:39.481  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAlQIAMFdoYXQncyBZb3VyIFRydWUgU3Bpcml0IEFuaW1hbD8gUGVyc29uYWxpdHkgVGVzdAALQlJJR0hUIFNJREUAAAAAAAnPuAALLUtHblJlMWYyREEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0tS0duUmUxZjJEQQAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
+2019-09-27 07:07:43.164  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 10}
+2019-09-27 07:08:11.002  WARN 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Shutdown resumable session with key default-node because it has the same key as a newly disconnected resumable session.
+2019-09-27 07:08:11.003  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2019-09-27 07:08:11.003  INFO 13500 --- [XNIO-2 I/O-4] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2019-09-27 07:08:11.007  WARN 13500 --- [lava-daemon-pool-playback-9-thread-1] c.s.d.l.t.p.LocalAudioTrackExecutor      : Suspicious exception for playback of -KGnRe1f2DA
+
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: The track was unexpectedly terminated.
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.handlePlaybackInterrupt(LocalAudioTrackExecutor.java:323) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:267) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.process(MatroskaAudioTrack.java:39) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.DelegatedAudioTrack.processDelegate(DelegatedAudioTrack.java:27) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.processStatic(YoutubeAudioTrack.java:77) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:69) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349) [lavaplayer-1.3.19.jar!/:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_222]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_222]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_222]
+Caused by: java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2014) ~[na:1.8.0_222]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2048) ~[na:1.8.0_222]
+	at java.util.concurrent.ArrayBlockingQueue.put(ArrayBlockingQueue.java:353) ~[na:1.8.0_222]
+	at com.sedmelluq.discord.lavaplayer.track.playback.AllocatingAudioFrameBuffer.consume(AllocatingAudioFrameBuffer.java:179) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.BufferingPostProcessor.process(BufferingPostProcessor.java:41) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.FinalPcmAudioFilter.dispatch(FinalPcmAudioFilter.java:158) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.FinalPcmAudioFilter.process(FinalPcmAudioFilter.java:130) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.UserProvidedAudioFilters.process(UserProvidedAudioFilters.java:77) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.filter.AudioPipeline.process(AudioPipeline.java:33) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.passDownstream(OpusPacketRouter.java:157) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.common.OpusPacketRouter.process(OpusPacketRouter.java:94) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaOpusTrackConsumer.consume(MatroskaOpusTrackConsumer.java:47) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.processFrameInBlock(MatroskaStreamingFile.java:372) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseClusterSimpleBlock(MatroskaStreamingFile.java:336) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.parseNextCluster(MatroskaStreamingFile.java:321) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaStreamingFile.provideFrames(MatroskaStreamingFile.java:297) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.container.matroska.MatroskaAudioTrack.lambda$process$0(MatroskaAudioTrack.java:40) ~[lavaplayer-1.3.19.jar!/:na]
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.executeProcessingLoop(LocalAudioTrackExecutor.java:257) ~[lavaplayer-1.3.19.jar!/:na]
+	... 9 common frames omitted
+
+2019-09-27 07:08:11.009  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54776 with status CloseStatus[code=1006, reason=] -- Session can be resumed within the next 60 seconds with key default-node
+2019-09-27 07:08:15.083  INFO 13500 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west849.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
+2019-09-27 07:08:15.084  INFO 13500 --- [parallel-4] s.n.magma.connections.AudioWebSocket     : Resuming
+2019-09-27 07:08:15.751  INFO 13500 --- [XNIO-2 task-10] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54916
+2019-09-27 07:08:15.754  INFO 13500 --- [XNIO-2 task-10] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
+2019-09-27 07:08:15.757  INFO 13500 --- [XNIO-2 task-10] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:54916
+2019-09-27 07:08:15.758  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "configureResuming", "key": "default-node", "timeout": 60}
+2019-09-27 07:08:17.917  INFO 13500 --- [XNIO-2 task-11] l.server.player.AudioLoaderRestHandler   : GET /loadtracks
+2019-09-27 07:08:18.103  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "591056236368363592", "sessionId": "36140b1d2215a4d335d1b7ca1ae737ed", "event": {"token": "90461e3e865a6b70", "guild_id": "591056236368363592", "endpoint": "us-west849.discord.gg:80"}}
+2019-09-27 07:08:18.620  INFO 13500 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: test
+2019-09-27 07:08:18.814  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "591056236368363592", "track": "QAAAlQIAMFdoYXQncyBZb3VyIFRydWUgU3Bpcml0IEFuaW1hbD8gUGVyc29uYWxpdHkgVGVzdAALQlJJR0hUIFNJREUAAAAAAAnPuAALLUtHblJlMWYyREEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0tS0duUmUxZjJEQQAHeW91dHViZQAAAAAAAAAA", "startTime": 0}
+2019-09-27 07:08:23.403  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 10}
+2019-09-27 07:08:27.188  INFO 13500 --- [XNIO-2 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "591056236368363592", "volume": 100}
+2019-09-27 07:08:27.309  INFO 13500 --- [pool-6-thread-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2019-09-27 07:08:32.038  INFO 13500 --- [parallel-3] s.n.magma.connections.AudioWebSocket     : Websocket to wss://us-west849.discord.gg/?v=4 closed with code 4014 and reason Disconnected.
+2019-09-27 07:08:32.038  INFO 13500 --- [parallel-3] s.n.magma.connections.AudioWebSocket     : Resuming
+2019-09-27 07:08:34.483  INFO 13500 --- [Thread-2] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@35f983a6: startup date [Fri Sep 27 07:04:05 PDT 2019]; root of context hierarchy
+2019-09-27 07:08:34.487  INFO 13500 --- [Thread-2] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2019-09-27 07:08:34.489  INFO 13500 --- [Thread-2] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-09-27 07:08:34.490  INFO 13500 --- [Thread-2] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
+2019-09-27 07:08:34.493  INFO 13500 --- [Thread-2] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2019-09-27 07:08:34.497 ERROR 13500 --- [XNIO-2 I/O-4] org.xnio.listener                        : XNIO001007: A channel event listener threw an exception
 
 java.util.concurrent.RejectedExecutionException: XNIO007007: Thread is terminating
 	at org.xnio.nio.WorkerThread.execute(WorkerThread.java:590) [xnio-nio-3.3.8.Final.jar!/:3.3.8.Final]

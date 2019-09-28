@@ -1,0 +1,34 @@
+import discord
+from discord.ext import commands
+from cowpy import cow
+
+
+class PenguinSay(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.command()
+    async def penguinsay(self, ctx, *, message):
+        moo = cow.Tux(thoughts=True)
+        msg = moo.milk(msg=message)
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Listen to the penguin 🐧", value=f"```{msg}                                         ```")
+
+        await ctx.send(embed=embed)
+
+    @penguinsay.error
+    async def penguinsay_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Argument!",
+                            value="• Please put in a valid option! Example: `l!cowsay Moo!`")
+            await ctx.send(embed=embed)
+
+
+def setup(client):
+    client.add_cog(PenguinSay(client))
