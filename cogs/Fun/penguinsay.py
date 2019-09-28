@@ -26,7 +26,7 @@ class PenguinSay(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!cowsay Moo!`")
+                            value="• Please put in a valid option! Example: `l!penguinsay Linux is cool`")
             await ctx.send(embed=embed)
 
 
