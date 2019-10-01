@@ -28,7 +28,8 @@ async def on_ready():
     print(f"---------------LinuxBoi-----------------------"
           f"\nBot is online and connected to {str(client.user)}" 
           f"\nCreated by TrackRunny#3900 on Discord"
-          f"\nConnected to {str(len(client.guilds))} Guilds." 
+          f"\nConnected to {str(len(client.guilds))} Guilds."
+          f"\nGuilds: {client.guilds}" 
           f"\n----------------------------------------------")
 
 

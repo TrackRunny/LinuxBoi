@@ -15,7 +15,9 @@ discord.py==1.2.3
 dnspython==1.15.0
 dnspython3==1.15.0
 forex-python==1.5
+fortune==1.1.0
 geojson==2.5.0
+grizzled-python==2.2.0
 hastebin.py==0.2
 humanize==0.5.1
 idna==2.8

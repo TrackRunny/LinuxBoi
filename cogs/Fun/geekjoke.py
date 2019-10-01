@@ -19,7 +19,7 @@ class GeekJoke(commands.Cog):
 
         def get_joke():
             # Return random joke
-            with open('./cogs/Fun/geekjokes.json', encoding="utf8") as data_file:
+            with open('./External_Command_Files/geekjokes.json', encoding="utf8") as data_file:
                 data = json.load(data_file)
             joke = data[random_digits(len(data))]
             return joke
