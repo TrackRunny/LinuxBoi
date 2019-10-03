@@ -1,4 +1,5 @@
 import discord
+import psutil
 from discord.ext import commands
 
 
@@ -9,38 +10,40 @@ class Help(commands.Cog):
 
     @commands.command()
     async def help(self, ctx):
+        guild_members = str(len(ctx.guild.members))
+        guilds = str(len(self.client.guilds))
+        vote_link = "[**Vote link**](http://bit.ly/2mLoBOs)"
+        cpu = str(psutil.cpu_percent())
+        ram = str(psutil.virtual_memory()[3] / 1000000000)
+        ram_round = ram[:3]
+        disk = str(psutil.disk_usage('/')[1] / 1000000000)
+        disk_round = disk[:4]
+        boot_time = str(psutil.boot_time() / 100000000)
+        boot_time_round = boot_time[:4]
         embed = discord.Embed(
-            color=discord.Color.from_rgb(255, 153, 34)
+            color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.set_author(name="→ All available bot commands!")
-        embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
-        embed.add_field(name="—", value="→ Shows info about all available bot commands!"
-                                        "\n→ Capitalization does not matter for the bot prefix." +
-                                        "\n—")
-
-        moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
-                     " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
-        information = "`l!help`, `l!stats`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
-              "`l!cowsay`, `l!penguinsay`, `l!fortune`"
-        utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
-                  "`l!mcbe`, `l!email`, `l!translate`, `l!shortenlink`, `l!hastebin`, `l!randomcolor`," \
-                  " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
-                  "`l!word random`, `l!word search`, `l!password`, `l!ip`"
-        image = "`l!cat`, `l!dog`, `l!fox`"
-        music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
-                 `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        # memes = "`l!meme`"
-        # linux_info = "`l!wheretostart`, `l!channels`"
-
-        embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
-        embed.add_field(name="• Information Commands!", inline=False, value=information)
-        embed.add_field(name="• Fun Commands!", inline=False, value=fun)
-        # embed.add_field(name="• Memes!", inline=False, value=memes)
-        embed.add_field(name="• Utility Commands!", inline=False, value=utility)
-        embed.add_field(name="• Image Commands!", inline=False, value=image)
-        embed.add_field(name="• Music Commands [BETA]!", inline=False, value=music)
-        # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
+        # embed.set_author(name="• Server Stats")
+        embed.set_thumbnail(url="https://bit.ly/2JGhA94")
+        embed.add_field(name="• Server Stats",
+                        value="\n— \n→ Shows info about the server in which the bot is running on! "
+                              "All values are accurate and updated each time the command is ran."
+                              "\n → Python is one of my favorite programming languages :)" +
+                              "\n → Make sure to support The Free Software Movement!" +
+                              "\n → To view my commands run, `l!commands`"
+                              f"\n → If you like my bot, consider voting: {vote_link}" + "\n—")
+        embed.add_field(name="• Operating System:", inline=True, value=":computer: — Ubuntu 18.04 LTS")
+        embed.add_field(name="• CPU Usage:", inline=True, value=":heavy_plus_sign: — " + cpu + " Percent used")
+        embed.add_field(name="• RAM Usage:", inline=True,
+                        value=":closed_book:  — " + ram_round + " / 8 " + " Gigabytes used")
+        embed.add_field(name="• DISK Usage:", inline=True, value=":white_circle: — " + disk_round + " / 60 Gigabytes")
+        embed.add_field(name="• BOOT Time: ", inline=True, value=":boot: — " + boot_time_round + " seconds")
+        embed.add_field(name="• MEMBER Count:", inline=True, value=":bust_in_silhouette: — " + guild_members + " users")
+        embed.add_field(name="• GUILD Count:", inline=True, value=":house: — " + guilds + " connected guilds")
+        embed.add_field(name="• UPTIME:", inline=True, value=":arrow_up: — 99.95%")
+        embed.add_field(name="• LIBRARY Version:", inline=True, value=":gear: — Discord.py version 1.2.3")
+        embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3")
+        embed.set_footer(text="\n\nMade by TrackRunny#3900", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)
 

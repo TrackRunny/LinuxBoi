@@ -33,7 +33,7 @@ class MinecraftBedrock(commands.Cog):
             elif len(players_string) > 1024:
                 players_string = players_string[:1018]
                 players_string, _, _ = players_string.rpartition(', ')
-                players_string = '`' + players_string + '`' + '** ...**'
+                players_string = '`' + players_string + '...`'
                 embed.add_field(name="• Player names:", inline=False,
                                 value=players_string)
             else:
@@ -44,7 +44,7 @@ class MinecraftBedrock(commands.Cog):
             elif len(plugins_string) > 1024:
                 plugins_string = plugins_string[:1018]
                 plugins_string, _, _ = plugins_string.rpartition(', ')
-                plugins_string = '`' + plugins_string + '`' + '** ...**'
+                plugins_string = '`' + plugins_string + '...`'
                 embed.add_field(name="• Plugins", inline=False, value=plugins_string)
             else:
                 embed.add_field(name="• Plugins", inline=False,
