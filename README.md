@@ -23,6 +23,7 @@
 
 <!-- MODULES HEADER -->
 ### → Modules
+
   * Events  
   * Fun
   * Information
@@ -38,20 +39,23 @@
 
   **Please note that I would rather you not run another instance of the bot and just invite it to your server. If you really want to run it with your own token for testing or another reason, please follow the directions below to run it.**
 
-  Also note that **Mac OS X CANNOT** run [Lavalink.py](https://github.com/Devoxin/Lavalink.py "Lavalink.py") due to a missing library that is required to run it. You can install [Lavalink.py](https://github.com/Devoxin/Lavalink.py "Lavalink.py") on it, but when you try to play sound nothing will come out. You should get an error like this: `java.lang.UnsatisfiedLinkError: Required library at /natives/darwin/libudpqueue.dylib was not found`. Currently [Lavalink.py](https://github.com/Devoxin/Lavalink.py "Lavalink.py") supports Windows and Linux. Everything else works on Mac. Sorry about the inconvenience to Mac users.
+  Also note that **MAC OS X CANNOT\*** run [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") due to a missing library that is required to run it. You can attempt to run [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") on it, but when you try to play sound nothing will come out. You should get an error like this: `java.lang.UnsatisfiedLinkError: Required library at /natives/darwin/libudpqueue.dylib was not found`. Currently [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") supports Windows and Linux.
+  [**Lavalink.py**](https://github.com/Devoxin/Lavalink.) does support Mac OS X, however this is a wrapper for Lavalink server. Lavalink server allows you to play sound with the bot.
+
+  \* Its not impossible to try and compile Lavalink.jar with Mac natives up and running, though it has been done before but I personally have never tried it.
 
 ---
 
-  There is a requirements.txt file that anyone on **Any Operating That Supports Python 3** can use to install **All** of the dependences needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3**. Installation instructions are below as follows:
+  There is a requirements.txt file that anyone on **Any Operating That Supports Python 3.6+** can use to install **All\*** of the dependences needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3.6+**. Installation instructions are below as follows:
 
-  * First install this dependency and built from source. This is a bitly api dependency for a shortenlink command. 
+  * \*First install this **dependency** and built from source. This is a bitly api dependency for a shortenlink command.
 
   ```markdown
   git clone https://github.com/bitly/bitly-api-python.git
 
   cd bitly-api-python/
 
-  python setup.py install 
+  python setup.py install
   <!-- Remember: Only Use this if you only have python 3 installed. -->
 
   or
@@ -76,6 +80,55 @@
   pip3 install --user --requirement requirements.txt
   <!-- Remember: Use this if you have two versions of python and / or you have python 2 and python 3. -->  
   ```
+
+  * If your using windows, please read this portion below.
+
+  <details>
+    <summary><b>Click here</b></summary>
+    <h3>• Error: Microsoft Visual C++ 14.0 is required.</h3>
+    <p>Note, some users may recieve this error above when trying to install the dependences from the requirements.txt file. This happens when you are trying to build and install the <b>Pycosat</b> pip module. If this happens to you, please follow the instructions below.</p>
+  
+  1. Download the compiled **Pycosat** file for your Python version and windows architecture.
+      * [**Pycosat | Python 3.6 | Win32**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp36-cp36m-win32.whl)
+      * [**Pycosat | Python 3.6 | Win64**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp36-cp36m-win_amd64.whl)
+      * [**Pycosat | Python 3.7 | Win32**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp37-cp37m-win32.whl)
+      * [**Pycosat | Python 3.7 | Win64**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp37-cp37m-win_amd64.whl)
+  2. Change directories into the downloaded file.
+  3. Install the compiled pip module.
+
+  ```markdown
+    pip install pycosat-0.6.3-cp36-cp36m-win32.whl
+    <!-- Win32 | Python 3.6 -->
+
+    pip install pycosat-0.6.3-cp36-cp36m-win_amd64.whl
+    <!-- Win64 | Python 3.6 -->
+
+    ---
+
+    pip install pycosat-0.6.3-cp37-cp37m-win32.whl
+    <!-- Win32 | Python 3.7 -->
+
+    pip install pycosat-0.6.3-cp37-cp37m-win_amd64.whl
+    <!-- Win64 | Python 3.7 -->
+
+    or
+
+    pip3 install pycosat-0.6.3-cp36-cp36m-win32.whl
+    <!-- Win32 | Python 3.6 | pip3 -->
+
+    pip3 install pycosat-0.6.3-cp36-cp36m-win_amd64.whl
+    <!-- Win64 | Python 3.6 | pip3 -->
+
+    ---
+
+    pip3 install pycosat-0.6.3-cp37-cp37m-win32.whl
+    <!-- Win32 | Python 3.7 | pip3 -->
+
+    pip3 install pycosat-0.6.3-cp37-cp37m-win_amd64.whl
+    <!-- Win64 | Python 3.7 | pip3 -->
+  ```
+
+  </details>
 
 ### → Enviroment Variables (Continuing Installation)
 
@@ -105,7 +158,6 @@
     <p>Windows: The process is a little more difficult on Windows. Please watch <a href="https://www.youtube.com/watch?v=IolxqkL7cD8">this</a> video so you can export these values on your Windows Operating System. Skip to <b>1:19</b> if you want to see how he does it. Make sure to keep the enviroment variables with the same name or they won't work. The variable names are inside the code block just under this piece of text.</p>
   </details>
   
-
   ```markdown
   export ip_info=""
   export email=""
