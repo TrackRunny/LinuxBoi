@@ -46,6 +46,7 @@
 
 ---
 
+  <!-- Installation Instructions -->
   There is a requirements.txt file that anyone on **Any Operating That Supports Python 3.6+** can use to install **All\*** of the dependences needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3.6+**. Installation instructions are below as follows:
 
   * \*First install this **dependency** and built from source. This is a bitly api dependency for a shortenlink command.
@@ -81,6 +82,7 @@
   <!-- Remember: Use this if you have two versions of python and / or you have python 2 and python 3. -->  
   ```
 
+  <!-- Windows Microsoft Visual C++ 14.0 Error -->
   * If your using windows, please read this portion below.
 
   <details>
@@ -130,6 +132,7 @@
 
   </details>
 
+<!-- Installation with Enviroment Variables-->
 ### → Enviroment Variables (Continuing Installation)
 
   There are some enviroment variables you need to have on the computer / server that is running the Discord bot. **If you don't have these the bot will not work correctly!**
@@ -169,6 +172,8 @@
   ```
 
   Congrats, everything should be set up correctly so far. If you want to start the bot you can do `./LinuxBoi.py` as it should already be executiable.
+
+  Don't forget to start Lavalink server too! To do this you can change directories into `cd cogs/Music/Lavalink-python/`. After that you can do `java -jar Lavalink.jar`. **Note:** You need to have Java 8 or higher to run this correctly. I would **recommend** starting **Lavalink server before starting the bot** as you won't get the `[NODE-us-127.0.0.1:2333] Failed to establish connection!` error when you start the bot before Lavalink server is running.
 
 ---
 

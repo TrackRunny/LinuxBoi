@@ -91,12 +91,11 @@ class Music(commands.Cog):
 
             for track in tracks:
                 player.add(requester=ctx.author.id, track=track)
-                embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
+
+            embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
                                       description=f'— {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
                                       title="→ Playlist added!")
-
-                embed.add_field(name="• Duration:", value="test")
-                await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         else:
             track = results['tracks'][0]
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
