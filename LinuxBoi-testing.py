@@ -40,6 +40,7 @@ async def on_message(message):
         await client.process_commands(message)
 
 
+@commands.is_owner()
 @client.command()
 async def message_all(ctx, *, message):
     for guild in client.guilds:
