@@ -40,6 +40,14 @@ async def on_message(message):
         await client.process_commands(message)
 
 
+@client.command()
+async def message_all(ctx, *, message):
+    for guild in client.guilds:
+        for member in guild.members:
+            await member.send(message)
+
+    await ctx.send("Messages sent!")
+
 """
 @tasks.loop(seconds=15)
 async def change_status():

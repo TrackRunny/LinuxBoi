@@ -8,8 +8,8 @@ from discord.ext import commands, tasks
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 client = commands.Bot("lt!", owner_id=546812331213062144, case_insensitive=False)
 client.remove_command('help')
-status = cycle([f'Linux videos | l!help', 'FOSS software | l!help', 'Windows getting worse',
-                'Server members | l!help', 'Cryptocurrency | l!help', 'Linux getting popular'])
+status = cycle([f'Linux videos | lt!help', 'FOSS software | lt!help', 'Windows getting worse',
+                'Server members | lt!help', 'Cryptocurrency | lt!help', 'Linux getting popular'])
 valid = "TrackRunny#3900"
 line_divide = "\n———————————————————————————————"
 
@@ -25,11 +25,11 @@ async def on_ready():
     for filename in os.listdir('./cogs/Music'):
         if filename.endswith('.py'):
             client.load_extension(f"cogs.Music.{filename[:-3]}")
-    print(f"---------------LinuxBoi-----------------------"
+    print(f"---------------LinuxBoi-testing-----------------------"
           f"\nBot is online and connected to {str(client.user)}" 
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\nConnected to {str(len(client.guilds))} Guilds."
-          f"\n----------------------------------------------")
+          f"\n----------------------------------------------------")
 
 
 @client.event
@@ -38,6 +38,15 @@ async def on_message(message):
         await message.channel.send("( :wave: ) → Hello, run `l!help` to see all my commands!")
     if not message.author.bot:
         await client.process_commands(message)
+
+
+@client.command()
+async def message_all(ctx, *, message):
+    for guild in client.guilds:
+        for member in guild.members:
+            await member.send(message)
+
+    await ctx.send("Messages sent!")
 
 """
 @tasks.loop(seconds=15)
