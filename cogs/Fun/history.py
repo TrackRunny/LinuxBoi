@@ -16,7 +16,7 @@ class History(commands.Cog):
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36)
                 )
-                embed.add_field(name="→ Random History Date", value=f"• {res['text']}"
+                embed.add_field(name="→ Random History Date", value=f"• Fact: {res['text']}"
                                                                     f"\n• Year: {res['year']}")
 
                 await ctx.send(embed=embed)

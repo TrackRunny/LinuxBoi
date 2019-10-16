@@ -43,7 +43,7 @@ class Help(commands.Cog):
         embed.add_field(name="• UPTIME:", inline=True, value=":arrow_up: — 99.95%")
         embed.add_field(name="• LIBRARY Version:", inline=True, value=":gear: — Discord.py version 1.2.3")
         embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3")
-        embed.set_footer(text="\n\nMade by TrackRunny#3900", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
+        embed.set_footer(text="\n\nMade by TrackRunny#0001", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)
 
