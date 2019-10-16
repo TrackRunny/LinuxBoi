@@ -37,7 +37,7 @@ class Serverinfo(commands.Cog):
             "high": "<:orange_circle:625542217100165135> — High Verification",
             "extreme": "<:red__circle:625833379258040330> — Extreme Verification"
         }
-        embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
+        embed.set_thumbnail(url=guild.icon_url_as(size=4096, format=None, static_format="png"))
         embed.add_field(name="• Server Info → " + str(guild.name), value="—"
                                                 "\n→ Shows all information about a guild. The information will be listed below!"
                                                 "\n —")

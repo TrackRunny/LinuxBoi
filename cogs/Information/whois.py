@@ -14,7 +14,7 @@ class Userinfo(commands.Cog):
         )
         roles = [role for role in member.roles]
         embed.set_author(name="• Userinfo → " + str(member))
-        embed.set_thumbnail(url=member.avatar_url_as(size=4096, format="png"))
+        embed.set_thumbnail(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
         embed.add_field(name="—", value="→ Shows all information about a user. The information will be listed below!"
                                         "\n —")
         embed.add_field(name="• Account name: ", value=str(member))

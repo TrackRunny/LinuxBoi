@@ -13,7 +13,7 @@ class Avatar(commands.Cog):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.set_author(name=f"→ Avatar")
-        embed.set_image(url=member.avatar_url_as(size=4096, format="png"))
+        embed.set_image(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
 
         await ctx.send(embed=embed)
 
