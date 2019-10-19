@@ -93,13 +93,13 @@ class Music(commands.Cog):
                 player.add(requester=ctx.author.id, track=track)
 
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
-                                      description=f'— {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
+                                      description=f'• {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
                                       title="→ Playlist added!")
             await ctx.send(embed=embed)
         else:
             track = results['tracks'][0]
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
-                                  description=f'— [{track["info"]["title"]}]({track["info"]["uri"]})',
+                                  description=f'• [{track["info"]["title"]}]({track["info"]["uri"]})',
                                   title="→ Song added to queue!")
             player.add(requester=ctx.author.id, track=track)
 

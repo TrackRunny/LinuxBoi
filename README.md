@@ -6,7 +6,7 @@
 
 <!-- BADGES -->
   ![Python Versions](https://img.shields.io/badge/python-3.6%20%7C%203.7-blue?style=flat-square)
-  ![Discord.py Version](https://img.shields.io/badge/discord.py-1.2.3-blue?style=flat-square)
+  ![Discord.py Version](https://img.shields.io/badge/discord.py-1.2.4-blue?style=flat-square)
   ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)
   ![Uptime - 7 Days](https://img.shields.io/uptimerobot/ratio/7/m783522026-b61cac99a2e1ba3a3d6f251c?style=flat-square)
   ![Uptime - Current Time](https://img.shields.io/uptimerobot/status/m783522026-b61cac99a2e1ba3a3d6f251c?style=flat-square)
