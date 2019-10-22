@@ -18,7 +18,7 @@ class YoMamaJoke(commands.Cog):
                 )
                 embed.add_field(name="→ Yo Momma Joke", value=f"• Joke: {res['joke']}")
 
-                await ctx.send(embed=embed)
+                afwait ctx.send(embed=embed)
 
 
 def setup(client):
