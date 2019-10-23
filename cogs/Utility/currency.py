@@ -3,9 +3,6 @@ import discord
 from discord.ext import commands
 
 
-c = CurrencyRates()
-
-
 class Currency(commands.Cog):
 
     def __init__(self, client):
@@ -14,7 +11,8 @@ class Currency(commands.Cog):
     @commands.command(aliases=["convert"])
     async def currency(self, ctx, amount, currency1, currency2):
         try:
-            amount = int(amount)
+            c = CurrencyRates()
+            amount = float(amount)
         except:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
@@ -23,7 +21,7 @@ class Currency(commands.Cog):
                             value="• Not a valid amount of money!")
             return await ctx.send(embed=embed)
         try:
-            amount2 = round(c.convert(currency1, currency2, amount), 2)
+            amount2 = float((c.convert(currency1, currency2, amount)))
         except:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
@@ -36,9 +34,10 @@ class Currency(commands.Cog):
             color=discord.Color.from_rgb(241, 90, 36)
         )
         embed.add_field(name="→ Currency converting!",
-                        value=f"• {amount} {currency1} is about {amount2} {currency2}!")
+                        value=f"• {amount} {currency1} is about {round(amount2)} {currency2}!")
         await ctx.send(embed=embed)
 
+    """
     @currency.error
     async def currency_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -48,7 +47,7 @@ class Currency(commands.Cog):
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid option! Example: `l!currency 10 USD CAD`")
             await ctx.send(embed=embed)
-
+    """
 
 def setup(client):
     client.add_cog(Currency(client))

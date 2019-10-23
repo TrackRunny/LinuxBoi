@@ -2,8 +2,6 @@ import discord
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 
-b = BtcConverter()
-
 
 class Bitcoin(commands.Cog):
     def __init__(self, client):
@@ -12,6 +10,7 @@ class Bitcoin(commands.Cog):
     @commands.command(aliases=["btc"])
     async def bitcoin(self, ctx, currency="USD"):
         try:
+            b = BtcConverter()
             amount = round(b.get_latest_price(currency), 2)
         except:
             embed = discord.Embed(
