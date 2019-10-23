@@ -37,7 +37,7 @@ class Currency(commands.Cog):
                         value=f"• {amount} {currency1} is about {round(amount2)} {currency2}!")
         await ctx.send(embed=embed)
 
-    """
+
     @currency.error
     async def currency_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -47,7 +47,7 @@ class Currency(commands.Cog):
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid option! Example: `l!currency 10 USD CAD`")
             await ctx.send(embed=embed)
-    """
+    
 
 def setup(client):
     client.add_cog(Currency(client))
