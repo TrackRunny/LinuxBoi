@@ -4,6 +4,7 @@ from forex_python.bitcoin import BtcConverter
 
 
 class Bitcoin(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 
