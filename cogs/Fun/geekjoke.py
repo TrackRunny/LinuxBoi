@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import discord
-from discord.ext import commands
 import json
+from discord.ext import commands
 from random import randint
+from logging_files.fun_logging import logger
 
 
 class GeekJoke(commands.Cog):
@@ -30,6 +31,8 @@ class GeekJoke(commands.Cog):
         embed.add_field(name="→ Random Geek joke!", value=f"• {get_joke()}")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
 
 
 def setup(client):

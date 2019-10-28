@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.owner_logging import logger
 
 
 class Shutdown(commands.Cog):
@@ -16,6 +17,8 @@ class Shutdown(commands.Cog):
         embed.add_field(name="→ Shutdown", value="• Performing a shutdown on the bot... ( :wave: )")
         await ctx.send(embed=embed)
         await self.client.logout()
+
+        await logger.info(f"Owner | Sent Shutdown: {ctx.author}")
 
 
 def setup(client):

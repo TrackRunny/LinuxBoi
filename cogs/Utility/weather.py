@@ -1,6 +1,8 @@
 import discord
 import pyowm
+import os
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Weather(commands.Cog):
@@ -11,7 +13,8 @@ class Weather(commands.Cog):
     @commands.command()
     async def weather(self, ctx, *, city):
         try:
-            owm = pyowm.OWM('1596858fc52ce6e8121fab7aa5e7d964')
+            key = os.environ.get("weather_key")
+            owm = pyowm.OWM(key)
             observation = owm.weather_at_place(city)
             weather = observation.get_weather()
             temperature = weather.get_temperature('fahrenheit')['temp']
@@ -25,6 +28,7 @@ class Weather(commands.Cog):
             sunrise = weather.get_sunrise_time(timeformat='iso')
             sunset = weather.get_sunset_time(timeformat='iso')
             picture = weather.get_weather_icon_url()
+
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
@@ -40,6 +44,8 @@ class Weather(commands.Cog):
             embed.add_field(name="• Sunset time:", value=f"{sunset[:-5]} GMT")
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Utility | Sent Weather: {ctx.author}")
         except Exception:
             member = ctx.author
             embed = discord.Embed(

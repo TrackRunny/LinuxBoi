@@ -1,6 +1,6 @@
 import random
-
 import discord
+from logging_files.fun_logging import logger
 from discord.ext import commands
 
 
@@ -18,6 +18,8 @@ class Coinflip(commands.Cog):
         embed.add_field(name="→ Coinflip command", value=coin)
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Coinflip: {ctx.author}")
 
 
 def setup(client):

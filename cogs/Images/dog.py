@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import aiohttp
+from discord.ext import commands
+from logging_files.images_logging import logger
 
 
 class Dog(commands.Cog):
@@ -20,6 +21,8 @@ class Dog(commands.Cog):
                 embed.set_image(url=res['message'])
 
                 await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Dog: {ctx.author}")
 
 
 def setup(client):

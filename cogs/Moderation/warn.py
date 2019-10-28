@@ -1,8 +1,10 @@
 import discord
 from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class Warn(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 
@@ -34,6 +36,8 @@ class Warn(commands.Cog):
             embed2.set_footer(text=f"Warning sent from: {ctx.guild}")
 
             await member.send(embed=embed2)
+
+            await logger.info(f"Moderation | Sent Warn: {ctx.author} | Warned: {member} | Reason: {reason}")
 
     @warn.error
     async def warn_error(self, ctx, error):

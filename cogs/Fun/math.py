@@ -1,6 +1,7 @@
 import discord
 import aiohttp
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class Math(commands.Cog):
@@ -20,6 +21,8 @@ class Math(commands.Cog):
                                                                  f"\n• Number: {res['number']}")
 
                 await ctx.send(embed=embed)
+
+                await logger.info(f"Fun | Sent Math: {ctx.author}")
 
 
 def setup(client):

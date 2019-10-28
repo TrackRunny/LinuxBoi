@@ -1,8 +1,10 @@
 import discord
-from discord.ext import commands
 import aiogoogletrans
+from discord.ext import commands
+from logging_files.utility_logging import logger
 
-t = aiogoogletrans.Translator()
+
+t = aiogoogletrans.Translator
 
 
 class Translate(commands.Cog):
@@ -24,6 +26,8 @@ class Translate(commands.Cog):
                         + "\n• Translated Text: `{}`".format(translation))
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Translate: {ctx.author} | Language: {lang} | Sentence: {sentence}")
 
     @translate.error
     async def translate_error(self, ctx, error):

@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
-class Serverinfo(commands.Cog):
+class ServerInfo(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -54,6 +55,8 @@ class Serverinfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
+        await logger.info(f"Information | Sent Serverinfo : {ctx.author}")
+
 
 def setup(client):
-    client.add_cog(Serverinfo(client))
+    client.add_cog(ServerInfo(client))

@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
-import traceback
+from logging_files.moderation_logging import logger
 
 
-class Forceban(commands.Cog):
+class ForceBan(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -17,6 +17,8 @@ class Forceban(commands.Cog):
         )
         embed.add_field(name="• Forceban command", value=f"<@{id}> → has been **Forcefully banned!** Bye bye! :wave:")
         await ctx.send(embed=embed)
+
+        await logger.info(f"Moderation | Sent Force Ban: {ctx.author} | Force Banned: {id}")
 
     @forceban.error
     async def forceban_error(self, ctx, error):
@@ -45,4 +47,4 @@ class Forceban(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Forceban(client))
+    client.add_cog(ForceBan(client))

@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import traceback
+from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class DeleteRole(commands.Cog):
@@ -34,6 +35,8 @@ class DeleteRole(commands.Cog):
             embed.add_field(name="• Remove Role command!", value=f"{member.mention} → Lost the role `{role}`")
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Moderation | Sent Remove Role: {ctx.author} | Removed Role: {role} | To: {member}")
         else:
             traceback.print_exc()
 

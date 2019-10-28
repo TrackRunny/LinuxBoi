@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class Purge(commands.Cog):
@@ -11,6 +12,8 @@ class Purge(commands.Cog):
     @commands.bot_has_permissions(manage_messages=True)
     async def purge(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount)
+
+        await logger.info(f"Moderation | Sent Purge: {ctx.author} | Purged: {amount} messages")
 
     @purge.error
     async def kick_error(self, ctx, error):

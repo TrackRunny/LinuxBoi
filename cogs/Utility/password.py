@@ -1,6 +1,7 @@
 import strgen
 import discord
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Password(commands.Cog):
@@ -38,6 +39,8 @@ class Password(commands.Cog):
             )
             embed2.add_field(name="→ Generated Password:", value=f"• Password: ```{password}```")
             await ctx.author.send(embed=embed2)
+
+            await logger.info(f"Utility | Sent Password: {ctx.author}")
 
     @password.error
     async def password_error(self, ctx, error):

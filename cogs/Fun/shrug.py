@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class Shrug(commands.Cog):
@@ -15,6 +16,8 @@ class Shrug(commands.Cog):
         embed.add_field(name="→ What is life?", value="• I gave up on it. ¯\_(ツ)_/¯")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Shrug: {ctx.author}")
 
 
 def setup(client):

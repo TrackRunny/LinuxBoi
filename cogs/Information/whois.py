@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
-class Userinfo(commands.Cog):
+class UserInfo(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -40,6 +41,8 @@ class Userinfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
+        await logger.info(f"Information | Sent Whois: {ctx.author}")
+
     @whois.error
     async def whois_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -51,4 +54,4 @@ class Userinfo(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Userinfo(client))
+    client.add_cog(UserInfo(client))

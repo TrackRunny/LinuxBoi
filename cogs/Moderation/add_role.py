@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import traceback
+from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class AddRole(commands.Cog):
@@ -34,6 +35,8 @@ class AddRole(commands.Cog):
             embed.add_field(name="• Add Role command!", value=f"{member.mention} → Has been given the role `{role}`")
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Moderation | Sent Addrole: {ctx.author} | Role added: {role} | To: {member}")
         else:
             traceback.print_exc()
 

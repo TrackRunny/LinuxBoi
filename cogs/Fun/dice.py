@@ -1,7 +1,8 @@
 import discord
-from discord.ext import commands
 import random
 import re
+from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class Dice(commands.Cog):
@@ -31,6 +32,8 @@ class Dice(commands.Cog):
         embed.add_field(name="→ Rolled Dice Numbers:", value=f" ".join(dice_rolls))
         embed.add_field(name="→ Total number:", inline=False, value=f" {sum(dice_roll_ints)}")
         await ctx.send('', embed=embed)
+
+        await logger.info(f"Fun | Sent Dice: {ctx.author}")
 
 
 def setup(client):

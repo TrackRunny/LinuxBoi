@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Poll(commands.Cog):
@@ -20,6 +21,8 @@ class Poll(commands.Cog):
         message = await channel.send(embed=embed)
         await message.add_reaction("👍")
         await message.add_reaction("👎")
+
+        await logger.info(f"Utility | Sent Poll: {ctx.author}")
 
     @poll.error
     async def poll_error(self, ctx, error):

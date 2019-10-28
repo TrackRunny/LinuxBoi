@@ -2,6 +2,7 @@ import colorsys
 import random
 import discord
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class RandomColor(commands.Cog):
@@ -45,7 +46,6 @@ class RandomColor(commands.Cog):
             hsl = (round(360 * h),  round(100 * l), round(100 * s))
             return hsl
 
-        # embed = discord.Embed(color=(discord.Color(int(f"0x{hex_color}", 16))))
         embed = discord.Embed(
             color=(discord.Color(int(f"0x{hex_color}", 16)))
         )
@@ -60,6 +60,8 @@ class RandomColor(commands.Cog):
         embed.add_field(name="• COLOR accuracy:", inline=True, value=f"`{random.randint(96, 99)}%`")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Random Color: {ctx.author}")
 
 
 def setup(client):

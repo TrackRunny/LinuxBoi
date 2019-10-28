@@ -1,6 +1,7 @@
 import discord
 import fortune
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class Fortune(commands.Cog):
@@ -17,6 +18,8 @@ class Fortune(commands.Cog):
         embed.add_field(name="→ Random Fortune!", value=f"• {fortune.get_random_fortune(file)}")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Fortune: {ctx.author}")
 
 
 def setup(client):

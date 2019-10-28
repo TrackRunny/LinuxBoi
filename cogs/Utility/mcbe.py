@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from mcstatus import MinecraftServer
+from logging_files.utility_logging import logger
 
 
 class MinecraftBedrock(commands.Cog):
@@ -51,6 +52,8 @@ class MinecraftBedrock(commands.Cog):
                                 value='`' + '' + ', '.join(motd.software.plugins) + ', '[:-0] + '`')
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Utility | Sent MCBE: {ctx.author} | Server: {server} | Port: {port}")
 
         except Exception:
             embed_error = discord.Embed(

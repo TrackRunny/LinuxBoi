@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
 class Commands(commands.Cog):
@@ -44,6 +45,8 @@ class Commands(commands.Cog):
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Inforamtion | Sent Commands: {ctx.author}")
 
 
 def setup(client):

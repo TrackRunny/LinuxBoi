@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
 class Ping(commands.Cog):
@@ -16,6 +17,8 @@ class Ping(commands.Cog):
         embed.add_field(name="→ Ping command", value="• The latency is " + ping + "ms")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Information | Sent Ping: {ctx.author}")
 
 
 def setup(client):

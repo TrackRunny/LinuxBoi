@@ -2,6 +2,7 @@ import bitly_api
 import discord
 import os
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Bitly(commands.Cog):
@@ -29,6 +30,8 @@ class Bitly(commands.Cog):
             embed.add_field(name="• Shortened link:", inline=False, value=response['url'])
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {long_url} | Shortened Link: {response['url']}")
         except Exception:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)

@@ -1,6 +1,7 @@
-from forex_python.converter import CurrencyRates
 import discord
+from forex_python.converter import CurrencyRates
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Currency(commands.Cog):
@@ -36,6 +37,8 @@ class Currency(commands.Cog):
         embed.add_field(name="→ Currency converting!",
                         value=f"• {amount} {currency1} is about {round(amount2)} {currency2}!")
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Currency: {ctx.author}")
 
     @currency.error
     async def currency_error(self, ctx, error):

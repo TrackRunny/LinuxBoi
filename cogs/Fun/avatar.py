@@ -1,4 +1,5 @@
 import discord
+from logging_files.fun_logging import logger
 from discord.ext import commands
 
 
@@ -16,6 +17,8 @@ class Avatar(commands.Cog):
         embed.set_image(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Avatar: {ctx.author}")
 
     @avatar.error
     async def avatar_error(self, ctx, error):

@@ -1,5 +1,6 @@
 import discord
 import aiohttp
+from logging_files.fun_logging import logger
 from discord.ext import commands
 
 
@@ -19,6 +20,8 @@ class ChuckNorris(commands.Cog):
                 embed.add_field(name="→ Chuck Norris Joke", value=f"• Joke: {res['value']['joke']}")
 
                 await ctx.send(embed=embed)
+
+                await logger.info(f"Fun | Sent Chuck Norris: {ctx.author}")
 
 
 def setup(client):

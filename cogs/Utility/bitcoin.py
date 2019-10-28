@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
+from logging_files.utility_logging import logger
 
 
 class Bitcoin(commands.Cog):
@@ -27,6 +28,8 @@ class Bitcoin(commands.Cog):
         embed.add_field(name="→ BTC to Currency",
                         value=f"• One Bitcoin is {amount} {currency}")
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Bitcoin: {ctx.author}")
 
 
 def setup(client):

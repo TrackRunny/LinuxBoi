@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class Say(commands.Cog):
@@ -20,6 +21,8 @@ class Say(commands.Cog):
                             value="• Please put a valid option! Example: `l!say #channel <message>`")
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Fun | Sent Say: {ctx.author}")
 
 
 def setup(client):

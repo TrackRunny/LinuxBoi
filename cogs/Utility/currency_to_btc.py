@@ -1,9 +1,7 @@
 import discord
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
-
-
-b = BtcConverter()
+from logging_files.utility_logging import logger
 
 
 class ToBitcoin(commands.Cog):
@@ -13,6 +11,7 @@ class ToBitcoin(commands.Cog):
     @commands.command(aliases=["tobtc"])
     async def currency_to_bitcoin(self, ctx, amount, currency="USD"):
         try:
+            b = BtcConverter()
             amount = int(amount)
         except:
             embed = discord.Embed(
@@ -38,6 +37,8 @@ class ToBitcoin(commands.Cog):
         embed.add_field(name="→ Currency to Bitcoin!",
                         value=f"• {amount} {currency} is around {btc} Bitcoin!")
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Currency_To_btc: {ctx.author}")
 
     @currency_to_bitcoin.error
     async def currency_to_bitcoin_error(self, ctx, error):

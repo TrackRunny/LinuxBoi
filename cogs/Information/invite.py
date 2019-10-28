@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
 class Invite(commands.Cog):
@@ -18,6 +19,8 @@ class Invite(commands.Cog):
         await ctx.message.add_reaction('\U00002705')
 
         await ctx.author.send(embed=embed)
+
+        await logger.info(f"Information | Sent Invite: {ctx.author}")
 
 
 def setup(client):

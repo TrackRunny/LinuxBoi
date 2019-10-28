@@ -1,6 +1,7 @@
 import discord
 import aiohttp
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class YoMamaJoke(commands.Cog):
@@ -19,6 +20,8 @@ class YoMamaJoke(commands.Cog):
                 embed.add_field(name="→ Yo Momma Joke", value=f"• Joke: {res['joke']}")
 
                 await ctx.send(embed=embed)
+
+                await logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
 
 
 def setup(client):

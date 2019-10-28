@@ -1,8 +1,9 @@
 import smtplib
-from email.message import EmailMessage
 import os
 import discord
+from email.message import EmailMessage
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Email(commands.Cog):
@@ -98,6 +99,8 @@ class Email(commands.Cog):
         embed.add_field(name="• Content:", inline=False, value=f"```{content}```")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Email: {ctx.author} | To: {emailto} | Subject: {subject} | Content: {content}")
 
     @email.error
     async def email_error(self, ctx, error):

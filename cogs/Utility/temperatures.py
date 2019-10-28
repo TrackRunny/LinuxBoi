@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-
+from logging_files.utility_logging import logger
 
 class Temperatures(commands.Cog):
     def __init__(self, client):
@@ -24,6 +24,8 @@ class Temperatures(commands.Cog):
         embed.add_field(name="→ Fahrenheit to Celsius", value=f"• Celsius Temperature: `{int(celsius)}`")
         await ctx.send(embed=embed)
 
+        await logger.info(f"Utility | Sent Temperatures: {ctx.author}")
+
     @temperature.command(aliases=["celsius"])
     async def celsius_to_fahrenheit(self, ctx, celsius):
         fahrenheit = (int(celsius) * 9 / 5) + 32
@@ -32,6 +34,8 @@ class Temperatures(commands.Cog):
         )
         embed.add_field(name="→ Celsius to Fahrenheit", value=f"• Fahrenheit Temperature: `{int(fahrenheit)}`")
         await ctx.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Temperatures: {ctx.author}")
 
 
 def setup(client):

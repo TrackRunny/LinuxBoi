@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class Newsletter(commands.Cog):
@@ -26,8 +27,11 @@ class Newsletter(commands.Cog):
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
         embed.add_field(name="→ Announcement!", value=f"• {message}")
         embed.set_footer(text=f"— Sent from: {sender}", icon_url=ctx.author.avatar_url)
+
         await ctx.message.delete()
         await channel.send(embed=embed)
+
+        await logger.info(f"Utility | Sent Newsletter: {ctx.author}")
 
     @newsletter.error
     async def newsletter_error(self, ctx, error):

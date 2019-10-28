@@ -1,10 +1,10 @@
 import random
-
 import discord
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
-class Howgay(commands.Cog):
+class HowGay(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -19,6 +19,8 @@ class Howgay(commands.Cog):
 
         await ctx.send(embed=embed)
 
+        await logger.info(f"Fun | Sent Howgay: {ctx.author}")
+
     @howgay.error
     async def howgay_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -30,4 +32,4 @@ class Howgay(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Howgay(client))
+    client.add_cog(HowGay(client))

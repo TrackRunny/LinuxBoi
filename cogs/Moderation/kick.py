@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import traceback
+from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class Kick(commands.Cog):
@@ -44,6 +45,8 @@ class Kick(commands.Cog):
             embed2.set_footer(text=f"Kicked from: {ctx.guild}")
 
             await member.send(embed=embed2)
+
+            await logger.info(f"Moderation | Sent Kick: {ctx.author} | Kicked: {member} | Reason: {reason}")
         else:
             traceback.print_exc()
 

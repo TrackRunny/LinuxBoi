@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from cowpy import cow
+from logging_files.fun_logging import logger
 
 
 class PenguinSay(commands.Cog):
@@ -18,6 +19,8 @@ class PenguinSay(commands.Cog):
         embed.add_field(name="→ Listen to the penguin 🐧", value=f"```{msg}                                         ```")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Penguinsay: {ctx.author}")
 
     @penguinsay.error
     async def penguinsay_error(self, ctx, error):

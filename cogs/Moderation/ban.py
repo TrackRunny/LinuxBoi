@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import traceback
+from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class Ban(commands.Cog):
@@ -45,6 +46,8 @@ class Ban(commands.Cog):
             embed2.set_footer(text=f"Banned from: {ctx.guild}")
 
             await member.send(embed=embed2)
+
+            await logger.info(f"Moderation | Sent Ban: {ctx.author} | Banned: {member} | Reason: {reason}")
         else:
             traceback.print_exc()
 

@@ -2,6 +2,7 @@ import ipinfo
 import discord
 import os
 from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
 class IpAddress(commands.Cog):
@@ -50,6 +51,8 @@ class IpAddress(commands.Cog):
                 embed.add_field(name="• ISP-Name:", value=info["org"])
 
             await ctx.send(embed=embed)
+
+            await logger.info(f"Utility | Sent IP: {ctx.author} | IP Address: {ip}")
 
         except Exception:
             embed_error = discord.Embed(

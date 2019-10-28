@@ -1,6 +1,7 @@
 import discord
 import psutil
 from discord.ext import commands
+from logging_files.information_logging import logger
 
 
 class Help(commands.Cog):
@@ -46,6 +47,8 @@ class Help(commands.Cog):
         embed.set_footer(text="\n\nMade by TrackRunny#0001", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Information | Sent Help: {ctx.author}")
 
 
 def setup(client):

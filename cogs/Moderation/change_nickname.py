@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import traceback
+from discord.ext import commands
+from logging_files.moderation_logging import logger
 
 
 class ChangeNickname(commands.Cog):
@@ -34,6 +35,8 @@ class ChangeNickname(commands.Cog):
 
             await member.edit(nick=nickname)
             await ctx.send(embed=embed)
+
+            await logger.info(f"Moderation | Sent Change Nickname: {ctx.author} | Nickname: {nickname} | To: {member}")
         else:
             traceback.print_exc()
 

@@ -1,6 +1,7 @@
 import discord
 import aiohttp
 from discord.ext import commands
+from logging_files.fun_logging import logger
 
 
 class History(commands.Cog):
@@ -20,6 +21,8 @@ class History(commands.Cog):
                                                                     f"\n• Year: {res['year']}")
 
                 await ctx.send(embed=embed)
+
+                await logger.info(f"Fun | Sent History: {ctx.author}")
 
 
 def setup(client):

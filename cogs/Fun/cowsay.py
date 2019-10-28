@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from cowpy import cow
+from logging_files.fun_logging import logger
 
 
 class CowSay(commands.Cog):
@@ -18,6 +19,8 @@ class CowSay(commands.Cog):
         embed.add_field(name="→ Cowsay 🐮", value=f"Moo! ```{msg}                                             ```")
 
         await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Cowsay: {ctx.author}")
 
     @cowsay.error
     async def cowsay_error(self, ctx, error):

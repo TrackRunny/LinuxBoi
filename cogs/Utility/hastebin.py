@@ -1,9 +1,10 @@
 import discord
-from discord.ext import commands
 import requests
+from discord.ext import commands
+from logging_files.utility_logging import logger
 
 
-class Hastebin(commands.Cog):
+class HasteBin(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -18,6 +19,8 @@ class Hastebin(commands.Cog):
 
         await ctx.send(embed=embed)
 
+        await logger.info(f"Utility | Sent HasteBin: {ctx.author} | Code: {code}")
+
     @hastebin.error
     async def hastebin_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -31,4 +34,4 @@ class Hastebin(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Hastebin(client))
+    client.add_cog(HasteBin(client))
