@@ -61,7 +61,7 @@ class RandomColor(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Random Color: {ctx.author}")
+        logger.info(f"Utility | Sent Random Color: {ctx.author}")
 
 
 def setup(client):

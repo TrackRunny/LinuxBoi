@@ -19,7 +19,7 @@ class HasteBin(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent HasteBin: {ctx.author} | Code: {code}")
+        logger.info(f"Utility | Sent HasteBin: {ctx.author} | Code: {code}")
 
     @hastebin.error
     async def hastebin_error(self, ctx, error):

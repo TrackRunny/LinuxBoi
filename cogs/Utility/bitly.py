@@ -31,7 +31,7 @@ class Bitly(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {long_url} | Shortened Link: {response['url']}")
+            logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {long_url} | Shortened Link: {response['url']}")
         except Exception:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)

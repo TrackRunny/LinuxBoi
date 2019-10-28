@@ -47,7 +47,7 @@ class Ban(commands.Cog):
 
             await member.send(embed=embed2)
 
-            await logger.info(f"Moderation | Sent Ban: {ctx.author} | Banned: {member} | Reason: {reason}")
+            logger.info(f"Moderation | Sent Ban: {ctx.author} | Banned: {member} | Reason: {reason}")
         else:
             traceback.print_exc()
 

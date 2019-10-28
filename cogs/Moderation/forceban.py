@@ -18,7 +18,7 @@ class ForceBan(commands.Cog):
         embed.add_field(name="• Forceban command", value=f"<@{id}> → has been **Forcefully banned!** Bye bye! :wave:")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Moderation | Sent Force Ban: {ctx.author} | Force Banned: {id}")
+        logger.info(f"Moderation | Sent Force Ban: {ctx.author} | Force Banned: {id}")
 
     @forceban.error
     async def forceban_error(self, ctx, error):

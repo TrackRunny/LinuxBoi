@@ -21,7 +21,7 @@ class ChuckNorris(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Fun | Sent Chuck Norris: {ctx.author}")
+                logger.info(f"Fun | Sent Chuck Norris: {ctx.author}")
 
 
 def setup(client):

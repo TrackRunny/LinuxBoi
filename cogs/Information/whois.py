@@ -41,7 +41,7 @@ class UserInfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Information | Sent Whois: {ctx.author}")
+        logger.info(f"Information | Sent Whois: {ctx.author}")
 
     @whois.error
     async def whois_error(self, ctx, error):

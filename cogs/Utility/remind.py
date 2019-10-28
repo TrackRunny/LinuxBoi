@@ -38,7 +38,7 @@ class Remind(commands.Cog):
             ping = await ctx.send(ctx.author.mention)
             await ping.delete()
 
-            await logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
+            logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
 
         elif str(time_measurement) == "m":
             if float(time) <= 1:
@@ -60,7 +60,7 @@ class Remind(commands.Cog):
             ping = await ctx.send(ctx.author.mention)
             await ping.delete()
 
-            await logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
+            logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
 
         elif str(time_measurement) == "h":
             if float(time) <= 1:
@@ -82,7 +82,7 @@ class Remind(commands.Cog):
             ping = await ctx.send(ctx.author.mention)
             await ping.delete()
 
-            await logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
+            logger.info(f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
         else:
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put a valid option! Example: `l!remind <time> <time measurement> "

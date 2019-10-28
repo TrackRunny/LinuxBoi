@@ -55,7 +55,7 @@ class ServerInfo(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Information | Sent Serverinfo : {ctx.author}")
+        logger.info(f"Information | Sent Serverinfo : {ctx.author}")
 
 
 def setup(client):

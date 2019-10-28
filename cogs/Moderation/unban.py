@@ -18,7 +18,7 @@ class Unban(commands.Cog):
         embed.add_field(name="• Unban command", value=f"<@{id}> → has been **Unbanned!** Welcome back! :wave:")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Moderation | Sent Unban: {ctx.author} | Unbanned: {id}")
+        logger.info(f"Moderation | Sent Unban: {ctx.author} | Unbanned: {id}")
 
     @unban.error
     async def unban_error(self, ctx, error):

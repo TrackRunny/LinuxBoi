@@ -33,7 +33,7 @@ class Dice(commands.Cog):
         embed.add_field(name="→ Total number:", inline=False, value=f" {sum(dice_roll_ints)}")
         await ctx.send('', embed=embed)
 
-        await logger.info(f"Fun | Sent Dice: {ctx.author}")
+        logger.info(f"Fun | Sent Dice: {ctx.author}")
 
 
 def setup(client):

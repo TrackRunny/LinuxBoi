@@ -19,7 +19,7 @@ class Fortune(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Fortune: {ctx.author}")
+        logger.info(f"Fun | Sent Fortune: {ctx.author}")
 
 
 def setup(client):

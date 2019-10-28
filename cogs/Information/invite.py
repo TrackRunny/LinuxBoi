@@ -20,7 +20,7 @@ class Invite(commands.Cog):
 
         await ctx.author.send(embed=embed)
 
-        await logger.info(f"Information | Sent Invite: {ctx.author}")
+        logger.info(f"Information | Sent Invite: {ctx.author}")
 
 
 def setup(client):

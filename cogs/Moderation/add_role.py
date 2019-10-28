@@ -36,7 +36,7 @@ class AddRole(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Moderation | Sent Addrole: {ctx.author} | Role added: {role} | To: {member}")
+            logger.info(f"Moderation | Sent Addrole: {ctx.author} | Role added: {role} | To: {member}")
         else:
             traceback.print_exc()
 

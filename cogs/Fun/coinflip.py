@@ -19,7 +19,7 @@ class Coinflip(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Coinflip: {ctx.author}")
+        logger.info(f"Fun | Sent Coinflip: {ctx.author}")
 
 
 def setup(client):

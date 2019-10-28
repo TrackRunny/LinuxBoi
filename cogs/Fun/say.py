@@ -22,7 +22,7 @@ class Say(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Fun | Sent Say: {ctx.author}")
+            logger.info(f"Fun | Sent Say: {ctx.author}")
 
 
 def setup(client):

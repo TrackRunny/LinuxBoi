@@ -39,7 +39,7 @@ class EightBall(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent 8ball: {ctx.author}")
+        logger.info(f"Fun | Sent 8ball: {ctx.author}")
 
     @_8ball.error
     async def _8ball_error(self, ctx, error):

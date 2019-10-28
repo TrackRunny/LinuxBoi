@@ -30,7 +30,7 @@ class Definition(commands.Cog):
                                                     f"\n Definition: `{word.definition}`")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Word Random: {ctx.author}")
+        logger.info(f"Utility | Sent Word Random: {ctx.author}")
 
     @word.command()
     async def search(self, ctx, *, query):
@@ -42,7 +42,7 @@ class Definition(commands.Cog):
                                                       f"\n Definition: `{word.definition}`")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Word Search: {ctx.author} | Searched: {query}")
+        logger.info(f"Utility | Sent Word Search: {ctx.author} | Searched: {query}")
 
     @search.error
     async def currency_error(self, ctx, error):

@@ -31,7 +31,7 @@ class Newsletter(commands.Cog):
         await ctx.message.delete()
         await channel.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Newsletter: {ctx.author}")
+        logger.info(f"Utility | Sent Newsletter: {ctx.author}")
 
     @newsletter.error
     async def newsletter_error(self, ctx, error):

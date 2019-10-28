@@ -53,7 +53,7 @@ class MinecraftBedrock(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Utility | Sent MCBE: {ctx.author} | Server: {server} | Port: {port}")
+            logger.info(f"Utility | Sent MCBE: {ctx.author} | Server: {server} | Port: {port}")
 
         except Exception:
             embed_error = discord.Embed(

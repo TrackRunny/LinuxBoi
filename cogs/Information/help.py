@@ -48,7 +48,7 @@ class Help(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Information | Sent Help: {ctx.author}")
+        logger.info(f"Information | Sent Help: {ctx.author}")
 
 
 def setup(client):

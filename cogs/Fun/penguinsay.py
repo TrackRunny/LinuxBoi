@@ -20,7 +20,7 @@ class PenguinSay(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Penguinsay: {ctx.author}")
+        logger.info(f"Fun | Sent Penguinsay: {ctx.author}")
 
     @penguinsay.error
     async def penguinsay_error(self, ctx, error):

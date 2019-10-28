@@ -32,7 +32,7 @@ class GeekJoke(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
+        logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
 
 
 def setup(client):

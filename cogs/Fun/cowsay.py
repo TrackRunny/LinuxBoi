@@ -20,7 +20,7 @@ class CowSay(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Cowsay: {ctx.author}")
+        logger.info(f"Fun | Sent Cowsay: {ctx.author}")
 
     @cowsay.error
     async def cowsay_error(self, ctx, error):

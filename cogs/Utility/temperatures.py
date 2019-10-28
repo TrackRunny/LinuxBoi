@@ -24,7 +24,7 @@ class Temperatures(commands.Cog):
         embed.add_field(name="→ Fahrenheit to Celsius", value=f"• Celsius Temperature: `{int(celsius)}`")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Temperatures: {ctx.author}")
+        logger.info(f"Utility | Sent Temperatures: {ctx.author}")
 
     @temperature.command(aliases=["celsius"])
     async def celsius_to_fahrenheit(self, ctx, celsius):
@@ -35,7 +35,7 @@ class Temperatures(commands.Cog):
         embed.add_field(name="→ Celsius to Fahrenheit", value=f"• Fahrenheit Temperature: `{int(fahrenheit)}`")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Temperatures: {ctx.author}")
+        logger.info(f"Utility | Sent Temperatures: {ctx.author}")
 
 
 def setup(client):

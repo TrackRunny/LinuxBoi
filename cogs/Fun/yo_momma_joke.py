@@ -21,7 +21,7 @@ class YoMamaJoke(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
+                logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
 
 
 def setup(client):

@@ -22,7 +22,7 @@ class History(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Fun | Sent History: {ctx.author}")
+                logger.info(f"Fun | Sent History: {ctx.author}")
 
 
 def setup(client):

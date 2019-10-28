@@ -22,7 +22,7 @@ class Cat(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Images | Sent Cat: {ctx.author}")
+                logger.info(f"Images | Sent Cat: {ctx.author}")
 
 
 def setup(client):

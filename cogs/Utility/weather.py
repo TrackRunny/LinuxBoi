@@ -45,7 +45,7 @@ class Weather(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Utility | Sent Weather: {ctx.author}")
+            logger.info(f"Utility | Sent Weather: {ctx.author}")
         except Exception:
             member = ctx.author
             embed = discord.Embed(

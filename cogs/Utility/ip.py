@@ -52,7 +52,7 @@ class IpAddress(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Utility | Sent IP: {ctx.author} | IP Address: {ip}")
+            logger.info(f"Utility | Sent IP: {ctx.author} | IP Address: {ip}")
 
         except Exception:
             embed_error = discord.Embed(

@@ -36,7 +36,7 @@ class ChangeNickname(commands.Cog):
             await member.edit(nick=nickname)
             await ctx.send(embed=embed)
 
-            await logger.info(f"Moderation | Sent Change Nickname: {ctx.author} | Nickname: {nickname} | To: {member}")
+            logger.info(f"Moderation | Sent Change Nickname: {ctx.author} | Nickname: {nickname} | To: {member}")
         else:
             traceback.print_exc()
 

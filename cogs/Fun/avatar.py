@@ -18,7 +18,7 @@ class Avatar(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Avatar: {ctx.author}")
+        logger.info(f"Fun | Sent Avatar: {ctx.author}")
 
     @avatar.error
     async def avatar_error(self, ctx, error):

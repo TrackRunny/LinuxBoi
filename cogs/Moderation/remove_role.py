@@ -36,7 +36,7 @@ class DeleteRole(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            await logger.info(f"Moderation | Sent Remove Role: {ctx.author} | Removed Role: {role} | To: {member}")
+            logger.info(f"Moderation | Sent Remove Role: {ctx.author} | Removed Role: {role} | To: {member}")
         else:
             traceback.print_exc()
 

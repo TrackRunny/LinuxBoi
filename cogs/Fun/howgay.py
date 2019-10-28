@@ -19,7 +19,7 @@ class HowGay(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Howgay: {ctx.author}")
+        logger.info(f"Fun | Sent Howgay: {ctx.author}")
 
     @howgay.error
     async def howgay_error(self, ctx, error):

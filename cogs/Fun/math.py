@@ -22,7 +22,7 @@ class Math(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Fun | Sent Math: {ctx.author}")
+                logger.info(f"Fun | Sent Math: {ctx.author}")
 
 
 def setup(client):

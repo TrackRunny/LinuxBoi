@@ -29,7 +29,7 @@ class Bitcoin(commands.Cog):
                         value=f"• One Bitcoin is {amount} {currency}")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Bitcoin: {ctx.author}")
+        logger.info(f"Utility | Sent Bitcoin: {ctx.author}")
 
 
 def setup(client):

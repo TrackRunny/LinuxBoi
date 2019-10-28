@@ -17,7 +17,7 @@ class Shrug(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Shrug: {ctx.author}")
+        logger.info(f"Fun | Sent Shrug: {ctx.author}")
 
 
 def setup(client):

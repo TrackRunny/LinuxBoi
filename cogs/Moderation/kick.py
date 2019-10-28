@@ -46,7 +46,7 @@ class Kick(commands.Cog):
 
             await member.send(embed=embed2)
 
-            await logger.info(f"Moderation | Sent Kick: {ctx.author} | Kicked: {member} | Reason: {reason}")
+            logger.info(f"Moderation | Sent Kick: {ctx.author} | Kicked: {member} | Reason: {reason}")
         else:
             traceback.print_exc()
 

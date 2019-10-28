@@ -46,7 +46,7 @@ class Commands(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Inforamtion | Sent Commands: {ctx.author}")
+        logger.info(f"Inforamtion | Sent Commands: {ctx.author}")
 
 
 def setup(client):

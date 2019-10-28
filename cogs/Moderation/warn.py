@@ -37,7 +37,7 @@ class Warn(commands.Cog):
 
             await member.send(embed=embed2)
 
-            await logger.info(f"Moderation | Sent Warn: {ctx.author} | Warned: {member} | Reason: {reason}")
+            logger.info(f"Moderation | Sent Warn: {ctx.author} | Warned: {member} | Reason: {reason}")
 
     @warn.error
     async def warn_error(self, ctx, error):

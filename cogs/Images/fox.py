@@ -22,7 +22,7 @@ class Fox(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                await logger.info(f"Images | Sent Fox: {ctx.author}")
+                logger.info(f"Images | Sent Fox: {ctx.author}")
 
 
 def setup(client):

@@ -18,7 +18,7 @@ class Ping(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Information | Sent Ping: {ctx.author}")
+        logger.info(f"Information | Sent Ping: {ctx.author}")
 
 
 def setup(client):

@@ -27,7 +27,7 @@ class Translate(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Translate: {ctx.author} | Language: {lang} | Sentence: {sentence}")
+        logger.info(f"Utility | Sent Translate: {ctx.author} | Language: {lang} | Sentence: {sentence}")
 
     @translate.error
     async def translate_error(self, ctx, error):

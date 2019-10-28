@@ -19,7 +19,7 @@ class Status(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {activity} | Status: {status}")
+        logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {activity} | Status: {status}")
 
     @status.error
     async def change_status_error(self, ctx, error):

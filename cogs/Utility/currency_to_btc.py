@@ -38,7 +38,7 @@ class ToBitcoin(commands.Cog):
                         value=f"• {amount} {currency} is around {btc} Bitcoin!")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Currency_To_btc: {ctx.author}")
+        logger.info(f"Utility | Sent Currency_To_btc: {ctx.author}")
 
     @currency_to_bitcoin.error
     async def currency_to_bitcoin_error(self, ctx, error):

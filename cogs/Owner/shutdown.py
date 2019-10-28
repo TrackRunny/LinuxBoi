@@ -18,7 +18,7 @@ class Shutdown(commands.Cog):
         await ctx.send(embed=embed)
         await self.client.logout()
 
-        await logger.info(f"Owner | Sent Shutdown: {ctx.author}")
+        logger.info(f"Owner | Sent Shutdown: {ctx.author}")
 
 
 def setup(client):

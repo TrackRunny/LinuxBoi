@@ -22,7 +22,7 @@ class Poll(commands.Cog):
         await message.add_reaction("👍")
         await message.add_reaction("👎")
 
-        await logger.info(f"Utility | Sent Poll: {ctx.author}")
+        logger.info(f"Utility | Sent Poll: {ctx.author}")
 
     @poll.error
     async def poll_error(self, ctx, error):

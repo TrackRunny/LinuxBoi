@@ -38,7 +38,7 @@ class Currency(commands.Cog):
                         value=f"• {amount} {currency1} is about {round(amount2)} {currency2}!")
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Currency: {ctx.author}")
+        logger.info(f"Utility | Sent Currency: {ctx.author}")
 
     @currency.error
     async def currency_error(self, ctx, error):

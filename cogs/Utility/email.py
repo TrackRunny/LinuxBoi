@@ -100,7 +100,7 @@ class Email(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Utility | Sent Email: {ctx.author} | To: {emailto} | Subject: {subject} | Content: {content}")
+        logger.info(f"Utility | Sent Email: {ctx.author} | To: {emailto} | Subject: {subject} | Content: {content}")
 
     @email.error
     async def email_error(self, ctx, error):
