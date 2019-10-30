@@ -39,8 +39,8 @@
 
   **Please note that I would rather you not run another instance of the bot and just invite it to your server. If you really want to run it with your own token for testing or another reason, please follow the directions below to run it.**
 
-  Also note that **MAC OS X CANNOT\*** run [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") due to a missing library that is required to run it. You can attempt to run [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") on it, but when you try to play sound nothing will come out. You should get an error like this: `java.lang.UnsatisfiedLinkError: Required library at /natives/darwin/libudpqueue.dylib was not found`. Currently [**Lavalink Server**](https://github.com/Devoxin/Lavalink.py "Lavalink.py") supports Windows and Linux.
-  [**Lavalink.py**](https://github.com/Devoxin/Lavalink.) does support Mac OS X, however this is a wrapper for Lavalink server. Lavalink server allows you to play sound with the bot.
+  Also note that **MAC OS X CANNOT\*** run [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server") due to a missing library that is required to run it. You can attempt to run [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server")  on it, but when you try to play sound nothing will come out. You should get an error like this: `java.lang.UnsatisfiedLinkError: Required library at /natives/darwin/libudpqueue.dylib was not found`. Currently [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server")  supports Windows and Linux.
+  [**Lavalink.py**](https://github.com/Devoxin/Lavalink "Lavalink.py") does support Mac OS X, however this is a wrapper for Lavalink server. Lavalink server allows you to play sound with the bot.
 
   \* Its not impossible to try and compile Lavalink.jar with Mac natives up and running, though it has been done before but I personally have never tried it.
 
@@ -144,7 +144,7 @@
     <h3>• Enviroment Variables On Linux</h3>
     <p>Linux: Put the variables at the end of your <b>.bashrc</b> file. The <b>.bashrc</b> file is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="https://i.imgur.com/RC1yyTf.jpg">
+    <img src="http://i.imgur.com/1WyV5ig.png">
   </details>
 
   <details>
@@ -152,7 +152,7 @@
     <h3>• Enviroment Variables On Mac</h3>
     <p>Mac OS X: Put the variables at the end of your <b>.bash_profile</b> file. The <b>.bash_profile</b> is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="https://i.imgur.com/RC1yyTf.jpg">
+    <img src="http://i.imgur.com/1WyV5ig.png">
   </details>
 
   <details>
@@ -161,12 +161,13 @@
     <p>Windows: The process is a little more difficult on Windows. Please watch <a href="https://www.youtube.com/watch?v=IolxqkL7cD8">this</a> video so you can export these values on your Windows Operating System. Skip to <b>1:19</b> if you want to see how he does it. Make sure to keep the enviroment variables with the same name or they won't work. The variable names are inside the code block just under this piece of text.</p>
   </details>
   
-  ```markdown
+  ```bash
   export ip_info=""
   export email=""
   export email_password=""
   export bitly_user=""
   export bitly_key=""
+  export weather_key=""
   export linuxboi_token=""
   export linuxboi_testing_token=""
   ```
