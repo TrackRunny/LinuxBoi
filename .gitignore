@@ -7,9 +7,3 @@ cogs/Information/__pycache__
 cogs/Music/Lavalink-python/logs
 cogs/Linuxinfo
 cogs/Meme
-logs/fun.log
-logs/images.log
-logs/information.log
-logs/moderation.log
-logs/owner.log
-logs/utility.log

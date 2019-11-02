@@ -13,7 +13,7 @@
   <a href="https://app.codacy.com/manual/TrackRunny/Discord-Selfbot/dashboard?bid=14423857&token=vnDn11JbhCP7nhu">![Code Quality](https://img.shields.io/codacy/grade/179a29ed15bb40b5b0eed2b695791f94?style=flat-square)</a>  
 
 <!-- KEY INFORMATION HEADER -->
-### →  Important Information
+## →  Important Information
 
   * Official GitHub repo for LinuxBoi.
   * Multi-use Discord bot that is being actively developed.
@@ -171,6 +171,18 @@
   export linuxboi_token=""
   export linuxboi_testing_token=""
   ```
+
+### → List of Api's (Continuing Installation)
+
+  These are all of the api's I use inside LinuxBoi.
+
+  1. [**Ip Info**](https://ipinfo.io/) (Free; Sign up to recieve an Api key)
+
+  2. [**Bitly**](https://dev.bitly.com/) (Free; Sign up to recieve an api key and login key)
+
+  3. [**Open Weather API**](https://openweathermap.org/api) (Free; Sign up the recieve an api key)
+
+### → Finishing Installation
 
   Congrats, everything should be set up correctly so far. If you want to start the bot you can do `./LinuxBoi.py` as it should already be executiable.
 
