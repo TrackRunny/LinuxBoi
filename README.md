@@ -176,11 +176,15 @@
 
   These are all of the api's I use inside LinuxBoi.
 
-  1. [**Ip Info**](https://ipinfo.io/) (Free; Sign up to recieve an Api key)
+  1. [**Ip Info**](https://ipinfo.io/) (Free; Sign up to recieve an api key)
 
   2. [**Bitly**](https://dev.bitly.com/) (Free; Sign up to recieve an api key and login key)
 
   3. [**Open Weather API**](https://openweathermap.org/api) (Free; Sign up the recieve an api key)
+
+  4. [**Gmail**](https://gmail.com/) (Free; Sign up, use account email and password)
+
+  You need to put these values inside the enviroment variables. You also need to provide a bot token for the linuxboi_token, and linuxboi_testing_token enviroment variables too.
 
 ### → Finishing Installation
 
