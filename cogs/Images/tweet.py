@@ -1,6 +1,7 @@
 import discord
 import aiohttp
 from discord.ext import commands
+from logging_files.images_logging import logger
 
 
 class Tweet(commands.Cog):
@@ -18,7 +19,10 @@ class Tweet(commands.Cog):
                 )
                 embed.set_author(name="→ User Tweet")
                 embed.set_image(url=res["message"])
+
                 await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Tweet: {ctx.author} | Username: {username} | Text: {text}")
 
     @tweet.error
     async def tweet_error(self, ctx, error):
@@ -28,6 +32,7 @@ class Tweet(commands.Cog):
             )
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a vaild option! Example: `l!tweet <username> <text>`")
+
             await ctx.send(embed=embed)
 
 
