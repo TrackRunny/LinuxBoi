@@ -35,7 +35,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content in ("<@554841921185382400>", "@LinuxBoi"):
-        await message.channel.send("( :wave: ) → Hello, run `l!help` to see all my commands!")
+        await message.channel.send("( :wave: ) → Hello, run `l!commands` to see all my commands!")
     if not message.author.bot:
         await client.process_commands(message)
 

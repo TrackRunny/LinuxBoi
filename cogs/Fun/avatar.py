@@ -9,7 +9,7 @@ class Avatar(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def avatar(self, ctx, member: discord.Member, ):
+    async def avatar(self, ctx, member: discord.Member):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
