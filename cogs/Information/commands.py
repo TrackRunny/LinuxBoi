@@ -29,7 +29,7 @@ class Commands(commands.Cog):
                   "`l!mcbe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`"
-        image = "`l!cat`, `l!dog`, `l!fox`, `l!tweet`"
+        image = "`l!cat`, `l!dog`, `l!fox`, `l!tweet`, `l!captcha`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         # memes = "`l!meme`"
