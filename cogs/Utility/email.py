@@ -72,7 +72,9 @@ class Email(commands.Cog):
                     </ul>
                 <h4>Why does the person not just send a email through their regular address / email client?</h4>
                     <ul>
-                        <li>They could not have access to their email right now! However they could be just doing this to save time and not open their email client and send a email.</li>
+                        <li>They could not have access to their email right now!
+                         However they could be just doing this to save time 
+                         and not open their email client and send a email.</li>
                     </ul>
                 <h4>Okay, this sounds alright then can I have a invite link to the Discord Bot please?</h4>
                     <ul>

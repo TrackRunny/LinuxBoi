@@ -26,7 +26,7 @@ async def on_ready():
         if filename.endswith('.py'):
             client.load_extension(f"cogs.Music.{filename[:-3]}")
     print(f"---------------LinuxBoi-----------------------"
-          f"\nBot is online and connected to {str(client.user)}" 
+          f"\nBot is online and connected to {str(client.user)}"
           f"\nCreated by TrackRunny#3900 on Discord"
           f"\nConnected to {str(len(client.guilds))} Guilds." 
           f"\n----------------------------------------------")

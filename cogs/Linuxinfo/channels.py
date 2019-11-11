@@ -1,5 +1,3 @@
-
-
 import discord
 from discord.ext import commands
 
@@ -14,12 +12,13 @@ class Channels(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36)
         )
-        embed.add_field(name="→ Need to know Linux Channels", value=f"\n—"
-                                                                    f"\n→ These linux channels are all linux channels I would recommend watching."
-                                                                    f"\n→ These channels all provide content "
-                                                                    f"for all of your needs depending on what you want to watch."
-                                                                    f"\n→ Please note these channels are not in order from best to worst."
-                                                                    f"\n—")
+        embed.add_field(name="→ Need to know Linux Channels",
+                        value=f"\n—"
+                        f"\n→ These linux channels are all linux channels I would recommend watching."
+                        f"\n→ These channels all provide content "
+                        f"for all of your needs depending on what you want to watch."
+                        f"\n→ Please note these channels are not in order from best to worst."
+                        f"\n—")
         embed.set_thumbnail(url="https://www.pointillist.com/wp-content/uploads/2017/10/youtube-logo-1024x1024.jpg")
         joe = "(http://bit.ly/301xNkj)"
         switched = "(http://bit.ly/2I8Xswn)"
