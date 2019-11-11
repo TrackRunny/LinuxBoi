@@ -22,7 +22,13 @@ class Unban(commands.Cog):
 
     @unban.error
     async def unban_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid ID!",
+                            value="• Please use a valid Discord ID! Example: `l!unban <ID>`")
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )

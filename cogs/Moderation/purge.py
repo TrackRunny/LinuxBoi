@@ -17,11 +17,17 @@ class Purge(commands.Cog):
 
     @purge.error
     async def kick_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Amount Of Messages!",
+                            value="• Please mention a valid number! Example: `l!purge <number>`")
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
-            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!purge 5`")
+            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!purge <number>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

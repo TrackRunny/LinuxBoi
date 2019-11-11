@@ -22,12 +22,19 @@ class ForceBan(commands.Cog):
 
     @forceban.error
     async def forceban_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid ID!",
+                            value="• Please use a valid Discord ID! Example: `l!forceban <ID>`")
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
             embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid Discord ID! Example: `l!forceban 546812331213062144`")
+                            value="• Please put a valid Discord ID! Example: `l!forceban <ID>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

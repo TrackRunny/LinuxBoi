@@ -42,7 +42,13 @@ class DeleteRole(commands.Cog):
 
     @remove_role.error
     async def remove_role_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Role / Member!",
+                            value="• Please select a valid role / member! Example: `l!delrole <role ID / rolename> @user`")
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )

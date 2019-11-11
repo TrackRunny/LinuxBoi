@@ -42,7 +42,14 @@ class AddRole(commands.Cog):
 
     @add_role.error
     async def add_role_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Role / Member!",
+                            value="• Please select a valid role / member! Example: `l!addrole <role ID / rolename> @user`")
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )

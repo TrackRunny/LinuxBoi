@@ -42,7 +42,13 @@ class ChangeNickname(commands.Cog):
 
     @resetnick.error
     async def nickname_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36)
+            )
+            embed.add_field(name="→ Invalid Member!",
+                            value="• Please mention a valid member! Example: `l!resetnick @user`")
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36)
             )
