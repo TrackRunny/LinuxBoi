@@ -11,14 +11,13 @@ class Commands(commands.Cog):
     @commands.command()
     async def commands(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(255, 153, 34)
-        )
-        embed.set_author(name="→ All available bot commands!")
-        embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
-        embed.add_field(name="—", value="→ Shows info about all available bot commands!"
+            color=discord.Color.from_rgb(255, 153, 34),
+            title="→ All available bot commands!",
+            description="— \n→ Shows info about all available bot commands!"
                                         "\n→ Capitalization does not matter for the bot prefix." +
-                                        "\n—")
-
+                                        "\n—"
+        )
+        embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"

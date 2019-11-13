@@ -17,7 +17,7 @@ class MinecraftBedrock(commands.Cog):
             plugins_string = ', '.join(str(l) for l in motd.software.plugins)
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
             )
             embed.set_author(name="→ Minecraft Bedrock command")
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
@@ -26,8 +26,8 @@ class MinecraftBedrock(commands.Cog):
                             value=f"`{len(motd.players.names)}/{motd.players.max}`")
             embed.add_field(name="• Map:", inline=True, value=f"`{motd.map}`")
             embed.add_field(name="• Software:", inline=True, value=f"`{motd.software.brand}`")
-            embed.add_field(name="• Version:", inline=True, value=f"`{motd.software.version}`")
-            embed.add_field(name="• MOTD:", inline=False, value=f"`{motd.motd}`")
+            embed.add_field(name="• MOTD:", inline=True, value=f"`{motd.motd}`")
+            embed.add_field(name="• Version:", inline=False, value=f"`{motd.software.version}`")
             if not len(motd.players.names):
                 embed.add_field(name="• Player names:", inline=False,
                                 value="`No Player Information / No Players Online!`")
