@@ -20,7 +20,7 @@ class Remind(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Second!",
+                    title=f"→ Reminder set for {time} Second!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -28,7 +28,7 @@ class Remind(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Seconds!",
+                    title=f"→ Reminder set for {time} Seconds!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -54,7 +54,7 @@ class Remind(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Minute!",
+                    title=f"→ Reminder set for {time} Minute!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -62,7 +62,7 @@ class Remind(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Minutes!",
+                    title=f"→ Reminder set for {time} Minutes!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -90,7 +90,7 @@ class Remind(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Hour!",
+                    title=f"→ Reminder set for {time} Hour!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -98,7 +98,7 @@ class Remind(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Reminder set for {time} Hours!",
+                    title=f"→ Reminder set for {time} Hours!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
