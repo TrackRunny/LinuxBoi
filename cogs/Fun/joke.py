@@ -15,11 +15,11 @@ class Joke(commands.Cog):
             async with cs.get('https://official-joke-api.appspot.com/jokes/general/random') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random Joke!",
+                    description=f"• Question: {res[0]['setup']}"
+                                "\n• Joke: {res[0]['punchline']}"
                 )
-                embed.add_field(name="→ Random Joke", value=f"• Question: {res[0]['setup']}"
-                                                            f"\n• Joke: {res[0]['punchline']}")
-
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Joke: {ctx.author}")

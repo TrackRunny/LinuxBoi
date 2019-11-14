@@ -15,27 +15,28 @@ class ToBitcoin(commands.Cog):
             amount = int(amount)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Money error!",
+                description="• Not a valid amount of money!"
             )
-            embed.add_field(name="→ Money error!",
-                            value="• Not a valid amount of money!")
-            return await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         try:
             btc = round(b.convert_to_btc(amount, currency), 4)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Currency error!",
+                description="• Not a valid currency!"
+                            "\n• Example: `l!tobtc 10 CAD`"
+                            "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`"
             )
-            embed.add_field(name="→ Currency error!",
-                            value="• Not a valid currency!"
-                                  "\n• Example: `l!tobtc 10 CAD`"
-                                  "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
-            return await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Currency to Bitcoin!",
+            description=f"• {amount} {currency} is around {btc} Bitcoin!"
         )
-        embed.add_field(name="→ Currency to Bitcoin!",
-                        value=f"• {amount} {currency} is around {btc} Bitcoin!")
+
         await ctx.send(embed=embed)
 
         logger.info(f"Utility | Sent Currency_To_btc: {ctx.author}")
@@ -44,11 +45,10 @@ class ToBitcoin(commands.Cog):
     async def currency_to_bitcoin_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
-            )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!tobtc 10 CAD`"
-                                  "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!tobtc 10 CAD`"
+                            "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
             await ctx.send(embed=embed)
 
 

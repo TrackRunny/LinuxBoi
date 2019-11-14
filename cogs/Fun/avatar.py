@@ -11,9 +11,9 @@ class Avatar(commands.Cog):
     @commands.command()
     async def avatar(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Avatar"
         )
-        embed.set_author(name=f"→ Avatar")
         embed.set_image(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
 
         await ctx.send(embed=embed)
@@ -22,11 +22,19 @@ class Avatar(commands.Cog):
 
     @avatar.error
     async def avatar_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Member!",
+                description="• Please mention a valid member! Example: `l!avatar @user`"
             )
-            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!avatar @user`")
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument",
+                description="• Please put a valid option! Example: `l!avatar @user`"
+            )
             await ctx.send(embed=embed)
 
 

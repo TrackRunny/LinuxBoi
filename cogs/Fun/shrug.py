@@ -11,9 +11,10 @@ class Shrug(commands.Cog):
     @commands.command()
     async def shrug(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ What is life?",
+            description="• I gave up on it. ¯\_(ツ)_/¯"
         )
-        embed.add_field(name="→ What is life?", value="• I gave up on it. ¯\_(ツ)_/¯")
 
         await ctx.send(embed=embed)
 

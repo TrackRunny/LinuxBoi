@@ -19,11 +19,12 @@ class Translate(commands.Cog):
         translation = data.text
         language = lang.upper()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
-        )
-        embed.add_field(name="→ Translation", value='• Input Language: `{}`'.format(translated)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Translation",
+            description='• Input Language: `{}`'.format(translated)
                         + "\n• Translated Language: `{}`".format(language)
-                        + "\n• Translated Text: `{}`".format(translation))
+                        + "\n• Translated Text: `{}`".format(translation)
+        )
 
         await ctx.send(embed=embed)
 
@@ -33,11 +34,11 @@ class Translate(commands.Cog):
     async def translate_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!translate <language> <message>`"
+                            "\n• Real world example: `l!translate english Hola`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid option! Example: `l!translate <language> <message>`"
-                                  "\n• Real world example: `l!translate english Hola`")
             await ctx.send(embed=embed)
 
 

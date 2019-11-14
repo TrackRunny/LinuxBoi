@@ -16,26 +16,27 @@ class Currency(commands.Cog):
             amount = float(amount)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Money error!",
+                description="• Not a valid amount of money!"
             )
-            embed.add_field(name="→ Money error!",
-                            value="• Not a valid amount of money!")
-            return await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         try:
             amount2 = float((c.convert(currency1, currency2, amount)))
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Currency error!",
+                description="• Not a valid currency type!"
+                            "\n• Example: `l!currency 10 USD CAD`"
             )
-            embed.add_field(name="→ Currency error!",
-                            value="• Not a valid currency type!"
-                                  "\n• Example: `l!currency 10 USD CAD`")
-            return await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Currency converting",
+            description=f"• {amount} {currency1} is about {round(amount2)} {currency2}!"
         )
-        embed.add_field(name="→ Currency converting!",
-                        value=f"• {amount} {currency1} is about {round(amount2)} {currency2}!")
+
         await ctx.send(embed=embed)
 
         logger.info(f"Utility | Sent Currency: {ctx.author}")
@@ -44,10 +45,10 @@ class Currency(commands.Cog):
     async def currency_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!currency 10 USD CAD`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!currency 10 USD CAD`")
             await ctx.send(embed=embed)
 
 

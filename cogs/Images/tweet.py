@@ -15,9 +15,9 @@ class Tweet(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={text}") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ User Tweet"
                 )
-                embed.set_author(name="→ User Tweet")
                 embed.set_image(url=res["message"])
 
                 await ctx.send(embed=embed)

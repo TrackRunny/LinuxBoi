@@ -16,17 +16,17 @@ class Bitcoin(commands.Cog):
             amount = round(b.get_latest_price(currency), 2)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Currency error!",
+                description="• Not a valid currency type!"
+                            "\n• Example: `l!bitcoin CAD`"
             )
-            embed.add_field(name="→ Currency error!",
-                            value="• Not a valid currency type!"
-                                  "\n• Example: `l!bitcoin CAD`")
-            return await ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ BTC to Currency",
+            description=f"• One Bitcoin is {amount} {currency}"
         )
-        embed.add_field(name="→ BTC to Currency",
-                        value=f"• One Bitcoin is {amount} {currency}")
         await ctx.send(embed=embed)
 
         logger.info(f"Utility | Sent Bitcoin: {ctx.author}")

@@ -11,9 +11,9 @@ class HowGay(commands.Cog):
     @commands.command()
     async def howgay(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Howgay?"
         )
-        embed.set_author(name="→ Howgay?")
         embed.add_field(name="The account is...",
                         value=f"{random.randint(1, 100)}% gay :gay_pride_flag: → {str(member.mention)}")
 
@@ -23,11 +23,19 @@ class HowGay(commands.Cog):
 
     @howgay.error
     async def howgay_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Member!",
+                description="• Please mention a valid member! Example: `l!howgay @user`"
             )
-            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!howgay @user`")
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!howgay @user`"
+            )
             await ctx.send(embed=embed)
 
 

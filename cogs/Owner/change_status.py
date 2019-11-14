@@ -13,9 +13,10 @@ class Status(commands.Cog):
         # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
         await self.client.change_presence(activity=discord.Activity(type=activity, name=status))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Bot status changed!",
+            description="• My status has been updated to: `{status}`"
         )
-        embed.add_field(name="→ Bot status changed!", value=f"• My status has been updated to: `{status}`")
 
         await ctx.send(embed=embed)
 
@@ -25,10 +26,10 @@ class Status(commands.Cog):
     async def change_status_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="Please put a valid option! Example: `l!status <type> <status>`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="Please put a valid option! Example: `l!status <type> <status>`")
             await ctx.send(embed=embed)
 
 

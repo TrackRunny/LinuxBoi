@@ -10,10 +10,14 @@ class ServerInfo(commands.Cog):
 
     @commands.command(aliases=['server'])
     async def serverinfo(self, ctx):
-        embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
-        )
         guild = ctx.guild
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36),
+            title=f"• Server Info → {guild.name}",
+            description="\n— "
+                        "\n→ Shows all information about a guild. The information will be listed below!"
+                        "\n —"
+        )
         regions = {
             "us_west": ":flag_us: — USA West",
             "us_east": ":flag_us: — USA East",
@@ -39,9 +43,6 @@ class ServerInfo(commands.Cog):
             "extreme": "<:red__circle:625833379258040330> — Extreme Verification"
         }
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format=None, static_format="png"))
-        embed.add_field(name="• Server Info → " + str(guild.name), value="—"
-                                                "\n→ Shows all information about a guild. The information will be listed below!"
-                                                "\n —")
         embed.add_field(name="• Guild name: ", value=str(guild.name))
         embed.add_field(name="• Guild ID: ", value=str(guild.id))
         embed.add_field(name="• Guild owner: ", value=guild.owner)

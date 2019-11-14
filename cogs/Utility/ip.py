@@ -20,9 +20,9 @@ class IpAddress(commands.Cog):
             info = details.all
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ IP Address lookup"
             )
-            embed.set_author(name="→ IP Address lookup")
             embed.set_footer(text="— Note: Locations and Latitude & Longitude may not be 100% accurate.")
             embed.add_field(name="• IP Address:", value=info["ip"])
             if not len(info["latitude"]) and not len(info["longitude"]):
@@ -56,10 +56,10 @@ class IpAddress(commands.Cog):
 
         except Exception:
             embed_error = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid IP Address!",
+                description="• The IP address you entered is not valid."
             )
-            embed_error.add_field(name="→ Invalid IP Address!",
-                                  value=f"• The IP address you entered is not valid.")
 
             await ctx.send(embed=embed_error)
 
@@ -67,10 +67,10 @@ class IpAddress(commands.Cog):
     async def ip_lookup_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put in a IP Address! Example: `l!ip 172.217.2.238`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a IP Address! Example: `l!ip 172.217.2.238`")
             await ctx.send(embed=embed)
 
 

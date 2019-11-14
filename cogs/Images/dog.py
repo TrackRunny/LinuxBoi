@@ -15,9 +15,9 @@ class Dog(commands.Cog):
             async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random Dog! 🐕"
                 )
-                embed.set_author(name="→ Random Dog! 🐕")
                 embed.set_image(url=res['message'])
 
                 await ctx.send(embed=embed)

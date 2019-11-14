@@ -91,10 +91,10 @@ class Email(commands.Cog):
             smpt.send_message(msg)
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Email Sent!"
         )
         link = "https://digitalsynopsis.com/wp-content/uploads/2015/10/gif-icons-menu-transition-animations-send-mail.gif"
-        embed.set_author(name=f"→ Email Sent!")
         embed.set_thumbnail(url=link)
         embed.add_field(name="• Email Sent to:", inline=False, value=f"```{emailto}```")
         embed.add_field(name="• Subject:", inline=False, value=f"```{subject}```")
@@ -108,21 +108,20 @@ class Email(commands.Cog):
     async def email_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
-            )
-            invalid = "• Please put a valid option! " \
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! " \
                       "\n• Example: `l!email address@emailproider.com \"<subject>\" <content>`" \
                       "\n• Please note: Subjects with more than one word need to have quotes around them."
-
-            embed.add_field(name="→ Invalid Argument!",
-                            value=invalid)
+            )
             await ctx.send(embed=embed)
             ctx.command.reset_cooldown(ctx)
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Slow down!",
+                description="• You can only send a email every 30 minutes!"
             )
-            embed.add_field(name="→ Slow down!", value="• You can only send a email every 30 minutes!")
 
             await ctx.send(embed=embed)
 

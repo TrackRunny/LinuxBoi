@@ -19,30 +19,30 @@ class Purge(commands.Cog):
     async def kick_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Amount Of Messages!",
+                description="• Please mention a valid number! Example: `l!purge <number>`"
             )
-            embed.add_field(name="→ Invalid Amount Of Messages!",
-                            value="• Please mention a valid number! Example: `l!purge <number>`")
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!purge <number>`"
             )
-            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!purge <number>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Missing Permissions",
+                description="• You do not have permissions to run this command!"
             )
-            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
-
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Bot Missing Permissions!",
+                description="• Please give me permissions to use this command!"
             )
-            embed.add_field(name="→ Bot Missing Permissions!",
-                            value="• Please give me permissions to use this command!")
-
             await ctx.send(embed=embed)
 
 

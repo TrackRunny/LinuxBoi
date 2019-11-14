@@ -13,9 +13,10 @@ class Coinflip(commands.Cog):
         choices = ("Heads!", "Tails!")
         coin = random.choice(choices)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Coinflip Command",
+            description=coin
         )
-        embed.add_field(name="→ Coinflip command", value=coin)
 
         await ctx.send(embed=embed)
 

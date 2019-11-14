@@ -15,10 +15,11 @@ class History(commands.Cog):
             async with cs.get('http://numbersapi.com/random/date?json') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random History Date!",
+                    description=f"• Fact: {res['text']}"
+                                f"\n• Year: {res['year']}"
                 )
-                embed.add_field(name="→ Random History Date", value=f"• Fact: {res['text']}"
-                                                                    f"\n• Year: {res['year']}")
 
                 await ctx.send(embed=embed)
 

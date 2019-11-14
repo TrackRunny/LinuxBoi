@@ -16,9 +16,10 @@ class Captcha(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=captcha&url={avatar}&username=Orange") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Captcha Verification",
+
                 )
-                embed.set_author(name="→ Captcha Verification")
                 embed.set_image(url=res["message"])
 
                 await ctx.send(embed=embed)

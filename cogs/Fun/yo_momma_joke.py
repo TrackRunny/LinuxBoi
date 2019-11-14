@@ -15,9 +15,10 @@ class YoMamaJoke(commands.Cog):
             async with cs.get('https://api.yomomma.info/') as r:
                 res = await r.json(content_type='text/html')
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Yo Momma Joke",
+                    description=f"• Joke: {res['joke']}"
                 )
-                embed.add_field(name="→ Yo Momma Joke", value=f"• Joke: {res['joke']}")
 
                 await ctx.send(embed=embed)
 

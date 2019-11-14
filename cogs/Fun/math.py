@@ -15,11 +15,11 @@ class Math(commands.Cog):
             async with cs.get('http://numbersapi.com/random/math?json') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random Math Fact!",
+                    description=f"• Fact: {res['text']}"
+                                f"\n• Number: {res['number']}"
                 )
-                embed.add_field(name="→ Random Math Fact", value=f"• Fact: {res['text']}"
-                                                                 f"\n• Number: {res['number']}")
-
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Math: {ctx.author}")

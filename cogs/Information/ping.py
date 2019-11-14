@@ -12,9 +12,10 @@ class Ping(commands.Cog):
     async def ping(self, ctx):
         ping = str(round(self.client.latency * 1000))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Ping Command",
+            description=f"• The latency is {ping} ms"
         )
-        embed.add_field(name="→ Ping command", value="• The latency is " + ping + "ms")
 
         await ctx.send(embed=embed)
 

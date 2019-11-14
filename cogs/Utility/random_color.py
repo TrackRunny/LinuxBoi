@@ -47,9 +47,9 @@ class RandomColor(commands.Cog):
             return hsl
 
         embed = discord.Embed(
-            color=(discord.Color(int(f"0x{hex_color}", 16)))
+            color=(discord.Color(int(f"0x{hex_color}", 16))),
+            title="→ Random Color"
         )
-        embed.set_author(name='→ Random color')
         embed.set_thumbnail(url="https://www.script-tutorials.com/demos/315/images/colorwheel1.png")
         embed.set_footer(text="— Note: CMYK, HSV, HSL Colors are converted from RGB.")
         embed.add_field(name='• HEX value:', inline=True, value=f"`#{hex_color}`")

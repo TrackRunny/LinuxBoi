@@ -11,13 +11,14 @@ class UserInfo(commands.Cog):
     @commands.command(aliases=['userinfo'])
     async def whois(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title=f"• Userinfo → {member}",
+            description="— "
+                        "\n→ Shows all information about a user. The information will be listed below!"
+                        "\n —"
         )
         roles = [role for role in member.roles]
-        embed.set_author(name="• Userinfo → " + str(member))
         embed.set_thumbnail(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
-        embed.add_field(name="—", value="→ Shows all information about a user. The information will be listed below!"
-                                        "\n —")
         embed.add_field(name="• Account name: ", value=str(member))
         embed.add_field(name="• Discord ID: ", value=str(member.id))
         embed.add_field(name="• Nickname: ", value=member.nick or "No nickname!")
@@ -45,11 +46,19 @@ class UserInfo(commands.Cog):
 
     @whois.error
     async def whois_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Member!",
+                description="• Please mention a valid member! Example: `l!whois @user`"
             )
-            embed.add_field(name="→ Invalid Argument!", value="• Please put a valid option! Example: `l!whois @user`")
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!whois @user`"
+            )
             await ctx.send(embed=embed)
 
 

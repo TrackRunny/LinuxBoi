@@ -15,9 +15,9 @@ class Cat(commands.Cog):
             async with cs.get('http://aws.random.cat/meow') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random Cat! 🐈"
                 )
-                embed.set_author(name="→ Random Cat! 🐈")
                 embed.set_image(url=res['file'])
 
                 await ctx.send(embed=embed)

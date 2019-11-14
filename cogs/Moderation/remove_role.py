@@ -15,24 +15,25 @@ class DeleteRole(commands.Cog):
     async def remove_role(self, ctx, role: discord.Role, member: discord.Member,):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ User information",
+                description="• The user has higher permissions than me!"
             )
-            embed.add_field(name="→ User information",
-                            value="• The user has higher permissions than me!")
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ User information",
+                description="• The user has higher permissions than you or equal permissions!"
             )
-            embed.add_field(name="→ User information",
-                            value="• The user has higher permissions than you or equal permissions!")
             await ctx.send(embed=embed)
         elif ctx.guild.me.top_role > member.top_role:
             await member.remove_roles(role)
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="• Remove Role Command",
+                description=f"{member.mention} → Lost the role `{role}`"
             )
-            embed.add_field(name="• Remove Role command!", value=f"{member.mention} → Lost the role `{role}`")
 
             await ctx.send(embed=embed)
 
@@ -44,31 +45,31 @@ class DeleteRole(commands.Cog):
     async def remove_role_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Role / Member!",
+                description="• Please select a valid role / member! Example: `l!delrole <role ID / rolename> @user`"
             )
-            embed.add_field(name="→ Invalid Role / Member!",
-                            value="• Please select a valid role / member! Example: `l!delrole <role ID / rolename> @user`")
+            await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!delrole <Role ID / Rolename> @user`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid option! Example: `l!delrole <Role ID / Rolename> @user`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Missing Permissions",
+                description="• You do not have permissions to run this command!"
             )
-            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
-
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Bot Missing Permissions!",
+                description="• Please give me permissions to use this command!"
             )
-            embed.add_field(name="→ Bot Missing Permissions!",
-                            value="• Please give me permissions to use this command!")
-
             await ctx.send(embed=embed)
 
 

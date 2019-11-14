@@ -13,9 +13,11 @@ class ForceBan(commands.Cog):
     async def forceban(self, ctx, *, id: int):
         await ctx.guild.ban(discord.Object(id))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="• Forceban Command",
+            description=f"<@{id}> → has been **Forcefully banned!** Bye bye! :wave:"
         )
-        embed.add_field(name="• Forceban command", value=f"<@{id}> → has been **Forcefully banned!** Bye bye! :wave:")
+
         await ctx.send(embed=embed)
 
         logger.info(f"Moderation | Sent Force Ban: {ctx.author} | Force Banned: {id}")
@@ -24,33 +26,31 @@ class ForceBan(commands.Cog):
     async def forceban_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid ID!",
+                description="• Please use a valid Discord ID! Example: `l!forceban <ID>`"
             )
-            embed.add_field(name="→ Invalid ID!",
-                            value="• Please use a valid Discord ID! Example: `l!forceban <ID>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid argument! Example: `l!forceban <ID>`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid Discord ID! Example: `l!forceban <ID>`")
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Missing Permissions",
+                description="• You do not have permissions to run this command!"
             )
-            embed.add_field(name="→ Missing Permissions!", value="• You do not have permissions to run this command!")
-
             await ctx.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Bot Missing Permissions!",
+                description="• Please give me permissions to use this command!"
             )
-            embed.add_field(name="→ Bot Missing Permissions!",
-                            value="• Please give me permissions to use this command!")
-
-            await ctx.send(embed=embed)
 
 
 def setup(client):

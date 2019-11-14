@@ -15,9 +15,9 @@ class Fox(commands.Cog):
             async with cs.get('https://randomfox.ca/floof/') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Random Fox! "
                 )
-                embed.set_author(name="→ Random Fox! 🦊")
                 embed.set_image(url=res['image'])
 
                 await ctx.send(embed=embed)

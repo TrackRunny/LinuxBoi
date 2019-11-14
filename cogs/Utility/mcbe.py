@@ -18,8 +18,8 @@ class MinecraftBedrock(commands.Cog):
 
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Minecraft Bedrock command"
             )
-            embed.set_author(name="→ Minecraft Bedrock command")
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
             embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
             embed.add_field(name="• Players:", inline=True,

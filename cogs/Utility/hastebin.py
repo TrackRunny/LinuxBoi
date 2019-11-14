@@ -13,9 +13,10 @@ class HasteBin(commands.Cog):
     async def hastebin(self, ctx, *, code):
         post = requests.post("https://hastebin.com/documents", data=code.encode('utf-8'))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Uploaded code!",
+            description=f"• https://hastebin.com/{post.json()['key']}"
         )
-        embed.add_field(name="→ Uploaded code!", value="• https://hastebin.com/" + post.json()["key"])
 
         await ctx.send(embed=embed)
 
@@ -25,11 +26,11 @@ class HasteBin(commands.Cog):
     async def hastebin_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!hastebin <code>`"
+                            "\n• Real World Example: `l!hastebin print(\"Python is amazing!\")`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!hastebin <code>`"
-                                  "\n• Real World Example: `l!hastebin print(\"Python is amazing!\")`")
             await ctx.send(embed=embed)
 
 

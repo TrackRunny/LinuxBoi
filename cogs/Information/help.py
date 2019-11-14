@@ -24,12 +24,13 @@ class Help(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36),
             title="• LinuxBoi",
-            description="\n— \n→ Shows info about the server in which the bot is running on! "
-                              "All values are accurate and updated each time the command is ran."
-                              "\n → Python is one of my favorite programming languages :)" +
-                              "\n → Make sure to support The Free Software Movement!" +
-                              "\n → To view my commands run, `l!commands`"
-                              f"\n → If you like my bot, consider voting: {vote_link}" + "\n—"
+            description="— "
+                        "\n→ Shows info about the server in which the bot is running on! "
+                        "All values are accurate and updated each time the command is ran."
+                        "\n → Python is one of my favorite programming languages :)" +
+                        "\n → Make sure to support The Free Software Movement!" +
+                        "\n → To view my commands run, `l!commands`"
+                        f"\n → If you like my bot, consider voting: {vote_link}" + "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")
         embed.add_field(name="• Operating System:", inline=True, value=":computer: — Ubuntu 18.04 LTS")

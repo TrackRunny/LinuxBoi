@@ -15,9 +15,10 @@ class ChuckNorris(commands.Cog):
             async with cs.get('https://api.icndb.com/jokes/random?limitTo=[nerdy]') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36)
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Chuck Norris Joke",
+                    description=f"• Joke: {res['value']['joke']}"
                 )
-                embed.add_field(name="→ Chuck Norris Joke", value=f"• Joke: {res['value']['joke']}")
 
                 await ctx.send(embed=embed)
 

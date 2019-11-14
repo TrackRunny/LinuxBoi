@@ -14,9 +14,10 @@ class PenguinSay(commands.Cog):
         moo = cow.Tux(thoughts=True)
         msg = moo.milk(msg=message)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Listen to the penguin",
+            description=f"```{msg}                                         ```"
         )
-        embed.add_field(name="→ Listen to the penguin 🐧", value=f"```{msg}                                         ```")
 
         await ctx.send(embed=embed)
 
@@ -26,10 +27,10 @@ class PenguinSay(commands.Cog):
     async def penguinsay_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!penguinsay <text>`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!penguinsay <text>`")
             await ctx.send(embed=embed)
 
 

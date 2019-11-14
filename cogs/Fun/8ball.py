@@ -31,9 +31,9 @@ class EightBall(commands.Cog):
                      "Outlook not so good.",
                      "Very doubtful."]
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ 8Ball command"
         )
-        embed.set_author(name="→ 8Ball command")
         embed.add_field(name="• Question :grey_question: ", inline=False, value=f"{question}")
         embed.add_field(name="• Answer :8ball: ", inline=False, value=f"{random.choice(responses)}")
 

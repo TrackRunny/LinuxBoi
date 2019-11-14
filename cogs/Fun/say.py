@@ -11,18 +11,24 @@ class Say(commands.Cog):
     async def say(self, ctx, channel: discord.TextChannel, *, message):
         await channel.send(message)
 
+        logger.info(f"Fun | Sent Say: {ctx.author}")
+
     @say.error
     async def say_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Channel!",
+                description="• Please put a valid channel! Example: `l!say #channel <message>`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid option! Example: `l!say #channel <message>`")
-
             await ctx.send(embed=embed)
-
-            logger.info(f"Fun | Sent Say: {ctx.author}")
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!say #channel <message>`"
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):

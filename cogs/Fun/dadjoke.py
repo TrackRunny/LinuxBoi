@@ -13,9 +13,10 @@ class DadJoke(commands.Cog):
     async def dadjoke(self, ctx):
         random_dadjoke = Dadjoke()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Random Dad Joke!",
+            description=f"• {random_dadjoke.joke}"
         )
-        embed.add_field(name="→ Random Dad Joke!", value=f"• {random_dadjoke.joke}")
 
         await ctx.send(embed=embed)
 

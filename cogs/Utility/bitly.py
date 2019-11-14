@@ -23,9 +23,9 @@ class Bitly(commands.Cog):
             response = b.shorten(uri=long_url)
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ URL Shortener"
             )
-            embed.set_author(name="→ URL Shortener")
             embed.add_field(name="• Long link:", inline=False, value=link)
             embed.add_field(name="• Shortened link:", inline=False, value=response['url'])
 
@@ -34,11 +34,12 @@ class Bitly(commands.Cog):
             logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {long_url} | Shortened Link: {response['url']}")
         except Exception:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid URL",
+                description="• Please put a valid URL!"
+                            "\n• Example: `l!shortenlink https://google.com`"
+
             )
-            embed.add_field(name=f"→ Invalid URL",
-                            value="• Please put a valid URL!"
-                                  "\n• Example: `l!shortenlink https://google.com`")
 
             await ctx.send(embed=embed)
             ctx.command.reset_cooldown(ctx)
@@ -47,18 +48,18 @@ class Bitly(commands.Cog):
     async def shorten_link_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!shortenlink <URL>`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid option! Example: `l!shortenlink <URL>`")
             await ctx.send(embed=embed)
             ctx.command.reset_cooldown(ctx)
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Slow down!",
+                description="• You can only shorten a link every 10 seconds!"
             )
-            embed.add_field(name="→ Slow down!", value="• You can only shorten a link every 10 seconds!")
-
             await ctx.send(embed=embed)
 
 

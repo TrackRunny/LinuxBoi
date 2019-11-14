@@ -30,9 +30,9 @@ class Weather(commands.Cog):
             picture = weather.get_weather_icon_url()
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Weather Command"
             )
-            embed.set_author(name=f"→ Weather Command")
             embed.set_thumbnail(url=picture)
             embed.add_field(name="• Weather:", value=f"{status}")
             embed.add_field(name="• Temperature:", value=f"{temperature}℉ — ({temperature2}℃)")
@@ -49,24 +49,25 @@ class Weather(commands.Cog):
         except Exception:
             member = ctx.author
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid City / Zip code",
+                description="• The city or zip code you entered is "
+                            "not spelled right, or the format is incorrect."
+                            "\n• However the city you entered possibly "
+                            "not being tracked with the weather API!"
             )
-            embed.set_author(name=member)
-            embed.add_field(name="→ Invalid City / Zip code", value="• The city or zip code you entered is "
-                                                                    "not spelled right, or the format is incorrect."
-                                                                    "\n• However the city you entered possibly "
-                                                                    "not being tracked with the weather API!")
+
             await ctx.send(embed=embed)
 
     @weather.error
     async def weather_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
+                            "\n• You can also use a zip code! Example: `l!weather 15024, US`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
-                                  "\n• You can also use a zip code! Example: `l!weather 15024, US`")
             await ctx.send(embed=embed)
 
 

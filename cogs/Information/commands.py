@@ -13,9 +13,10 @@ class Commands(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(255, 153, 34),
             title="→ All available bot commands!",
-            description="— \n→ Shows info about all available bot commands!"
-                                        "\n→ Capitalization does not matter for the bot prefix." +
-                                        "\n—"
+            description="— "
+                        "\n→ Shows info about all available bot commands!"
+                        "\n→ Capitalization does not matter for the bot prefix." +
+                        "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \

@@ -26,7 +26,8 @@ class Dice(commands.Cog):
         except ValueError:
             pass
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Dice Command"
         )
         # ' '.join(dice_rolls)
         embed.add_field(name="→ Rolled Dice Numbers:", value=f" ".join(dice_rolls))
