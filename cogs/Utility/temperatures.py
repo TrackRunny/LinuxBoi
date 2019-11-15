@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from logging_files.utility_logging import logger
 
+
 class Temperatures(commands.Cog):
     def __init__(self, client):
         self.client = client
