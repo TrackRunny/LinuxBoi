@@ -7,6 +7,7 @@ class Purge(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    @commands.command
     @commands.has_permissions(manage_messages=True)
     @commands.bot_has_permissions(manage_messages=True)
     async def purge(self, ctx, amount: int):
