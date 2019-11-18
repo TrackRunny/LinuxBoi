@@ -7,7 +7,6 @@ class Purge(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context=True)
     @commands.has_permissions(manage_messages=True)
     @commands.bot_has_permissions(manage_messages=True)
     async def purge(self, ctx, amount: int):
@@ -16,14 +15,14 @@ class Purge(commands.Cog):
         logger.info(f"Moderation | Sent Purge: {ctx.author} | Purged: {amount} messages")
 
     @purge.error
-    async def kick_error(self, ctx, error):
+    async def purge_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ Invalid Amount Of Messages!",
-                description="• Please mention a valid number! Example: `l!purge <number>`"
+                description="• Please put a valid number! Example: `l!purge <number>`"
             )
-        if isinstance(error, commands.MissingRequiredArgument):
+        elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ Invalid Argument!",

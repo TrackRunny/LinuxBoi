@@ -51,6 +51,7 @@ class ForceBan(commands.Cog):
                 title="→ Bot Missing Permissions!",
                 description="• Please give me permissions to use this command!"
             )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
