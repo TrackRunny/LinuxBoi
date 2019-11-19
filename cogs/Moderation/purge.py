@@ -23,6 +23,7 @@ class Purge(commands.Cog):
                 title="→ Invalid Amount Of Messages!",
                 description="• Please put a valid number! Example: `l!purge <number>`"
             )
+            await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),

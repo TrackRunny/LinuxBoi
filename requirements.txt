@@ -13,7 +13,7 @@ Click==7.0
 cowpy==1.1.0
 dadjokes==1.3
 discord==1.0.1
-discord.py==1.2.4
+discord.py==1.2.5
 dnspython==1.15.0
 dnspython3==1.15.0
 forex-python==1.5

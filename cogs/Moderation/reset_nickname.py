@@ -49,6 +49,7 @@ class ChangeNickname(commands.Cog):
                 title="→ Invalid Member!",
                 description="• Please mention a valid member! Example: `l!resetnick @user`"
             )
+            await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
