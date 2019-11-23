@@ -47,7 +47,6 @@ class Weather(commands.Cog):
 
             logger.info(f"Utility | Sent Weather: {ctx.author}")
         except Exception:
-            member = ctx.author
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ Invalid City / Zip code",
