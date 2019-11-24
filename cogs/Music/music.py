@@ -37,6 +37,7 @@ class Music(commands.Cog):
             #  Ensure that the bot and command author share a mutual voicechannel.
 
         return guild_check
+
     """
     async def cog_command_error(self, ctx, error):
         if isinstance(error, commands.CommandInvokeError):
@@ -44,7 +45,7 @@ class Music(commands.Cog):
             # The above handles errors thrown in this cog and shows them to the user.
             # This shouldn't be a problem as the only errors thrown in this cog are from `ensure_voice`
             # which contain a reason string, such as "Join a voicechannel" etc. You can modify the above
-    """        # if you want to do things differently.
+    """  # if you want to do things differently.
 
     async def track_hook(self, event):
         if isinstance(event, lavalink.events.QueueEndEvent):
@@ -93,8 +94,8 @@ class Music(commands.Cog):
                 player.add(requester=ctx.author.id, track=track)
 
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
-                                      description=f'• {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
-                                      title="→ Playlist added!")
+                                  description=f'• {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
+                                  title="→ Playlist added!")
             await ctx.send(embed=embed)
         else:
             track = results['tracks'][0]
@@ -451,7 +452,7 @@ class Music(commands.Cog):
         player = self.bot.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
         # Create returns a player if one exists, otherwise creates.
 
-        should_connect = ctx.command.name in ('play')  # Add commands that require joining voice to work.
+        should_connect = ctx.command.name in 'play'  # Add commands that require joining voice to work.
 
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
@@ -466,7 +467,7 @@ class Music(commands.Cog):
                 embed = discord.Embed(
                     color=discord.Color.from_rgb(241, 90, 36),
                     title="→ Voice channel error!",
-                    description="• I am not connected to a voice channe"
+                    description="• I am not connected to a voice channel"
                 )
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
