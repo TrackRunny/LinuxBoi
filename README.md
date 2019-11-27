@@ -205,5 +205,5 @@
 <!-- END OF README -->
 ## → Questions / Contact me
 
-  * Discord Account: `TrackRunny#3900`
+  * Discord Account: `TrackRunny#0001`
   * Email: `trackrunny@protonmail.com`
