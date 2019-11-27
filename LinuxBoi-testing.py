@@ -21,10 +21,49 @@ linuxboi_testing_token = os.environ.get('linuxboi_testing_token')
 async def on_ready():
     # change_status.start()
     await client.change_presence(activity=discord.Activity(type=3, name="Linux videos! | lt!help"))
+
     client.load_extension('jishaku')
+
     for filename in os.listdir('./cogs/Music'):
         if filename.endswith('.py'):
             client.load_extension(f"cogs.Music.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Information'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Information.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Fun'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Fun.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Moderation'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Moderation.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Events'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Events.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Utility'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Utility.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Owner'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Owner.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Linuxinfo'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Meme'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Meme.{filename[:-3]}")
+
+    for filename in os.listdir('./cogs/Images'):
+        if filename.endswith('.py'):
+            client.load_extension(f"cogs.Images.{filename[:-3]}")
+
     print(f"---------------LinuxBoi-testing-----------------------"
           f"\nBot is online and connected to {str(client.user)}"
           f"\nCreated by TrackRunny#3900 on Discord"
@@ -127,11 +166,6 @@ async def reload_information_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-for filename in os.listdir('./cogs/Information'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Information.{filename[:-3]}")
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -206,11 +240,6 @@ async def reload_utility_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-for filename in os.listdir('./cogs/Utility'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Utility.{filename[:-3]}")
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -280,11 +309,6 @@ async def reload_fun_error(ctx, error):
         )
         embed.add_field(name="→ Invalid Argument", value="Please put a valid option! Example: `l!reload_fun whois`")
         await ctx.send(embed=embed)
-
-
-for filename in os.listdir('./cogs/Fun'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Fun.{filename[:-3]}")
 
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -363,11 +387,6 @@ async def reload_moderation_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-for filename in os.listdir('./cogs/Moderation'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Moderation.{filename[:-3]}")
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -443,11 +462,6 @@ async def reload_events_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-for filename in os.listdir('./cogs/Events'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Events.{filename[:-3]}")
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -519,11 +533,6 @@ async def reload_owner_error(ctx, error):
         embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_owner shutdown`")
         await ctx.send(embed=embed)
-
-
-for filename in os.listdir('./cogs/Owner'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Owner.{filename[:-3]}")
 
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -600,16 +609,11 @@ async def reload_linuxinfo_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-for filename in os.listdir('./cogs/Linuxinfo'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
-
-
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-"""
+
 @client.command(pass_context=True)
 @commands.is_owner()
 async def load_meme(ctx, extension):
@@ -678,11 +682,6 @@ async def unload_meme_error(ctx, error):
                         value="Please put a valid option! Example: `l!unload_meme linuxmeme`")
         await ctx.send(embed=embed)
 
-
-for filename in os.listdir('./cogs/Meme'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Meme.{filename[:-3]}")
-"""
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 # ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -756,11 +755,6 @@ async def reload_image_error(ctx, error):
         embed.add_field(name="→ Invalid Argument",
                         value="Please put a valid option! Example: `l!reload_image cat`")
         await ctx.send(embed=embed)
-
-
-for filename in os.listdir('./cogs/Images'):
-    if filename.endswith('.py'):
-        client.load_extension(f"cogs.Images.{filename[:-3]}")
 
 
 client.run(linuxboi_testing_token)

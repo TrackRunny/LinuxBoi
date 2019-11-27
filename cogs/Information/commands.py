@@ -33,13 +33,13 @@ class Commands(commands.Cog):
         image = "`l!cat`, `l!dog`, `l!fox`, `l!tweet`, `l!captcha`, `l!clyde`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        # memes = "`l!meme`"
+        memes = "`l!random_meme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
         embed.add_field(name="• Information Commands!", inline=False, value=information)
         embed.add_field(name="• Fun Commands!", inline=False, value=fun)
-        # embed.add_field(name="• Memes!", inline=False, value=memes)
+        embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
         embed.add_field(name="• Image Commands!", inline=False, value=image)
         embed.add_field(name="• Music Commands [BETA]!", inline=False, value=music)

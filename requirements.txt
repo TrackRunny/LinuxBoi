@@ -1,5 +1,5 @@
 aiogoogletrans==3.3.2
-aiohttp==3.5.4
+aiohttp==3.3.2
 altgraph==0.16.1
 astroid==2.2.5
 async-timeout==3.0.1
@@ -27,6 +27,7 @@ import-expression==0.3.8.post2
 ipinfo==2.0.0
 isort==4.3.21
 jishaku==1.15.0.134
+ksoftapi==0.1.5b0
 lavalink==3.0.0
 lazy-object-proxy==1.4.1
 mccabe==0.6.1
