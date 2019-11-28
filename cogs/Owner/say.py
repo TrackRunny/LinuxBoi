@@ -4,9 +4,11 @@ from logging_files.fun_logging import logger
 
 
 class Say(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 
+    @commands.is_owner()
     @commands.command()
     async def say(self, ctx, channel: discord.TextChannel, *, message):
         await channel.send(message)

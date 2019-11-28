@@ -22,7 +22,7 @@ class Commands(commands.Cog):
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!say`, `l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
+        fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
               "`l!cowsay`, `l!penguinsay`, `l!fortune`, `l!shrug`, `l!history`, `l!math`, `l!yo-momma-joke`, " \
               "`l!joke`, `l!chuck-norris`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
