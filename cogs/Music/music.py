@@ -71,14 +71,7 @@ class Music(commands.Cog):
             query = f'ytsearch:{query}'
 
         results = await player.node.get_tracks(query)
-        """
-        position = lavalink.utils.format_time(player.position)
-        if player.current.stream:
-            duration = '🔴 LIVE'
-        else:
-            duration = lavalink.utils.format_time(player.current.duration)
-        song = f'**[{player.current.title}]({player.current.uri})**\n({position}/{duration})'
-        """
+
         if not results or not results['tracks']:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
@@ -87,6 +80,8 @@ class Music(commands.Cog):
             )
             return await ctx.send(embed=embed)
 
+        # position = lavalink.utils.format_time(player.position)
+
         if results['loadType'] == 'PLAYLIST_LOADED':
             tracks = results['tracks']
 
@@ -94,14 +89,17 @@ class Music(commands.Cog):
                 player.add(requester=ctx.author.id, track=track)
 
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
-                                  description=f'• {results["playlistInfo"]["name"]} - {len(tracks)} tracks',
+                                  description=f'• **{results["playlistInfo"]["name"]}** - {len(tracks)} tracks',
                                   title="→ Playlist added!")
+            embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
             await ctx.send(embed=embed)
         else:
             track = results['tracks'][0]
+
             embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
-                                  description=f'• [{track["info"]["title"]}]({track["info"]["uri"]})',
+                                  description=f'• [**{track["info"]["title"]}**]({track["info"]["uri"]})',
                                   title="→ Song added to queue!")
+            embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
             player.add(requester=ctx.author.id, track=track)
 
             await ctx.send(embed=embed)
@@ -130,7 +128,7 @@ class Music(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36),
             title="→ Resumed!",
-            description="• Song time has been moved to: `{lavalink.utils.format_time(track_time)}`"
+            description=f"• Song time has been moved to: `{lavalink.utils.format_time(track_time)}`"
         )
         await ctx.send(embed=embed)
 
@@ -195,16 +193,18 @@ class Music(commands.Cog):
 
         position = lavalink.utils.format_time(player.position)
         if player.current.stream:
-            duration = '🔴 LIVE'
+            duration = '🔴 Live Video'
         else:
             duration = lavalink.utils.format_time(player.current.duration)
-        song = f'**[{player.current.title}]({player.current.uri})**\n—\n({position}/{duration})'
+        song = f'**• [{player.current.title}]({player.current.uri})**'
 
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36),
             title='→ Currently Playing:',
-            description=song
+            description=f"{song}"
+                        f"\n**•** Current time: **({position}/{duration})**"
         )
+        embed.set_thumbnail(url=f'https://img.youtube.com/vi/{player.current.identifier}/default.jpg')
         await ctx.send(embed=embed)
 
     @commands.command(aliases=['q'])
