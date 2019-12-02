@@ -24,45 +24,14 @@ async def on_ready():
 
     client.load_extension('jishaku')
 
+    cogs = ["Fun", "Images", "Information", "Linuxinfo", "Meme", "Moderation", "Owner", "Utility"]
+
+    for cog in cogs:
+        client.load_extension(f"cogs.{cog}")
+
     for filename in os.listdir('./cogs/Music'):
         if filename.endswith('.py'):
             client.load_extension(f"cogs.Music.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Information'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Information.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Fun'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Fun.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Moderation'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Moderation.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Events'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Events.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Utility'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Utility.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Owner'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Owner.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Linuxinfo'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Linuxinfo.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Meme'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Meme.{filename[:-3]}")
-
-    for filename in os.listdir('./cogs/Images'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Images.{filename[:-3]}")
 
     print(f"---------------LinuxBoi-testing-----------------------"
           f"\nBot is online and connected to {str(client.user)}"

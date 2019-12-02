@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class Channels(commands.Cog):
+class LinuxInfo(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -39,4 +39,4 @@ class Channels(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Channels(client))
+    client.add_cog(LinuxInfo(client))
