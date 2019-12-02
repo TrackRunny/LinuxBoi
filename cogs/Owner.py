@@ -1,6 +1,8 @@
+import random
 import discord
 from discord.ext import commands
 from logging_files.owner_logging import logger
+
 
 class Owner(commands.Cog):
 
@@ -36,13 +38,15 @@ class Owner(commands.Cog):
     @commands.command()
     async def guilds(self, ctx):
         for guild in self.client.guilds:
-            embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
-                title=f"→ Current List Of Guilds",
-                description=f"```Guild: {guild} | ID: {guild.id}```"
-            )
+            guilds = guild
 
-            await ctx.send(embed=embed)
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36),
+            title=f"→ Current List Of Guilds",
+            description=f"```Guild: {guilds} | ID: {guilds.id}```"
+        )
+
+        await ctx.send(embed=embed)
 
     @commands.is_owner()
     @commands.command()
