@@ -9,5 +9,5 @@ cogs/Information/__pycache__
 cogs/Moderation/__pycache__
 cogs/Owner/__pycache__
 cogs/Utility/__pycache__
-cogs/Music/Lavalink_Files/logs
+Music/logs
 cogs/Linuxinfo

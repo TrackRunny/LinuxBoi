@@ -6,7 +6,7 @@ async-timeout==3.0.1
 asyncurban==0.3.3
 attrs==19.1.0
 beautifulsoup4==4.8.0
-bitly-api==0.3
+bitlyshortener==0.3.2
 braceexpand==0.1.5
 cachetools==3.1.1
 certifi==2019.9.11

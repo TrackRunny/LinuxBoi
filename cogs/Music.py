@@ -1,7 +1,21 @@
 """
-This is an example cog that shows how you would make use of Lavalink.py.
-This example cog requires that you have python 3.6 or higher due to the f-strings.
+LinuxBoi - Discord client
+Copyright (C) 2019 TrackRunny
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
+
 import math
 import re
 import discord
@@ -12,20 +26,20 @@ url_rx = re.compile('https?:\\/\\/(?:www\\.)?.+')  # noqa: W605
 
 
 class Music(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+    def __init__(self, client):
+        self.client = client
         self.votes = []
 
-        if not hasattr(bot, 'lavalink'):  # This ensures the client isn't overwritten during cog reloads.
-            bot.lavalink = lavalink.Client(bot.user.id)
-            bot.lavalink.add_node('127.0.0.1', 2333, 'Runningboy12?', 'us',
+        if not hasattr(client, 'lavalink'):  # This ensures the client isn't overwritten during cog reloads.
+            client.lavalink = lavalink.Client(client.user.id)
+            client.lavalink.add_node('127.0.0.1', 2333, 'Runningboy12?', 'us',
                                   'default-node')  # Host, Port, Password, Region, Name
-            bot.add_listener(bot.lavalink.voice_update_handler, 'on_socket_response')
+            client.add_listener(client.lavalink.voice_update_handler, 'on_socket_response')
 
-        bot.lavalink.add_event_hook(self.track_hook)
+        client.lavalink.add_event_hook(self.track_hook)
 
     def cog_unload(self):
-        self.bot.lavalink._event_hooks.clear()
+        self.client.lavalink._event_hooks.clear()
 
     async def cog_before_invoke(self, ctx):
         guild_check = ctx.guild is not None
@@ -34,7 +48,7 @@ class Music(commands.Cog):
 
         if guild_check:
             await self.ensure_voice(ctx)
-            #  Ensure that the bot and command author share a mutual voicechannel.
+            #  Ensure that the client and command author share a mutual voicechannel.
 
         return guild_check
 
@@ -55,15 +69,15 @@ class Music(commands.Cog):
 
     async def connect_to(self, guild_id: int, channel_id: str):
         """ Connects to the given voicechannel ID. A channel_id of `None` means disconnect. """
-        ws = self.bot._connection._get_websocket(guild_id)
+        ws = self.client._connection._get_websocket(guild_id)
         await ws.voice_state(str(guild_id), channel_id)
-        # The above looks dirty, we could alternatively use `bot.shards[shard_id].ws` but that assumes
-        # the bot instance is an AutoShardedBot.
+        # The above looks dirty, we could alternatively use `client.shards[shard_id].ws` but that assumes
+        # the client instance is an AutoShardedclient.
 
     @commands.command(aliases=['p'])
     async def play(self, ctx, *, query: str):
         """ Searches and plays a song from a given query. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         query = query.strip('<>')
 
@@ -120,7 +134,7 @@ class Music(commands.Cog):
     @commands.command()
     async def seek(self, ctx, *, seconds: int):
         """ Seeks to a given position in a track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         track_time = player.position + (seconds * 1000)
         await player.seek(track_time)
@@ -145,7 +159,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['forceskip'])
     async def skip(self, ctx):
         """ Skips the current track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         await player.skip()
         embed = discord.Embed(
@@ -158,7 +172,7 @@ class Music(commands.Cog):
     @commands.command()
     async def stop(self, ctx):
         """ Stops the player and clears its queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
@@ -181,7 +195,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['np', 'n', 'playing'])
     async def now(self, ctx):
         """ Shows some stats about the currently playing song. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.current:
             embed = discord.Embed(
@@ -210,7 +224,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['q'])
     async def queue(self, ctx, page: int = 1):
         """ Shows the player's queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.queue:
             embed = discord.Embed(
@@ -242,7 +256,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['resume'])
     async def pause(self, ctx):
         """ Pauses/Resumes the current track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
@@ -272,7 +286,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['vol'])
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not volume:
             embed = discord.Embed(
@@ -295,7 +309,7 @@ class Music(commands.Cog):
     @commands.command()
     async def shuffle(self, ctx):
         """ Shuffles the player's queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
         if not player.is_playing:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
@@ -316,7 +330,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['loop'])
     async def repeat(self, ctx):
         """ Repeats the current song until the command is invoked again. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
@@ -337,7 +351,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['rm'])
     async def remove(self, ctx, index: int):
         """ Removes an item from the player's queue with the given index. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.queue:
             embed = discord.Embed(
@@ -376,7 +390,7 @@ class Music(commands.Cog):
     @commands.command(aliases=["find"])
     async def search(self, ctx, *, query):
         """ Lists the first 10 search results from a given query. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not query.startswith('ytsearch:') and not query.startswith('scsearch:'):
             query = 'ytsearch:' + query
@@ -419,7 +433,7 @@ class Music(commands.Cog):
     @commands.command(aliases=['dc'])
     async def disconnect(self, ctx):
         """ Disconnects the player from the voice channel and clears its queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.client.lavalink.players.get(ctx.guild.id)
 
         if not player.is_connected:
             embed = discord.Embed(
@@ -448,8 +462,8 @@ class Music(commands.Cog):
         return await ctx.send(embed=embed)
 
     async def ensure_voice(self, ctx):
-        """ This check ensures that the bot and command author are in the same voicechannel. """
-        player = self.bot.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
+        """ This check ensures that the client and command author are in the same voicechannel. """
+        player = self.client.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
         # Create returns a player if one exists, otherwise creates.
 
         should_connect = ctx.command.name in 'play'  # Add commands that require joining voice to work.
@@ -493,5 +507,5 @@ class Music(commands.Cog):
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
 
-def setup(bot):
-    bot.add_cog(Music(bot))
+def setup(client):
+    client.add_cog(Music(client))

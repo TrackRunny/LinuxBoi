@@ -144,7 +144,7 @@
     <h3>• Environment Variables On Linux</h3>
     <p>Linux: Put the variables at the end of your <b>.bashrc</b> file. The <b>.bashrc</b> file is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="http://i.imgur.com/03ms8dY.png">
+    <img src="http://i.imgur.com/FG8Yyt2.png">
   </details>
 
   <details>
@@ -152,7 +152,7 @@
     <h3>• Environment Variables On Mac</h3>
     <p>Mac OS X: Put the variables at the end of your <b>.bash_profile</b> file. The <b>.bash_profile</b> is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="http://i.imgur.com/03ms8dY.png">
+    <img src="http://i.imgur.com/FG8Yyt2.png">
   </details>
 
   <details>
@@ -165,8 +165,7 @@
   export ip_info=""
   export email=""
   export email_password=""
-  export bitly_user=""
-  export bitly_key=""
+  export bitly_access_token=""
   export weather_key=""
   export ksoft_key=""
   export linuxboi_token=""
@@ -179,7 +178,7 @@
 
   1. [**Ip Info**](https://ipinfo.io/) (Free; Sign up to receive an api key)
 
-  2. [**Bitly**](https://dev.bitly.com/) (Free; Sign up to receive an api key and login key)
+  2. [**Bitly**](https://dev.bitly.com/) (Free; Sign up to receive a generic access token)
 
   3. [**Open Weather API**](https://openweathermap.org/api) (Free; Sign up the receive an api key)
   
@@ -193,7 +192,7 @@
 
   Congrats, everything should be set up correctly so far. If you want to start the bot you can do `./LinuxBoi.py` as it should already be executable.
 
-  Don't forget to start Lavalink server too! To do this you can change directories into `cd cogs/Music/Lavalink_Files/`. After that you can do `java -jar Lavalink.jar`. **Note:** You need to have Java 8 or higher to run this correctly. I would **recommend** starting **Lavalink server before starting the bot** as you won't get the `[NODE-us-127.0.0.1:2333] Failed to establish connection!` error when you start the bot before Lavalink server is running.
+  Don't forget to start Lavalink server too! To do this you can change directories into `cd Music/`. After that you can do `java -jar Lavalink.jar`. **Note:** You need to have Java 8 or higher to run this correctly. I would **recommend** starting **Lavalink server before starting the bot** as you won't get the `[NODE-us-127.0.0.1:2333] Failed to establish connection!` error when you start the bot before Lavalink server is running.
 
 ---
 

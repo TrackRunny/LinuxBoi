@@ -1,6 +1,23 @@
+"""
+LinuxBoi - Discord bot
+Copyright (C) 2019 TrackRunny
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
+
 import discord
 import os
-import bitly_api
 import asyncurban
 import smtplib
 import requests
@@ -14,6 +31,7 @@ import pyowm
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 from forex_python.converter import CurrencyRates
+from bitlyshortener import Shortener
 from email.message import EmailMessage
 from mcstatus import MinecraftServer
 from logging_files.utility_logging import logger
@@ -52,24 +70,22 @@ class Utility(commands.Cog):
     @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
     async def bitly(self, ctx, *, link):
         try:
-            api_user = os.environ.get("bitly_user")
-            api_key = os.environ.get("bitly_key")
+            access_token = os.environ.get("bitly_access_token")
+            access_token = [access_token]
 
-            b = bitly_api.Connection(api_user, api_key)
-
-            long_url = link
-            response = b.shorten(uri=long_url)
+            shortener = Shortener(tokens=access_token, max_cache_size=8192)
+            shortened_link = shortener.shorten_urls([link])
 
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ URL Shortener"
             )
             embed.add_field(name="• Long link:", inline=False, value=link)
-            embed.add_field(name="• Shortened link:", inline=False, value=response['url'])
+            embed.add_field(name="• Shortened link:", inline=False, value=shortened_link[0])
 
             await ctx.send(embed=embed)
 
-            logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {long_url} | Shortened Link: {response['url']}")
+            logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {link} | Shortened Link: {shortened_link[0]}")
         except Exception:
             embed = discord.Embed(
                 color=discord.Color.from_rgb(241, 90, 36),

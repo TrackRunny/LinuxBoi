@@ -1,3 +1,21 @@
+"""
+LinuxBoi - Discord bot
+Copyright (C) 2019 TrackRunny
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
+
 import random
 import discord
 from discord.ext import commands
@@ -17,7 +35,7 @@ class Owner(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36),
             title="→ Bot status changed!",
-            description="• My status has been updated to: `{status}`"
+            description=f"• My status has been updated to: `{status}`"
         )
 
         await ctx.send(embed=embed)
@@ -38,15 +56,7 @@ class Owner(commands.Cog):
     @commands.command()
     async def guilds(self, ctx):
         for guild in self.client.guilds:
-            guilds = guild
-
-        embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
-            title=f"→ Current List Of Guilds",
-            description=f"```Guild: {guilds} | ID: {guilds.id}```"
-        )
-
-        await ctx.send(embed=embed)
+            await ctx.send(f"Guild: {guild} | ID: {guild.id}")
 
     @commands.is_owner()
     @commands.command()
