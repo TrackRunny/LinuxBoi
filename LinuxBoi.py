@@ -42,14 +42,10 @@ async def on_ready():
 
     client.load_extension('jishaku')
 
-    cogs = ["Fun", "Images", "Information", "Linuxinfo", "Meme", "Moderation", "Owner", "Utility"]
+    cogs = ["Fun", "Images", "Information", "Linuxinfo", "Meme", "Moderation", "Owner", "Utility", "Music"]
 
     for cog in cogs:
         client.load_extension(f"cogs.{cog}")
-
-    for filename in os.listdir('./cogs/Music'):
-        if filename.endswith('.py'):
-            client.load_extension(f"cogs.Music.{filename[:-3]}")
 
     print(f"---------------LinuxBoi-----------------------"
           f"\nBot is online and connected to {str(client.user)}"
