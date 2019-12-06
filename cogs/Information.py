@@ -52,7 +52,7 @@ class Information(commands.Cog):
         image = "`l!cat`, `l!dog`, `l!fox`, `l!tweet`, `l!captcha`, `l!clyde`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        memes = "`l!random_meme`"
+        memes = "`l!random_meme`, `l!random_wikihow`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
