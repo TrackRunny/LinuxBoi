@@ -47,7 +47,7 @@ class Meme(commands.Cog):
                 logger.info(f"Meme | Sent Random Meme: {ctx.author}")
 
     @commands.command()
-    async def random_wikihow(self, ctx):
+    async def wikihow(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-wikihow",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:

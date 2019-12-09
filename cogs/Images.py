@@ -18,6 +18,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import discord
 import aiohttp
+import os
 from discord.ext import commands
 from logging_files.images_logging import logger
 
@@ -60,32 +61,6 @@ class Image(commands.Cog):
                 logger.info(f"Images | Sent Cat: {ctx.author}")
 
     @commands.command()
-    async def clyde(self, ctx, *, text):
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=clyde&text={text}") as r:
-                res = await r.json()
-                embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
-                    title="→ Clyde Bot 🤖"
-                )
-                embed.set_image(url=res['message'])
-
-                await ctx.send(embed=embed)
-
-                logger.info(f"Images | Sent Clyde: {ctx.author}")
-
-    @clyde.error
-    async def clyde_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
-                title="→ Invalid Argument",
-                description="• Please put in a vaild option! Example: `l!clyde <text>`"
-            )
-
-            await ctx.send(embed=embed)
-
-    @commands.command()
     async def dog(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
@@ -116,6 +91,22 @@ class Image(commands.Cog):
                 logger.info(f"Images | Sent Fox: {ctx.author}")
 
     @commands.command()
+    async def bird(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://api.ksoft.si/meme/random-image", params={"tag": "birb"},
+                              headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title=f"→ Random Bird",
+                )
+                embed.set_image(url=res['url'])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Meme | Sent Random Bird: {ctx.author}")
+
+    @commands.command()
     async def tweet(self, ctx, username: str, *, text: str):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={text}") as r:
@@ -137,6 +128,33 @@ class Image(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ Invalid Argument",
                 description="• Please put in a vaild option! Example: `l!tweet <username> <text>`"
+            )
+
+            await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def clyde(self, ctx, *, text):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=clyde&text={text}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Clyde Bot 🤖"
+                )
+                embed.set_image(url=res['message'])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Clyde: {ctx.author}")
+
+    @clyde.error
+    async def clyde_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!clyde <text>`"
             )
 
             await ctx.send(embed=embed)
