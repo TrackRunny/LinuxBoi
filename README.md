@@ -49,24 +49,7 @@
   <!-- Installation Instructions -->
   There is a requirements.txt file that anyone on **Any Operating That Supports Python 3.6+** can use to install **All\*** of the dependencies needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3.6+**. Installation instructions are below as follows:
 
-  * \*First install this **dependency** and built from source. This is a bitly api dependency for a shortenlink command.
-
-  ```markdown
-  git clone https://github.com/bitly/bitly-api-python.git
-
-  cd bitly-api-python/
-
-  python setup.py install
-  <!-- Remember: Only Use this if you only have python 3 installed. -->
-
-  or
-
-  python3 setup.py install
-  <!-- Remember: Use this if you have two versions of python and / or you have python 2 and python 3. -->
-
-  ```
-
-  * Next clone this repo and install the dependencies from the txt file.
+  * First, clone this repo and install the dependencies from the txt file.
 
   ```markdown
   git clone https://github.com/TrackRunny/LinuxBoi.git

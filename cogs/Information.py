@@ -61,7 +61,7 @@ class Information(commands.Cog):
         embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
         embed.add_field(name="• Image Commands!", inline=False, value=image)
-        embed.add_field(name="• Music Commands [BETA]!", inline=False, value=music)
+        embed.add_field(name="• Music Commands!", inline=False, value=music)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 
         await ctx.send(embed=embed)

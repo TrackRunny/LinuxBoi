@@ -301,7 +301,7 @@ class Music(commands.Cog):
         embed = discord.Embed(
             color=discord.Color.from_rgb(241, 90, 36),
             title="→ Volume Updated!",
-            description="• Volume set to: {player.volume}%"
+            description=f"• Volume set to: {player.volume}%"
         )
 
         await ctx.send(embed=embed)
