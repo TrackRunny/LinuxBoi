@@ -74,10 +74,10 @@
     <p>Note, some users may receive this error above when trying to install the dependencies from the requirements.txt file. This happens when you are trying to build and install the <b>Pycosat</b> pip module. If this happens to you, please follow the instructions below.</p>
   
   1. Download the compiled **Pycosat** file for your Python version and windows architecture.
-      * [**Pycosat | Python 3.6 | Win32**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp36-cp36m-win32.whl)
-      * [**Pycosat | Python 3.6 | Win64**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp36-cp36m-win_amd64.whl)
-      * [**Pycosat | Python 3.7 | Win32**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp37-cp37m-win32.whl)
-      * [**Pycosat | Python 3.7 | Win64**](https://download.lfd.uci.edu/pythonlibs/g5apjq5m/pycosat-0.6.3-cp37-cp37m-win_amd64.whl)
+      * [**Pycosat | Python 3.6 | Win32**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp36-cp36m-win32.whl)
+      * [**Pycosat | Python 3.6 | Win64**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp36-cp36m-win_amd64.whl)
+      * [**Pycosat | Python 3.7 | Win32**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp37-cp37m-win32.whl)
+      * [**Pycosat | Python 3.7 | Win64**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp37-cp37m-win_amd64.whll)
   2. Change directories into the downloaded file.
   3. Install the compiled pip module.
 
