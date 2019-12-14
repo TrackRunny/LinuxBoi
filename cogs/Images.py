@@ -132,7 +132,6 @@ class Image(commands.Cog):
 
             await ctx.send(embed=embed)
 
-
     @commands.command()
     async def clyde(self, ctx, *, text):
         async with aiohttp.ClientSession() as cs:
@@ -155,6 +154,42 @@ class Image(commands.Cog):
                 color=discord.Color.from_rgb(241, 90, 36),
                 title="→ Invalid Argument",
                 description="• Please put in a vaild option! Example: `l!clyde <text>`"
+            )
+
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    async def vs(self, ctx, member1: discord.Member, member2: discord.Member):
+        async with aiohttp.ClientSession() as cs:
+            member1 = member1.avatar_url_as(size=4096, format=None, static_format='png')
+            member2 = member2.avatar_url_as(size=4096, format=None, static_format='png')
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=discord.Color.from_rgb(241, 90, 36),
+                    title="→ Who Would Win"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Who Would Win: {ctx.author}")
+
+    @vs.error
+    async def vs_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Member!",
+                description="• Please mention two valid members! Example: `l!vs @user1 @user2`"
+            )
+
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=discord.Color.from_rgb(241, 90, 36),
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!vs @user1 @user2`"
             )
 
             await ctx.send(embed=embed)

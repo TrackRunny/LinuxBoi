@@ -49,7 +49,7 @@ class Information(commands.Cog):
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`"
-        image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`, `l!captcha`, `l!clyde`"
+        image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`, `l!captcha`, `l!clyde`, `l!vs`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!random_meme`, `l!wikihow`"
