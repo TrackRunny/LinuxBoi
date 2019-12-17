@@ -48,7 +48,7 @@ class Information(commands.Cog):
                   "`l!mcbe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
-                  "`l!temperature celsius`"
+                  "`l!temperature celsius`, `l!uptime`"
         image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`, `l!captcha`, `l!clyde`, `l!vs`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
@@ -95,13 +95,13 @@ class Information(commands.Cog):
         embed.add_field(name="• Operating System:", inline=True, value=":computer: — Ubuntu 18.04 LTS")
         embed.add_field(name="• CPU Usage:", inline=True, value=":heavy_plus_sign: — " + cpu + " Percent used")
         embed.add_field(name="• RAM Usage:", inline=True,
-                        value=":closed_book:  — " + ram_round + " / 8 " + " Gigabytes used")
-        embed.add_field(name="• DISK Usage:", inline=True, value=":white_circle: — " + disk_round + " / 60 Gigabytes")
+                        value=":closed_book:  — " + ram_round + " / 3 " + " Gigabytes used")
+        embed.add_field(name="• DISK Usage:", inline=True, value=":white_circle: — " + disk_round + " / 40 Gigabytes")
         embed.add_field(name="• BOOT Time: ", inline=True, value=":boot: — " + boot_time_round + " seconds")
         embed.add_field(name="• MEMBER Count:", inline=True, value=":bust_in_silhouette: — " + guild_members + " users")
         embed.add_field(name="• GUILD Count:", inline=True, value=":house: — " + guilds + " connected guilds")
         embed.add_field(name="• LIBRARY Version:", inline=True, value=":gear: — Discord.py version 1.2.5")
-        embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.3")
+        embed.add_field(name="• PYTHON Version:", inline=True, value=":snake:  — Python version 3.7.5")
         embed.set_footer(text="\n\nMade by TrackRunny#0001", icon_url="\n\nhttps://i.imgur.com/ZwWigTq.png")
 
         await ctx.send(embed=embed)

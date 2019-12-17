@@ -28,6 +28,8 @@ import colorsys
 import asyncio
 import aiogoogletrans
 import pyowm
+import time
+import datetime
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 from forex_python.converter import CurrencyRates
@@ -43,6 +45,7 @@ class Utility(commands.Cog):
         self.client = client
         self.u = asyncurban.UrbanDictionary()
         self.t = aiogoogletrans.Translator
+        self.start_time = time.time()
 
     @commands.command(aliases=["btc"])
     async def bitcoin(self, ctx, currency="USD"):
@@ -961,6 +964,21 @@ class Utility(commands.Cog):
                             "\n• You can also use a zip code! Example: `l!weather 15024, US`"
             )
             await ctx.send(embed=embed)
+
+    @commands.command()
+    async def uptime(self, ctx):
+        current_time = time.time()
+        difference = int(round(current_time - self.start_time))
+        text = str(datetime.timedelta(seconds=difference))
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Current Uptime",
+            description=f"• Time: `{text}`"
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Sent Uptime: {ctx.author}")
 
 
 def setup(client):
