@@ -28,7 +28,7 @@ class LinuxInfo(commands.Cog):
     @commands.command()
     async def channels(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=self.client.embed_color
         )
         embed.add_field(name="→ Need to know Linux Channels",
                         value=f"\n—"

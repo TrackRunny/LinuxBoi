@@ -30,14 +30,14 @@ class Information(commands.Cog):
     @commands.command(aliases=["commands"])
     async def robot_commands(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(255, 153, 34),
+            color=self.client.embed_color,
             title="→ All available bot commands!",
             description="— "
                         "\n→ Shows info about all available bot commands!"
                         "\n→ Capitalization does not matter for the bot prefix." +
                         "\n—"
         )
-        embed.set_thumbnail(url="https://bit.ly/2YQgsWL")
+        embed.set_thumbnail(url="https://i.imgur.com/BUlgakY.png")
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
@@ -81,7 +81,7 @@ class Information(commands.Cog):
         boot_time = str(psutil.boot_time() / 100000000)
         boot_time_round = boot_time[:4]
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="• LinuxBoi",
             description="— "
                         "\n→ Shows info about the server in which the bot is running on! "
@@ -112,7 +112,7 @@ class Information(commands.Cog):
     async def invite(self, ctx):
         url = "(http://bit.ly/2Zm5XyP)"
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Invite me to your server!",
             description=f"• [Click Here]{url}"
         )
@@ -126,7 +126,7 @@ class Information(commands.Cog):
     async def ping(self, ctx):
         ping = str(round(self.client.latency * 1000))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Ping Command",
             description=f"• The latency is {ping} ms"
         )
@@ -139,7 +139,7 @@ class Information(commands.Cog):
     async def serverinfo(self, ctx):
         guild = ctx.guild
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title=f"• Server Info → {guild.name}",
             description="\n— "
                         "\n→ Shows all information about a guild. The information will be listed below!"
@@ -188,7 +188,7 @@ class Information(commands.Cog):
     @commands.command(aliases=['userinfo'])
     async def whois(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title=f"• Userinfo → {member}",
             description="— "
                         "\n→ Shows all information about a user. The information will be listed below!"
@@ -235,14 +235,14 @@ class Information(commands.Cog):
     async def whois_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Member!",
                 description="• Please mention a valid member! Example: `l!whois @user`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!whois @user`"
             )

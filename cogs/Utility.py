@@ -29,14 +29,15 @@ import asyncio
 import aiogoogletrans
 import pyowm
 import time
-import datetime
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 from forex_python.converter import CurrencyRates
 from bitlyshortener import Shortener
 from email.message import EmailMessage
 from mcstatus import MinecraftServer
+from datetime import datetime
 from logging_files.utility_logging import logger
+from utils import default
 
 
 class Utility(commands.Cog):
@@ -54,14 +55,14 @@ class Utility(commands.Cog):
             amount = round(b.get_latest_price(currency), 2)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Currency error!",
                 description="• Not a valid currency type!"
                             "\n• Example: `l!bitcoin CAD`"
             )
             await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ BTC to Currency",
             description=f"• One Bitcoin is {amount} {currency}"
         )
@@ -80,7 +81,7 @@ class Utility(commands.Cog):
             shortened_link = shortener.shorten_urls([link])
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ URL Shortener"
             )
             embed.add_field(name="• Long link:", inline=False, value=link)
@@ -91,7 +92,7 @@ class Utility(commands.Cog):
             logger.info(f"Utility | Sent Bitly: {ctx.author} | Long link: {link} | Shortened Link: {shortened_link[0]}")
         except Exception:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid URL",
                 description="• Please put a valid URL!"
                             "\n• Example: `l!shortenlink https://google.com`"
@@ -105,7 +106,7 @@ class Utility(commands.Cog):
     async def shorten_link_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!shortenlink <URL>`"
             )
@@ -113,7 +114,7 @@ class Utility(commands.Cog):
             ctx.command.reset_cooldown(ctx)
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Slow down!",
                 description="• You can only shorten a link every 10 seconds!"
             )
@@ -126,7 +127,7 @@ class Utility(commands.Cog):
             amount = float(amount)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Money error!",
                 description="• Not a valid amount of money!"
             )
@@ -135,14 +136,14 @@ class Utility(commands.Cog):
             amount2 = float((c.convert(currency1, currency2, amount)))
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Currency error!",
                 description="• Not a valid currency type!"
                             "\n• Example: `l!currency 10 USD CAD`"
             )
             await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Currency converting",
             description=f"• {amount} {currency1} is about {round(amount2)} {currency2}!"
         )
@@ -155,7 +156,7 @@ class Utility(commands.Cog):
     async def currency_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!currency 10 USD CAD`"
             )
@@ -168,7 +169,7 @@ class Utility(commands.Cog):
             amount = int(amount)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Money error!",
                 description="• Not a valid amount of money!"
             )
@@ -177,7 +178,7 @@ class Utility(commands.Cog):
             btc = round(b.convert_to_btc(amount, currency), 4)
         except:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Currency error!",
                 description="• Not a valid currency!"
                             "\n• Example: `l!tobtc 10 CAD`"
@@ -185,7 +186,7 @@ class Utility(commands.Cog):
             )
             await ctx.send(embed=embed)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Currency to Bitcoin!",
             description=f"• {amount} {currency} is around {btc} Bitcoin!"
         )
@@ -198,7 +199,7 @@ class Utility(commands.Cog):
     async def currency_to_bitcoin_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!tobtc 10 CAD`"
                             "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`")
@@ -207,7 +208,7 @@ class Utility(commands.Cog):
     @commands.group(invoke_without_command=True)
     async def word(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Invalid Argument!",
             description="• Please put in a valid option! Example: `l!word <random / search> [Word name]`"
         )
@@ -217,7 +218,7 @@ class Utility(commands.Cog):
     async def random(self, ctx):
         word = await self.u.get_random()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Random Word",
             description=f"Word: `{word}`"
                         f"\n Definition: `{word.definition}`"
@@ -231,7 +232,7 @@ class Utility(commands.Cog):
     async def search(self, ctx, *, query):
         word = await self.u.get_word(query)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Searched word",
             description=f"Word: `{word}`"
                         f"\n Definition: `{word.definition}`"
@@ -245,7 +246,7 @@ class Utility(commands.Cog):
     async def currency_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!word search <Word>`"
             )
@@ -331,7 +332,7 @@ class Utility(commands.Cog):
             smpt.send_message(msg)
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Email Sent!"
         )
         link = "https://digitalsynopsis.com/wp-content/uploads/2015/10/gif-icons-menu-transition-animations-send-mail.gif"
@@ -348,7 +349,7 @@ class Utility(commands.Cog):
     async def email_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! " \
                             "\n• Example: `l!email address@emailproider.com \"<subject>\" <content>`" \
@@ -358,7 +359,7 @@ class Utility(commands.Cog):
             ctx.command.reset_cooldown(ctx)
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Slow down!",
                 description="• You can only send a email every 30 minutes!"
             )
@@ -367,11 +368,11 @@ class Utility(commands.Cog):
 
     @commands.command()
     async def hastebin(self, ctx, *, code):
-        post = requests.post("https://hastebin.com/documents", data=code.encode('utf-8'))
+        post = requests.post("https://hasteb.in/documents", data=code.encode('utf-8'))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Uploaded code!",
-            description=f"• https://hastebin.com/{post.json()['key']}"
+            description=f"• Link (Dark Mode): **https://hasteb.in/{post.json()['key']}**"
         )
 
         await ctx.send(embed=embed)
@@ -382,7 +383,7 @@ class Utility(commands.Cog):
     async def hastebin_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!hastebin <code>`"
                             "\n• Real World Example: `l!hastebin print(\"Python is amazing!\")`"
@@ -399,7 +400,7 @@ class Utility(commands.Cog):
             info = details.all
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ IP Address lookup"
             )
             embed.set_footer(text="— Note: Locations and Latitude & Longitude may not be 100% accurate.")
@@ -435,7 +436,7 @@ class Utility(commands.Cog):
 
         except Exception:
             embed_error = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid IP Address!",
                 description="• The IP address you entered is not valid."
             )
@@ -446,7 +447,7 @@ class Utility(commands.Cog):
     async def ip_lookup_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a IP Address! Example: `l!ip 172.217.2.238`"
             )
@@ -461,7 +462,7 @@ class Utility(commands.Cog):
             plugins_string = ', '.join(str(l) for l in motd.software.plugins)
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Minecraft Bedrock command"
             )
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
@@ -501,7 +502,7 @@ class Utility(commands.Cog):
 
         except Exception:
             embed_error = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=self.client.embed_color
             )
             embed_error.add_field(name="→ Timeout Error:",
                                   value=f"• The server is offline or you entered invalid information!")
@@ -512,7 +513,7 @@ class Utility(commands.Cog):
     async def mcbe_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=self.client.embed_color
             )
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid Minecraft server and port number!\n— \n• Example: "
@@ -529,7 +530,7 @@ class Utility(commands.Cog):
         sender = ctx.author
         guild = ctx.guild
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Announcement!",
             description=f"• {message}"
         )
@@ -553,7 +554,7 @@ class Utility(commands.Cog):
     async def newsletter_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Channel!",
                 description="\n• Please put in a valid channel! "
                             "Example: `l!newsletter #channel <here / everyone / none> <message>`"
@@ -561,7 +562,7 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="\n• Please put in a valid option!"
                             "Example: `l!newsletter #channel <here / everyone / none> <message>`"
@@ -569,7 +570,7 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Missing Permissions!",
                 description="• You do not have permissions to run this command!"
             )
@@ -579,14 +580,14 @@ class Utility(commands.Cog):
     async def password(self, ctx, character_length):
         if int(character_length) > int("120"):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Password Error!",
                 description="• Please put in a value equal to or less than 120 characters."
             )
             await ctx.send(embed=embed)
         elif int(character_length) < int("9"):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Password Error!",
                 description="• Password length must be at least 10 characters."
             )
@@ -594,7 +595,7 @@ class Utility(commands.Cog):
         elif int(character_length) <= int("120"):
             password = strgen.StringGenerator(f"[\w\d\p]{{{int(character_length)}}}").render()
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Password sent!",
                 description=f"• The {character_length} "
                             f"character length password has been generated and sent in your Direct Messages!"
@@ -603,7 +604,7 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
 
             embed2 = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Generated Password:",
                 description=f"• Password: ```{password}```"
             )
@@ -616,7 +617,7 @@ class Utility(commands.Cog):
     async def password_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!password <character length>`"
                             "\n• Real world example: `l!password 25`"
@@ -627,7 +628,7 @@ class Utility(commands.Cog):
     async def poll(self, ctx, channel: discord.TextChannel, *, question):
         sender = ctx.author
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Quick poll 📊"
         )
         embed.add_field(name="• Question", inline=False, value=question)
@@ -644,14 +645,14 @@ class Utility(commands.Cog):
     async def poll_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Channel!",
                 description="• Please put in a channel! Example: `l!poll #channel <question>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!poll #channel <question>`"
             )
@@ -715,7 +716,7 @@ class Utility(commands.Cog):
         if str(time_measurement) == "s":
             if float(time) <= 1:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Second!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -723,7 +724,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
             else:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Seconds!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -731,7 +732,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
 
             embed2 = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Time is up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
@@ -749,7 +750,7 @@ class Utility(commands.Cog):
         elif str(time_measurement) == "m":
             if float(time) <= 1:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Minute!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -757,7 +758,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
             else:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Minutes!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -765,7 +766,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
 
             embed3 = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Time is up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
@@ -785,7 +786,7 @@ class Utility(commands.Cog):
         elif str(time_measurement) == "h":
             if float(time) <= 1:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Hour!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -793,7 +794,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
             else:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Reminder set for {time} Hours!",
                     description=f"• Reminder: `{reminder}`"
                 )
@@ -801,7 +802,7 @@ class Utility(commands.Cog):
                 await ctx.send(embed=embed)
 
             embed4 = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Time is up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
@@ -819,7 +820,7 @@ class Utility(commands.Cog):
                 f"Utility | Sent Remind: {ctx.author} | Time: {time} | Time Measurement: {time_measurement} | Reminder: {reminder}")
         else:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!remind <time> <time measurement> "
                             "<reminder>` "
@@ -833,7 +834,7 @@ class Utility(commands.Cog):
     async def remind_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!remind <time> <time measurement> "
                             "<reminder>` "
@@ -845,7 +846,7 @@ class Utility(commands.Cog):
     @commands.group(aliases=["temp"], invoke_without_command=True)
     async def temperature(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Invalid Argument!",
             description="• Please put in a valid option! Example: `l!temperature <fahrenheit / celsius> <number>`"
         )
@@ -856,7 +857,7 @@ class Utility(commands.Cog):
     async def fahrenheit_to_celsius(self, ctx, fahrenheit):
         celsius = (int(fahrenheit) - 32) * 5 / 9
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Fahrenheit to Celsius",
             description=f"• Celsius Temperature: `{int(celsius)}`"
         )
@@ -868,7 +869,7 @@ class Utility(commands.Cog):
     async def celsius_to_fahrenheit(self, ctx, celsius):
         fahrenheit = (int(celsius) * 9 / 5) + 32
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Celsius to Fahrenheit",
             description=f"• Fahrenheit Temperature: `{int(fahrenheit)}`"
         )
@@ -884,7 +885,7 @@ class Utility(commands.Cog):
         translation = data.text
         language = lang.upper()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Translation",
             description='• Input Language: `{}`'.format(translated)
                         + "\n• Translated Language: `{}`".format(language)
@@ -899,7 +900,7 @@ class Utility(commands.Cog):
     async def translate_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!translate <language> <message>`"
                             "\n• Real world example: `l!translate english Hola`"
@@ -926,7 +927,7 @@ class Utility(commands.Cog):
             picture = weather.get_weather_icon_url()
 
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Weather Command"
             )
             embed.set_thumbnail(url=picture)
@@ -944,7 +945,7 @@ class Utility(commands.Cog):
             logger.info(f"Utility | Sent Weather: {ctx.author}")
         except Exception:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid City / Zip code",
                 description="• The city or zip code you entered is "
                             "not spelled right, or the format is incorrect."
@@ -958,7 +959,7 @@ class Utility(commands.Cog):
     async def weather_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
                             "\n• You can also use a zip code! Example: `l!weather 15024, US`"
@@ -967,11 +968,14 @@ class Utility(commands.Cog):
 
     @commands.command()
     async def uptime(self, ctx):
+        # - default.time(datetime.utcnow() - self.client.uptime)
+
         current_time = time.time()
         difference = int(round(current_time - self.start_time))
         text = str(datetime.timedelta(seconds=difference))
+
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Current Uptime",
             description=f"• Time: `{text}`"
         )

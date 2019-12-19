@@ -88,7 +88,7 @@ class Music(commands.Cog):
 
         if not results or not results['tracks']:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Playing error!",
                 description="• The query you searched for was not found."
             )
@@ -102,7 +102,7 @@ class Music(commands.Cog):
             for track in tracks:
                 player.add(requester=ctx.author.id, track=track)
 
-            embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
+            embed = discord.Embed(color=self.client.embed_color,
                                   description=f'• **{results["playlistInfo"]["name"]}** - {len(tracks)} tracks',
                                   title="→ Playlist added!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
@@ -110,7 +110,7 @@ class Music(commands.Cog):
         else:
             track = results['tracks'][0]
 
-            embed = discord.Embed(color=discord.Color.from_rgb(241, 90, 36),
+            embed = discord.Embed(color=self.client.embed_color,
                                   description=f'• [**{track["info"]["title"]}**]({track["info"]["uri"]})',
                                   title="→ Song added to queue!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
@@ -125,7 +125,7 @@ class Music(commands.Cog):
     async def play_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!play <Song Name / URL>`"
             )
@@ -140,7 +140,7 @@ class Music(commands.Cog):
         await player.seek(track_time)
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Resumed!",
             description=f"• Song time has been moved to: `{lavalink.utils.format_time(track_time)}`"
         )
@@ -150,7 +150,7 @@ class Music(commands.Cog):
     async def seek_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!seek <time>`"
             )
@@ -163,7 +163,7 @@ class Music(commands.Cog):
 
         await player.skip()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Skipped",
             description="• The current song you have requested has been skipped!"
         )
@@ -176,7 +176,7 @@ class Music(commands.Cog):
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -186,7 +186,7 @@ class Music(commands.Cog):
         await player.stop()
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Stopped!",
             description="• The DJ has stopped the party!"
         )
@@ -199,7 +199,7 @@ class Music(commands.Cog):
 
         if not player.current:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -213,7 +213,7 @@ class Music(commands.Cog):
         song = f'**• [{player.current.title}]({player.current.uri})**'
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title='→ Currently Playing:',
             description=f"{song}"
                         f"\n**•** Current time: **({position}/{duration})**"
@@ -228,7 +228,7 @@ class Music(commands.Cog):
 
         if not player.queue:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No queue!",
                 description="• No songs are in the queue at the moment!"
             )
@@ -245,7 +245,7 @@ class Music(commands.Cog):
             queue_list += f'`{index + 1}.` [**{track.title}**]({track.uri})\n'
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ List of songs:",
             description="\n\n{queue_list}"
         )
@@ -260,7 +260,7 @@ class Music(commands.Cog):
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Not playing!",
                 description="• No song is playing is currently playing!"
             )
@@ -269,7 +269,7 @@ class Music(commands.Cog):
         if player.paused:
             await player.set_pause(False)
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Resumed!",
                 description="• The current song has been resumed successfully!"
             )
@@ -277,7 +277,7 @@ class Music(commands.Cog):
         else:
             await player.set_pause(True)
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Paused!",
                 description="• The current song has been paused successfully!"
             )
@@ -290,7 +290,7 @@ class Music(commands.Cog):
 
         if not volume:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Current Volume!",
                 description=f"• Volume: {player.volume}%"
             )
@@ -299,7 +299,7 @@ class Music(commands.Cog):
         await player.set_volume(volume)  # Lavalink will automatically cap values between, or equal to 0-1000.
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Volume Updated!",
             description=f"• Volume set to: {player.volume}%"
         )
@@ -312,7 +312,7 @@ class Music(commands.Cog):
         player = self.client.lavalink.players.get(ctx.guild.id)
         if not player.is_playing:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Not playing!",
                 description="• No song is playing is currently playing!"
             )
@@ -320,7 +320,7 @@ class Music(commands.Cog):
 
         player.shuffle = not player.shuffle
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Shuffle Command!",
             description="• Song shuffling has been"
                         + (' Enabled!' if player.shuffle else ' Disabled!')
@@ -334,7 +334,7 @@ class Music(commands.Cog):
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -342,7 +342,7 @@ class Music(commands.Cog):
 
         player.repeat = not player.repeat
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Loop Command!",
             description="• Looping has been" + (' Enabled!' if player.repeat else ' Disabled!')
         )
@@ -355,7 +355,7 @@ class Music(commands.Cog):
 
         if not player.queue:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No queued items!",
                 description="• There is nothing queued at the moment!"
             )
@@ -363,7 +363,7 @@ class Music(commands.Cog):
 
         if index > len(player.queue) or index < 1:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No queued items!",
                 description=f"• Your remove number needs to be between 1 and {len(player.queue)}"
             )
@@ -371,7 +371,7 @@ class Music(commands.Cog):
         removed = player.queue.pop(index - 1)  # Account for 0-index.
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Item removed!",
             description=f"• Removed `{removed.title}` from the queue."
         )
@@ -381,7 +381,7 @@ class Music(commands.Cog):
     async def remove_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!remove 1`"
             )
@@ -399,7 +399,7 @@ class Music(commands.Cog):
 
         if not results or not results['tracks']:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ No results!",
                 description="• Nothing was found in your search term!"
             )
@@ -414,7 +414,7 @@ class Music(commands.Cog):
             o += f'`{index}.` [{track_title}]({track_uri})\n'
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Top 5 results:",
             description=f"{o}"
         )
@@ -424,7 +424,7 @@ class Music(commands.Cog):
     async def find_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!find <song>`"
             )
@@ -437,7 +437,7 @@ class Music(commands.Cog):
 
         if not player.is_connected:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Not connected!",
                 description="• You need to join a voice channel to play music!"
             )
@@ -445,7 +445,7 @@ class Music(commands.Cog):
 
         if not ctx.author.voice or (player.is_connected and ctx.author.voice.channel.id != int(player.channel_id)):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Not connected!",
                 description="• You are not in my voice channel that I am connected to!"
             )
@@ -455,7 +455,7 @@ class Music(commands.Cog):
         await player.stop()
         await self.connect_to(ctx.guild.id, None)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Disconnected!",
             description="• I have disconnected from the voice channel!"
         )
@@ -470,7 +470,7 @@ class Music(commands.Cog):
 
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Voice channel error!",
                 description="• Please make sure to join a voice channel first!"
             )
@@ -479,7 +479,7 @@ class Music(commands.Cog):
         if not player.is_connected:
             if not should_connect:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Voice channel error!",
                     description="• I am not connected to a voice channel"
                 )
@@ -489,7 +489,7 @@ class Music(commands.Cog):
 
             if not permissions.connect or not permissions.speak:  # Check user limit too?
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Permission error!",
                     description="• Please give me connect permissions, or speaking permissions!"
                 )
@@ -500,7 +500,7 @@ class Music(commands.Cog):
         else:
             if int(player.channel_id) != ctx.author.voice.channel.id:
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Voice channel error!",
                     description="• Please make sure you are in my voice channel!"
                 )

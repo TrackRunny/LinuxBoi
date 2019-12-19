@@ -29,24 +29,24 @@ class Owner(commands.Cog):
 
     @commands.command()
     @commands.is_owner()
-    async def status(self, ctx, activity, *, status):
+    async def activity(self, ctx, number, *, activity):
         # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
-        await self.client.change_presence(activity=discord.Activity(type=activity, name=status))
+        await self.client.change_presence(activity=discord.Activity(type=number, name=activity))
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Bot status changed!",
-            description=f"• My status has been updated to: `{status}`"
+            description=f"• My status has been updated to: `{activity}`"
         )
 
         await ctx.send(embed=embed)
 
-        logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {activity} | Status: {status}")
+        logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {number} | Status: {activity}")
 
-    @status.error
+    @activity.error
     async def change_status_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="Please put a valid option! Example: `l!status <type> <status>`"
             )
@@ -70,7 +70,7 @@ class Owner(commands.Cog):
         channel = self.client.get_channel(picked)
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title=f"→ Invite from guild",
             description=f"• Invite: {await channel.create_invite(max_uses=1)}"
         )
@@ -88,14 +88,14 @@ class Owner(commands.Cog):
     async def say_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Channel!",
                 description="• Please put a valid channel! Example: `l!say #channel <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!say #channel <message>`"
             )
@@ -105,7 +105,7 @@ class Owner(commands.Cog):
     @commands.is_owner()
     async def shutdown(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Shutdown",
             description="• Performing a shutdown on the bot... ( :wave: )"
         )

@@ -35,7 +35,7 @@ class Image(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=captcha&url={avatar}&username=Orange") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Captcha Verification",
 
                 )
@@ -51,7 +51,7 @@ class Image(commands.Cog):
             async with cs.get('http://aws.random.cat/meow') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Cat! 🐈"
                 )
                 embed.set_image(url=res['file'])
@@ -66,7 +66,7 @@ class Image(commands.Cog):
             async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Dog! 🐕"
                 )
                 embed.set_image(url=res['message'])
@@ -81,7 +81,7 @@ class Image(commands.Cog):
             async with cs.get('https://randomfox.ca/floof/') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Fox! "
                 )
                 embed.set_image(url=res['image'])
@@ -97,7 +97,7 @@ class Image(commands.Cog):
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ Random Bird",
                 )
                 embed.set_image(url=res['url'])
@@ -112,7 +112,7 @@ class Image(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={text}") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ User Tweet"
                 )
                 embed.set_image(url=res["message"])
@@ -125,7 +125,7 @@ class Image(commands.Cog):
     async def tweet_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument",
                 description="• Please put in a vaild option! Example: `l!tweet <username> <text>`"
             )
@@ -138,7 +138,7 @@ class Image(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=clyde&text={text}") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Clyde Bot 🤖"
                 )
                 embed.set_image(url=res['message'])
@@ -151,7 +151,7 @@ class Image(commands.Cog):
     async def clyde_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument",
                 description="• Please put in a vaild option! Example: `l!clyde <text>`"
             )
@@ -166,7 +166,7 @@ class Image(commands.Cog):
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Who Would Win"
                 )
                 embed.set_image(url=res["message"])
@@ -179,7 +179,7 @@ class Image(commands.Cog):
     async def vs_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Member!",
                 description="• Please mention two valid members! Example: `l!vs @user1 @user2`"
             )
@@ -187,7 +187,7 @@ class Image(commands.Cog):
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument",
                 description="• Please put in a vaild option! Example: `l!vs @user1 @user2`"
             )

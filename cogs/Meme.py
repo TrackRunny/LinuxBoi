@@ -35,7 +35,7 @@ class Meme(commands.Cog):
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ {res['title']}",
                     url=res['source']
                 )
@@ -54,7 +54,7 @@ class Meme(commands.Cog):
                 res = await r.json()
 
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title=f"→ {res['title']}",
                     url=res['article_url']
                 )

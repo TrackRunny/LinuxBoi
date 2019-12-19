@@ -55,7 +55,7 @@ class Fun(commands.Cog):
                      "Outlook not so good.",
                      "Very doubtful."]
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ 8Ball command"
         )
         embed.add_field(name="• Question :grey_question: ", inline=False, value=f"{question}")
@@ -69,7 +69,7 @@ class Fun(commands.Cog):
     async def _8ball_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36)
+                color=self.client.embed_color
             )
             embed.add_field(name="→ Invalid Argument!",
                             value="• Please put in a valid option! Example: `l!8ball <question>`")
@@ -78,7 +78,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def avatar(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Avatar"
         )
         embed.set_image(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
@@ -91,14 +91,14 @@ class Fun(commands.Cog):
     async def avatar_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Member!",
                 description="• Please mention a valid member! Example: `l!avatar @user`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument",
                 description="• Please put a valid option! Example: `l!avatar @user`"
             )
@@ -110,7 +110,7 @@ class Fun(commands.Cog):
             async with cs.get('https://api.icndb.com/jokes/random?limitTo=[nerdy]') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Chuck Norris Joke",
                     description=f"• Joke: {res['value']['joke']}"
                 )
@@ -124,7 +124,7 @@ class Fun(commands.Cog):
         choices = ("Heads!", "Tails!")
         coin = random.choice(choices)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Coinflip Command",
             description=coin
         )
@@ -138,7 +138,7 @@ class Fun(commands.Cog):
         moo = cow.Cowacter(thoughts=True)
         msg = moo.milk(msg=message)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Cowsay 🐮",
             description=f"Moo! ```{msg}                                             ```"
         )
@@ -151,7 +151,7 @@ class Fun(commands.Cog):
     async def cowsay_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!cowsay Moo!`"
             )
@@ -161,7 +161,7 @@ class Fun(commands.Cog):
     async def dadjoke(self, ctx):
         random_dadjoke = Dadjoke()
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Random Dad Joke!",
             description=f"• {random_dadjoke.joke}"
         )
@@ -187,7 +187,7 @@ class Fun(commands.Cog):
         except ValueError:
             pass
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Dice Command"
         )
         # ' '.join(dice_rolls)
@@ -201,7 +201,7 @@ class Fun(commands.Cog):
     async def fortune(self, ctx):
         file = "./External_Command_Files/fortunes.txt"
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Random Fortune!",
             description=f"• {fortune.get_random_fortune(file)}"
         )
@@ -216,7 +216,7 @@ class Fun(commands.Cog):
             async with cs.get('https://official-joke-api.appspot.com/jokes/general/random') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Joke!",
                     description=f"• Question: {res[0]['setup']}"
                                 f"\n• Joke: {res[0]['punchline']}"
@@ -231,7 +231,7 @@ class Fun(commands.Cog):
             async with cs.get('http://numbersapi.com/random/date?json') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random History Date!",
                     description=f"• Fact: {res['text']}"
                                 f"\n• Year: {res['year']}"
@@ -244,7 +244,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def howgay(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Howgay?"
         )
         embed.add_field(name="The account is...",
@@ -258,14 +258,14 @@ class Fun(commands.Cog):
     async def howgay_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Member!",
                 description="• Please mention a valid member! Example: `l!howgay @user`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!howgay @user`"
             )
@@ -277,7 +277,7 @@ class Fun(commands.Cog):
             async with cs.get('https://official-joke-api.appspot.com/jokes/general/random') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Joke!",
                     description=f"• Question: {res[0]['setup']}"
                                 f"\n• Joke: {res[0]['punchline']}"
@@ -292,7 +292,7 @@ class Fun(commands.Cog):
             async with cs.get('http://numbersapi.com/random/math?json') as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Random Math Fact!",
                     description=f"• Fact: {res['text']}"
                                 f"\n• Number: {res['number']}"
@@ -306,7 +306,7 @@ class Fun(commands.Cog):
         moo = cow.Tux(thoughts=True)
         msg = moo.milk(msg=message)
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ Listen to the penguin",
             description=f"```{msg}                                         ```"
         )
@@ -319,7 +319,7 @@ class Fun(commands.Cog):
     async def penguinsay_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=discord.Color.from_rgb(241, 90, 36),
+                color=self.client.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put in a valid option! Example: `l!penguinsay <text>`"
             )
@@ -328,7 +328,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def shrug(self, ctx):
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36),
+            color=self.client.embed_color,
             title="→ What is life?",
             description="• I gave up on it. ¯\_(ツ)_/¯"
         )
@@ -343,7 +343,7 @@ class Fun(commands.Cog):
             async with cs.get('https://api.yomomma.info/') as r:
                 res = await r.json(content_type='text/html')
                 embed = discord.Embed(
-                    color=discord.Color.from_rgb(241, 90, 36),
+                    color=self.client.embed_color,
                     title="→ Yo Momma Joke",
                     description=f"• Joke: {res['joke']}"
                 )
