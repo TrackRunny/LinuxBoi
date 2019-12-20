@@ -40,13 +40,14 @@ cogs = [
     "Moderation",
     "Owner",
     "Utility",
+    "Images",
     "Music"
 ]
 
 
 class LinuxBoi(commands.AutoShardedBot):
     def __init__(self):
-        super().__init__(command_prefix="l!", reconnect=True, case_insensitive=False)
+        super().__init__(command_prefix="l!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.embed_color = 0xF15A24
 
@@ -73,7 +74,7 @@ class LinuxBoi(commands.AutoShardedBot):
               f"\n----------------------------------------------")
 
 
-@client.event
+@client.event()
 async def on_message(message):
     if message.content in ("<@554841921185382400>", "@LinuxBoi"):
         await message.channel.send("( :wave: ) → Hello, run `l!commands` to see all my commands!")

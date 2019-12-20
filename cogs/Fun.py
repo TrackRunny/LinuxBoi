@@ -270,21 +270,6 @@ class Fun(commands.Cog):
                 description="• Please put a valid option! Example: `l!howgay @user`"
             )
             await ctx.send(embed=embed)
-            
-    @commands.command()
-    async def joke(self, ctx):
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://official-joke-api.appspot.com/jokes/general/random') as r:
-                res = await r.json()
-                embed = discord.Embed(
-                    color=self.client.embed_color,
-                    title="→ Random Joke!",
-                    description=f"• Question: {res[0]['setup']}"
-                                f"\n• Joke: {res[0]['punchline']}"
-                )
-                await ctx.send(embed=embed)
-
-                logger.info(f"Fun | Sent Joke: {ctx.author}")
                 
     @commands.command()
     async def math(self, ctx):
@@ -336,7 +321,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Fun | Sent Shrug: {ctx.author}")
-        
+
     @commands.command(aliases=["momma-joke", "yo-momma-joke"])
     async def yo_momma_joke(self, ctx):
         async with aiohttp.ClientSession() as cs:

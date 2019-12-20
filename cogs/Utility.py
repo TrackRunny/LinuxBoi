@@ -242,16 +242,6 @@ class Utility(commands.Cog):
 
         logger.info(f"Utility | Sent Word Search: {ctx.author} | Searched: {query}")
 
-    @search.error
-    async def currency_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            embed = discord.Embed(
-                color=self.client.embed_color,
-                title="→ Invalid Argument!",
-                description="• Please put in a valid option! Example: `l!word search <Word>`"
-            )
-            await ctx.send(embed=embed)
-
     @commands.command()
     @commands.cooldown(rate=1, per=1800, type=commands.BucketType.user)
     async def email(self, ctx, emailto, subject, *, content):
@@ -502,10 +492,10 @@ class Utility(commands.Cog):
 
         except Exception:
             embed_error = discord.Embed(
-                color=self.client.embed_color
+                color=self.client.embed_color,
+                title="→ Timeout Error:",
+                description="• The server is offline or you entered invalid information!"
             )
-            embed_error.add_field(name="→ Timeout Error:",
-                                  value=f"• The server is offline or you entered invalid information!")
 
             await ctx.send(embed=embed_error)
 
