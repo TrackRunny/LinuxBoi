@@ -74,23 +74,6 @@ class LinuxBoi(commands.AutoShardedBot):
               f"\n----------------------------------------------")
 
 
-@client.event()
-async def on_message(message):
-    if message.content in ("<@554841921185382400>", "@LinuxBoi"):
-        await message.channel.send("( :wave: ) → Hello, run `l!commands` to see all my commands!")
-    if not message.author.bot:
-        await client.process_commands(message)
-
-
-@commands.is_owner()
-@client.command()
-async def message_all(ctx, *, message):
-    for guild in client.guilds:
-        for member in guild.members:
-            await member.send(message)
-
-    await ctx.send("Messages sent!")
-
 """
 @tasks.loop(seconds=15)
 async def change_status():
