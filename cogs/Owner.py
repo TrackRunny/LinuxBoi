@@ -43,12 +43,43 @@ class Owner(commands.Cog):
         logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {number} | Status: {activity}")
 
     @activity.error
+    async def activity_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.client.embed_color,
+                title="→ Invalid Argument!",
+                description="Please put a valid option! Example: `l!activity <type> <status>`"
+            )
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    async def status(self, ctx, online_status):
+        if str(online_status).lower() == "dnd":
+            await self.client.change_presence(status=discord.Status.dnd)
+        elif str(online_status).lower() == "idle":
+            await self.client.change_presence(status=discord.Status.idle)
+        elif str(online_status).lower() == "offline":
+            await self.client.change_presence(status=discord.Status.offline)
+        else:
+            await self.client.change_presence(status=discord.Status.online)
+
+        embed = discord.Embed(
+            color=self.client.embed_color,
+            title="→ Online Status Changed!",
+            description=f"• My status has been updated to: `{online_status.lower()}`"
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Owner | Sent Status: {ctx.author} | Online Status: {online_status}")
+
+    @status.error
     async def change_status_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=self.client.embed_color,
                 title="→ Invalid Argument!",
-                description="Please put a valid option! Example: `l!status <type> <status>`"
+                description="Please put a valid option! Example: `l!status <online status>`"
             )
             await ctx.send(embed=embed)
 

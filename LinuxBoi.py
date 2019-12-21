@@ -69,7 +69,7 @@ class LinuxBoi(commands.AutoShardedBot):
 
         print(f"---------------LinuxBoi-----------------------"
               f"\nBot is online and connected to {self.user}"
-              f"\nCreated by TrackRunny#3900 on Discord"
+              f"\nCreated by TrackRunny#0001 on Discord"
               f"\nConnected to {(len(self.guilds))} Guilds."
               f"\n----------------------------------------------")
 
