@@ -14,6 +14,7 @@ chardet==3.0.4
 Click==7.0
 cowpy==1.1.0
 dadjokes==1.3
+dblpy==0.3.3
 discord==1.0.1
 discord.py==1.2.5
 dnspython==1.15.0
@@ -43,6 +44,7 @@ pylint==2.3.1
 pynput==1.4.2
 pyowm==2.10.0
 python-xlib==0.25
+ratelimiter==1.2.0.post0
 requests==2.22.0
 ruamel.yaml==0.16.5
 ruamel.yaml.clib==0.1.2

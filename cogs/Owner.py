@@ -24,8 +24,8 @@ from logging_files.owner_logging import logger
 
 class Owner(commands.Cog):
 
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.client = bot
 
     @commands.command()
     @commands.is_owner()
@@ -107,6 +107,8 @@ class Owner(commands.Cog):
         )
 
         await ctx.author.send(embed=embed)
+
+        logger.info(f"Owner | Sent Get Invite: {ctx.author}")
 
     @commands.is_owner()
     @commands.command()

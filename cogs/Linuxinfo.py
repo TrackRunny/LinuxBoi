@@ -22,13 +22,13 @@ from discord.ext import commands
 
 class LinuxInfo(commands.Cog):
 
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command()
     async def channels(self, ctx):
         embed = discord.Embed(
-            color=self.client.embed_color
+            color=self.bot.embed_color
         )
         embed.add_field(name="→ Need to know Linux Channels",
                         value=f"\n—"
@@ -56,5 +56,5 @@ class LinuxInfo(commands.Cog):
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(LinuxInfo(client))
+def setup(bot):
+    bot.add_cog(LinuxInfo(bot))

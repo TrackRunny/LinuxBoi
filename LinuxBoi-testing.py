@@ -26,7 +26,7 @@ from itertools import cycle
 from discord.ext import commands, tasks
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
-client = commands.Bot("lt!", owner_id=546812331213062144, case_insensitive=False)
+bot = commands.Bot("lt!", owner_id=546812331213062144, case_insensitive=False)
 status = cycle([f'Linux videos | lt!help', 'FOSS software | lt!help', 'Windows getting worse',
                 'Server members | lt!help', 'Cryptocurrency | lt!help', 'Linux getting popular'])
 line_divide = "\n———————————————————————————————"
@@ -42,6 +42,7 @@ cogs = [
     "Owner",
     "Utility",
     "Images",
+    "TopGG",
     "Music"
 ]
 
@@ -50,6 +51,7 @@ class LinuxBoiTesting(commands.AutoShardedBot):
     def __init__(self):
         super().__init__(command_prefix="lt!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
+        self.bot = bot
         self.embed_color = 0xF15A24
 
         self.load_extension('jishaku')

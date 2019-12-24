@@ -25,17 +25,17 @@ from logging_files.meme_logging import logger
 
 class Meme(commands.Cog):
 
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command()
     async def random_meme(self, ctx):
-        async with aiohttp.ClientSession() as cs:
+        async with aiohttp.botSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-meme",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
                 embed = discord.Embed(
-                    color=self.client.embed_color,
+                    color=self.bot.embed_color,
                     title=f"→ {res['title']}",
                     url=res['source']
                 )
@@ -48,13 +48,13 @@ class Meme(commands.Cog):
 
     @commands.command()
     async def wikihow(self, ctx):
-        async with aiohttp.ClientSession() as cs:
+        async with aiohttp.botSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-wikihow",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
 
                 embed = discord.Embed(
-                    color=self.client.embed_color,
+                    color=self.bot.embed_color,
                     title=f"→ {res['title']}",
                     url=res['article_url']
                 )
@@ -65,5 +65,5 @@ class Meme(commands.Cog):
                 logger.info(f"Meme | Sent Random WikiHow: {ctx.author}")
 
 
-def setup(client):
-    client.add_cog(Meme(client))
+def setup(bot):
+    bot.add_cog(Meme(bot))

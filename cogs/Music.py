@@ -1,5 +1,5 @@
 """
-LinuxBoi - Discord client
+LinuxBoi - Discord bot
 Copyright (C) 2019 TrackRunny
 
 This program is free software: you can redistribute it and/or modify
@@ -26,20 +26,20 @@ url_rx = re.compile('https?:\\/\\/(?:www\\.)?.+')  # noqa: W605
 
 
 class Music(commands.Cog):
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
         self.votes = []
 
-        if not hasattr(client, 'lavalink'):  # This ensures the client isn't overwritten during cog reloads.
-            client.lavalink = lavalink.Client(client.user.id)
-            client.lavalink.add_node('127.0.0.1', 2333, 'Runningboy12?', 'us',
+        if not hasattr(bot, 'lavalink'):  # This ensures the bot isn't overwritten during cog reloads.
+            bot.lavalink = lavalink.Client(bot.user.id)
+            bot.lavalink.add_node('127.0.0.1', 2333, 'Runningboy12?', 'us',
                                   'default-node')  # Host, Port, Password, Region, Name
-            client.add_listener(client.lavalink.voice_update_handler, 'on_socket_response')
+            bot.add_listener(bot.lavalink.voice_update_handler, 'on_socket_response')
 
-        client.lavalink.add_event_hook(self.track_hook)
+        bot.lavalink.add_event_hook(self.track_hook)
 
     def cog_unload(self):
-        self.client.lavalink._event_hooks.clear()
+        self.bot.lavalink._event_hooks.clear()
 
     async def cog_before_invoke(self, ctx):
         guild_check = ctx.guild is not None
@@ -48,7 +48,7 @@ class Music(commands.Cog):
 
         if guild_check:
             await self.ensure_voice(ctx)
-            #  Ensure that the client and command author share a mutual voicechannel.
+            #  Ensure that the bot and command author share a mutual voicechannel.
 
         return guild_check
 
@@ -69,15 +69,15 @@ class Music(commands.Cog):
 
     async def connect_to(self, guild_id: int, channel_id: str):
         """ Connects to the given voicechannel ID. A channel_id of `None` means disconnect. """
-        ws = self.client._connection._get_websocket(guild_id)
+        ws = self.bot._connection._get_websocket(guild_id)
         await ws.voice_state(str(guild_id), channel_id)
-        # The above looks dirty, we could alternatively use `client.shards[shard_id].ws` but that assumes
-        # the client instance is an AutoShardedclient.
+        # The above looks dirty, we could alternatively use `bot.shards[shard_id].ws` but that assumes
+        # the bot instance is an AutoShardedbot.
 
     @commands.command(aliases=['p'])
     async def play(self, ctx, *, query: str):
         """ Searches and plays a song from a given query. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         query = query.strip('<>')
 
@@ -88,7 +88,7 @@ class Music(commands.Cog):
 
         if not results or not results['tracks']:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Playing error!",
                 description="• The query you searched for was not found."
             )
@@ -102,7 +102,7 @@ class Music(commands.Cog):
             for track in tracks:
                 player.add(requester=ctx.author.id, track=track)
 
-            embed = discord.Embed(color=self.client.embed_color,
+            embed = discord.Embed(color=self.bot.embed_color,
                                   description=f'• **{results["playlistInfo"]["name"]}** - {len(tracks)} tracks',
                                   title="→ Playlist added!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
@@ -110,7 +110,7 @@ class Music(commands.Cog):
         else:
             track = results['tracks'][0]
 
-            embed = discord.Embed(color=self.client.embed_color,
+            embed = discord.Embed(color=self.bot.embed_color,
                                   description=f'• [**{track["info"]["title"]}**]({track["info"]["uri"]})',
                                   title="→ Song added to queue!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
@@ -125,7 +125,7 @@ class Music(commands.Cog):
     async def play_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!play <Song Name / URL>`"
             )
@@ -134,13 +134,13 @@ class Music(commands.Cog):
     @commands.command()
     async def seek(self, ctx, *, seconds: int):
         """ Seeks to a given position in a track. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         track_time = player.position + (seconds * 1000)
         await player.seek(track_time)
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Resumed!",
             description=f"• Song time has been moved to: `{lavalink.utils.format_time(track_time)}`"
         )
@@ -150,7 +150,7 @@ class Music(commands.Cog):
     async def seek_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!seek <time>`"
             )
@@ -159,11 +159,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['forceskip'])
     async def skip(self, ctx):
         """ Skips the current track. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         await player.skip()
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Skipped",
             description="• The current song you have requested has been skipped!"
         )
@@ -172,11 +172,11 @@ class Music(commands.Cog):
     @commands.command()
     async def stop(self, ctx):
         """ Stops the player and clears its queue. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -186,7 +186,7 @@ class Music(commands.Cog):
         await player.stop()
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Stopped!",
             description="• The DJ has stopped the party!"
         )
@@ -195,11 +195,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['np', 'n', 'playing'])
     async def now(self, ctx):
         """ Shows some stats about the currently playing song. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.current:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -213,7 +213,7 @@ class Music(commands.Cog):
         song = f'**• [{player.current.title}]({player.current.uri})**'
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title='→ Currently Playing:',
             description=f"{song}"
                         f"\n**•** Current time: **({position}/{duration})**"
@@ -224,11 +224,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['q'])
     async def queue(self, ctx, page: int = 1):
         """ Shows the player's queue. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.queue:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No queue!",
                 description="• No songs are in the queue at the moment!"
             )
@@ -245,7 +245,7 @@ class Music(commands.Cog):
             queue_list += f'`{index + 1}.` [**{track.title}**]({track.uri})\n'
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ List of songs:",
             description="\n\n{queue_list}"
         )
@@ -256,11 +256,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['resume'])
     async def pause(self, ctx):
         """ Pauses/Resumes the current track. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Not playing!",
                 description="• No song is playing is currently playing!"
             )
@@ -269,7 +269,7 @@ class Music(commands.Cog):
         if player.paused:
             await player.set_pause(False)
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Resumed!",
                 description="• The current song has been resumed successfully!"
             )
@@ -277,7 +277,7 @@ class Music(commands.Cog):
         else:
             await player.set_pause(True)
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Paused!",
                 description="• The current song has been paused successfully!"
             )
@@ -286,11 +286,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['vol'])
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not volume:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Current Volume!",
                 description=f"• Volume: {player.volume}%"
             )
@@ -299,7 +299,7 @@ class Music(commands.Cog):
         await player.set_volume(volume)  # Lavalink will automatically cap values between, or equal to 0-1000.
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Volume Updated!",
             description=f"• Volume set to: {player.volume}%"
         )
@@ -309,10 +309,10 @@ class Music(commands.Cog):
     @commands.command()
     async def shuffle(self, ctx):
         """ Shuffles the player's queue. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
         if not player.is_playing:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Not playing!",
                 description="• No song is playing is currently playing!"
             )
@@ -320,7 +320,7 @@ class Music(commands.Cog):
 
         player.shuffle = not player.shuffle
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Shuffle Command!",
             description="• Song shuffling has been"
                         + (' Enabled!' if player.shuffle else ' Disabled!')
@@ -330,11 +330,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['loop'])
     async def repeat(self, ctx):
         """ Repeats the current song until the command is invoked again. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.is_playing:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No songs!",
                 description="• Nothing is playing at the moment!"
             )
@@ -342,7 +342,7 @@ class Music(commands.Cog):
 
         player.repeat = not player.repeat
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Loop Command!",
             description="• Looping has been" + (' Enabled!' if player.repeat else ' Disabled!')
         )
@@ -351,11 +351,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['rm'])
     async def remove(self, ctx, index: int):
         """ Removes an item from the player's queue with the given index. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.queue:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No queued items!",
                 description="• There is nothing queued at the moment!"
             )
@@ -363,7 +363,7 @@ class Music(commands.Cog):
 
         if index > len(player.queue) or index < 1:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No queued items!",
                 description=f"• Your remove number needs to be between 1 and {len(player.queue)}"
             )
@@ -371,7 +371,7 @@ class Music(commands.Cog):
         removed = player.queue.pop(index - 1)  # Account for 0-index.
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Item removed!",
             description=f"• Removed `{removed.title}` from the queue."
         )
@@ -381,7 +381,7 @@ class Music(commands.Cog):
     async def remove_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!remove 1`"
             )
@@ -390,7 +390,7 @@ class Music(commands.Cog):
     @commands.command(aliases=["find"])
     async def search(self, ctx, *, query):
         """ Lists the first 10 search results from a given query. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not query.startswith('ytsearch:') and not query.startswith('scsearch:'):
             query = 'ytsearch:' + query
@@ -399,7 +399,7 @@ class Music(commands.Cog):
 
         if not results or not results['tracks']:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ No results!",
                 description="• Nothing was found in your search term!"
             )
@@ -414,7 +414,7 @@ class Music(commands.Cog):
             o += f'`{index}.` [{track_title}]({track_uri})\n'
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Top 5 results:",
             description=f"{o}"
         )
@@ -424,7 +424,7 @@ class Music(commands.Cog):
     async def find_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!find <song>`"
             )
@@ -433,11 +433,11 @@ class Music(commands.Cog):
     @commands.command(aliases=['dc'])
     async def disconnect(self, ctx):
         """ Disconnects the player from the voice channel and clears its queue. """
-        player = self.client.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not player.is_connected:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Not connected!",
                 description="• You need to join a voice channel to play music!"
             )
@@ -445,7 +445,7 @@ class Music(commands.Cog):
 
         if not ctx.author.voice or (player.is_connected and ctx.author.voice.channel.id != int(player.channel_id)):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Not connected!",
                 description="• You are not in my voice channel that I am connected to!"
             )
@@ -455,22 +455,22 @@ class Music(commands.Cog):
         await player.stop()
         await self.connect_to(ctx.guild.id, None)
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Disconnected!",
             description="• I have disconnected from the voice channel!"
         )
         return await ctx.send(embed=embed)
 
     async def ensure_voice(self, ctx):
-        """ This check ensures that the client and command author are in the same voicechannel. """
-        player = self.client.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
+        """ This check ensures that the bot and command author are in the same voicechannel. """
+        player = self.bot.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
         # Create returns a player if one exists, otherwise creates.
 
         should_connect = ctx.command.name in 'play'  # Add commands that require joining voice to work.
 
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Voice channel error!",
                 description="• Please make sure to join a voice channel first!"
             )
@@ -479,7 +479,7 @@ class Music(commands.Cog):
         if not player.is_connected:
             if not should_connect:
                 embed = discord.Embed(
-                    color=self.client.embed_color,
+                    color=self.bot.embed_color,
                     title="→ Voice channel error!",
                     description="• I am not connected to a voice channel"
                 )
@@ -489,7 +489,7 @@ class Music(commands.Cog):
 
             if not permissions.connect or not permissions.speak:  # Check user limit too?
                 embed = discord.Embed(
-                    color=self.client.embed_color,
+                    color=self.bot.embed_color,
                     title="→ Permission error!",
                     description="• Please give me connect permissions, or speaking permissions!"
                 )
@@ -500,12 +500,12 @@ class Music(commands.Cog):
         else:
             if int(player.channel_id) != ctx.author.voice.channel.id:
                 embed = discord.Embed(
-                    color=self.client.embed_color,
+                    color=self.bot.embed_color,
                     title="→ Voice channel error!",
                     description="• Please make sure you are in my voice channel!"
                 )
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
 
-def setup(client):
-    client.add_cog(Music(client))
+def setup(bot):
+    bot.add_cog(Music(bot))

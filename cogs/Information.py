@@ -24,13 +24,13 @@ from logging_files.information_logging import logger
 
 class Information(commands.Cog):
 
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command(aliases=["commands"])
     async def robot_commands(self, ctx):
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ All available bot commands!",
             description="— "
                         "\n→ Shows info about all available bot commands!"
@@ -71,7 +71,7 @@ class Information(commands.Cog):
     @commands.command()
     async def help(self, ctx):
         guild_members = str(len(ctx.guild.members))
-        guilds = str(len(self.client.guilds))
+        guilds = str(len(self.bot.guilds))
         vote_link = "[**Vote link**](http://bit.ly/2mLoBOs)"
         cpu = str(psutil.cpu_percent())
         ram = str(psutil.virtual_memory()[3] / 1000000000)
@@ -81,7 +81,7 @@ class Information(commands.Cog):
         boot_time = str(psutil.boot_time() / 100000000)
         boot_time_round = boot_time[:4]
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="• LinuxBoi",
             description="— "
                         "\n→ Shows info about the server in which the bot is running on! "
@@ -112,7 +112,7 @@ class Information(commands.Cog):
     async def invite(self, ctx):
         url = "(http://bit.ly/2Zm5XyP)"
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Invite me to your server!",
             description=f"• [Click Here]{url}"
         )
@@ -124,9 +124,9 @@ class Information(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        ping = str(round(self.client.latency * 1000))
+        ping = str(round(self.bot.latency * 1000))
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Ping Command",
             description=f"• The latency is {ping} ms"
         )
@@ -139,7 +139,7 @@ class Information(commands.Cog):
     async def serverinfo(self, ctx):
         guild = ctx.guild
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title=f"• Server Info → {guild.name}",
             description="\n— "
                         "\n→ Shows all information about a guild. The information will be listed below!"
@@ -188,7 +188,7 @@ class Information(commands.Cog):
     @commands.command(aliases=['userinfo'])
     async def whois(self, ctx, member: discord.Member):
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title=f"• Userinfo → {member}",
             description="— "
                         "\n→ Shows all information about a user. The information will be listed below!"
@@ -235,19 +235,19 @@ class Information(commands.Cog):
     async def whois_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Member!",
                 description="• Please mention a valid member! Example: `l!whois @user`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!whois @user`"
             )
             await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Information(client))
+def setup(bot):
+    bot.add_cog(Information(bot))
