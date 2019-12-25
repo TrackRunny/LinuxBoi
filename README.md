@@ -127,7 +127,7 @@
     <h3>• Environment Variables On Linux</h3>
     <p>Linux: Put the variables at the end of your <b>.bashrc</b> file. The <b>.bashrc</b> file is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="http://i.imgur.com/FG8Yyt2.png">
+    <img src="https://i.imgur.com/KEzwZdW.png">
   </details>
 
   <details>
@@ -135,7 +135,7 @@
     <h3>• Environment Variables On Mac</h3>
     <p>Mac OS X: Put the variables at the end of your <b>.bash_profile</b> file. The <b>.bash_profile</b> is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
-    <img src="http://i.imgur.com/FG8Yyt2.png">
+    <img src="https://i.imgur.com/KEzwZdW.png">
   </details>
 
   <details>
@@ -151,6 +151,7 @@
   export bitly_access_token=""
   export weather_key=""
   export ksoft_key=""
+  export top_gg_key=""
   export linuxboi_token=""
   export linuxboi_testing_token=""
   ```
@@ -166,8 +167,10 @@
   3. [**Open Weather API**](https://openweathermap.org/api) (Free; Sign up the receive an api key)
   
   4. [**KSoft.Si API**](https://api.ksoft.si/) (Free; Sign up to receive an api token)
+  
+  5. [**TopGG API**](https://top.gg) (Free; Sign up to receive an api token)
 
-  5. [**Gmail**](https://gmail.com/) (Free; Sign up, use account email and password)
+  6. [**Gmail**](https://gmail.com/) (Free; Sign up, use account email and password)
 
   You need to put these values inside the environment variables. You also need to provide a bot token for the linuxboi_token, and linuxboi_testing_token enviroment variables too.
 

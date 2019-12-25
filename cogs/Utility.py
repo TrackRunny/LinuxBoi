@@ -956,8 +956,9 @@ class Utility(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    # - TODO: Fix this command so it stops throwing errors in the console
+    # - Temp disable this command until I have time to get it to work
 
+    """
     @commands.command()
     async def uptime(self, ctx):
         # - default.time(datetime.utcnow() - self.bot.uptime)
@@ -974,7 +975,8 @@ class Utility(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        logger.info(f"Sent Uptime: {ctx.author}")
+        logger.info(f"Sent Uptime: {ctx.author})
+    """
 
 
 def setup(bot):

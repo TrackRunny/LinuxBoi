@@ -127,7 +127,33 @@ class Image(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument",
-                description="• Please put in a vaild option! Example: `l!tweet <username> <text>`"
+                description="• Please put in a valid option! Example: `l!tweet <username> <text>`"
+            )
+
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    async def trumptweet(self, ctx, *, text: str):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=trumptweet&text={text}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Trump Tweet"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Trump Tweet: {ctx.author} | Text: {text}")
+
+    @trumptweet.error
+    async def trumptweet_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument",
+                description="• Please put in a valid option! Example: `l!trumptweet <text>`"
             )
 
             await ctx.send(embed=embed)
