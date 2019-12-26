@@ -237,7 +237,7 @@ class Fun(commands.Cog):
 
         def get_joke():
             # Return random joke
-            with open('./External_Command_Files/geekjokes.json', encoding="utf8") as data_file:
+            with open('./external_command_files/geekjokes.json', encoding="utf8") as data_file:
                 data = json.load(data_file)
             joke = data[random_digits(len(data))]
             return joke
@@ -249,7 +249,7 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        await logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
+        logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
     
     @commands.command()
     async def history(self, ctx):
