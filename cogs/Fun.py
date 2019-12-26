@@ -243,9 +243,10 @@ class Fun(commands.Cog):
             return joke
 
         embed = discord.Embed(
-            color=discord.Color.from_rgb(241, 90, 36)
+            color=discord.Color.from_rgb(241, 90, 36),
+            title="→ Random Geek joke!",
+            description=f"• {get_joke()}"
         )
-        embed.add_field(name="→ Random Geek joke!", value=f"• {get_joke()}")
 
         await ctx.send(embed=embed)
 
