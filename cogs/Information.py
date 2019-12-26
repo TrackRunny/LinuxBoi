@@ -19,6 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 import discord
 import psutil
 from discord.ext import commands
+
 from logging_files.information_logging import logger
 
 
@@ -61,7 +62,7 @@ class Information(commands.Cog):
         embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
         embed.add_field(name="• Image Commands!", inline=False, value=image)
-        embed.add_field(name="• Music Commands!", inline=False, value=music)
+        embed.add_field(name="• music Commands!", inline=False, value=music)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 
         await ctx.send(embed=embed)
@@ -73,6 +74,7 @@ class Information(commands.Cog):
         guild_members = str(len(ctx.guild.members))
         guilds = str(len(self.bot.guilds))
         vote_link = "[**Vote link**](http://bit.ly/2mLoBOs)"
+        sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi)"
         cpu = str(psutil.cpu_percent())
         ram = str(psutil.virtual_memory()[3] / 1000000000)
         ram_round = ram[:3]
@@ -82,13 +84,14 @@ class Information(commands.Cog):
         boot_time_round = boot_time[:4]
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ LinuxBoi",
-            description="— "
-                        "\n ➤ Shows info about the server in which the bot is running on! "
-                        "All values are accurate and updated each time the command is ran."
-                        "\n ➤ Python is one of my favorite programming languages :)" +
-                        "\n ➤ Make sure to support The Free Software Movement!" +
-                        "\n ➤ To view my commands run, `l!commands`"
+            title=f"→ LinuxBoi",
+            description=f"— "
+                        f"\n ➤ Shows info about the server in which the bot is running on! "
+                        f"All values are accurate and updated each time the command is ran."
+                        f"\n ➤ Python is one of my favorite programming languages :)" +
+                        f"\n ➤ Make sure to support The Free Software Movement!" +
+                        f"\n ➤ To view my commands run, `l!commands`"
+                        f"\n ➤ Source code for this bot is available here: {sourcecode_link}"
                         f"\n ➤ If you like my bot, consider voting: {vote_link}" + "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")

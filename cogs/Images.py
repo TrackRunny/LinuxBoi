@@ -16,10 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-import discord
-import aiohttp
 import os
+
+import aiohttp
+import discord
 from discord.ext import commands
+
 from logging_files.images_logging import logger
 
 

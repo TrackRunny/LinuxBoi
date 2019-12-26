@@ -16,28 +16,28 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-import discord
-import os
-import asyncurban
-import smtplib
-import requests
-import ipinfo
-import strgen
-import random
-import colorsys
 import asyncio
+import colorsys
+import datetime
+import os
+import random
+import smtplib
+from email.message import EmailMessage
+
 import aiogoogletrans
+import asyncurban
+import discord
+import ipinfo
 import pyowm
-import time
+import requests
+import strgen
+from bitlyshortener import Shortener
 from discord.ext import commands
 from forex_python.bitcoin import BtcConverter
 from forex_python.converter import CurrencyRates
-from bitlyshortener import Shortener
-from email.message import EmailMessage
 from mcstatus import MinecraftServer
-from datetime import datetime
+
 from logging_files.utility_logging import logger
-from utils import default
 
 
 class Utility(commands.Cog):
@@ -46,7 +46,7 @@ class Utility(commands.Cog):
         self.bot = bot
         self.u = asyncurban.UrbanDictionary()
         self.t = aiogoogletrans.Translator
-        self.start_time = time.time()
+        self.bot_start_time = datetime.datetime.utcnow()
 
     @commands.command(aliases=["btc"])
     async def bitcoin(self, ctx, currency="USD"):
@@ -956,27 +956,32 @@ class Utility(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    # - Temp disable this command until I have time to get it to work
-
-    """
     @commands.command()
     async def uptime(self, ctx):
-        # - default.time(datetime.utcnow() - self.bot.uptime)
+        uptime = datetime.datetime.utcnow() - self.bot_start_time
 
-        current_time = time.time()
-        difference = int(round(current_time - self.start_time))
-        text = str(datetime.timedelta(seconds=difference))
+        days = str(uptime.days)
+
+        uptime = str(uptime)
+        uptime = uptime.split(":")
+
+        hours = uptime[0]
+
+        minutes = uptime[1]
+
+        seconds = uptime[2]
+        seconds = seconds.split(".")
+        seconds = seconds[0]
 
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Current Uptime",
-            description=f"• Time: `{text}`"
+            description=f"• Days: `{days}` | Hours: `{hours}` | Minutes: `{minutes}` | Seconds: `{seconds}`"
         )
 
         await ctx.send(embed=embed)
 
-        logger.info(f"Sent Uptime: {ctx.author})
-    """
+        logger.info(f"Sent Uptime: {ctx.author}")
 
 
 def setup(bot):

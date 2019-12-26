@@ -16,9 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-import discord
 import traceback
+
+import discord
 from discord.ext import commands
+
 from logging_files.moderation_logging import logger
 
 
@@ -485,7 +487,7 @@ class Moderation(commands.Cog):
             traceback.print_exc()
 
     @resetnick.error
-    async def nickname_error(self, ctx, error):
+    async def resetnick_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
                 color=self.bot.embed_color,

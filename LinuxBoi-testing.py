@@ -20,10 +20,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import os
 from datetime import datetime
+from itertools import cycle
 
 import discord
-from itertools import cycle
-from discord.ext import commands, tasks
+from discord.ext import commands
 
 # client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 bot = commands.Bot("lt!", owner_id=546812331213062144, case_insensitive=False)
@@ -43,7 +43,7 @@ cogs = [
     "Utility",
     "Images",
     "TopGG",
-    "Music"
+    "music"
 ]
 
 

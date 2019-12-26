@@ -16,14 +16,18 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-import discord
-import aiohttp
+import json
 import random
 import re
+
+import aiohttp
+import discord
 import fortune
-from discord.ext import commands
+
 from cowpy import cow
 from dadjokes import Dadjoke
+from discord.ext import commands
+
 from logging_files.fun_logging import logger
 
 
@@ -199,7 +203,7 @@ class Fun(commands.Cog):
         
     @commands.command()
     async def fortune(self, ctx):
-        file = "./External_Command_Files/fortunes.txt"
+        file = "./external_command_files/fortunes.txt"
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Random Fortune!",
@@ -224,6 +228,28 @@ class Fun(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Joke: {ctx.author}")
+
+    @commands.command()
+    async def geekjoke(self, ctx):
+        def random_digits(joke_count):
+            # Return a joke index between first and last joke in data
+            return random.randint(1, joke_count)
+
+        def get_joke():
+            # Return random joke
+            with open('./External_Command_Files/geekjokes.json', encoding="utf8") as data_file:
+                data = json.load(data_file)
+            joke = data[random_digits(len(data))]
+            return joke
+
+        embed = discord.Embed(
+            color=discord.Color.from_rgb(241, 90, 36)
+        )
+        embed.add_field(name="→ Random Geek joke!", value=f"• {get_joke()}")
+
+        await ctx.send(embed=embed)
+
+        await logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
     
     @commands.command()
     async def history(self, ctx):

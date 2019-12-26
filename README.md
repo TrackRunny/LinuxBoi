@@ -18,7 +18,7 @@
   * Official GitHub repo for LinuxBoi.
   * Multi-use Discord bot that is being actively developed.
   * Main purpose is to teach / help people about Linux on Discord.
-  * 2 -3 Commits each week.
+  * 2 - 3 Commits each week.
   * Uptime should be over 95% each 7 days as shown from the badge above.
 
 <!-- MODULES HEADER -->
