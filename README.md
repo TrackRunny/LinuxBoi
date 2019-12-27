@@ -47,7 +47,7 @@
 ---
 
   <!-- Installation Instructions -->
-  There is a requirements.txt file that anyone on **Any Operating That Supports Python 3.6+** can use to install **All\*** of the dependencies needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3.6+**. Installation instructions are below as follows:
+  There is a requirements.txt file that anyone on **Any Operating That Supports Python 3.6+** can use to install **All** of the dependencies needed for LinuxBoi to run. If your computer / server has two versions of **python and / or you have python 2 and python 3 installed make sure to use python 3.6+**. Installation instructions are below as follows:
 
   * First, clone this repo and install the dependencies from the txt file.
 
@@ -74,10 +74,10 @@
     <p>Note, some users may receive this error above when trying to install the dependencies from the requirements.txt file. This happens when you are trying to build and install the <b>Pycosat</b> pip module. If this happens to you, please follow the instructions below.</p>
   
   1. Download the compiled **Pycosat** file for your Python version and windows architecture.
-      * [**Pycosat | Python 3.6 | Win32**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp36-cp36m-win32.whl)
-      * [**Pycosat | Python 3.6 | Win64**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp36-cp36m-win_amd64.whl)
-      * [**Pycosat | Python 3.7 | Win32**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp37-cp37m-win32.whl)
-      * [**Pycosat | Python 3.7 | Win64**](https://download.lfd.uci.edu/pythonlibs/t7epjj8p/pycosat-0.6.3-cp37-cp37m-win_amd64.whll)
+      * [**Pycosat | Python 3.6 | Win32**](https://mega.nz/#!4VUEkALb!MYx0CpoKimjuxxjzx4D0xHEhQOwzRip0WrF9AsnsP_4)
+      * [**Pycosat | Python 3.6 | Win64**](https://mega.nz/#!gQUyAS5L!_fdO4BL6GsfHw_9f-D5w1pybv2IdjFCVDR4oalWlde0)
+      * [**Pycosat | Python 3.7 | Win32**](https://mega.nz/#!4BVgjYhI!1EqFNPdbPUGRImfs3GSaWQLe9u3ClVRjzm8NJEMWmMs)
+      * [**Pycosat | Python 3.7 | Win64**](https://mega.nz/#!RdVkFSIT!ZHoTnlkTtIPJQYv-8W7vxCfBZKTmuyw2Rgst6ea10Lo)
   2. Change directories into the downloaded file.
   3. Install the compiled pip module.
 

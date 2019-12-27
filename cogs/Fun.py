@@ -203,7 +203,7 @@ class Fun(commands.Cog):
         
     @commands.command()
     async def fortune(self, ctx):
-        file = "./external_command_files/fortunes.txt"
+        file = "./resources/fortunes.txt"
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Random Fortune!",
@@ -237,7 +237,7 @@ class Fun(commands.Cog):
 
         def get_joke():
             # Return random joke
-            with open('./external_command_files/geekjokes.json', encoding="utf8") as data_file:
+            with open('./resources/geekjokes.json', encoding="utf8") as data_file:
                 data = json.load(data_file)
             joke = data[random_digits(len(data))]
             return joke

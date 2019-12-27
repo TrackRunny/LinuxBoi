@@ -877,9 +877,9 @@ class Utility(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Translation",
-            description='• Input Language: `{}`'.format(translated)
-                        + "\n• Translated Language: `{}`".format(language)
-                        + "\n• Translated Text: `{}`".format(translation)
+            description=f"• Input Language: `{translated}`"
+                        f"\n• Translated Language: `{language}`"
+                        f"\n• Translated Text: `{translation}`"
         )
 
         await ctx.send(embed=embed)
