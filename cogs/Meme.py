@@ -32,7 +32,7 @@ class Meme(commands.Cog):
 
     @commands.command()
     async def random_meme(self, ctx):
-        async with aiohttp.botSession() as cs:
+        async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-meme",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
@@ -50,11 +50,10 @@ class Meme(commands.Cog):
 
     @commands.command()
     async def wikihow(self, ctx):
-        async with aiohttp.botSession() as cs:
+        async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-wikihow",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
                 res = await r.json()
-
                 embed = discord.Embed(
                     color=self.bot.embed_color,
                     title=f"→ {res['title']}",

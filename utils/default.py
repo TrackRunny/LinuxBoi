@@ -17,8 +17,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
 
-import timeago as timesince
+def uptime(dt):
+    days = dt.days
+    hours, r = divmod(dt.seconds, 3600)
+    minutes, seconds = divmod(r, 60)
 
-
-def time(target):
-    return timesince.format(target)
+    return f"• Days: `{days}` | Hours: `{hours}` | Minutes: `{minutes}` | Seconds: `{seconds}`"

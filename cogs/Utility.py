@@ -38,6 +38,7 @@ from forex_python.converter import CurrencyRates
 from mcstatus import MinecraftServer
 
 from logging_files.utility_logging import logger
+from utils.default import uptime
 
 
 class Utility(commands.Cog):
@@ -46,7 +47,7 @@ class Utility(commands.Cog):
         self.bot = bot
         self.u = asyncurban.UrbanDictionary()
         self.t = aiogoogletrans.Translator
-        self.bot_start_time = datetime.datetime.utcnow()
+        self.bot_start_time = datetime.datetime.now()
 
     @commands.command(aliases=["btc"])
     async def bitcoin(self, ctx, currency="USD"):
@@ -958,25 +959,10 @@ class Utility(commands.Cog):
 
     @commands.command()
     async def uptime(self, ctx):
-        uptime = datetime.datetime.utcnow() - self.bot_start_time
-
-        days = str(uptime.days)
-
-        uptime = str(uptime)
-        uptime = uptime.split(":")
-
-        hours = uptime[0]
-
-        minutes = uptime[1]
-
-        seconds = uptime[2]
-        seconds = seconds.split(".")
-        seconds = seconds[0]
-
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Current Uptime",
-            description=f"• Days: `{days}` | Hours: `{hours}` | Minutes: `{minutes}` | Seconds: `{seconds}`"
+            description=uptime(datetime.datetime.now() - self.bot_start_time)
         )
 
         await ctx.send(embed=embed)

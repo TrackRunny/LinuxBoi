@@ -62,7 +62,7 @@ class Information(commands.Cog):
         embed.add_field(name="• Memes!", inline=False, value=memes)
         embed.add_field(name="• Utility Commands!", inline=False, value=utility)
         embed.add_field(name="• Image Commands!", inline=False, value=image)
-        embed.add_field(name="• music Commands!", inline=False, value=music)
+        embed.add_field(name="• Music Commands!", inline=False, value=music)
         # embed.add_field(name="• Linux information!", inline=False, value=linux_info)
 
         await ctx.send(embed=embed)
@@ -143,9 +143,10 @@ class Information(commands.Cog):
         guild = ctx.guild
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title=f"• Server Info → {guild.name}",
+            title=f"→ Server Info for {guild.name}",
             description="\n— "
-                        "\n→ Shows all information about a guild. The information will be listed below!"
+                        "\n➤ Shows all information about a guild."
+                        "\n➤The information will be listed below!"
                         "\n —"
         )
         regions = {
@@ -172,7 +173,7 @@ class Information(commands.Cog):
             "high": "<:orange_circle:625542217100165135> — High Verification",
             "extreme": "<:red__circle:625833379258040330> — Extreme Verification"
         }
-        embed.set_thumbnail(url=guild.icon_url_as(size=4096, format=None, static_format="png"))
+        embed.set_thumbnail(url=guild.icon_url_as(size=1024, format=None, static_format="png"))
         embed.add_field(name="• Guild name: ", value=str(guild.name))
         embed.add_field(name="• Guild ID: ", value=str(guild.id))
         embed.add_field(name="• Guild owner: ", value=guild.owner)
@@ -192,9 +193,10 @@ class Information(commands.Cog):
     async def whois(self, ctx, member: discord.Member):
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title=f"• Userinfo → {member}",
+            title=f"→ Userinfo for {member}",
             description="— "
-                        "\n→ Shows all information about a user. The information will be listed below!"
+                        "\n➤ Shows all information about a user. "
+                        "\n➤ The information will be listed below!"
                         "\n —"
         )
 
@@ -208,7 +210,7 @@ class Information(commands.Cog):
         roles = [role for role in member.roles]
         roles = f" ".join([f"`@{role}`, " for role in roles])
 
-        embed.set_thumbnail(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
+        embed.set_thumbnail(url=member.avatar_url_as(size=1024, format=None, static_format="png"))
         embed.add_field(name="• Account name: ", value=str(member))
         embed.add_field(name="• Discord ID: ", value=str(member.id))
         embed.add_field(name="• Nickname: ", value=member.nick or "No nickname!")

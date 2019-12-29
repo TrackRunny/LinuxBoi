@@ -32,7 +32,7 @@ class Image(commands.Cog):
 
     @commands.command()
     async def captcha(self, ctx):
-        avatar = ctx.author.avatar_url_as(size=4096, format=None, static_format='png')
+        avatar = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=captcha&url={avatar}&username=Orange") as r:
                 res = await r.json()

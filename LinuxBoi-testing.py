@@ -42,8 +42,8 @@ cogs = [
     "Owner",
     "Utility",
     "Images",
-    "TopGG",
-    "music"
+    "Music",
+    "TopGG"
 ]
 
 

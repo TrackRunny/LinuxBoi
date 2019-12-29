@@ -85,7 +85,7 @@ class Fun(commands.Cog):
             color=self.bot.embed_color,
             title="→ Avatar"
         )
-        embed.set_image(url=member.avatar_url_as(size=4096, format=None, static_format="png"))
+        embed.set_image(url=member.avatar_url_as(size=1024, format=None, static_format="png"))
 
         await ctx.send(embed=embed)
 
@@ -130,13 +130,13 @@ class Fun(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Coinflip Command",
-            description=coin
+            description=f"• {coin}"
         )
 
         await ctx.send(embed=embed)
 
         logger.info(f"Fun | Sent Coinflip: {ctx.author}")
-        
+
     @commands.command()
     async def cowsay(self, ctx, *, message):
         moo = cow.Cowacter(thoughts=True)
@@ -173,7 +173,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Fun | Sent Dadjoke: {ctx.author}")
-        
+
     @commands.command()
     async def dice(self, ctx, *, msg='1'):
         dice_rolls = []
@@ -200,7 +200,7 @@ class Fun(commands.Cog):
         await ctx.send('', embed=embed)
 
         logger.info(f"Fun | Sent Dice: {ctx.author}")
-        
+
     @commands.command()
     async def fortune(self, ctx):
         file = "./resources/fortunes.txt"
@@ -213,7 +213,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Fun | Sent Fortune: {ctx.author}")
-        
+
     @commands.command()
     async def joke(self, ctx):
         async with aiohttp.ClientSession() as cs:
@@ -251,7 +251,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Fun | Sent Geekjoke: {ctx.author}")
-    
+
     @commands.command()
     async def history(self, ctx):
         async with aiohttp.ClientSession() as cs:
@@ -267,7 +267,7 @@ class Fun(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent History: {ctx.author}")
-                
+
     @commands.command()
     async def howgay(self, ctx, member: discord.Member):
         embed = discord.Embed(
@@ -297,7 +297,7 @@ class Fun(commands.Cog):
                 description="• Please put a valid option! Example: `l!howgay @user`"
             )
             await ctx.send(embed=embed)
-                
+
     @commands.command()
     async def math(self, ctx):
         async with aiohttp.ClientSession() as cs:
@@ -312,7 +312,7 @@ class Fun(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Math: {ctx.author}")
-                
+
     @commands.command()
     async def penguinsay(self, ctx, *, message):
         moo = cow.Tux(thoughts=True)
@@ -336,7 +336,7 @@ class Fun(commands.Cog):
                 description="• Please put in a valid option! Example: `l!penguinsay <text>`"
             )
             await ctx.send(embed=embed)
-            
+
     @commands.command()
     async def shrug(self, ctx):
         embed = discord.Embed(
