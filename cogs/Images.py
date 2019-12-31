@@ -191,7 +191,8 @@ class Image(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             member1 = member1.avatar_url_as(size=4096, format=None, static_format='png')
             member2 = member2.avatar_url_as(size=4096, format=None, static_format='png')
-            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
+            async with cs.get(
+                    f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
                 res = await r.json()
                 embed = discord.Embed(
                     color=self.bot.embed_color,
@@ -222,6 +223,38 @@ class Image(commands.Cog):
 
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def magik(self, ctx, member: discord.Member, intensity: int = 5):
+        avatar = member.avatar_url_as(size=4096, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=magik&image={avatar}&intensity={intensity}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Magik"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+    @magik.error
+    async def magik_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Member!",
+                description="• Please mention two valid members! Example: `l!magik @user`"
+            )
+
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!magik @user`"
+            )
+
+            await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Image(bot))

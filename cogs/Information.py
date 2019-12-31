@@ -50,7 +50,8 @@ class Information(commands.Cog):
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`, `l!uptime`"
-        image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`, `l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`"
+        image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`," \
+                "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!random_meme`, `l!wikihow`"
