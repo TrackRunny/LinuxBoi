@@ -54,7 +54,7 @@ class Information(commands.Cog):
                 "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        memes = "`l!random_meme`, `l!wikihow`"
+        memes = "`l!meme`, `l!wikihow`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
@@ -68,7 +68,7 @@ class Information(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        logger.info(f"Inforamtion | Sent Commands: {ctx.author}")
+        logger.info(f"Information | Sent Commands: {ctx.author}")
 
     @commands.command()
     async def help(self, ctx):
@@ -96,7 +96,7 @@ class Information(commands.Cog):
                         f"\n ➤ If you like my bot, consider voting: {vote_link}" + "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")
-        embed.add_field(name=f"• Operating System:", inline=True, value=f":computer: — Ubuntu 18.04 LTS")
+        embed.add_field(name=f"• Operating System:", inline=True, value=f":computer: — Ubuntu server 18.04 LTS")
         embed.add_field(name=f"• CPU Usage:", inline=True, value=f":heavy_plus_sign: — {cpu} Percent used")
         embed.add_field(name=f"• RAM Usage:", inline=True,
                         value=f":closed_book:  —  {ram_round}  / 3  Gigabytes used")
@@ -106,7 +106,7 @@ class Information(commands.Cog):
         embed.add_field(name=f"• GUILD Count:", inline=True, value=f":house: — {guilds} connected guilds")
         embed.add_field(name=f"• LIBRARY Version:", inline=True, value=f":gear: — Discord.py version 1.2.5")
         embed.add_field(name=f"• PYTHON Version:", inline=True, value=f":snake:  — Python version 3.7.5")
-        embed.set_footer(text=f"\n\nMade by TrackRunny#0001", icon_url=f"\n\nhttps://i.imgur.com/ZwWigTq.png")
+        embed.set_footer(text=f"\n\nMade by TrackRunny#0001", icon_url=f"\n\nhttps://i.imgur.com/TiUqRH8.gif")
 
         await ctx.send(embed=embed)
 

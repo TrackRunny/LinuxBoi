@@ -31,7 +31,7 @@ class Meme(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def random_meme(self, ctx):
+    async def meme(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://api.ksoft.si/images/random-meme",
                               headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:

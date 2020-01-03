@@ -1,5 +1,5 @@
 <!-- MAIN TITLE -->
-# • LinuxBoi Discord bot
+# → LinuxBoi
 
 <!-- LINUX BOI PICTURE -->
   <img align="right" src="https://i.imgur.com/aiIXeCJ.png" width=30%>
@@ -13,7 +13,7 @@
   <a href="https://app.codacy.com/manual/TrackRunny/Discord-Selfbot/dashboard?bid=14423857&token=vnDn11JbhCP7nhu">![Code Quality](https://img.shields.io/codacy/grade/179a29ed15bb40b5b0eed2b695791f94?style=flat-square)</a>  
 
 <!-- KEY INFORMATION HEADER -->
-## →  Important Information
+## ➤ Important Information
 
   * Official GitHub repo for LinuxBoi.
   * Multi-use Discord bot that is being actively developed.
@@ -22,7 +22,7 @@
   * Uptime should be over 95% each 7 days as shown from the badge above.
 
 <!-- MODULES HEADER -->
-### → Modules
+### ➤ Modules
 
   * Events  
   * Fun
@@ -35,7 +35,7 @@
   * Utility
 
 <!-- INSTALLATION HEADER -->
-### → Installation
+### ➤ Installation
 
   **Please note that I would rather you not run another instance of the bot and just invite it to your server. If you really want to run it with your own token for testing or another reason, please follow the directions below to run it.**
 
@@ -70,7 +70,7 @@
 
   <details>
     <summary><b>Click here</b></summary>
-    <h3>• Error: Microsoft Visual C++ 14.0 is required.</h3>
+    <h3>➤ Error: Microsoft Visual C++ 14.0 is required.</h3>
     <p>Note, some users may receive this error above when trying to install the dependencies from the requirements.txt file. This happens when you are trying to build and install the <b>Pycosat</b> pip module. If this happens to you, please follow the instructions below.</p>
   
   1. Download the compiled **Pycosat** file for your Python version and windows architecture.
@@ -116,7 +116,7 @@
   </details>
 
 <!-- Installation with Environment Variables-->
-### → Environment Variables (Continuing Installation)
+### ➤ Environment Variables (Continuing Installation)
 
   There are some environment variables you need to have on the computer / server that is running the Discord bot. **If you don't have these the bot will not work correctly!**
 
@@ -124,7 +124,7 @@
 
   <details>
     <summary><b>Linux</b> (Click the arrow)</summary>
-    <h3>• Environment Variables On Linux</h3>
+    <h3>➤ Environment Variables On Linux</h3>
     <p>Linux: Put the variables at the end of your <b>.bashrc</b> file. The <b>.bashrc</b> file is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
     <img src="https://i.imgur.com/KEzwZdW.png">
@@ -132,7 +132,7 @@
 
   <details>
     <summary><b>Mac OS X</b> (Click the arrow)</summary>
-    <h3>• Environment Variables On Mac</h3>
+    <h3>➤ Environment Variables On Mac</h3>
     <p>Mac OS X: Put the variables at the end of your <b>.bash_profile</b> file. The <b>.bash_profile</b> is located in your home directory. You can copy and paste these and put in the values. These are located under the Windows instructions inside the code block.</p>
     <p>Here is an example of what it should look like.</p>
     <img src="https://i.imgur.com/KEzwZdW.png">
@@ -140,7 +140,7 @@
 
   <details>
     <summary><b>Windows</b> (Click the arrow)</summary>
-    <h3>• Environment Variables On Windows</h3>
+    <h3>➤ Environment Variables On Windows</h3>
     <p>Windows: The process is a little more difficult on Windows. Please watch <a href="https://www.youtube.com/watch?v=IolxqkL7cD8">this</a> video so you can export these values on your Windows Operating System. Skip to <b>1:19</b> if you want to see how he does it. Make sure to keep the enviroment variables with the same name or they won't work. The variable names are inside the code block just under this piece of text.</p>
   </details>
   
@@ -156,7 +156,7 @@
   export linuxboi_testing_token=""
   ```
 
-### → List of Api's (Continuing Installation)
+### ➤ List of Api's (Continuing Installation)
 
   These are all of the api's I use inside LinuxBoi.
 
@@ -174,7 +174,7 @@
 
   You need to put these values inside the environment variables. You also need to provide a bot token for the linuxboi_token, and linuxboi_testing_token enviroment variables too.
 
-### → Finishing Installation
+### ➤ Finishing Installation
 
   Congrats, everything should be set up correctly so far. If you want to start the bot you can do `./LinuxBoi.py` as it should already be executable.
 
@@ -183,12 +183,12 @@
 ---
 
 <!-- LICENSE INFO -->
-## → License
+## ➤ License
 
   This project is licensed under the GPLv3.
 
 <!-- END OF README -->
-## → Questions / Contact me
+## ➤ Questions / Contact me
 
   * Discord Account: `TrackRunny#0001`
   * Email: `trackrunny@protonmail.com`

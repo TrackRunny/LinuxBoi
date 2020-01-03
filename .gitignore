@@ -2,12 +2,4 @@
 .vscode
 __pycache__
 cogs/__pycache__
-cogs/Events/__pycache__
-cogs/Fun/__pycache__
-cogs/Images/__pycache__
-cogs/Information/__pycache__
-cogs/Moderation/__pycache__
-cogs/Owner/__pycache__
-cogs/Utility/__pycache__
 music/logs
-cogs/Linuxinfo

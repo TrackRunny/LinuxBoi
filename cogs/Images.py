@@ -226,6 +226,11 @@ class Image(commands.Cog):
     @commands.command()
     async def magik(self, ctx, member: discord.Member, intensity: int = 5):
         avatar = member.avatar_url_as(size=4096, format=None, static_format='png')
+        emoji = ":penguin:"
+
+        message = await ctx.send(f"{emoji} — **Processing the image please wait!**")
+        await message.delete(delay=3)
+
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=magik&image={avatar}&intensity={intensity}") as r:
                 res = await r.json()

@@ -27,28 +27,28 @@ from logging_files.owner_logging import logger
 class Owner(commands.Cog):
 
     def __init__(self, bot):
-        self.client = bot
+        self.bot = bot
 
     @commands.command()
     @commands.is_owner()
     async def activity(self, ctx, number, *, activity):
         # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
-        await self.client.change_presence(activity=discord.Activity(type=number, name=activity))
+        await self.bot.change_presence(activity=discord.Activity(type=number, name=activity))
         embed = discord.Embed(
-            color=self.client.embed_color,
-            title="→ Bot status changed!",
-            description=f"• My status has been updated to: `{activity}`"
+            color=self.bot.embed_color,
+            title="→ Bot activity changed!",
+            description=f"• My activity has been updated to: `{activity}`"
         )
 
         await ctx.send(embed=embed)
 
-        logger.info(f"Owner | Sent Status: {ctx.author} | Activity: {number} | Status: {activity}")
+        logger.info(f"Owner | Sent Activity: {ctx.author} | Activity: {number} | Status: {activity}")
 
     @activity.error
     async def activity_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="Please put a valid option! Example: `l!activity <type> <status>`"
             )
@@ -57,16 +57,16 @@ class Owner(commands.Cog):
     @commands.command()
     async def status(self, ctx, online_status):
         if str(online_status).lower() == "dnd":
-            await self.client.change_presence(status=discord.Status.dnd)
+            await self.bot.change_presence(status=discord.Status.dnd)
         elif str(online_status).lower() == "idle":
-            await self.client.change_presence(status=discord.Status.idle)
+            await self.bot.change_presence(status=discord.Status.idle)
         elif str(online_status).lower() == "offline":
-            await self.client.change_presence(status=discord.Status.offline)
+            await self.bot.change_presence(status=discord.Status.offline)
         else:
-            await self.client.change_presence(status=discord.Status.online)
+            await self.bot.change_presence(status=discord.Status.online)
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Online Status Changed!",
             description=f"• My status has been updated to: `{online_status.lower()}`"
         )
@@ -79,7 +79,7 @@ class Owner(commands.Cog):
     async def change_status_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="Please put a valid option! Example: `l!status <online status>`"
             )
@@ -88,22 +88,22 @@ class Owner(commands.Cog):
     @commands.is_owner()
     @commands.command()
     async def guilds(self, ctx):
-        for guild in self.client.guilds:
+        for guild in self.bot.guilds:
             await ctx.send(f"Guild: {guild} | ID: {guild.id}")
 
     @commands.is_owner()
     @commands.command()
     async def get_invite(self, ctx, id: int):
-        guild = self.client.get_guild(id)
+        guild = self.bot.get_guild(id)
 
         for channel in guild.text_channels:
             channels = [channel.id]
 
         picked = random.choice(channels)
-        channel = self.client.get_channel(picked)
+        channel = self.bot.get_channel(picked)
 
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title=f"→ Invite from guild",
             description=f"• Invite: {await channel.create_invite(max_uses=1)}"
         )
@@ -123,14 +123,14 @@ class Owner(commands.Cog):
     async def say_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Channel!",
                 description="• Please put a valid channel! Example: `l!say #channel <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.client.embed_color,
+                color=self.bot.embed_color,
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!say #channel <message>`"
             )
@@ -140,13 +140,13 @@ class Owner(commands.Cog):
     @commands.is_owner()
     async def shutdown(self, ctx):
         embed = discord.Embed(
-            color=self.client.embed_color,
+            color=self.bot.embed_color,
             title="→ Shutdown",
             description="• Performing a shutdown on the bot... ( :wave: )"
         )
 
         await ctx.send(embed=embed)
-        await self.client.logout()
+        await self.bot.logout()
 
         logger.info(f"Owner | Sent Shutdown: {ctx.author}")
 
