@@ -51,7 +51,7 @@ class Information(commands.Cog):
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`, `l!uptime`"
         image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!tweet`," \
-                "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`"
+                "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`, `l!threats`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!meme`, `l!wikihow`"
@@ -72,7 +72,7 @@ class Information(commands.Cog):
 
     @commands.command()
     async def help(self, ctx):
-        guild_members = str(len(ctx.guild.members))
+        users = str(len(self.bot.users))
         guilds = str(len(self.bot.guilds))
         vote_link = "[**Vote link**](http://bit.ly/2mLoBOs)"
         sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi)"
@@ -83,6 +83,7 @@ class Information(commands.Cog):
         disk_round = disk[:4]
         boot_time = str(psutil.boot_time() / 100000000)
         boot_time_round = boot_time[:4]
+
         embed = discord.Embed(
             color=self.bot.embed_color,
             title=f"→ LinuxBoi",
@@ -102,7 +103,7 @@ class Information(commands.Cog):
                         value=f":closed_book:  —  {ram_round}  / 3  Gigabytes used")
         embed.add_field(name=f"• DISK Usage:", inline=True, value=f":white_circle: — {disk_round} / 40 Gigabytes")
         embed.add_field(name=f"• BOOT Time: ", inline=True, value=f":boot: —  {boot_time_round} seconds")
-        embed.add_field(name=f"• MEMBER Count:", inline=True, value=f":bust_in_silhouette: —  {guild_members} users")
+        embed.add_field(name=f"• MEMBER Count:", inline=True, value=f":bust_in_silhouette: —  {users} users")
         embed.add_field(name=f"• GUILD Count:", inline=True, value=f":house: — {guilds} connected guilds")
         embed.add_field(name=f"• LIBRARY Version:", inline=True, value=f":gear: — Discord.py version 1.2.5")
         embed.add_field(name=f"• PYTHON Version:", inline=True, value=f":snake:  — Python version 3.7.5")

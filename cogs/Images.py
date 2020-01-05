@@ -188,9 +188,9 @@ class Image(commands.Cog):
 
     @commands.command()
     async def vs(self, ctx, member1: discord.Member, member2: discord.Member):
+        member1 = member1.avatar_url_as(size=4096, format=None, static_format='png')
+        member2 = member2.avatar_url_as(size=4096, format=None, static_format='png')
         async with aiohttp.ClientSession() as cs:
-            member1 = member1.avatar_url_as(size=4096, format=None, static_format='png')
-            member2 = member2.avatar_url_as(size=4096, format=None, static_format='png')
             async with cs.get(
                     f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
                 res = await r.json()
@@ -242,6 +242,8 @@ class Image(commands.Cog):
 
                 await ctx.send(embed=embed)
 
+                logger.info(f"Images | Sent Magik: {ctx.author}")
+
     @magik.error
     async def magik_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
@@ -260,6 +262,23 @@ class Image(commands.Cog):
             )
 
             await ctx.send(embed=embed)
+
+    @commands.command()
+    async def threats(self, ctx):
+        picture = ctx.author.avatar_url_as(size=4096, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=threats&url={picture}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Threats"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Threats: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Image(bot))
