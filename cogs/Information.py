@@ -34,8 +34,8 @@ class Information(commands.Cog):
             color=self.bot.embed_color,
             title="→ All available bot commands!",
             description="— "
-                        "\n→ Shows info about all available bot commands!"
-                        "\n→ Capitalization does not matter for the bot prefix." +
+                        "\n➤ Shows info about all available bot commands!"
+                        "\n➤ Capitalization does not matter for the bot prefix." +
                         "\n—"
         )
         embed.set_thumbnail(url="https://i.imgur.com/BUlgakY.png")
