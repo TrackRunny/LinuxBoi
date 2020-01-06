@@ -195,8 +195,8 @@ class Fun(commands.Cog):
             title="→ Dice Command"
         )
         # ' '.join(dice_rolls)
-        embed.add_field(name="→ Rolled Dice Numbers:", value=f" ".join(dice_rolls))
-        embed.add_field(name="→ Total number:", inline=False, value=f" {sum(dice_roll_ints)}")
+        embed.add_field(name="• Rolled Dice Numbers:", value=f" ".join(dice_rolls))
+        embed.add_field(name="• Total number:", inline=False, value=f" {sum(dice_roll_ints)}")
         await ctx.send('', embed=embed)
 
         logger.info(f"Fun | Sent Dice: {ctx.author}")
@@ -363,6 +363,54 @@ class Fun(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
+
+    @commands.command()
+    async def rps(self, ctx, choice):
+        robot_choices = [":fist:", ":hand_splayed:", "<:scissorshand:663864190078812203>"]
+        picked = random.choice(robot_choices)
+
+        player_choices = [":fist:", ":hand_splayed:", "<:scissorshand:663864190078812203>"]
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Invalid Choice!",
+            description="• Please put a valid option! Example: `l!rps <rock/paper/scissors>`"
+        )
+
+        embed2 = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Rock Paper Scissors Game"
+        )
+
+        if str(choice) == "rock":
+            embed2.add_field(name="• Player Choice", inline=False, value=player_choices[0])
+            embed2.add_field(name="• Robot Choice", inline=False, value=picked)
+
+            await ctx.send(embed=embed2)
+        elif str(choice) == "paper":
+            embed2.add_field(name="• Player Choice", inline=False, value=player_choices[1])
+            embed2.add_field(name="• Robot Choice", inline=False, value=picked)
+
+            await ctx.send(embed=embed2)
+        elif str(choice) == "scissors":
+            embed2.add_field(name="• Player Choice", inline=False, value=player_choices[2])
+            embed2.add_field(name="• Robot Choice", inline=False, value=picked)
+
+            await ctx.send(embed=embed2)
+        else:
+            await ctx.send(embed=embed)
+
+        logger.info(f"Fun | Sent RPS: {ctx.author}")
+
+    @rps.error
+    async def rps_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!rps <rock/paper/scissors>`"
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(bot):

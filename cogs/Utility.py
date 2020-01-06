@@ -504,14 +504,15 @@ class Utility(commands.Cog):
     async def mcbe_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                color=self.bot.embed_color
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put in a valid Minecraft server and port number!\n— \n• Example: "
+                            "`l!mcbe <server> <port>`"
+                            "\n• Pro Tip: `If the server uses the "
+                            "regular default port \n(19132) "
+                            "you don't have to put in the port number!`"
             )
-            embed.add_field(name="→ Invalid Argument!",
-                            value="• Please put in a valid Minecraft server and port number!\n— \n• Example: "
-                                  "`l!mcbe play.wither.fun 18323`"
-                                  "\n• Pro Tip: `If the server uses the "
-                                  "regular default port \n(19132) "
-                                  "you don't have to put in the port number!`")
+
             await ctx.send(embed=embed)
 
     @commands.command()
