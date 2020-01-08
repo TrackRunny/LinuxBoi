@@ -395,31 +395,32 @@ class Utility(commands.Cog):
                 title="→ IP Address lookup"
             )
             embed.set_footer(text="— Note: Locations and Latitude & Longitude may not be 100% accurate.")
-            embed.add_field(name="• IP Address:", value=info["ip"])
+            embed.add_field(name="• IP Address:", value=f"`{info['ip']}`")
+
             if not len(info["latitude"]) and not len(info["longitude"]):
-                embed.add_field(name="• Latitude & Longitude", value="Latitude & Longitude not found!")
+                embed.add_field(name="• Latitude & Longitude", value="`Latitude & Longitude not found!`")
             else:
-                embed.add_field(name="• Latitude & Longitude", value=f"{info['latitude']}, {info['longitude']}")
+                embed.add_field(name="• Latitude & Longitude", value=f"`{info['latitude']}, {info['longitude']}`")
             if not len(info["city"]):
-                embed.add_field(name="• City:", value="City not found!")
+                embed.add_field(name="• City:", value="`City not found!`")
             else:
-                embed.add_field(name="• City:", value=info["city"])
+                embed.add_field(name="• City:", value=f"`{info['city']}`")
             if not len(info["region"]):
-                embed.add_field(name="• Region / State:", value="Region / State not found!")
+                embed.add_field(name="• Region / State:", value="`Region / State not found!`")
             else:
-                embed.add_field(name="• Region / State:", value=info["region"])
+                embed.add_field(name="• Region / State:", value=f"`{info['region']}`")
             if not len(info["country_name"]):
-                embed.add_field(name="• Country", value="Country not found!")
+                embed.add_field(name="• Country", value="`Country not found!`")
             else:
-                embed.add_field(name="• Country:", value=info["country_name"])
+                embed.add_field(name="• Country:", value=f"`{info['country_name']}`")
             try:
-                embed.add_field(name="• Postal code:", value=info["postal"])
+                embed.add_field(name="• Postal code:", value=f"`{info['postal']}`")
             except KeyError:
-                embed.add_field(name="• Postal code:", value="Postal code not found!")
+                embed.add_field(name="• Postal code:", value="`Postal code not found!`")
             if not len(info["org"]):
-                embed.add_field(name="• ISP-Name:", value="ISP-Name not found!")
+                embed.add_field(name="• ISP-Name:", value="`ISP-Name not found!`")
             else:
-                embed.add_field(name="• ISP-Name:", value=info["org"])
+                embed.add_field(name="• ISP-Name:", value=f"`{info['org']}`")
 
             await ctx.send(embed=embed)
 
