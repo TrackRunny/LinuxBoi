@@ -412,6 +412,20 @@ class Fun(commands.Cog):
             )
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def advice(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://api.adviceslip.com/advice') as r:
+                res = await r.json(content_type="text/html")
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Random Advice!",
+                    description=f"• Advice: {res['slip']['advice']}"
+                )
+                await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent Advice: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
