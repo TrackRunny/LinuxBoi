@@ -44,7 +44,7 @@ class Information(commands.Cog):
         information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
         fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
               "`l!cowsay`, `l!penguinsay`, `l!fortune`, `l!shrug`, `l!history`, `l!math`, `l!yo-momma-joke`, " \
-              "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`"
+              "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`, `l!catfact`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!currency`, " \

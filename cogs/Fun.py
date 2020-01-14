@@ -422,10 +422,25 @@ class Fun(commands.Cog):
                     title="→ Random Advice!",
                     description=f"• Advice: {res['slip']['advice']}"
                 )
+
                 await ctx.send(embed=embed)
 
                 logger.info(f"Fun | Sent Advice: {ctx.author}")
 
+    @commands.command()
+    async def catfact(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://cat-fact.herokuapp.com/facts/random') as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Cat Fact",
+                    description=f"• Fact: {res['text']}"
+                )
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent CatFact: {ctx.author}")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
