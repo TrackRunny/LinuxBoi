@@ -36,7 +36,7 @@ class Owner(commands.Cog):
         await self.bot.change_presence(activity=discord.Activity(type=number, name=activity))
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Bot activity changed!",
+            title="→ Bot Activity Changed!",
             description=f"• My activity has been updated to: `{activity}`"
         )
 
@@ -84,6 +84,41 @@ class Owner(commands.Cog):
                 description="Please put a valid option! Example: `l!status <online status>`"
             )
             await ctx.send(embed=embed)
+
+    @commands.is_owner()
+    @commands.command()
+    async def name(self, ctx, name):
+        await self.bot.user.edit(username=name)
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Bot Name Changed!",
+            description=f"• My name has been updated to: `{name}`"
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Owner | Sent Name: {ctx.author} | Name: {name}")
+
+    @name.error
+    async def name_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="Please put a valid option! Example: `l!name <name>`"
+            )
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.CommandError):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Unknown Error Has Occurred ",
+                description=f"```python"
+                            f"{error}"
+                            f"```"
+            )
+            await ctx.send(embed=embed)
+
 
     @commands.is_owner()
     @commands.command()
