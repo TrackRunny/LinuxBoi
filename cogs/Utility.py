@@ -25,6 +25,7 @@ import smtplib
 from email.message import EmailMessage
 
 import aiogoogletrans
+import aiohttp
 import asyncurban
 import discord
 import ipinfo
@@ -684,7 +685,7 @@ class Utility(commands.Cog):
 
         def rgb_to_hsl(a=rgb[0], b=rgb[1], c=rgb[2]):
             h, s, l = colorsys.rgb_to_hls(a / 255.0, b / 255.0, c / 255.0)
-            hsl = (round(360 * h),  round(100 * l), round(100 * s))
+            hsl = (round(360 * h), round(100 * l), round(100 * s))
             return hsl
 
         embed = discord.Embed(
@@ -901,49 +902,37 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
 
     @commands.command()
-    async def weather(self, ctx, *, city):
+    async def weather(self, ctx, *, location: str):
         try:
-            key = os.environ.get("weather_key")
-            owm = pyowm.OWM(key)
-            observation = owm.weather_at_place(city)
-            weather = observation.get_weather()
-            temperature = weather.get_temperature('fahrenheit')['temp']
-            temperature2 = weather.get_temperature('celsius')['temp']
-            wind = weather.get_wind('miles_hour')['speed']
-            cloud = weather.get_clouds()
-            max_temp = weather.get_temperature('fahrenheit')['temp_max']
-            max_temp2 = weather.get_temperature('celsius')['temp_max']
-            humidity = weather.get_humidity()
-            status = weather.get_status()
-            sunrise = weather.get_sunrise_time(timeformat='iso')
-            sunset = weather.get_sunset_time(timeformat='iso')
-            picture = weather.get_weather_icon_url()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(f"https://api.ksoft.si/kumo/weather/currently",
+                                  params={"q": location, "units": "us", "icons": "original"},
+                                  headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
+                    res = await r.json()
+                    celsius_temperature = round((int(res['data']['temperature']) - 32) * 5 / 9)
 
-            embed = discord.Embed(
-                color=self.bot.embed_color,
-                title="→ Weather Command"
-            )
-            embed.set_thumbnail(url=picture)
-            embed.add_field(name="• Weather:", value=f"{status}")
-            embed.add_field(name="• Temperature:", value=f"{temperature}℉ — ({temperature2}℃)")
-            embed.add_field(name="• Max Temperature:", value=f"{max_temp}℉ — ({max_temp2}℃)")
-            embed.add_field(name="• Humidity:", value=f"{humidity}%")
-            embed.add_field(name="• Wind:", value=f"{round(wind)} MPH")
-            embed.add_field(name="• Cloud coverage:", value=f"{cloud}%")
-            embed.add_field(name="• Sunrise time:", value=f"{sunrise[:-5]} GMT")
-            embed.add_field(name="• Sunset time:", value=f"{sunset[:-5]} GMT")
+                    embed = discord.Embed(
+                        color=self.bot.embed_color,
+                        title="→ Weather Command"
+                    )
+                    embed.set_thumbnail(url=res['data']['icon_url'])
+                    embed.add_field(name="• Weather:", value=res['data']['summary'])
+                    embed.add_field(name="• Temperature:", value=f"{res['data']['temperature']}℉ — ({celsius_temperature}℃)")
+                    embed.add_field(name="• Humidity:", value=f"{int(res['data']['humidity'] * 100)}%")
+                    embed.add_field(name="• Wind:", value=f"{res['data']['windSpeed']} MPH")
+                    embed.add_field(name="• Cloud coverage:", value=f"{int(res['data']['cloudCover'] * 100)}%")
+                    embed.add_field(name="• Location:", value=f"{res['data']['location']['address']}")
+                    embed.add_field(name="• Sunrise time:", value=f"{res['data']['sunriseTime'] or 'Sunrise information not available'}")
+                    embed.add_field(name="• Sunset time:", value=f"{res['data']['sunsetTime'] or 'Sunset information not available'}")
 
-            await ctx.send(embed=embed)
+                    await ctx.send(embed=embed)
 
-            logger.info(f"Utility | Sent Weather: {ctx.author}")
-        except Exception:
+                    logger.info(f"Utility | Sent Weather: {ctx.author}")
+        except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid City / Zip code",
-                description="• The city or zip code you entered is "
-                            "not spelled right, or the format is incorrect."
-                            "\n• However the city you entered possibly "
-                            "not being tracked with the weather API!"
+                description="• The city or zip code you put is not valid."
             )
 
             await ctx.send(embed=embed)
@@ -954,10 +943,11 @@ class Utility(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument!",
-                description="• Please put a valid option! Example: `l!weather Las Vegas, Nevada`"
-                            "\n• You can also use a zip code! Example: `l!weather 15024, US`"
+                description="• Please put a valid option! Example: `l!weather <city>"
+                            "\n• You can also use a zip code! Example: `l!weather <zip-code>"
             )
             await ctx.send(embed=embed)
+
 
     @commands.command()
     async def uptime(self, ctx):

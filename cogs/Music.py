@@ -248,7 +248,7 @@ class Music(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ List of songs:",
-            description="\n\n{queue_list}"
+            description=f"\n{queue_list}"
         )
         # embed.set_author(name=f'→ List of songs: {len(player.queue)} \n\n{queue_list}')
         embed.set_footer(text=f'• On page: {page}/{pages}')

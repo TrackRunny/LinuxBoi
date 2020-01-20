@@ -28,7 +28,7 @@ class Information(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["commands"])
+    @commands.command(aliases=["commands", "cmds"])
     async def robot_commands(self, ctx):
         embed = discord.Embed(
             color=self.bot.embed_color,
@@ -74,8 +74,8 @@ class Information(commands.Cog):
     async def help(self, ctx):
         users = str(len(self.bot.users))
         guilds = str(len(self.bot.guilds))
-        vote_link = "[**Vote link**](http://bit.ly/2mLoBOs)"
-        sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi)"
+        vote_link = "[**Vote link**](http://bit.ly/2mLoBOs) ⬆️"
+        sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi) <:github:668680155807350792>"
         cpu = str(psutil.cpu_percent())
         ram = str(psutil.virtual_memory()[3] / 1000000000)
         ram_round = ram[:3]
