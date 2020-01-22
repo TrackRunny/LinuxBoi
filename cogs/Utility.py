@@ -454,6 +454,12 @@ class Utility(commands.Cog):
             players_string = ', '.join(str(p) for p in motd.players.names)
             plugins_string = ', '.join(str(l) for l in motd.software.plugins)
 
+            players_post = requests.post("https://hasteb.in/documents", data=players_string.encode('utf-8'))
+            hastebin_players_link = f"https://hasteb.in/{players_post.json()['key']}"
+
+            plugins_post = requests.post("https://hasteb.in/documents", data=plugins_string.encode('utf-8'))
+            hastebin_plugins_link = f"https://hasteb.in/{plugins_post.json()['key']}"
+
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Minecraft Bedrock command"
@@ -466,6 +472,7 @@ class Utility(commands.Cog):
             embed.add_field(name="• Software:", inline=True, value=f"`{motd.software.brand}`")
             embed.add_field(name="• MOTD:", inline=True, value=f"`{motd.motd}`")
             embed.add_field(name="• Version:", inline=False, value=f"`{motd.software.version}`")
+
             if not len(motd.players.names):
                 embed.add_field(name="• Player names:", inline=False,
                                 value="`No Player Information / No Players Online!`")
@@ -479,15 +486,18 @@ class Utility(commands.Cog):
                 embed.add_field(name="• Player names:", inline=False,
                                 value='`' + '' + ', '.join(motd.players.names) + ', '[:-0] + '`')
             if not len(plugins_string):
-                embed.add_field(name="• Plugins", inline=False, value="`No Plugin Information / No Plugins`")
+                embed.add_field(name="• Plugins:", inline=False, value="`No Plugin Information / No Plugins`")
             elif len(plugins_string) > 1024:
                 plugins_string = plugins_string[:1018]
                 plugins_string, _, _ = plugins_string.rpartition(', ')
                 plugins_string = '`' + plugins_string + '...`'
-                embed.add_field(name="• Plugins", inline=False, value=plugins_string)
+                embed.add_field(name="• Plugins:", inline=False, value=plugins_string)
             else:
-                embed.add_field(name="• Plugins", inline=False,
+                embed.add_field(name="• Plugins:", inline=False,
                                 value='`' + '' + ', '.join(motd.software.plugins) + ', '[:-0] + '`')
+
+            embed.add_field(name="• Full plugins and players list:", value=f"[**Players**]({hastebin_players_link})"
+                                                                           f"\n[**Plugins**]({hastebin_plugins_link})")
 
             await ctx.send(embed=embed)
 
@@ -917,13 +927,16 @@ class Utility(commands.Cog):
                     )
                     embed.set_thumbnail(url=res['data']['icon_url'])
                     embed.add_field(name="• Weather:", value=res['data']['summary'])
-                    embed.add_field(name="• Temperature:", value=f"{res['data']['temperature']}℉ — ({celsius_temperature}℃)")
+                    embed.add_field(name="• Temperature:",
+                                    value=f"{res['data']['temperature']}℉ — ({celsius_temperature}℃)")
                     embed.add_field(name="• Humidity:", value=f"{int(res['data']['humidity'] * 100)}%")
                     embed.add_field(name="• Wind:", value=f"{res['data']['windSpeed']} MPH")
                     embed.add_field(name="• Cloud coverage:", value=f"{int(res['data']['cloudCover'] * 100)}%")
                     embed.add_field(name="• Location:", value=f"{res['data']['location']['address']}")
-                    embed.add_field(name="• Sunrise time:", value=f"{res['data']['sunriseTime'] or 'Sunrise information not available'}")
-                    embed.add_field(name="• Sunset time:", value=f"{res['data']['sunsetTime'] or 'Sunset information not available'}")
+                    embed.add_field(name="• Sunrise time:",
+                                    value=f"{res['data']['sunriseTime'] or 'Sunrise information not available'}")
+                    embed.add_field(name="• Sunset time:",
+                                    value=f"{res['data']['sunsetTime'] or 'Sunset information not available'}")
 
                     await ctx.send(embed=embed)
 
@@ -947,7 +960,6 @@ class Utility(commands.Cog):
                             "\n• You can also use a zip code! Example: `l!weather <zip-code>"
             )
             await ctx.send(embed=embed)
-
 
     @commands.command()
     async def uptime(self, ctx):
