@@ -442,6 +442,30 @@ class Fun(commands.Cog):
 
                 logger.info(f"Fun | Sent CatFact: {ctx.author}")
 
+    @commands.command()
+    async def slot(self, ctx):
+        emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
+
+        first = random.choice(emojis)
+        second = random.choice(emojis)
+        third = random.choice(emojis)
+
+        slot_machine = f"{first} | {second} | {third}"
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Slot Machine"
+        )
+
+        if first == second == third:
+            embed.add_field(name="**• Winner! All Matching Fruits!**", value=slot_machine)
+        elif (first == second) or (first == third) or (second == third):
+            embed.add_field(name="**• Winner! Two in a Row!**", value=slot_machine)
+        else:
+            embed.add_field(name="**• Loser! No Matches!**", value=slot_machine)
+
+        await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
