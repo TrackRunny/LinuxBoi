@@ -106,7 +106,22 @@ class Image(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                logger.info(f"Meme | Sent Random Bird: {ctx.author}")
+                logger.info(f"Images | Sent Random Bird: {ctx.author}")
+
+    @commands.command()
+    async def duck(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://random-d.uk/api/v1/random") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Random Duck"
+                )
+                embed.set_image(url=res['url'])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Random Duck: {ctx.author}")
 
     @commands.command()
     async def tweet(self, ctx, username: str, *, text: str):
