@@ -121,7 +121,7 @@ class Information(commands.Cog):
             title="→ Invite me to your server!",
             description=f"• [Click Here]{url}"
         )
-        await ctx.message.add_reaction('\U00002705')
+        await ctx.message.add_reaction(self.bot.get_emoji(648198008076238862))
 
         await ctx.author.send(embed=embed)
 
