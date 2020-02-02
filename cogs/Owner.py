@@ -50,7 +50,7 @@ class Owner(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument!",
-                description="Please put a valid option! Example: `l!activity <type> <status>`"
+                description="• Please put a valid option! Example: `l!activity <type> <status>`"
             )
             await ctx.send(embed=embed)
 
@@ -81,7 +81,7 @@ class Owner(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument!",
-                description="Please put a valid option! Example: `l!status <online status>`"
+                description="• Please put a valid option! Example: `l!status <online status>`"
             )
             await ctx.send(embed=embed)
 
@@ -106,7 +106,7 @@ class Owner(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument!",
-                description="Please put a valid option! Example: `l!name <name>`"
+                description="• Please put a valid option! Example: `l!name <name>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.CommandError):

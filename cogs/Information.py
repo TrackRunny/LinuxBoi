@@ -218,6 +218,7 @@ class Information(commands.Cog):
         embed.add_field(name="• Nickname: ", value=member.nick or "No nickname!")
         embed.add_field(name="• Account created at: ", value=member.created_at.strftime("%A %d, %B %Y."))
         embed.add_field(name="• Account joined at: ", value=member.joined_at.strftime("%A %d, %B %Y"))
+
         if member.activity is None:
             embed.add_field(name="• Activity: ", value="No activity!")
         else:
@@ -230,6 +231,7 @@ class Information(commands.Cog):
             embed.add_field(name="• On mobile? ", value=":iphone:")
         else:
             embed.add_field(name="• On mobile? ", value=":no_mobile_phones:")
+
         embed.add_field(name="• Status: ", value=status[member.status.name])
         embed.add_field(name="• Top role: ", value=f"`@{member.top_role}`")
         embed.add_field(name="• Roles: ", inline=False, value=roles)

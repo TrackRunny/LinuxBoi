@@ -956,8 +956,8 @@ class Utility(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.embed_color,
                 title="→ Invalid Argument!",
-                description="• Please put a valid option! Example: `l!weather <city>"
-                            "\n• You can also use a zip code! Example: `l!weather <zip-code>"
+                description="• Please put a valid option! Example: `l!weather <city>`"
+                            "\n• You can also use a zip code! Example: `l!weather <zip-code>`"
             )
             await ctx.send(embed=embed)
 
