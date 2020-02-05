@@ -42,7 +42,7 @@ class Information(commands.Cog):
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
         information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
+        fun = "`l!coinflip`, `l!avatar`, `l!banner`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
               "`l!cowsay`, `l!penguinsay`, `l!fortune`, `l!shrug`, `l!history`, `l!math`, `l!yo-momma-joke`, " \
               "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`, `l!catfact`, `l!slot`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
@@ -190,6 +190,18 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Information | Sent Serverinfo : {ctx.author}")
+
+    @commands.command(aliases=['banner'])
+    async def server_banner(self, ctx):
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Server Banner",
+        )
+        embed.set_image(url=ctx.guild.icon_url_as(size=1024, format=None, static_format="png"))
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Information | Sent Banner: {ctx.author}")
 
     @commands.command(aliases=['userinfo'])
     async def whois(self, ctx, member: discord.Member):
