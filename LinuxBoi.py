@@ -20,15 +20,11 @@
 
 import os
 from datetime import datetime
-from itertools import cycle
 
 import discord
 from discord.ext import commands
 
-# client = commands.Bot("l!", owner_id=54681233121306214, case_insensitive=False, self_bot=True)
 bot = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)
-status = cycle([f'Linux videos | l!help', 'FOSS software | l!help', 'Windows getting worse',
-                'Server members | l!help', 'Cryptocurrency | l!help', 'Linux getting popular'])
 line_divide = "\n———————————————————————————————"
 
 linuxboi_token = os.environ.get('linuxboi_token')
@@ -77,11 +73,4 @@ class LinuxBoi(commands.AutoShardedBot):
               f"\n----------------------------------------------")
 
 
-"""
-@tasks.loop(seconds=15)
-async def change_status():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=next(status)))
-"""
-
 LinuxBoi().run(linuxboi_token)
-# client.run(read_token(), bot=False)
