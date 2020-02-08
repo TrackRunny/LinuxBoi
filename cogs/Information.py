@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License         #
 # along with this program. If not, see <https://www.gnu.org/licenses/>.     #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+import asyncio
+import time
 
 import discord
 import psutil
@@ -129,13 +131,21 @@ class Information(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        ping = str(round(self.bot.latency * 1000))
+        before = time.monotonic()
+        pong = int(round(self.bot.latency * 1000, 1))
+
+        message = await ctx.send("• **Pong** — :ping_pong:")
+
+        ping = (time.monotonic() - before) * 1000
+        await message.delete(delay=1)
+        await asyncio.sleep(1)
+
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Ping Command",
-            description=f"• The latency is {ping} ms"
         )
-
+        embed.add_field(name="• WS:", value=f"{pong}ms")
+        embed.add_field(name="• REST:", value=f"{int(ping)}ms")
         await ctx.send(embed=embed)
 
         logger.info(f"Information | Sent Ping: {ctx.author}")
