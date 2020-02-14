@@ -117,7 +117,7 @@ class Utility(commands.Cog):
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Slow down!",
+                title="→ Slow Down!",
                 description="• You can only shorten a link every 10 seconds!"
             )
             await ctx.send(embed=embed)
@@ -130,7 +130,7 @@ class Utility(commands.Cog):
         except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Money error!",
+                title="→ Money Error!",
                 description="• Not a valid amount of money!"
             )
             await ctx.send(embed=embed)
@@ -139,14 +139,14 @@ class Utility(commands.Cog):
         except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Currency error!",
+                title="→ Currency Error!",
                 description="• Not a valid currency type!"
                             "\n• Example: `l!currency 10 USD CAD`"
             )
             await ctx.send(embed=embed)
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Currency converting",
+            title="→ Currency Converting",
             description=f"• {amount} {currency1} is about {round(amount2)} {currency2}!"
         )
 
