@@ -78,6 +78,7 @@ class Information(commands.Cog):
         guilds = str(len(self.bot.guilds))
         vote_link = "[**Vote link**](http://bit.ly/2mLoBOs) ⬆️"
         sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi) <:github:668680155807350792>"
+        personal_website = "**Coming soon!** <:connection:678490219267489795>"
         cpu = str(psutil.cpu_percent())
         ram = str(psutil.virtual_memory()[3] / 1000000000)
         ram_round = ram[:3]
@@ -96,7 +97,9 @@ class Information(commands.Cog):
                         f"\n ➤ Make sure to support The Free Software Movement!"
                         f"\n ➤ To view my commands run, `l!commands`"
                         f"\n ➤ Source code for this bot is available here: {sourcecode_link}"
-                        f"\n ➤ If you like my bot, consider voting: {vote_link}" + "\n—"
+                        f"\n ➤ If you like my bot, consider voting: {vote_link}"
+                        f"\n ➤ My personal website: {personal_website}"
+                        + "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")
         embed.add_field(name=f"• Operating System:", inline=True, value=f":computer: — Ubuntu server 18.04 LTS")
