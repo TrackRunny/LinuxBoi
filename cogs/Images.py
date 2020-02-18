@@ -203,8 +203,8 @@ class Image(commands.Cog):
 
     @commands.command()
     async def vs(self, ctx, member1: discord.Member, member2: discord.Member):
-        member1 = member1.avatar_url_as(size=4096, format=None, static_format='png')
-        member2 = member2.avatar_url_as(size=4096, format=None, static_format='png')
+        member1 = member1.avatar_url_as(size=1024, format=None, static_format='png')
+        member2 = member2.avatar_url_as(size=1024, format=None, static_format='png')
         async with aiohttp.ClientSession() as cs:
             async with cs.get(
                     f"https://nekobot.xyz/api/imagegen?type=whowouldwin&user1={member1}&user2={member2}") as r:
@@ -240,7 +240,7 @@ class Image(commands.Cog):
 
     @commands.command()
     async def magik(self, ctx, member: discord.Member, intensity: int = 5):
-        avatar = member.avatar_url_as(size=4096, format=None, static_format='png')
+        avatar = member.avatar_url_as(size=1024, format=None, static_format='png')
         emoji = ":penguin:"
 
         message = await ctx.send(f"{emoji} — **Processing the image please wait!**")
@@ -280,7 +280,7 @@ class Image(commands.Cog):
 
     @commands.command()
     async def threats(self, ctx):
-        picture = ctx.author.avatar_url_as(size=4096, format=None, static_format='png')
+        picture = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=threats&url={picture}") as r:
                 res = await r.json()
@@ -293,6 +293,32 @@ class Image(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Images | Sent Threats: {ctx.author}")
+
+    @commands.command()
+    async def mind(self, ctx, *, text):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=changemymind&text={text}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Change My Mind"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent mind: {ctx.author}")
+
+    @mind.error
+    async def mind_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!mind <text>`"
+            )
+
+            await ctx.send(embed=embed)
 
 
 def setup(bot):

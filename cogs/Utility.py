@@ -29,7 +29,6 @@ import aiohttp
 import asyncurban
 import discord
 import ipinfo
-import pyowm
 import requests
 import strgen
 from bitlyshortener import Shortener
