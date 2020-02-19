@@ -60,7 +60,7 @@ class Fun(commands.Cog):
                      "Very doubtful."]
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ 8Ball command"
+            title="→ 8Ball Command"
         )
         embed.add_field(name="• Question :grey_question: ", inline=False, value=f"{question}")
         embed.add_field(name="• Answer :8ball: ", inline=False, value=f"{random.choice(responses)}")

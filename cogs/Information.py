@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License         #
 # along with this program. If not, see <https://www.gnu.org/licenses/>.     #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 import asyncio
 import time
 
@@ -123,7 +124,7 @@ class Information(commands.Cog):
         url = "(http://bit.ly/2Zm5XyP)"
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Invite me to your server!",
+            title="→ Invite Me To Your Server!",
             description=f"• [Click Here]{url}"
         )
         await ctx.message.add_reaction(self.bot.get_emoji(648198008076238862))
@@ -158,7 +159,7 @@ class Information(commands.Cog):
         guild = ctx.guild
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title=f"→ Server Info for {guild.name}",
+            title=f"→ Server Info For {guild.name}",
             description="\n— "
                         "\n➤ Shows all information about a guild."
                         "\n➤The information will be listed below!"
@@ -220,7 +221,7 @@ class Information(commands.Cog):
     async def whois(self, ctx, member: discord.Member):
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title=f"→ Userinfo for {member}",
+            title=f"→ Userinfo For {member}",
             description="— "
                         "\n➤ Shows all information about a user. "
                         "\n➤ The information will be listed below!"

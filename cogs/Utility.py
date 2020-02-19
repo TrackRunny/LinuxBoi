@@ -171,7 +171,7 @@ class Utility(commands.Cog):
         except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Money error!",
+                title="→ Money Error!",
                 description="• Not a valid amount of money!"
             )
             await ctx.send(embed=embed)
@@ -180,7 +180,7 @@ class Utility(commands.Cog):
         except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Currency error!",
+                title="→ Currency Error!",
                 description="• Not a valid currency!"
                             "\n• Example: `l!tobtc 10 CAD`"
                             "\n• Pro Tip: `If you use USD currency, you do not have to specify the currency in the command.`"
@@ -188,7 +188,7 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Currency to Bitcoin!",
+            title="→ Currency To Bitcoin!",
             description=f"• {amount} {currency} is around {btc} Bitcoin!"
         )
 
@@ -351,7 +351,7 @@ class Utility(commands.Cog):
         elif isinstance(error, commands.CommandOnCooldown):
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Slow down!",
+                title="→ Slow Down!",
                 description="• You can only send a email every 30 minutes!"
             )
 
@@ -362,7 +362,7 @@ class Utility(commands.Cog):
         post = requests.post("https://hasteb.in/documents", data=code.encode('utf-8'))
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Uploaded code!",
+            title="→ Uploaded Code!",
             description=f"• Link (Dark Mode): **https://hasteb.in/{post.json()['key']}**"
         )
 
@@ -392,7 +392,7 @@ class Utility(commands.Cog):
 
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ IP Address lookup"
+                title="→ IP Address Lookup"
             )
             embed.set_footer(text="— Note: Locations and Latitude & Longitude may not be 100% accurate.")
             embed.add_field(name="• IP Address:", value=f"`{info['ip']}`")
@@ -461,7 +461,7 @@ class Utility(commands.Cog):
 
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Minecraft Bedrock command"
+                title="→ Minecraft Bedrock Command"
             )
             embed.add_field(name="• IP Address:", inline=True, value=f"`{server}`")
             embed.add_field(name="• Port:", inline=True, value=f"`{port}`")
@@ -599,7 +599,7 @@ class Utility(commands.Cog):
             password = strgen.StringGenerator(f"[\w\d\p]{{{int(character_length)}}}").render()
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Password sent!",
+                title="→ Password Sent!",
                 description=f"• The {character_length} "
                             f"character length password has been generated and sent in your Direct Messages!"
             )
@@ -632,7 +632,7 @@ class Utility(commands.Cog):
         sender = ctx.author
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Quick poll 📊"
+            title="→ Quick Poll 📊"
         )
         embed.add_field(name="• Question", inline=False, value=question)
         embed.set_footer(text=f"— Poll from {sender}", icon_url=ctx.author.avatar_url)
@@ -720,7 +720,7 @@ class Utility(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Second!",
+                    title=f"→ Reminder Set For {time} Second!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -728,7 +728,7 @@ class Utility(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Seconds!",
+                    title=f"→ Reminder Set For {time} Seconds!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -736,7 +736,7 @@ class Utility(commands.Cog):
 
             embed2 = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Time is up!",
+                title="→ Time Is Up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
             )
@@ -754,7 +754,7 @@ class Utility(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Minute!",
+                    title=f"→ Reminder Set For {time} Minute!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -762,7 +762,7 @@ class Utility(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Minutes!",
+                    title=f"→ Reminder Set For {time} Minutes!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -770,7 +770,7 @@ class Utility(commands.Cog):
 
             embed3 = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Time is up!",
+                title="→ Time Is Up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
             )
@@ -790,7 +790,7 @@ class Utility(commands.Cog):
             if float(time) <= 1:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Hour!",
+                    title=f"→ Reminder Set For {time} Hour!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -798,7 +798,7 @@ class Utility(commands.Cog):
             else:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title=f"→ Reminder set for {time} Hours!",
+                    title=f"→ Reminder Set For {time} Hours!",
                     description=f"• Reminder: `{reminder}`"
                 )
 
@@ -806,7 +806,7 @@ class Utility(commands.Cog):
 
             embed4 = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Time is up!",
+                title="→ Time Is Up!",
                 description=f"• Reminder set: `{reminder}`"
                             f"\n• Time set for: `{time} Second(s)`"
             )
@@ -861,7 +861,7 @@ class Utility(commands.Cog):
         celsius = (int(fahrenheit) - 32) * 5 / 9
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Fahrenheit to Celsius",
+            title="→ Fahrenheit To Celsius",
             description=f"• Celsius Temperature: `{int(celsius)}`"
         )
         await ctx.send(embed=embed)
@@ -873,7 +873,7 @@ class Utility(commands.Cog):
         fahrenheit = (int(celsius) * 9 / 5) + 32
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Celsius to Fahrenheit",
+            title="→ Celsius To Fahrenheit",
             description=f"• Fahrenheit Temperature: `{int(fahrenheit)}`"
         )
 

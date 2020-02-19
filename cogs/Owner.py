@@ -138,7 +138,7 @@ class Owner(commands.Cog):
 
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title=f"→ Invite from guild",
+            title=f"→ Invite From Guild",
             description=f"• Invite: {await channel.create_invite(max_uses=1)}"
         )
 

@@ -36,14 +36,14 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
@@ -51,7 +51,7 @@ class Moderation(commands.Cog):
             await member.add_roles(role)
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="• Add Role command!",
+                title="• Add Role Command!",
                 description=f"{member.mention} → Has been given the role `{role}`"
             )
 
@@ -99,14 +99,14 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
@@ -124,7 +124,7 @@ class Moderation(commands.Cog):
 
             embed2 = discord.Embed(
                 color=self.bot.embed_color,
-                title=f"{member} → You have been banned!"
+                title=f"{member} → You Have Been Banned!"
             )
             embed2.add_field(name=f"• Moderator", value=f"{sender}")
             embed2.add_field(name="• Reason", value=f"{reason}")
@@ -174,21 +174,21 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
         elif ctx.guild.me.top_role > member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="• Nickname command",
+                title="• Nickname Command",
                 description=f"{member.mention}'s → Nickname has been **Changed!**"
             )
 
@@ -283,14 +283,14 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
@@ -398,14 +398,14 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
@@ -461,14 +461,14 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)
         elif ctx.author.top_role <= member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than you or equal permissions!"
             )
             await ctx.send(embed=embed)
@@ -579,7 +579,7 @@ class Moderation(commands.Cog):
         if ctx.guild.me.top_role < member.top_role:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ User information",
+                title="→ User Information",
                 description="• The user has higher permissions than me!"
             )
             await ctx.send(embed=embed)

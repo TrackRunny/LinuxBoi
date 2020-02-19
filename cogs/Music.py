@@ -90,7 +90,7 @@ class Music(commands.Cog):
         if not results or not results['tracks']:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Playing error!",
+                title="→ Playing Error!",
                 description="• The query you searched for was not found."
             )
             return await ctx.send(embed=embed)
@@ -105,7 +105,7 @@ class Music(commands.Cog):
 
             embed = discord.Embed(color=self.bot.embed_color,
                                   description=f'• **{results["playlistInfo"]["name"]}** - {len(tracks)} tracks',
-                                  title="→ Playlist added!")
+                                  title="→ Playlist Added!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
             await ctx.send(embed=embed)
         else:
@@ -113,7 +113,7 @@ class Music(commands.Cog):
 
             embed = discord.Embed(color=self.bot.embed_color,
                                   description=f'• [**{track["info"]["title"]}**]({track["info"]["uri"]})',
-                                  title="→ Song added to queue!")
+                                  title="→ Song Added To Queue!")
             embed.set_thumbnail(url=f'https://img.youtube.com/vi/{track["info"]["identifier"]}/default.jpg')
             player.add(requester=ctx.author.id, track=track)
 
@@ -178,7 +178,7 @@ class Music(commands.Cog):
         if not player.is_playing:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No songs!",
+                title="→ No Songs!",
                 description="• Nothing is playing at the moment!"
             )
             return await ctx.send(embed=embed)
@@ -201,7 +201,7 @@ class Music(commands.Cog):
         if not player.current:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No songs!",
+                title="→ No Songs!",
                 description="• Nothing is playing at the moment!"
             )
             return await ctx.send(embed=embed)
@@ -230,7 +230,7 @@ class Music(commands.Cog):
         if not player.queue:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No queue!",
+                title="→ No Queue!",
                 description="• No songs are in the queue at the moment!"
             )
             return await ctx.send(embed=embed)
@@ -247,7 +247,7 @@ class Music(commands.Cog):
 
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ List of songs:",
+            title="→ List Of Songs:",
             description=f"\n{queue_list}"
         )
         # embed.set_author(name=f'→ List of songs: {len(player.queue)} \n\n{queue_list}')
@@ -262,7 +262,7 @@ class Music(commands.Cog):
         if not player.is_playing:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Not playing!",
+                title="→ Not Playing!",
                 description="• No song is playing is currently playing!"
             )
             return await ctx.send(embed=embed)
@@ -314,7 +314,7 @@ class Music(commands.Cog):
         if not player.is_playing:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Not playing!",
+                title="→ Not Playing!",
                 description="• No song is playing is currently playing!"
             )
             return await ctx.send(embed=embed)
@@ -336,7 +336,7 @@ class Music(commands.Cog):
         if not player.is_playing:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No songs!",
+                title="→ No Songs!",
                 description="• Nothing is playing at the moment!"
             )
             return await ctx.send(embed=embed)
@@ -357,7 +357,7 @@ class Music(commands.Cog):
         if not player.queue:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No queued items!",
+                title="→ No Queued Items!",
                 description="• There is nothing queued at the moment!"
             )
             return await ctx.send(embed=embed)
@@ -365,7 +365,7 @@ class Music(commands.Cog):
         if index > len(player.queue) or index < 1:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No queued items!",
+                title="→ No Queued Items!",
                 description=f"• Your remove number needs to be between 1 and {len(player.queue)}"
             )
             return await ctx.send(embed=embed)
@@ -373,7 +373,7 @@ class Music(commands.Cog):
 
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Item removed!",
+            title="→ Item Removed!",
             description=f"• Removed `{removed.title}` from the queue."
         )
         await ctx.send(embed=embed)
@@ -401,7 +401,7 @@ class Music(commands.Cog):
         if not results or not results['tracks']:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ No results!",
+                title="→ No Results!",
                 description="• Nothing was found in your search term!"
             )
             return await ctx.send(embed=embed)
@@ -416,7 +416,7 @@ class Music(commands.Cog):
 
         embed = discord.Embed(
             color=self.bot.embed_color,
-            title="→ Top 5 results:",
+            title="→ Top 5 Results:",
             description=f"{o}"
         )
         await ctx.send(embed=embed)
@@ -439,7 +439,7 @@ class Music(commands.Cog):
         if not player.is_connected:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Not connected!",
+                title="→ Not Connected!",
                 description="• You need to join a voice channel to play music!"
             )
             return await ctx.send(embed=embed)
@@ -447,7 +447,7 @@ class Music(commands.Cog):
         if not ctx.author.voice or (player.is_connected and ctx.author.voice.channel.id != int(player.channel_id)):
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Not connected!",
+                title="→ Not Connected!",
                 description="• You are not in my voice channel that I am connected to!"
             )
             return await ctx.send(embed=embed)
@@ -472,7 +472,7 @@ class Music(commands.Cog):
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
                 color=self.bot.embed_color,
-                title="→ Voice channel error!",
+                title="→ Voice Channel Error!",
                 description="• Please make sure to join a voice channel first!"
             )
             raise commands.CommandInvokeError(await ctx.send(embed=embed))
@@ -481,7 +481,7 @@ class Music(commands.Cog):
             if not should_connect:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title="→ Voice channel error!",
+                    title="→ Voice Channel Error!",
                     description="• I am not connected to a voice channel"
                 )
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
@@ -491,7 +491,7 @@ class Music(commands.Cog):
             if not permissions.connect or not permissions.speak:  # Check user limit too?
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title="→ Permission error!",
+                    title="→ Permission Error!",
                     description="• Please give me connect permissions, or speaking permissions!"
                 )
                 await ctx.send(embed=embed)
@@ -502,7 +502,7 @@ class Music(commands.Cog):
             if int(player.channel_id) != ctx.author.voice.channel.id:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
-                    title="→ Voice channel error!",
+                    title="→ Voice Channel Error!",
                     description="• Please make sure you are in my voice channel!"
                 )
                 raise commands.CommandInvokeError(await ctx.send(embed=embed))
