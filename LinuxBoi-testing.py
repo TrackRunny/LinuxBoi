@@ -19,6 +19,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import os
+import sys
 from datetime import datetime
 
 import discord
@@ -70,6 +71,7 @@ class LinuxBoiTesting(commands.AutoShardedBot):
               f"\nBot is online and connected to {self.user}"
               f"\nCreated by TrackRunny#0001 on Discord"
               f"\nConnected to {(len(self.guilds))} Guilds."
+              f"\nDetected Operating System: {sys.platform.title()}"
               f"\n----------------------------------------------------")
 
 
