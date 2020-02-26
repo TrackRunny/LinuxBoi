@@ -44,8 +44,8 @@ class Information(commands.Cog):
         embed.set_thumbnail(url="https://i.imgur.com/BUlgakY.png")
         moderation = "`l!purge`, `l!warn`, `l!kick`, `l!ban`, `l!forceban`, `l!unban`," \
                      " `l!nickname`, `l!resetnick`, `l!addrole`, `l!delrole`"
-        information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`, `l!invite`"
-        fun = "`l!coinflip`, `l!avatar`, `l!banner`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
+        information = "`l!help`, `l!commands`, `l!ping`, `l!whois`, `l!server`,  `l!banner`, `l!invite`"
+        fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
               "`l!cowsay`, `l!penguinsay`, `l!fortune`, `l!shrug`, `l!history`, `l!math`, `l!yo-momma-joke`, " \
               "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`, `l!catfact`, `l!slot`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
