@@ -157,7 +157,7 @@ class Music(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command(aliases=['forceskip'])
+    @commands.command(aliases=['s'])
     async def skip(self, ctx):
         """ Skips the current track. """
         player = self.bot.lavalink.players.get(ctx.guild.id)
@@ -284,7 +284,7 @@ class Music(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command(aliases=['vol'])
+    @commands.command(aliases=['v'])
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
         player = self.bot.lavalink.players.get(ctx.guild.id)
@@ -307,7 +307,7 @@ class Music(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(aliases=['shuff'])
     async def shuffle(self, ctx):
         """ Shuffles the player's queue. """
         player = self.bot.lavalink.players.get(ctx.guild.id)
