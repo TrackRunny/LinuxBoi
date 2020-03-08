@@ -466,6 +466,29 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def question(self, ctx, question):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://yesno.wtf/api') as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ {res['answer'].title()}.",
+                )
+                embed.set_image(url=res['image'])
+
+                await ctx.send(embed=embed)
+
+    @question.error
+    async def question_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!question <question>`"
+            )
+            await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
