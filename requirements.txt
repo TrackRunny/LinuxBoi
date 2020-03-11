@@ -39,7 +39,7 @@ multidict==4.5.2
 pbr==5.4.3
 psutil==5.6.3
 pycosat==0.6.3
-PyHamcrest==1.9.0
+PyHamcrest==2.0.2
 pylint==2.3.1
 pynput==1.4.2
 pyowm==2.10.0
