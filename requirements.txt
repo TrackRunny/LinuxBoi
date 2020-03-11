@@ -1,7 +1,7 @@
 aiogoogletrans==3.3.2
 aiohttp==3.6.2
 altgraph==0.16.1
-astroid==2.2.5
+astroid==2.3.3
 async-timeout==3.0.1
 asyncurban==0.3.3
 attrs==19.1.0
