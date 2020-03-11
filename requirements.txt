@@ -43,7 +43,7 @@ PyHamcrest==2.0.2
 pylint==2.3.1
 pynput==1.4.2
 pyowm==2.10.0
-python-xlib==0.25
+python-xlib==0.26
 ratelimiter==1.2.0.post0
 requests==2.22.0
 ruamel.yaml==0.16.5
