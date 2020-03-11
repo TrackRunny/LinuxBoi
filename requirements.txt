@@ -27,7 +27,7 @@ hastebin.py==0.2
 humanize==0.5.1
 idna==2.8
 import-expression==0.7.0
-ipinfo==2.0.0
+ipinfo==3.0.0
 isort==4.3.21
 jishaku==1.17.0.169
 lavalink==3.0.0
