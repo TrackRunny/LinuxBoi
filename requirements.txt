@@ -37,7 +37,7 @@ mcstatus==2.2.1
 mtranslate==1.6
 multidict==4.7.5
 pbr==5.4.3
-psutil==5.6.3
+psutil==5.7.0
 pycosat==0.6.3
 PyHamcrest==2.0.2
 pylint==2.3.1
