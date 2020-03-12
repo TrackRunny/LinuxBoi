@@ -41,7 +41,7 @@ psutil==5.6.3
 pycosat==0.6.3
 PyHamcrest==2.0.2
 pylint==2.3.1
-pynput==1.4.2
+pynput==1.6.8
 pyowm==2.10.0
 python-xlib==0.26
 ratelimiter==1.2.0.post0
