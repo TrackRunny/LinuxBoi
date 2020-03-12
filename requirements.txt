@@ -26,7 +26,7 @@ grizzled-python==2.2.0
 hastebin.py==0.2
 humanize==0.5.1
 idna==2.8
-import-expression==0.7.0
+import-expression==1.0.0
 ipinfo==3.0.0
 isort==4.3.21
 jishaku==1.17.0.169
