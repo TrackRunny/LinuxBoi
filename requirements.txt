@@ -46,7 +46,7 @@ pyowm==2.10.0
 python-xlib==0.26
 ratelimiter==1.2.0.post0
 requests==2.22.0
-ruamel.yaml==0.16.5
+ruamel.yaml==0.16.10
 ruamel.yaml.clib==0.2.0
 simplejson==3.16.0
 six==1.14.0
