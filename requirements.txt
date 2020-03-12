@@ -49,7 +49,7 @@ requests==2.22.0
 ruamel.yaml==0.16.5
 ruamel.yaml.clib==0.2.0
 simplejson==3.16.0
-six==1.12.0
+six==1.14.0
 soupsieve==2.0
 StringGenerator==0.3.3
 testresources==2.0.1
