@@ -33,7 +33,6 @@ linuxboi_testing_token = os.environ.get('linuxboi_testing_token')
 cogs = [
     "Fun",
     "Information",
-    "Linuxinfo",
     "Meme",
     "Moderation",
     "Owner",
