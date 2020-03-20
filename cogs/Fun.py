@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License         #
 # along with this program. If not, see <https://www.gnu.org/licenses/>.     #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+import io
 import json
 import random
 import re
@@ -488,6 +488,17 @@ class Fun(commands.Cog):
                 description="• Please put a valid option! Example: `l!question <question>`"
             )
             await ctx.send(embed=embed)
+
+    @commands.command()
+    async def bill(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://belikebill.ga/billgen-API.php?default=1') as r:
+                res = io.BytesIO(await r.read())
+                bill_file = discord.File(res, filename=f"bill.jpg")
+
+                await ctx.send(file=bill_file)
+
+                logger.info(f"Fun | Sent Bill: {ctx.author}")
 
 
 def setup(bot):
