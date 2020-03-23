@@ -27,6 +27,7 @@ import fortune
 from cowpy import cow
 from dadjokes import Dadjoke
 from discord.ext import commands
+from foaas import fuck
 
 from logging_files.fun_logging import logger
 
@@ -499,6 +500,33 @@ class Fun(commands.Cog):
                 await ctx.send(file=bill_file)
 
                 logger.info(f"Fun | Sent Bill: {ctx.author}")
+
+    @commands.command()
+    async def foff(self, ctx, member: discord.Member):
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title=f"→ {member} 🖕",
+            description=f"• {fuck.random(name=str(member), from_=str(ctx.author)).text}"
+        )
+
+        await ctx.send(embed=embed)
+
+    @foff.error
+    async def foff_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!foff @user`"
+            )
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Member!",
+                description="• Please mention a valid member! Example: `l!foff @user`"
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(bot):
