@@ -468,6 +468,8 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
+        logger.info(f"Fun | Sent Slot: {ctx.author}")
+
     @commands.command()
     async def question(self, ctx, question):
         async with aiohttp.ClientSession() as cs:
@@ -480,6 +482,8 @@ class Fun(commands.Cog):
                 embed.set_image(url=res['image'])
 
                 await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent Question: {ctx.author}")
 
     @question.error
     async def question_error(self, ctx, error):
@@ -511,6 +515,8 @@ class Fun(commands.Cog):
         )
 
         await ctx.send(embed=embed)
+
+        logger.info(f"Fun | Sent Foff: {ctx.author}")
 
     @foff.error
     async def foff_error(self, ctx, error):
