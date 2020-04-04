@@ -8,7 +8,6 @@
   ![Python Versions](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue?style=flat-square)
   ![Discord.py Version](https://img.shields.io/badge/discord.py-1.3.2-blue?style=flat-square)
   ![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat-square)
-  ![Uptime - 7 Days](https://img.shields.io/uptimerobot/ratio/7/m783893443-c045a2d525b791caafd2dcdb?style=flat-square)
   ![Uptime - Current Time](https://img.shields.io/uptimerobot/status/m783893443-c045a2d525b791caafd2dcdb?style=flat-square)
   <a href="https://app.codacy.com/manual/TrackRunny/Discord-Selfbot/dashboard?bid=14423857&token=vnDn11JbhCP7nhu">![Code Quality](https://img.shields.io/codacy/grade/179a29ed15bb40b5b0eed2b695791f94?style=flat-square)</a>  
 
@@ -19,7 +18,7 @@
   * Multi-use Discord bot that is being actively developed.
   * Main purpose is to teach / help people about Linux on Discord.
   * 2 - 3 Commits each week.
-  * Uptime should be over 95% each 7 days as shown from the badge above.
+  * Uptime badge to show if the bot is online or not.
 
 <!-- MODULES HEADER -->
 ### ➤ Modules
