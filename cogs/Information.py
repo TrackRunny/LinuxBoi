@@ -125,7 +125,7 @@ class Information(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Invite Me To Your Server!",
-            description=f"• [Click Here]{url}"
+            description=f"• [**Click Here**]{url}"
         )
         await ctx.message.add_reaction(self.bot.get_emoji(648198008076238862))
 
