@@ -33,7 +33,7 @@ mccabe==0.6.1
 mcstatus==2.3.0
 mtranslate==1.6
 multidict==4.7.5
-pbr==5.4.4
+pbr==5.4.5
 psutil==5.7.0
 pycosat==0.6.3
 ratelimiter==1.2.0.post0
