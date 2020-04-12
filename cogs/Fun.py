@@ -339,18 +339,6 @@ class Fun(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command()
-    async def shrug(self, ctx):
-        embed = discord.Embed(
-            color=self.bot.embed_color,
-            title="→ What is life?",
-            description="• I gave up on it. ¯\_(ツ)_/¯"
-        )
-
-        await ctx.send(embed=embed)
-
-        logger.info(f"Fun | Sent Shrug: {ctx.author}")
-
     @commands.command(aliases=["momma-joke", "yo-momma-joke"])
     async def yo_momma_joke(self, ctx):
         async with aiohttp.ClientSession() as cs:
