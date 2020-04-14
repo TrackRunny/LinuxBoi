@@ -523,6 +523,27 @@ class Fun(commands.Cog):
             )
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def reverse(self, ctx, text):
+        text_reverse = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title=f"→ Reversed Text",
+            description=f"• {text_reverse}"
+        )
+
+        await ctx.send(embed=embed)
+
+    @reverse.error
+    async def reverse_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!reverse <text>`"
+            )
+            await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
