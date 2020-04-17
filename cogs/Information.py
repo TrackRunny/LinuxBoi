@@ -55,7 +55,7 @@ class Information(commands.Cog):
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`, `l!uptime`"
         image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!duck`, `l!tweet`," \
-                "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`, `l!threats`, `l!mind`"
+                "`l!trumptweet`, `l!captcha`, `l!clyde`, `l!vs`, `l!magik`, `l!threats`, `l!mind`, `l!ph`"
         music = "`l!play`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!meme`, `l!linuxmeme`, `l!wikihow`"

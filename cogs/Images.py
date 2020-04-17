@@ -320,6 +320,23 @@ class Image(commands.Cog):
 
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def ph(self, ctx):
+        picture = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=phcomment&image={picture}&That was pretty sick.=test&username={ctx.author}") as r:
+                res = await r.json()
+                print(res)
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Kidnapped"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Kidnap: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Image(bot))
