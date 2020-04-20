@@ -42,11 +42,11 @@ class TopGG(commands.Cog):
 
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
-        await self.bot.dblpy.post_guild_count()
+        await self.dblpy.post_guild_count()
 
     @commands.Cog.listener()
     async def on_guild_remove(self, guild):
-        await self.bot.dblpy.post_guild_count()
+        await self.dblpy.post_guild_count()
 
     @commands.Cog.listener()
     async def on_guild_post(self):
