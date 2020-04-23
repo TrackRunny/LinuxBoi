@@ -25,7 +25,6 @@ from datetime import datetime
 import discord
 from discord.ext import commands
 
-bot = commands.Bot("l!", owner_id=546812331213062144, case_insensitive=False)
 line_divide = "\n———————————————————————————————"
 
 linuxboi_token = os.environ.get('linuxboi_token')
@@ -47,7 +46,6 @@ class LinuxBoi(commands.AutoShardedBot):
     def __init__(self):
         super().__init__(command_prefix="l!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
-        self.bot = bot
         self.embed_color = 0xF15A24
 
         self.load_extension('jishaku')
