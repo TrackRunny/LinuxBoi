@@ -19,12 +19,8 @@
 import colorsys
 import random
 
-r = lambda: random.randint(0, 255)
-hex_color = f'{f"{r():x}":0>2}{f"{r():x}":0>2}{f"{r():x}":0>2}'
-rgb = tuple(int(hex_color[i:i + 2], 16) for i in (0, 2, 4))
 
-
-def rgb_to_cmyk(a=rgb[0], g=rgb[1], b=rgb[2]):
+def rgb_to_cmyk(a=None, g=None, b=None):
     cmyk_scale = 100
     if a == 0:
         if g == 0:
@@ -42,16 +38,19 @@ def rgb_to_cmyk(a=rgb[0], g=rgb[1], b=rgb[2]):
         k = min_cmy
         converted = (
             round(c * cmyk_scale), round(m * cmyk_scale), round(y * cmyk_scale), round(k * cmyk_scale))
+
         return converted
 
 
-def rgb_to_hsv(a=rgb[0], b=rgb[1], c=rgb[2]):
+def rgb_to_hsv(a=None, b=None, c=None):
     h, s, v = colorsys.rgb_to_hsv(a / 255.0, b / 255.0, c / 255.0)
     hsv = (round(360 * h), round(100 * s), round(100 * v))
+
     return hsv
 
 
-def rgb_to_hsl(a=rgb[0], b=rgb[1], c=rgb[2]):
+def rgb_to_hsl(a=None, b=None, c=None):
     h, s, l = colorsys.rgb_to_hls(a / 255.0, b / 255.0, c / 255.0)
     hsl = (round(360 * h), round(100 * l), round(100 * s))
+
     return hsl

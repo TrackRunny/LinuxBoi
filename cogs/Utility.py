@@ -17,10 +17,8 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import asyncio
-import colorsys
 import datetime
 import os
-import random
 import smtplib
 from email.message import EmailMessage
 
@@ -451,13 +449,17 @@ class Utility(commands.Cog):
         try:
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
-            players_string = ', '.join(str(p) for p in motd.players.names)
-            plugins_string = ', '.join(str(l) for l in motd.software.plugins)
 
-            players_post = requests.post("https://hasteb.in/documents", data=players_string.encode('utf-8'))
+            players_string = ", ".join(str(p) for p in motd.players.names)
+            plugins_string = ", ".join(str(l) for l in motd.software.plugins)
+
+            players_string_hastebin = ", \n".join(str(p) for p in motd.players.names)
+            plugins_string_hastebin = ", \n".join(str(l) for l in motd.software.plugins)
+
+            players_post = requests.post("https://hasteb.in/documents", data=players_string_hastebin.encode('utf-8'))
             hastebin_players_link = f"https://hasteb.in/{players_post.json()['key']}"
 
-            plugins_post = requests.post("https://hasteb.in/documents", data=plugins_string.encode('utf-8'))
+            plugins_post = requests.post("https://hasteb.in/documents", data=plugins_string_hastebin.encode('utf-8'))
             hastebin_plugins_link = f"https://hasteb.in/{plugins_post.json()['key']}"
 
             embed = discord.Embed(
@@ -664,6 +666,10 @@ class Utility(commands.Cog):
 
     @commands.command(aliases=["randomcolor"])
     async def random_color(self, ctx):
+        r = lambda: random.randint(0, 255)
+        hex_color = f'{f"{r():x}":0>2}{f"{r():x}":0>2}{f"{r():x}":0>2}'
+        rgb = tuple(int(hex_color[i:i + 2], 16) for i in (0, 2, 4))
+
         embed = discord.Embed(
             color=(discord.Color(int(f"0x{hex_color}", 16))),
             title="→ Random Color"
@@ -672,9 +678,9 @@ class Utility(commands.Cog):
         embed.set_footer(text="— Note: CMYK, HSV, HSL Colors are converted from RGB.")
         embed.add_field(name='• HEX value:', inline=True, value=f"`#{hex_color}`")
         embed.add_field(name='• RGB value:', inline=True, value=f"`{rgb}`")
-        embed.add_field(name='• CMYK value:', inline=True, value=f"`{rgb_to_cmyk()}`")
-        embed.add_field(name='• HSV value:', inline=True, value=f"`{rgb_to_hsv()}`")
-        embed.add_field(name='• HSL value:', inline=True, value=f"`{rgb_to_hsl()}`")
+        embed.add_field(name='• CMYK value:', inline=True, value=f"`{rgb_to_cmyk(rgb[0], rgb[1], rgb[2])}`")
+        embed.add_field(name='• HSV value:', inline=True, value=f"`{rgb_to_hsv(rgb[0], rgb[1], rgb[2])}`")
+        embed.add_field(name='• HSL value:', inline=True, value=f"`{rgb_to_hsl(rgb[0], rgb[1], rgb[2])}`")
         embed.add_field(name="• COLOR accuracy:", inline=True, value=f"`{random.randint(96, 99)}%`")
 
         await ctx.send(embed=embed)
