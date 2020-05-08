@@ -17,8 +17,10 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import math
+import os
 import re
 
+import aiohttp
 import discord
 import lavalink
 from discord.ext import commands
@@ -63,6 +65,7 @@ class Music(commands.Cog):
         player = self.bot.lavalink.player_manager.create(ctx.guild.id, endpoint=str(ctx.guild.region))
 
         should_connect = ctx.command.name in ('play', )  # Add commands that require joining voice to work.
+        should_not_connect = ctx.command.name in ('lyrics', )
 
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
@@ -73,7 +76,9 @@ class Music(commands.Cog):
             raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
         if not player.is_connected:
-            if not should_connect:
+            if should_not_connect:
+                return
+            elif not should_connect:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
                     title="→ Voice Channel Error!",
@@ -168,6 +173,60 @@ class Music(commands.Cog):
                 title="→ Invalid Argument!",
                 description="• Please put a valid option! Example: `l!play <Song Name / URL>`"
             )
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    async def lyrics(self, ctx, *, song):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://api.ksoft.si/lyrics/search",
+                              params={"q": song},
+                              headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
+                res = await r.json()
+
+                title = res["data"][0]["name"]
+                song_picture = res["data"][0]["album_art"]
+
+                try:
+                    lyrics = res["data"][0]["lyrics"]
+                except IndexError:
+                    lyrics = "• No results found"
+
+                if len(lyrics) > 2048:
+                    embed = discord.Embed(
+                        color=self.bot.embed_color,
+                        title=f"→ {title}",
+                        description=lyrics[:2047]
+                    )
+                    embed.set_thumbnail(url=song_picture)
+
+                    await ctx.send(embed=embed)
+
+                    embed1 = discord.Embed(
+                        color=self.bot.embed_color,
+                        description=lyrics[2048:]
+                    )
+
+                    await ctx.send(embed=embed1)
+                    return
+
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ {title}",
+                    description=lyrics
+                )
+                embed.set_thumbnail(url=song_picture)
+
+                await ctx.send(embed=embed)
+
+    @lyrics.error
+    async def lyrics_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put in a valid option! Example: `l!lyrics <songname>`"
+            )
+
             await ctx.send(embed=embed)
 
     @commands.command()

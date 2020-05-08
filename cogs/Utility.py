@@ -487,6 +487,7 @@ class Utility(commands.Cog):
             else:
                 embed.add_field(name="• Player names:", inline=False,
                                 value='`' + '' + ', '.join(motd.players.names) + ', '[:-0] + '`')
+
             if not len(plugins_string):
                 embed.add_field(name="• Plugins:", inline=False, value="`No Plugin Information / No Plugins`")
             elif len(plugins_string) > 1024:
