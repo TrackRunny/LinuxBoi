@@ -67,6 +67,9 @@ class Music(commands.Cog):
         should_connect = ctx.command.name in ('play', )  # Add commands that require joining voice to work.
         should_not_connect = ctx.command.name in ('lyrics', )
 
+        if should_not_connect:
+            return
+
         if not ctx.author.voice or not ctx.author.voice.channel:
             embed = discord.Embed(
                 color=self.bot.embed_color,
@@ -76,9 +79,7 @@ class Music(commands.Cog):
             raise commands.CommandInvokeError(await ctx.send(embed=embed))
 
         if not player.is_connected:
-            if should_not_connect:
-                return
-            elif not should_connect:
+            if not should_connect:
                 embed = discord.Embed(
                     color=self.bot.embed_color,
                     title="→ Voice Channel Error!",
