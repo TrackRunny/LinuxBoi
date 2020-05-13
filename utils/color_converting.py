@@ -17,7 +17,6 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import colorsys
-import random
 
 
 def rgb_to_cmyk(a=None, g=None, b=None):

@@ -449,7 +449,14 @@ class Utility(commands.Cog):
         try:
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
-
+        except Exception:
+            embed_error = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Timeout Error:",
+                description="• The server is offline or you entered invalid information!"
+            )
+            await ctx.send(embed=embed_error)
+        else:
             players_string = ", ".join(str(p) for p in motd.players.names)
             plugins_string = ", ".join(str(l) for l in motd.software.plugins)
 
@@ -505,15 +512,6 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
 
             logger.info(f"Utility | Sent MCBE: {ctx.author} | Server: {server} | Port: {port}")
-
-        except Exception:
-            embed_error = discord.Embed(
-                color=self.bot.embed_color,
-                title="→ Timeout Error:",
-                description="• The server is offline or you entered invalid information!"
-            )
-
-            await ctx.send(embed=embed_error)
 
     @mcbe.error
     async def mcbe_error(self, ctx, error):
