@@ -32,7 +32,7 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 mcstatus==3.1.0
 mtranslate==1.6
-multidict==4.7.5
+multidict==4.7.6
 pbr==5.4.5
 psutil==5.7.0
 pycosat==0.6.3
