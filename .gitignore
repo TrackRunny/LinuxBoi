@@ -94,7 +94,6 @@ fabric.properties
 *.class
 
 # Log file
-*.log
 
 # BlueJ files
 *.ctxt
@@ -112,7 +111,6 @@ fabric.properties
 *.rar
 
 # my folders and files#
-/logs/
 /target/
 /build/
 /.settings/
