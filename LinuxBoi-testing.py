@@ -30,6 +30,7 @@ line_divide = "\n—————————————————————
 linuxboi_testing_token = os.environ.get('linuxboi_testing_token')
 
 cogs = [
+    "Events",
     "Fun",
     "Information",
     "Meme",
