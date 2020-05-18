@@ -30,6 +30,19 @@ class Events(commands.Cog):
     # - TODO: Get default channel and create a nice embed to send a message about basic info about bot
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
+        welcome_channel = guild.system_channel
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Thanks for inviting me!",
+            description="• Please use `l!help` for more information on the bot."
+        )
+
+        if welcome_channel is not None:
+            await welcome_channel.send(embed=embed)
+        else:
+            pass
+
         logger.info(f"Events | Joined Guild: {guild.name} | ID: {guild.id}")
 
     @commands.Cog.listener()
