@@ -80,7 +80,7 @@ class Information(commands.Cog):
         guilds = str(len(self.bot.guilds))
         vote_link = "[**Vote link**](http://bit.ly/2mLoBOs) ⬆️"
         sourcecode_link = "[**Source Code**](https://github.com/TrackRunny/LinuxBoi) <:github:668680155807350792>"
-        personal_website = "**Coming soon!** <:connection:678490219267489795>"
+        personal_website = "[**Personal Website**](https://trackrunny.codes) <:connection:678490219267489795>"
         cpu = str(psutil.cpu_percent())
         ram = str(psutil.virtual_memory()[3] / 1000000000)
         ram_round = ram[:3]

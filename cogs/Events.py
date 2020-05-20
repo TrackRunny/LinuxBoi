@@ -27,7 +27,6 @@ class Events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # - TODO: Get default channel and create a nice embed to send a message about basic info about bot
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         welcome_channel = guild.system_channel
