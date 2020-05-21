@@ -5,7 +5,7 @@
   <img align="right" src="https://i.imgur.com/aiIXeCJ.png" width=30%>
 
 <!-- BADGES -->
-  ![Python Versions](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue?style=flat-square)
+  ![Python Versions](https://img.shields.io/badge/python-3.7%20%7C%203.8-blue?style=flat-square)
   ![Discord.py Version](https://img.shields.io/badge/discord.py-1.3.3-blue?style=flat-square)
   ![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat-square)
   ![Uptime - Current Time](https://img.shields.io/uptimerobot/status/m783893443-c045a2d525b791caafd2dcdb?style=flat-square)
