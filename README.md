@@ -190,4 +190,3 @@
 ## ➤ Questions / Contact me
 
   * Discord Account: `TrackRunny#0001`
-  * Email: `trackrunny@protonmail.com`
