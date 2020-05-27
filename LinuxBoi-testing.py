@@ -49,13 +49,14 @@ class LinuxBoiTesting(commands.AutoShardedBot):
         super().__init__(command_prefix="lt!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.embed_color = 0xF15A24
+        self.console_info_format = f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL}"
 
         self.load_extension('jishaku')
         self.remove_command('help')
 
     async def on_connect(self):
         os.system("clear")
-        print(f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} LinuxBoi-testing is starting up...")
+        print(f"{self.console_info_format} LinuxBoi-testing is starting up...")
 
     async def on_ready(self):
         os.system("clear")
@@ -71,12 +72,12 @@ class LinuxBoiTesting(commands.AutoShardedBot):
         except Exception as e:
             print(f"Could not load extension {e}")
 
-        print(f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} ---------------LinuxBoi-testing-----------------------"
-              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Bot is online and connected to {self.user}"
-              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Created by TrackRunny#0001 on Discord"
-              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Connected to {(len(self.guilds))} Guilds."
-              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Detected Operating System: {sys.platform.title()}"
-              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} ----------------------------------------------------")
+        print(f"{self.console_info_format} ---------------LinuxBoi-testing-----------------------"
+              f"\n{self.console_info_format} Bot is online and connected to {self.user}"
+              f"\n{self.console_info_format} Created by TrackRunny#0001 on Discord"
+              f"\n{self.console_info_format} Connected to {(len(self.guilds))} Guilds."
+              f"\n{self.console_info_format} Detected Operating System: {sys.platform.title()}"
+              f"\n{self.console_info_format} ----------------------------------------------------")
 
 
 LinuxBoiTesting().run(linuxboi_testing_token)
