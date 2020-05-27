@@ -24,6 +24,7 @@ from datetime import datetime
 
 import discord
 from discord.ext import commands
+from colorama import Style, Fore
 
 line_divide = "\n———————————————————————————————"
 
@@ -52,8 +53,13 @@ class LinuxBoi(commands.AutoShardedBot):
         self.load_extension('jishaku')
         self.remove_command('help')
 
+    async def on_connect(self):
+        os.system("clear")
+        print(f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} LinuxBoi is starting up...")
+
     async def on_ready(self):
-        # change_status.start()
+        os.system("clear")
+
         await self.change_presence(activity=discord.Activity(type=3, name="Linux videos! | l!help"))
 
         if not hasattr(self, 'uptime'):
@@ -65,12 +71,12 @@ class LinuxBoi(commands.AutoShardedBot):
         except Exception as e:
             print(f"Could not load extension {e}")
 
-        print(f"---------------LinuxBoi-----------------------"
-              f"\nBot is online and connected to {self.user}"
-              f"\nCreated by TrackRunny#0001 on Discord"
-              f"\nConnected to {(len(self.guilds))} Guilds."
-              f"\nDetected Operating System: {sys.platform.title()}"
-              f"\n----------------------------------------------")
+        print(f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} ---------------LinuxBoi---------------------"
+              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Bot is online and connected to {self.user}"
+              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Created by TrackRunny#0001 on Discord"
+              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Connected to {(len(self.guilds))} Guilds."
+              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} Detected Operating System: {sys.platform.title()}"
+              f"\n{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL} --------------------------------------------")
 
 
 LinuxBoi().run(linuxboi_token)
