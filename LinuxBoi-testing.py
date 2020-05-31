@@ -81,4 +81,3 @@ class LinuxBoiTesting(commands.AutoShardedBot):
 
 
 LinuxBoiTesting().run(linuxboi_testing_token)
-# client.run(read_token(), bot=False)

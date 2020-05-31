@@ -336,6 +336,21 @@ class Image(commands.Cog):
 
                 logger.info(f"Images | Sent PH: {ctx.author}")
 
+    @commands.command()
+    async def coffee(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://coffee.alexflipnote.dev/random.json") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Daily Coffee",
+                )
+                embed.set_image(url=res["file"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Coffee: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Image(bot))
