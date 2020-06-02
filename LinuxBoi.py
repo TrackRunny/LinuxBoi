@@ -49,14 +49,14 @@ class LinuxBoi(commands.AutoShardedBot):
         super().__init__(command_prefix="l!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.embed_color = 0xF15A24
-        self.console_format = f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL}"
+        self.console_info_format = f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL}"
 
         self.load_extension('jishaku')
         self.remove_command('help')
 
     async def on_connect(self):
         os.system("clear")
-        print(f"{self.console_format} LinuxBoi is starting up...")
+        print(f"{self.console_info_format} LinuxBoi is starting up...")
 
     async def on_ready(self):
         os.system("clear")
@@ -72,12 +72,12 @@ class LinuxBoi(commands.AutoShardedBot):
         except Exception as e:
             print(f"Could not load extension {e}")
 
-        print(f"{self.console_format} ---------------LinuxBoi---------------------"
-              f"\n{self.console_format} Bot is online and connected to {self.user}"
-              f"\n{self.console_format} Created by TrackRunny#0001 on Discord"
-              f"\n{self.console_format} Connected to {(len(self.guilds))} Guilds."
-              f"\n{self.console_format} Detected Operating System: {sys.platform.title()}"
-              f"\n{self.console_format} --------------------------------------------")
+        print(f"{self.console_info_format} ---------------LinuxBoi---------------------"
+              f"\n{self.console_info_format} Bot is online and connected to {self.user}"
+              f"\n{self.console_info_format} Created by TrackRunny#0001 on Discord"
+              f"\n{self.console_info_format} Connected to {(len(self.guilds))} Guilds."
+              f"\n{self.console_info_format} Detected Operating System: {sys.platform.title()}"
+              f"\n{self.console_info_format} --------------------------------------------")
 
 
 LinuxBoi().run(linuxboi_token)
