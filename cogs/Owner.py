@@ -123,10 +123,7 @@ class Owner(commands.Cog):
     @commands.is_owner()
     @commands.command()
     async def guilds(self, ctx):
-        for guild in self.bot.guilds:
-            guilds = f"Guild: {guild} | ID: {guild.id}\n"
-
-        post = requests.post("https://hasteb.in/documents", data=guilds.encode("utf-8"))
+        post = requests.post("https://hasteb.in/documents", data=f"\n".join([guild.name for guild in self.bot.guilds]))
 
         embed = discord.Embed(
             color=self.bot.embed_color,
