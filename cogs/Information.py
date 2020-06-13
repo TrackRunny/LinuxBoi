@@ -96,8 +96,6 @@ class Information(commands.Cog):
             description=f"— "
                         f"\n ➤ Shows info about the server in which the bot is running on! "
                         f"All values are accurate and updated each time the command is ran."
-                        f"\n ➤ Python is one of my favorite programming languages :)"
-                        f"\n ➤ Make sure to support The Free Software Movement!"
                         f"\n ➤ To view my commands run, `l!commands`"
                         f"\n ➤ Source code for this bot is available here: {sourcecode_link}"
                         f"\n ➤ If you like my bot, consider voting: {vote_link}"
