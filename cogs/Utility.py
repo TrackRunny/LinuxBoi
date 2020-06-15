@@ -37,8 +37,9 @@ from forex_python.converter import CurrencyRates
 from mcstatus import MinecraftServer
 
 from logging_files.utility_logging import logger
-from utils.default import uptime
 from utils.color_converting import *
+from utils.default import uptime
+from utils.decimal_formatting import truncate
 
 
 class Utility(commands.Cog):
@@ -134,7 +135,7 @@ class Utility(commands.Cog):
             )
             await ctx.send(embed=embed)
         try:
-            amount2 = float((c.convert(currency1, currency2, amount)))
+            amount2 = float(c.convert(currency1, currency2, amount))
         except:
             embed = discord.Embed(
                 color=self.bot.embed_color,
@@ -146,7 +147,7 @@ class Utility(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Currency Converting",
-            description=f"• {amount} {currency1} is about {round(amount2)} {currency2}!"
+            description=f"• {amount} {currency1} is about {truncate(amount2, 2)} {currency2}!"
         )
 
         await ctx.send(embed=embed)
