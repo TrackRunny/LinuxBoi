@@ -40,7 +40,7 @@ pbr==5.4.5
 psutil==5.7.0
 pycosat==0.6.3
 ratelimiter==1.2.0.post0
-requests==2.23.0
+requests==2.24.0
 simplejson==3.17.0
 six==1.15.0
 StringGenerator==0.3.4
