@@ -20,6 +20,7 @@ import asyncio
 import time
 
 import discord
+import distro
 import psutil
 import platform
 from discord.ext import commands
@@ -89,6 +90,7 @@ class Information(commands.Cog):
         disk_round = disk[:4]
         boot_time = str(psutil.boot_time() / 100000000)
         boot_time_round = boot_time[:4]
+        linux_distro = distro.os_release_info()
 
         embed = discord.Embed(
             color=self.bot.embed_color,
@@ -103,7 +105,7 @@ class Information(commands.Cog):
                         + "\n—"
         )
         embed.set_thumbnail(url="https://bit.ly/2JGhA94")
-        embed.add_field(name=f"• Operating System:", inline=True, value=f":computer: — Ubuntu server 18.04 LTS")
+        embed.add_field(name=f"• OPERATING System:", inline=True, value=f":computer: — {linux_distro['pretty_name']}")
         embed.add_field(name=f"• CPU Usage:", inline=True, value=f":heavy_plus_sign: — {cpu} Percent used")
         embed.add_field(name=f"• RAM Usage:", inline=True,
                         value=f":closed_book:  —  {ram_round}  / 3  Gigabytes used")
