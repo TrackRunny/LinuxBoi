@@ -31,31 +31,6 @@ class Owner(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.is_owner()
-    async def activity(self, ctx, number, *, activity):
-        # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
-        await self.bot.change_presence(activity=discord.Activity(type=number, name=activity))
-        embed = discord.Embed(
-            color=self.bot.embed_color,
-            title="→ Bot Activity Changed!",
-            description=f"• My activity has been updated to: `{activity}`"
-        )
-
-        await ctx.send(embed=embed)
-
-        logger.info(f"Owner | Sent Activity: {ctx.author} | Activity: {number} | Status: {activity}")
-
-    @activity.error
-    async def activity_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            embed = discord.Embed(
-                color=self.bot.embed_color,
-                title="→ Invalid Argument!",
-                description="• Please put a valid option! Example: `l!activity <type> <status>`"
-            )
-            await ctx.send(embed=embed)
-
-    @commands.command()
     async def status(self, ctx, online_status):
         if str(online_status).lower() == "dnd":
             await self.bot.change_presence(status=discord.Status.dnd)
@@ -193,6 +168,53 @@ class Owner(commands.Cog):
         await self.bot.logout()
 
         logger.info(f"Owner | Sent Shutdown: {ctx.author}")
+
+    @commands.command(aliases=["updatenews"])
+    @commands.is_owner()
+    async def update_news(self, ctx, *, news):
+        self.bot.cursor.execute("UPDATE bot_information SET NEWS = ? WHERE ROWID = 1", (news,))
+        self.bot.db.commit()
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ News Updated",
+            description=f"News is now set to: `{news}`"
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Owner | Sent Update News : {ctx.author}")
+
+    @commands.command()
+    @commands.is_owner()
+    async def activity(self, ctx, number, *, activity):
+        # Type 0 = Playing a game, Type 1 = Live on Twitch, Type 2 = Listening, Type 3 = Watching
+        await self.bot.change_presence(activity=discord.Activity(type=number, name=activity))
+
+        self.bot.cursor.execute("UPDATE bot_information SET ACTIVITY = ? WHERE ROWID = 1", (activity,))
+        self.bot.cursor.execute("UPDATE bot_information SET ACTIVITY_TYPE = ? WHERE ROWID = 1", (number,))
+
+        self.bot.db.commit()
+
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Bot Activity Changed!",
+            description=f"• My activity has been updated to: `{activity}`"
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Owner | Sent Activity: {ctx.author} | Activity: {number} | Status: {activity}")
+
+    @activity.error
+    async def activity_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!activity <type> <status>`"
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):

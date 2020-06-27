@@ -20,6 +20,7 @@
 
 import os
 import sys
+import sqlite3
 from datetime import datetime
 
 import discord
@@ -49,6 +50,8 @@ class LinuxBoiTesting(commands.AutoShardedBot):
         super().__init__(command_prefix="lt!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.embed_color = 0xF15A24
+        self.db = sqlite3.connect("database.db")
+        self.cursor = self.db.cursor()
         self.console_info_format = f"{Fore.BLUE}{datetime.now().strftime('%H:%M:%S')}{Fore.RESET} {Style.BRIGHT}[{Fore.BLUE}INFO{Fore.RESET}]{Style.RESET_ALL}"
 
         self.load_extension('jishaku')
@@ -58,10 +61,32 @@ class LinuxBoiTesting(commands.AutoShardedBot):
         os.system("clear")
         print(f"{self.console_info_format} LinuxBoi-testing is starting up...")
 
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS bot_information (
+            ACTIVITY TEXT NOT NULL,
+            ACTIVITY_TYPE INTEGER NOT NULL,
+            NEWS TEXT NOT NULL);
+        """)
+
+        self.cursor.execute("SELECT rowid, * FROM bot_information")
+
+        if self.cursor.fetchone() is None:
+            self.cursor.execute("INSERT INTO bot_information VALUES ('Linux videos! | l!help', '3', 'No current news yet!')")
+        else:
+            pass
+
+        self.db.commit()
+
     async def on_ready(self):
         os.system("clear")
 
-        await self.change_presence(activity=discord.Activity(type=3, name="Linux videos! | lt!help"))
+        get_activity = self.cursor.execute("SELECT rowid, * FROM bot_information")
+        activity = get_activity.fetchall()[0][1]
+
+        get_type = self.cursor.execute("SELECT rowid, * FROM bot_information")
+        type = get_type.fetchall()[0][2]
+
+        await self.change_presence(activity=discord.Activity(type=type, name=activity))
 
         if not hasattr(self, 'uptime'):
             self.uptime = datetime.utcnow()
