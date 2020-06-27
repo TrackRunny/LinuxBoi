@@ -59,7 +59,7 @@ class LinuxBoi(commands.AutoShardedBot):
 
     async def on_connect(self):
         os.system("clear")
-        print(f"{self.console_info_format} LinuxBoi-testing is starting up...")
+        print(f"{self.console_info_format} LinuxBoi is starting up...")
 
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS bot_information (
