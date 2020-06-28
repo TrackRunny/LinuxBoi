@@ -26,7 +26,7 @@ fortune==1.1.0
 geojson==2.5.0
 grizzled-python==2.2.0
 humanize==2.4.0
-idna==2.9
+idna==2.10
 import-expression==1.1.4
 ipinfo==3.0.0
 isort==4.3.21
