@@ -337,6 +337,22 @@ class Image(commands.Cog):
                 logger.info(f"Images | Sent PH: {ctx.author}")
 
     @commands.command()
+    async def baguette(self, ctx):
+        picture = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=baguette&url={picture}") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ {ctx.author.name} eating a baguette"
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Baguette: {ctx.author}")
+
+    @commands.command()
     async def coffee(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://coffee.alexflipnote.dev/random.json") as r:
