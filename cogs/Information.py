@@ -114,7 +114,7 @@ class Information(commands.Cog):
         embed.add_field(name=f"• BOOT Time: ", inline=True, value=f":boot: —  {boot_time_round} seconds")
         embed.add_field(name=f"• MEMBER Count:", inline=True, value=f":bust_in_silhouette: —  {users} users")
         embed.add_field(name=f"• GUILD Count:", inline=True, value=f":house: — {guilds} connected guilds")
-        embed.add_field(name=f"• LIBRARY Version:", inline=True, value=f":gear: — Discord.py version {discord.__version__}")
+        embed.add_field(name=f"• LIBRARY Version:", inline=True, value=f":gear: — discord.py version {discord.__version__}")
         embed.add_field(name=f"• PYTHON Version:", inline=True, value=f":snake:  — Python version {platform.python_version()}")
         embed.set_footer(text=f"\n\nMade by TrackRunny#0001", icon_url=f"\n\nhttps://i.imgur.com/TiUqRH8.gif")
 
