@@ -353,6 +353,35 @@ class Image(commands.Cog):
                 logger.info(f"Images | Sent Baguette: {ctx.author}")
 
     @commands.command()
+    async def iphone(self, ctx, member: discord.Member):
+        picture = member.avatar_url_as(size=1024, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=iphonex&url={picture}") as r:
+                res = await r.json()
+                print(res)
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ Thats a nice wallpaper of {member}",
+                )
+                embed.set_image(url=res["message"])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Trap {ctx.author}")
+
+    @iphone.error
+    async def iphone_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!iphone @member`"
+            )
+
+            await ctx.send(embed=embed)
+
+
+    @commands.command()
     async def coffee(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://coffee.alexflipnote.dev/random.json") as r:
