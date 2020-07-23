@@ -103,6 +103,24 @@ class Meme(commands.Cog):
 
                 logger.info(f"Meme | Sent WindowsMeme: {ctx.author}")
 
+    @commands.command()
+    async def dankmeme(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://api.ksoft.si/images/rand-reddit/dankmemes",
+                              params={"span": "month"},
+                              headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ {res['title']}",
+                    url=res['source']
+                )
+                embed.set_image(url=res['image_url'])
+                embed.set_footer(text=f"👍 {res['upvotes']} | 👎 {res['downvotes']}")
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Meme | Sent DankMeme: {ctx.author}")
 
 def setup(bot):
     bot.add_cog(Meme(bot))
