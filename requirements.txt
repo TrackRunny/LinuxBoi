@@ -47,7 +47,7 @@ six==1.15.0
 StringGenerator==0.3.4
 testresources==2.0.1
 typed-ast==1.4.1
-urllib3==1.25.9
+urllib3==1.25.10
 websockets==8.1
 wrapt==1.12.1
 xmltodict==0.12.0
