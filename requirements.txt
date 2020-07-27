@@ -29,7 +29,7 @@ humanize==2.5.0
 idna==2.10
 import-expression==1.1.4
 ipinfo==3.0.0
-isort==5.1.4
+isort==5.2.0
 jishaku==1.18.2.188
 lavalink==3.1.2
 lazy-object-proxy==1.5.1
