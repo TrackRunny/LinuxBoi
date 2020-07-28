@@ -61,7 +61,7 @@ class Information(commands.Cog):
                 "`l!baguette`, `l!iphone`"
         music = "`l!play`, `l!lyrics`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`"
+        memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`, `l!programmermeme`"
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
