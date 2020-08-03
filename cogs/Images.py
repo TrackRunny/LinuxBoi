@@ -47,16 +47,18 @@ class Image(commands.Cog):
 
                 logger.info(f"Images | Sent Captcha: {ctx.author}")
 
+    # - TODO: Check to see if this API is still alive
+
     @commands.command()
     async def cat(self, ctx):
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('http://aws.random.cat/meow') as r:
+            async with cs.get('https://some-random-api.ml/img/cat') as r:
                 res = await r.json()
                 embed = discord.Embed(
                     color=self.bot.embed_color,
                     title="→ Random Cat! 🐈"
                 )
-                embed.set_image(url=res['file'])
+                embed.set_image(url=res['link'])
 
                 await ctx.send(embed=embed)
 
