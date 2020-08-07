@@ -338,21 +338,22 @@ class Fun(commands.Cog):
                 description="• Please put in a valid option! Example: `l!penguinsay <text>`"
             )
             await ctx.send(embed=embed)
-
+    
+    # - TODO: Check up on this API because its having SSL errors
     @commands.command(aliases=["momma-joke", "yo-momma-joke"])
     async def yo_momma_joke(self, ctx):
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.yomomma.info/') as r:
-                res = await r.json(content_type='text/html')
-                embed = discord.Embed(
-                    color=self.bot.embed_color,
-                    title="→ Yo Momma Joke",
-                    description=f"• Joke: {res['joke']}"
-                )
+        lines = open('./resources/yo_momma_jokes.txt').read().splitlines()
+        joke = random.choice(lines)
 
-                await ctx.send(embed=embed)
+        embed = discord.Embed(
+            color=self.bot.embed_color,
+            title="→ Yo Momma Joke",
+            description=f"• Joke: {joke}"
+        )
 
-                logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
+        await ctx.send(embed=embed)
+
+        logger.info(f"Fun | Sent Yo Momma Joke: {ctx.author}")
 
     @commands.command()
     async def rps(self, ctx, choice):
