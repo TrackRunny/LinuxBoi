@@ -545,6 +545,21 @@ class Fun(commands.Cog):
             )
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def token(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://some-random-api.ml/bottoken') as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ Discord bot token",
+                    description=f"• Token: `{res['token']}`"
+                )
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent Token: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
