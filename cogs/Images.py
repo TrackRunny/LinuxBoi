@@ -126,6 +126,21 @@ class Image(commands.Cog):
                 logger.info(f"Images | Sent Random Duck: {ctx.author}")
 
     @commands.command()
+    async def panda(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://some-random-api.ml/img/panda") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Random Panda"
+                )
+                embed.set_image(url=res['link'])
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Images | Sent Random Panda: {ctx.author}")
+
+    @commands.command()
     async def tweet(self, ctx, username: str, *, text: str):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={text}") as r:
@@ -381,7 +396,6 @@ class Image(commands.Cog):
             )
 
             await ctx.send(embed=embed)
-
 
     @commands.command()
     async def coffee(self, ctx):
