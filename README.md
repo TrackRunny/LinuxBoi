@@ -73,43 +73,43 @@
     <p>Note, some users may receive this error above when trying to install the dependencies from the requirements.txt file. This happens when you are trying to build and install the <b>Pycosat</b> pip module. If this happens to you, please follow the instructions below.</p>
   
   1. Download the compiled **Pycosat** file for your Python version and windows architecture.
-      * [**Pycosat | Python 3.6 | Win32**](https://mega.nz/#!4VUEkALb!MYx0CpoKimjuxxjzx4D0xHEhQOwzRip0WrF9AsnsP_4)
-      * [**Pycosat | Python 3.6 | Win64**](https://mega.nz/#!gQUyAS5L!_fdO4BL6GsfHw_9f-D5w1pybv2IdjFCVDR4oalWlde0)
       * [**Pycosat | Python 3.7 | Win32**](https://mega.nz/#!4BVgjYhI!1EqFNPdbPUGRImfs3GSaWQLe9u3ClVRjzm8NJEMWmMs)
       * [**Pycosat | Python 3.7 | Win64**](https://mega.nz/#!RdVkFSIT!ZHoTnlkTtIPJQYv-8W7vxCfBZKTmuyw2Rgst6ea10Lo)
+      * [**Pycosat | Python 3.8 | Win32**](https://mega.nz/file/lVVjjY5a#hOJqA9eOeRBP1KRxpImHHwK4dZ-rm1oY-HJmnm7WrzU)
+      * [**Pycosat | Python 3.8 | Win64**](https://mega.nz/file/oJMT3IQK#bYJzvYyKN0B0zhuOpMINu9THMRu7e9H-447b6edX-2w)
   2. Change directories into the downloaded file.
   3. Install the compiled pip module.
 
   ```markdown
-    pip install pycosat-0.6.3-cp36-cp36m-win32.whl
-    <!-- Win32 | Python 3.6 -->
-
-    pip install pycosat-0.6.3-cp36-cp36m-win_amd64.whl
-    <!-- Win64 | Python 3.6 -->
-
-    ---
-
     pip install pycosat-0.6.3-cp37-cp37m-win32.whl
     <!-- Win32 | Python 3.7 -->
 
     pip install pycosat-0.6.3-cp37-cp37m-win_amd64.whl
     <!-- Win64 | Python 3.7 -->
+    
+    ---
+    
+    pip install pycosat-0.6.3-cp38-cp38-win32.whl
+    <!-- Win32 | Python 3.8 -->
+
+    pip install pycosat-0.6.3-cp38-cp38-win_amd64.whl
+    <!-- Win64 | Python 3.8 -->
 
     or
-
-    pip3 install pycosat-0.6.3-cp36-cp36m-win32.whl
-    <!-- Win32 | Python 3.6 | pip3 -->
-
-    pip3 install pycosat-0.6.3-cp36-cp36m-win_amd64.whl
-    <!-- Win64 | Python 3.6 | pip3 -->
-
-    ---
 
     pip3 install pycosat-0.6.3-cp37-cp37m-win32.whl
     <!-- Win32 | Python 3.7 | pip3 -->
 
     pip3 install pycosat-0.6.3-cp37-cp37m-win_amd64.whl
     <!-- Win64 | Python 3.7 | pip3 -->
+
+    ---
+
+    pip3 install pycosat-0.6.3-cp38-cp38-win32.whl
+    <!-- Win32 | Python 3.8 | pip3 -->
+
+    pip3 install pycosat-0.6.3-cp38-cp38-win_amd64.whl
+    <!-- Win64 | Python 3.8 | pip3-->
   ```
 
   </details>
