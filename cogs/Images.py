@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License         #
 # along with this program. If not, see <https://www.gnu.org/licenses/>.     #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+import io
 import os
 
 import aiohttp
@@ -411,6 +411,34 @@ class Image(commands.Cog):
                 await ctx.send(embed=embed)
 
                 logger.info(f"Images | Sent Coffee: {ctx.author}")
+
+    @commands.command()
+    async def youtube(self, ctx, *, comment):
+        picture = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://some-random-api.ml/canvas/youtube-comment?avatar={picture}&username={ctx.author.name}&comment={comment}") as r:
+                res = io.BytesIO(await r.read())
+                youtube_file = discord.File(res, filename=f"youtube.jpg")
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Youtube comment"
+                )
+                embed.set_image(url="attachment://youtube.jpg")
+
+                await ctx.send(embed=embed, file=youtube_file)
+
+                logger.info(f"Images | Sent Youtube: {ctx.author}")
+
+    @youtube.error
+    async def youtube_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument",
+                description="• Please put in a vaild option! Example: `l!youtube <comment>`"
+            )
+
+            await ctx.send(embed=embed)
 
 
 def setup(bot):
