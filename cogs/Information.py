@@ -92,13 +92,14 @@ class Information(commands.Cog):
         boot_time = str(psutil.boot_time() / 100000000)
         boot_time_round = boot_time[:4]
         linux_distro = distro.os_release_info()
+        get_news = self.bot.cursor.execute("SELECT rowid, * FROM bot_information")
+        news = get_news.fetchall()[0][3]
 
         embed = discord.Embed(
             color=self.bot.embed_color,
             title=f"→ LinuxBoi",
             description=f"— "
-                        f"\n ➤ Shows info about the server in which the bot is running on! "
-                        f"All values are accurate and updated each time the command is ran."
+                        f"\n ➤ Current news: {news}"
                         f"\n ➤ To view my commands run, `l!commands`"
                         f"\n ➤ Source code for this bot is available here: {sourcecode_link}"
                         f"\n ➤ If you like my bot, consider voting: {vote_link}"

@@ -178,7 +178,7 @@ class Owner(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ News Updated",
-            description=f"News is now set to: `{news}`"
+            description=f"• News is now set to: `{news}`"
         )
 
         await ctx.send(embed=embed)
