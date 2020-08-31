@@ -6,7 +6,7 @@ async-timeout==3.0.1
 asyncurban==0.3.3
 attr==0.3.1
 attrs==20.1.0
-bitlyshortener==0.3.7
+bitlyshortener==0.4.1
 braceexpand==0.1.5
 cachetools==4.1.1
 certifi==2020.6.20
