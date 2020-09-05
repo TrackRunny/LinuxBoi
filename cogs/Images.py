@@ -440,6 +440,23 @@ class Image(commands.Cog):
 
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def triggered(self, ctx):
+        picture = ctx.author.avatar_url_as(size=1024, format=None, static_format='png')
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://some-random-api.ml/canvas/triggered?avatar={picture}") as r:
+                res = io.BytesIO(await r.read())
+                triggered_file = discord.File(res, filename=f"triggered.gif")
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Triggered",
+                )
+                embed.set_image(url="attachment://triggered.gif")
+
+                await ctx.send(embed=embed, file=triggered_file)
+
+                logger.info(f"Images | Sent Triggered: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Image(bot))
