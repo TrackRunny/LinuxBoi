@@ -5,7 +5,7 @@ astunparse==1.6.3
 async-timeout==3.0.1
 asyncurban==0.3.3
 attr==0.3.1
-attrs==20.1.0
+attrs==20.2.0
 bitlyshortener==0.4.1
 braceexpand==0.1.5
 cachetools==4.1.1
