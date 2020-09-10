@@ -560,6 +560,21 @@ class Fun(commands.Cog):
 
                 logger.info(f"Fun | Sent Token: {ctx.author}")
 
+    @commands.command()
+    async def whalefact(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://some-random-api.ml/facts/whale") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Whale Fact",
+                    description=f"• Fact: {res['fact']}"
+                )
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent Whale Fact: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
