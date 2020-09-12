@@ -199,6 +199,7 @@ class Music(commands.Cog):
                         description=lyrics[:2047]
                     )
                     embed.set_thumbnail(url=song_picture)
+                    embed.set_footer(text="Powered By KSoft.Si", icon_url="https://cdn.ksoft.si/images/Logo1024.png")
 
                     await ctx.send(embed=embed)
 
@@ -206,6 +207,7 @@ class Music(commands.Cog):
                         color=self.bot.embed_color,
                         description=lyrics[2048:]
                     )
+                    embed1.set_footer(text="Powered By KSoft.Si", icon_url="https://cdn.ksoft.si/images/Logo1024.png")
 
                     await ctx.send(embed=embed1)
                     return
@@ -216,6 +218,7 @@ class Music(commands.Cog):
                     description=lyrics
                 )
                 embed.set_thumbnail(url=song_picture)
+                embed.set_footer(text="Powered By KSoft.Si", icon_url="https://cdn.ksoft.si/images/Logo1024.png")
 
                 await ctx.send(embed=embed)
 
