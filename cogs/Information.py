@@ -110,7 +110,7 @@ class Information(commands.Cog):
         embed.add_field(name=f"• OPERATING System:", inline=True, value=f":computer: — {linux_distro['pretty_name']}")
         embed.add_field(name=f"• CPU Usage:", inline=True, value=f":heavy_plus_sign: — {cpu} Percent used")
         embed.add_field(name=f"• RAM Usage:", inline=True,
-                        value=f":closed_book:  —  {ram_round}  / 3  Gigabytes used")
+                        value=f":closed_book:  —  {ram_round}  / 4  Gigabytes used")
         embed.add_field(name=f"• DISK Usage:", inline=True, value=f":white_circle: — {disk_round} / 40 Gigabytes")
         embed.add_field(name=f"• BOOT Time: ", inline=True, value=f":boot: —  {boot_time_round} seconds")
         embed.add_field(name=f"• MEMBER Count:", inline=True, value=f":bust_in_silhouette: —  {users} users")
