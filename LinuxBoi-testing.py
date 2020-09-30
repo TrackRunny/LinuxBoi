@@ -31,6 +31,10 @@ line_divide = "\n—————————————————————
 
 linuxboi_testing_token = os.environ.get('linuxboi_testing_token')
 
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
+
 cogs = [
     "Events",
     "Fun",
@@ -47,7 +51,7 @@ cogs = [
 
 class LinuxBoiTesting(commands.AutoShardedBot):
     def __init__(self):
-        super().__init__(command_prefix="lt!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
+        super().__init__(command_prefix="lt!", intents=intents, owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.embed_color = 0xF15A24
         self.db = sqlite3.connect("database.db")
