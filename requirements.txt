@@ -25,7 +25,7 @@ forex-python==1.5
 fortune==1.1.0
 geojson==2.5.0
 grizzled-python==2.2.0
-humanize==2.6.0
+humanize==3.0.0
 idna==2.10
 import-expression==1.1.4
 ipinfo==3.0.0
