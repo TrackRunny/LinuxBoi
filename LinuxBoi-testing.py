@@ -60,6 +60,7 @@ class LinuxBoiTesting(commands.AutoShardedBot):
 
         self.load_extension('jishaku')
         self.remove_command('help')
+        self.loop.create_task(self.ready())
 
     async def on_connect(self):
         os.system("clear")
@@ -81,7 +82,8 @@ class LinuxBoiTesting(commands.AutoShardedBot):
 
         self.db.commit()
 
-    async def on_ready(self):
+    async def ready(self):
+        await self.wait_until_ready()
         os.system("clear")
 
         get_activity = self.cursor.execute("SELECT rowid, * FROM bot_information")
