@@ -82,12 +82,15 @@ class Fun(commands.Cog):
             await ctx.send(embed=embed)
 
     @commands.command()
-    async def avatar(self, ctx, member: discord.Member):
+    async def avatar(self, ctx, member: discord.Member=None):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ Avatar"
         )
-        embed.set_image(url=member.avatar_url_as(size=1024, format=None, static_format="png"))
+        if member == None:
+            embed.set_image(url=ctx.author.avatar_url_as(size=1024, format=None, static_format="png"))
+        else:
+            embed.set_image(url=member.avatar_url_as(size=1024, format=None, static_format="png"))
 
         await ctx.send(embed=embed)
 
