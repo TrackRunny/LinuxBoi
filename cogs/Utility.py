@@ -66,11 +66,27 @@ class Utility(commands.Cog):
         embed = discord.Embed(
             color=self.bot.embed_color,
             title="→ BTC to Currency",
-            description=f"• One Bitcoin is {amount} {currency}"
+            description=f"• One Bitcoin is: `{amount}` {currency}"
         )
         await ctx.send(embed=embed)
 
         logger.info(f"Utility | Sent Bitcoin: {ctx.author}")
+
+    @commands.command(aliases=["ltc"])
+    async def litecoin(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://api.coincap.io/v2/rates/litecoin") as r:
+                res = await r.json()
+                litecoin_price = res['data']['rateUsd']
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Current Litecoin Price",
+                    description=f"• One Litecoin is: `{litecoin_price[:-14]}` USD"
+                )
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Utility | Sent Litecoin: {ctx.author}")
 
     @commands.command(aliases=["shortenlink"])
     @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)

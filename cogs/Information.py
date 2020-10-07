@@ -53,7 +53,7 @@ class Information(commands.Cog):
               "`l!foff`, `l!reverse`, `l!token`, `l!whalefact`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcbe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
-                  " `l!bitcoin`, `l!tobtc`, `l!currency`, " \
+                  " `l!bitcoin`, `l!tobtc`, `l!litecoin`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`, `l!uptime`"
         image = "`l!cat`, `l!dog`, `l!fox`, `l!bird`, `l!duck`, `l!tweet`," \
@@ -249,6 +249,7 @@ class Information(commands.Cog):
         embed.add_field(name="• Account created at: ", value=member.created_at.strftime("%A %d, %B %Y."))
         embed.add_field(name="• Account joined at: ", value=member.joined_at.strftime("%A %d, %B %Y"))
 
+        # - TODO: See why this is returning "None" even though there is an if statement to check this
         if member.activity is None:
             embed.add_field(name="• Activity: ", value="No activity!")
         else:
