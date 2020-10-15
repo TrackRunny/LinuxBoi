@@ -463,7 +463,7 @@ class Utility(commands.Cog):
             await ctx.send(embed=embed)
 
     @commands.command()
-    async def mcbe(self, ctx, server, port=19132):
+    async def mcpe(self, ctx, server, port=19132):
         try:
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
@@ -529,9 +529,9 @@ class Utility(commands.Cog):
 
             await ctx.send(embed=embed)
 
-            logger.info(f"Utility | Sent MCBE: {ctx.author} | Server: {server} | Port: {port}")
+            logger.info(f"Utility | Sent MCPE: {ctx.author} | Server: {server} | Port: {port}")
 
-    @mcbe.error
+    @mcpe.error
     async def mcbe_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
@@ -557,6 +557,7 @@ class Utility(commands.Cog):
             title="→ Announcement!",
             description=f"• {message}"
         )
+
         if choice == "everyone":
             at_everyone = await ctx.send("@everyone — Check out this new announcement!")
             await at_everyone.delete()
@@ -565,6 +566,7 @@ class Utility(commands.Cog):
             await at_here.delete()
         elif choice == "none":
             pass
+
         embed.set_thumbnail(url=guild.icon_url_as(size=4096, format="png"))
         embed.set_footer(text=f"— Sent from: {sender}", icon_url=ctx.author.avatar_url)
 

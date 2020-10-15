@@ -52,7 +52,7 @@ class Information(commands.Cog):
               "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`, `l!catfact`, `l!slot`, `l!question`, `l!bill`, " \
               "`l!foff`, `l!reverse`, `l!token`, `l!whalefact`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
-                  "`l!mcbe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
+                  "`l!mcpe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!litecoin`, `l!currency`, " \
                   "`l!word random`, `l!word search`, `l!password`, `l!ip`, `l!remind`, `l!temperature fahrenheit`, " \
                   "`l!temperature celsius`, `l!uptime`"
@@ -61,7 +61,8 @@ class Information(commands.Cog):
                 "`l!baguette`, `l!iphone`, `l!panda`, `l!youtube`, `l!triggered`"
         music = "`l!play`, `l!lyrics`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
-        memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`, `l!programmermeme`, `l!edgymeme`"
+        memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`, `l!programmermeme`, `l!edgymeme`, `l!darkmeme`"
+
         # linux_info = "`l!wheretostart`, `l!channels`"
 
         embed.add_field(name="• Moderation Commands!", inline=False, value=moderation)
