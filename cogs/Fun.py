@@ -575,6 +575,21 @@ class Fun(commands.Cog):
 
                 logger.info(f"Fun | Sent Whale Fact: {ctx.author}")
 
+    @commands.command()
+    async def koalafact(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://some-random-api.ml/facts/koala") as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title="→ Koala Fact",
+                    description=f"• Fact: {res['fact']}"
+                )
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Fun | Sent Koala Fact: {ctx.author}")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
