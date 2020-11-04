@@ -33,7 +33,7 @@ linuxboi_token = os.environ.get('linuxboi_token')
 
 intents = discord.Intents.default()
 intents.members = True
-intents.presences = True
+#intents.presences = True
 
 cogs = [
     "Events",
