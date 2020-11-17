@@ -590,6 +590,20 @@ class Fun(commands.Cog):
 
                 logger.info(f"Fun | Sent Koala Fact: {ctx.author}")
 
+    @commands.command()
+    async def tts(self, ctx, *, args):
+        return await ctx.channel.send(content=args, tts=True)
+
+    @tts.error
+    async def tts_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="→ Invalid Argument!",
+                description="• Please put a valid option! Example: `l!tts <text>`"
+            )
+            await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))

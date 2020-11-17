@@ -50,7 +50,7 @@ class Information(commands.Cog):
         fun = "`l!coinflip`, `l!avatar`, `l!howgay`, `l!8ball`, `l!dice`, `l!dadjoke`, `l!geekjoke`, " \
               "`l!cowsay`, `l!penguinsay`, `l!fortune`, `l!history`, `l!math`, `l!yo-momma-joke`, " \
               "`l!joke`, `l!chuck-norris`, `l!rps`, `l!advice`, `l!catfact`, `l!slot`, `l!question`, `l!bill`, " \
-              "`l!foff`, `l!reverse`, `l!token`, `l!whalefact`, `l!koalafact`"
+              "`l!foff`, `l!reverse`, `l!token`, `l!whalefact`, `l!koalafact`, `l!tts`"
         utility = "`l!newsletter`, `l!poll`, `l!weather`, " \
                   "`l!mcpe`, `l!email`, `l!translate`, `l!bitly`, `l!hastebin`, `l!randomcolor`," \
                   " `l!bitcoin`, `l!tobtc`, `l!litecoin`, `l!currency`, " \
