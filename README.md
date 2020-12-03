@@ -177,7 +177,7 @@
 
   Congrats, everything should be set up correctly so far. If you want to start the bot you can do `./LinuxBoi.py` as it should already be executable.
 
-  Don't forget to start Lavalink server too! To do this you can change directories into `cd Music/`. After that you can do `java -jar Lavalink.jar`. **Note:** You need to have Java 11 or higher to run this correctly. I would **recommend** starting **Lavalink server before starting the bot** as you won't get the `[NODE-us-127.0.0.1:2333] Failed to establish connection!` error when you start the bot before Lavalink server is running.
+  Don't forget to start Lavalink server too! To do this you can change directories into `cd Music/`. After that you can do `java -jar Lavalink.jar`. **Note:** You need to have Java 13 or higher to run this correctly. I would **recommend** starting **Lavalink server before starting the bot** as you won't get the `[NODE-us-127.0.0.1:2333] Failed to establish connection!` error when you start the bot before Lavalink server is running.
 
 ---
 
