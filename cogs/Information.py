@@ -62,7 +62,7 @@ class Information(commands.Cog):
         music = "`l!play`, `l!lyrics`, `l!pause`, `l!resume`, `l!skip`, `l!queue`, `l!np`, \
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`, `l!programmermeme`, " \
-                "`l!edgymeme`, `l!darkmeme`, `l!discordmeme`"
+                "`l!edgymeme`, `l!darkmeme`, `l!discordmeme`, `l!applememe`"
 
         # linux_info = "`l!wheretostart`, `l!channels`"
 
