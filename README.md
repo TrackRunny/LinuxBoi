@@ -65,7 +65,7 @@
   ```
 
   <!-- Windows Microsoft Visual C++ 14.0 Error -->
-  * If your using windows, please read this portion below.
+  IF YOUR USING WINDOWS PLEASE READ THIS PORTION BELOW. 
 
   <details>
     <summary><b>Click here</b></summary>
