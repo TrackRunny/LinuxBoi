@@ -28,7 +28,7 @@ grizzled-python==2.2.0
 humanize==3.2.0
 idna==2.10
 import-expression==1.1.4
-ipinfo==4.0.0
+ipinfo==4.1.0
 isort==5.6.4
 jishaku==1.20.0.220
 lavalink==3.1.2
