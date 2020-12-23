@@ -38,7 +38,7 @@ mcstatus==4.1.0
 mtranslate==1.7
 multidict==5.1.0
 pbr==5.5.1
-psutil==5.7.3
+psutil==5.8.0
 pycosat==0.6.3
 ratelimiter==1.2.0.post0
 requests==2.25.1
