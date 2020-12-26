@@ -764,7 +764,7 @@ class Utility(commands.Cog):
                 color=self.bot.embed_color,
                 title="→ Time Is Up!",
                 description=f"• Reminder set: `{reminder}`"
-                            f"\n• Time set for: `{time} Second(s)`"
+                            f"\n• Time set for: `{time} Minute(s)`"
             )
 
             seconds_to_minutes = float(time) * 60
@@ -800,7 +800,7 @@ class Utility(commands.Cog):
                 color=self.bot.embed_color,
                 title="→ Time Is Up!",
                 description=f"• Reminder set: `{reminder}`"
-                            f"\n• Time set for: `{time} Second(s)`"
+                            f"\n• Time set for: `{time} Hour(s)`"
             )
 
             seconds_to_hours = (10 * 360) * float(time)
