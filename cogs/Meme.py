@@ -215,7 +215,26 @@ class Meme(commands.Cog):
 
                 await ctx.send(embed=embed)
 
-                logger.info(f"Meme | Sent Discordmeme: {ctx.author}")
+                logger.info(f"Meme | Sent AppleMeme: {ctx.author}")
+
+    @commands.command()
+    async def minecraftmeme(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://api.ksoft.si/images/rand-reddit/MinecraftMemes",
+                              params={"span": "month"},
+                              headers={"Authorization": f"Bearer {os.environ.get('ksoft_key')}"}) as r:
+                res = await r.json()
+                embed = discord.Embed(
+                    color=self.bot.embed_color,
+                    title=f"→ {res['title']}",
+                    url=res['source']
+                )
+                embed.set_image(url=res['image_url'])
+                embed.set_footer(text=f"👍 {res['upvotes']} | 👎 {res['downvotes']}")
+
+                await ctx.send(embed=embed)
+
+                logger.info(f"Meme | Sent Minecraft Meme: {ctx.author}")
 
 
 def setup(bot):
