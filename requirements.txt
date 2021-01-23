@@ -3,11 +3,13 @@ aiohttp==3.7.3
 altgraph==0.17
 astunparse==1.6.3
 async-timeout==3.0.1
+asyncio-dgram==1.2.0
 asyncurban==0.3.3
 attr==0.3.1
 attrs==20.3.0
 bitlyshortener==0.5.0
 braceexpand==0.1.6
+btchip-python==0.1.31
 cachetools==4.2.0
 certifi==2020.12.5
 chardet==4.0.0
@@ -25,6 +27,7 @@ forex-python==1.5
 fortune==1.1.0
 geojson==2.5.0
 grizzled-python==2.2.0
+hidapi==0.10.0
 humanize==3.2.0
 idna==3.1
 import-expression==1.1.4
@@ -47,6 +50,7 @@ six==1.15.0
 StringGenerator==0.3.4
 testresources==2.0.1
 typed-ast==1.4.2
+typing-extensions==3.7.4.2
 urllib3==1.26.2
 websockets==8.1
 wrapt==1.12.1
