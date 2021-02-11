@@ -14,7 +14,7 @@
 <!-- KEY INFORMATION HEADER -->
 ## ➤ Important Information
 
-  * Official GitHub repo for LinuxBoi.
+  * Official GitHub repository for LinuxBoi.
   * Multi-use Discord bot that is being actively developed.
   * Main purpose is to teach / help people about Linux on Discord.
   * 1 - 3 Commits each week.
