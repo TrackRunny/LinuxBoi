@@ -36,7 +36,7 @@
 <!-- INSTALLATION HEADER -->
 ### ➤ Installation
 
-  **Please note that I would rather you not run another instance of the bot and just [Invite](https://discord.com/oauth2/authorize?client_id=554841921185382400&permissions=8&scope=bot) it to your server. If you really want to run it with your own token for testing or another reason, please follow the directions below to run it.**
+  **Please note that I would rather have you not run another instance of the bot and just [Invite](https://discord.com/oauth2/authorize?client_id=554841921185382400&permissions=8&scope=bot) it to your server. If you really want to run it with your own token for testing or another reason, please follow the directions below to run it.**
 
   Also note that **MAC OS X CANNOT\*** run [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server") due to a missing library that is required to run it. You can attempt to run [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server")  on it, but when you try to play sound nothing will come out. You should get an error like this: `java.lang.UnsatisfiedLinkError: Required library at /natives/darwin/libudpqueue.dylib was not found`. Currently [**Lavalink Server**](https://github.com/Frederikam/Lavalink "Lavalink Server")  supports Windows and Linux.
   [**Lavalink.py**](https://github.com/Devoxin/Lavalink "Lavalink.py") does support Mac OS X, however this is a wrapper for Lavalink server. Lavalink server allows you to play sound with the bot.
