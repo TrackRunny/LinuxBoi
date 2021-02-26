@@ -1,5 +1,5 @@
 aiogoogletrans==3.3.2
-aiohttp==3.7.3
+aiohttp==3.7.4
 altgraph==0.17
 astunparse==1.6.3
 async-timeout==3.0.1
