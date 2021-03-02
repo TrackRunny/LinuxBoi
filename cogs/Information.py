@@ -63,7 +63,7 @@ class Information(commands.Cog):
                  `l!volume`, `l!seek`, `l!shuffle`, `l!loop`, `l!search`, `l!stop`, `l!disconnect`"
         memes = "`l!meme`, `l!linuxmeme`, `l!windowsmeme`, `l!wikihow`, `l!dankmeme`, `l!programmermeme`, " \
                 "`l!edgymeme`, `l!darkmeme`, `l!discordmeme`, `l!applememe`, `l!minecraftmeme`, `l!blacktwitter`, " \
-                "`l!woosh`, `l!prequelmeme`" \
+                "`l!woosh`, `l!prequelmeme`, `l!robloxmeme`" \
 
         # linux_info = "`l!wheretostart`, `l!channels`"
 
