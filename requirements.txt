@@ -45,7 +45,7 @@ ratelimiter==1.2.0.post0
 requests==2.25.1
 simplejson==3.17.2
 six==1.15.0
-StringGenerator==0.3.4
+StringGenerator==0.4.0
 testresources==2.0.1
 typed-ast==1.4.2
 typing-extensions==3.7.4.3
