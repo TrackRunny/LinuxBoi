@@ -18,7 +18,7 @@
   * Multi-use Discord bot that is being actively developed and worked on.
   * Main purpose is to teach / help people about Linux on Discord.
   * 1 - 3 Commits each week.
-  * Uptime badge to show if the bot is online or offline.
+  * Uptime badge to show if the bot is currently online or offline.
 
 <!-- MODULES HEADER -->
 ### ➤ Modules
