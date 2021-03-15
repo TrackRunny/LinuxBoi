@@ -119,7 +119,7 @@
 
   There are some environment variables you need to have on the computer / server that is running the Discord bot. **If you don't have these the bot will not work correctly!**
 
-  I have created a copy and paste area for all the environment variables that you need for the bot. The instructions are below depending on which operating system you use.
+  I have created a copy and paste area for all the environment variables that you need for the bot. The instructions are below depending on which operating system you currently use.
 
   <details>
     <summary><b>Linux</b> (Click the arrow)</summary>
