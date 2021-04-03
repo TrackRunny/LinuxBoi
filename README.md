@@ -26,7 +26,6 @@
   * Events  
   * Fun
   * Information
-  * Linuxinfo (coming soon)
   * Meme
   * Moderation
   * Music ([Lavalink.py](https://github.com/Devoxin/Lavalink.py "Lavalink.py") for good sound quality)
