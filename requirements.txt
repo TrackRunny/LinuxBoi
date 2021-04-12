@@ -47,7 +47,7 @@ simplejson==3.17.2
 six==1.15.0
 StringGenerator==0.4.4
 testresources==2.0.1
-typed-ast==1.4.2
+typed-ast==1.4.3
 typing-extensions==3.7.4.3
 urllib3==1.26.4
 websockets==8.1
