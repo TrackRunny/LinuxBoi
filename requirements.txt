@@ -35,7 +35,7 @@ jishaku==1.20.0.220
 lavalink==3.1.4
 lazy-object-proxy==1.6.0
 mccabe==0.6.1
-mcstatus==5.1.2
+mcstatus==5.1.4
 mtranslate==1.8
 multidict==5.1.0
 pbr==5.5.1
