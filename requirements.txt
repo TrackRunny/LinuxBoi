@@ -6,7 +6,7 @@ async-timeout==3.0.1
 asyncio-dgram==1.2.0
 asyncurban==0.3.3
 attr==0.3.1
-attrs==20.3.0
+attrs==21.1.0
 bitlyshortener==0.5.1
 braceexpand==0.1.6
 cachetools==4.2.1
