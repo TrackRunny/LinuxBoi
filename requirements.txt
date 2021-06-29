@@ -22,7 +22,7 @@ distro==1.5.0
 dnspython==2.1.0
 dnspython3==1.15.0
 foaas==0.2.0
-forex-python==1.5
+forex-python==1.6
 fortune==1.1.0
 geojson==2.5.0
 grizzled-python==2.2.0
