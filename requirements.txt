@@ -10,7 +10,7 @@ attrs==21.2.0
 bitlyshortener==0.5.1
 braceexpand==0.1.7
 cachetools==4.2.2
-certifi==2020.12.5
+certifi==2021.5.30
 chardet==4.0.0
 click==8.0.1
 colorama==0.4.4
